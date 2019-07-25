@@ -58,6 +58,8 @@ services:
     container_name: geodns
     image: debian:buster
     build: ./geodns/
+    ports:
+      - "53:53"
     volumes:
       - ./geodns/pdns.conf:/etc/powerdns/pdns.conf
       - ./geodns/recursor.conf:/etc/powerdns/recursor.conf
