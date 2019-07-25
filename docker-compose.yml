@@ -21,6 +21,8 @@ services:
     networks:
       internal:
         ipv4_address: 172.18.42.2
+      dnsnet:
+        ipv4_address: 172.18.53.5
   website:
     container_name: website
     image: debian:buster
