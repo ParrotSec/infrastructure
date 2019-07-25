@@ -7,13 +7,9 @@ ENV VERSION 0.1
 RUN apt-get update;apt-get -y dist-upgrade; rm -rf /var/lib/apt/lists/*
 
 # Install dependencies
-RUN apt-get update;apt-get -y install pdns-server pdns-backend-geoip pdns-recursor dnsdist geoip-database-extra golang-go; \
+RUN apt-get update;apt-get -y install pdns-server pdns-backend-geoip geoip-database-extra; \
 	echo > /etc/powerdns/pdns.d/bind.conf; \
 	rm -rf /var/lib/apt/lists/*
 
-COPY start.go /start.go
-
-RUN go build /start.go
-
 STOPSIGNAL SIGTERM
-CMD /start
+CMD /usr/sbin/pdns_server --guardian=no --daemon=no --write-pid=no --disable-syslog

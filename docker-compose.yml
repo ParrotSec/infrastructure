@@ -54,22 +54,47 @@ services:
     networks:
       phpnet:
         ipv4_address: 172.18.43.2
-  geodns:
-    container_name: geodns
+  dnsdist:
+    container_name: dnsdist
     image: debian:buster
-    build: ./geodns/
+    build: ./geodns/dnsdist/
     ports:
       - "53:53"
+    expose:
+      - "53"
+    volumes:
+      - ./geodns/dnsdist.conf:/etc/dnsdist/dnsdist.conf
+    networks:
+      dnsnet:
+        ipv4_address: 172.18.53.2
+  pdns:
+    container_name: pdns
+    image: debian:buster
+    build: ./geodns/pdns/
+    expose:
+      - "8053"
     volumes:
       - ./geodns/pdns.conf:/etc/powerdns/pdns.conf
-      - ./geodns/recursor.conf:/etc/powerdns/recursor.conf
-      - ./geodns/dnsdist.conf:/etc/dnsdist/dnsdist.conf
-      - ./geodns/pdns-recursor.service:/lib/systemd/system/pdns-recursor.service
       - ./geodns/pdns.service:/lib/systemd/system/pdns.service
-      - ./geodns/root.hints:/etc/powerdns/root.hints
       - ./geodns/geoip.conf:/etc/powerdns/pdns.d/geoip.conf
       - ./geodns/geo.yml:/etc/powerdns/geo.yml
-      - ./data/logs/geodns:/var/log
+    networks:
+      dnsnet:
+        ipv4_address: 172.18.53.3
+  recursor:
+    container_name: recursor
+    image: debian:buster
+    build: ./geodns/recursor/
+    expose:
+      - "8153"
+    volumes:
+      - ./geodns/recursor.conf:/etc/powerdns/recursor.conf
+      - ./geodns/pdns-recursor.service:/lib/systemd/system/pdns-recursor.service
+      - ./geodns/root.hints:/etc/powerdns/root.hints
+    networks:
+      dnsnet:
+        ipv4_address: 172.18.53.4
+
 
 
 networks:
@@ -83,3 +108,8 @@ networks:
     ipam:
       config:
         - subnet: 172.18.43.0/24
+  dnsnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.53.0/24
