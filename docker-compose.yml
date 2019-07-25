@@ -69,6 +69,7 @@ services:
       - ./geodns/root.hints:/etc/powerdns/root.hints
       - ./geodns/geoip.conf:/etc/powerdns/pdns.d/geoip.conf
       - ./geodns/geo.yml:/etc/powerdns/geo.yml
+      - ./data/logs/geodns:/var/log
 
 
 networks:
