@@ -12,4 +12,4 @@ RUN apt-get update;apt-get -y install pdns-server pdns-backend-geoip geoip-datab
 	rm -rf /var/lib/apt/lists/*
 
 STOPSIGNAL SIGTERM
-CMD /usr/sbin/pdns_server --guardian=no --daemon=no --write-pid=no --disable-syslog
+CMD /usr/sbin/pdns_server --guardian=no --daemon=no --disable-syslog --log-timestamp=no --write-pid=no

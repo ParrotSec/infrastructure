@@ -11,4 +11,4 @@ RUN apt-get update;apt-get -y install pdns-recursor geoip-database-extra; \
 	rm -rf /var/lib/apt/lists/*
 
 STOPSIGNAL SIGTERM
-CMD /usr/sbin/pdns_recursor --guardian=no --daemon=no --write-pid=no --disable-syslog
+CMD /usr/sbin/pdns_recursor --daemon=no --write-pid=no --disable-syslog --log-timestamp=no
