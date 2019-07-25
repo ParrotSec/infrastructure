@@ -15,7 +15,5 @@ COPY start.go /start.go
 
 RUN go build /start.go
 
-
-EXPOSE 80 443
 STOPSIGNAL SIGTERM
 CMD /start
