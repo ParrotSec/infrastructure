@@ -58,6 +58,10 @@ services:
     container_name: dnsdist
     image: debian:buster
     build: ./geodns/dnsdist/
+    restart: always
+    depends_on:
+      - pdns
+      - recursor
     ports:
       - "53:53"
     expose:
@@ -71,6 +75,7 @@ services:
     container_name: pdns
     image: debian:buster
     build: ./geodns/pdns/
+    restart: always
     expose:
       - "8053"
     volumes:
@@ -85,6 +90,7 @@ services:
     container_name: recursor
     image: debian:buster
     build: ./geodns/recursor/
+    restart: always
     expose:
       - "8153"
     volumes:
