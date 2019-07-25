@@ -1,0 +1,44 @@
+; dig . NS @75.127.96.89
+; <<>> DiG 9.11.5-P4-1-Debian <<>> . NS @75.127.96.89
+;; global options: +cmd
+;; Got answer:
+;; ->>HEADER<<- opcode: QUERY, status: NOERROR, id: 28752
+;; flags: qr aa rd; QUERY: 1, ANSWER: 9, AUTHORITY: 0, ADDITIONAL: 14
+;; WARNING: recursion requested but not available
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;.				IN	NS
+
+;; ANSWER SECTION:
+.			86400	IN	NS	ns9.opennic.glue.
+.			86400	IN	NS	ns2.opennic.glue.
+.			86400	IN	NS	ns6.opennic.glue.
+.			86400	IN	NS	ns4.opennic.glue.
+.			86400	IN	NS	ns11.opennic.glue.
+.			86400	IN	NS	ns8.opennic.glue.
+.			86400	IN	NS	ns5.opennic.glue.
+.			86400	IN	NS	ns12.opennic.glue.
+.			86400	IN	NS	ns10.opennic.glue.
+
+;; ADDITIONAL SECTION:
+ns2.opennic.glue.	7200	IN	A	161.97.219.84
+ns2.opennic.glue.	7200	IN	AAAA	2001:470:4212:10:0:100:53:10
+ns4.opennic.glue.	7200	IN	A	163.172.168.171
+ns5.opennic.glue.	7200	IN	A	94.103.153.176
+ns5.opennic.glue.	7200	IN	AAAA	2a02:990:219:1:ba:1337:cafe:3
+ns6.opennic.glue.	7200	IN	A	207.192.71.13
+ns8.opennic.glue.	7200	IN	A	178.63.116.152
+ns8.opennic.glue.	7200	IN	AAAA	2a01:4f8:141:4281::999
+ns9.opennic.glue.	7200	IN	A	51.77.227.84
+ns10.opennic.glue.	7200	IN	A	188.226.146.136
+ns10.opennic.glue.	7200	IN	AAAA	2001:470:1f04:ebf::2
+ns11.opennic.glue.	7200	IN	A	51.75.173.177
+ns12.opennic.glue.	7200	IN	A	79.124.7.81
+
+;; Query time: 130 msec
+;; SERVER: 75.127.96.89#53(75.127.96.89)
+;; WHEN: Thu Mar 28 01:24:06 CET 2019
+;; MSG SIZE  rcvd: 452
+

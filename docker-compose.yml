@@ -1,0 +1,82 @@
+version: "3"
+services:
+  gateway:
+    container_name: gateway
+    image: debian:buster
+    build: ./gateway/
+    volumes:
+      - ./data/gateway/html:/var/www/html
+      - ./data/certs:/root/certs
+      - ./data/logs/gateway:/var/log/nginx
+      - ./gateway/snakeoil.conf:/etc/nginx/snippets/snakeoil.conf
+      - ./gateway/default:/etc/nginx/sites-enabled/default
+      - ./gateway/realip.conf:/etc/nginx/snippets/realip.conf
+      - ./gateway/nginx.conf:/etc/nginx/nginx.conf
+    restart: always
+    depends_on:
+      - website
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      internal:
+        ipv4_address: 172.18.42.2
+  website:
+    container_name: website
+    image: debian:buster
+    build: ./website/
+    depends_on:
+      - php
+    expose:
+      - "80"
+      - "443"
+    volumes:
+      - ./data/website:/var/www
+      - ./data/logs/website:/var/log/nginx
+      - ./website/default:/etc/nginx/sites-enabled/default
+      - ./website/php-fpm.conf:/etc/nginx/snippets/php-fpm.conf
+      - ./gateway/nginx.conf:/etc/nginx/nginx.conf
+    restart: always
+    networks:
+      internal:
+        ipv4_address: 172.18.42.3
+      phpnet:
+        ipv4_address: 172.18.43.3
+  php:
+    container_name: php
+    image: php:7.3-fpm-buster
+    build: ./php/
+    volumes:
+      - ./data/website:/var/www
+    expose:
+      - "9000"
+    restart: always
+    networks:
+      phpnet:
+        ipv4_address: 172.18.43.2
+  geodns:
+    container_name: geodns
+    image: debian:buster
+    build: ./geodns/
+    volumes:
+      - ./geodns/pdns.conf:/etc/powerdns/pdns.conf
+      - ./geodns/recursor.conf:/etc/powerdns/recursor.conf
+      - ./geodns/dnsdist.conf:/etc/dnsdist/dnsdist.conf
+      - ./geodns/pdns-recursor.service:/lib/systemd/system/pdns-recursor.service
+      - ./geodns/pdns.service:/lib/systemd/system/pdns.service
+      - ./geodns/root.hints:/etc/powerdns/root.hints
+      - ./geodns/geoip.conf:/etc/powerdns/pdns.d/geoip.conf
+      - ./geodns/geo.yml:/etc/powerdns/geo.yml
+
+
+networks:
+  internal:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.42.0/24
+  phpnet:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.43.0/24
