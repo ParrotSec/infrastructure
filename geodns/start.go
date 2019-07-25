@@ -2,6 +2,7 @@ package main
 
 import (
 	"fmt"
+	"os"
 	"os/exec"
 )
 
@@ -51,10 +52,13 @@ func main() {
 		select {
 		case p := <-pdns:
 			fmt.Printf("powerdns authoritative server exited: %v\n", p)
+			os.Exit(1)
 		case r := <-recursor:
 			fmt.Printf("powerdns recursor exited: %v\n", r)
+			os.Exit(1)
 		case d := <-dnsdist:
 			fmt.Printf("dnsdist dns load balancer exited: %v\n", d)
+			os.Exit(1)
 		}
 	}
 }
