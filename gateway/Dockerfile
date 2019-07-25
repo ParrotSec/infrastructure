@@ -12,4 +12,4 @@ RUN apt-get update;apt-get -y install nginx ssl-cert;rm -rf /var/lib/apt/lists/*
 
 EXPOSE 80 443
 STOPSIGNAL SIGTERM
-CMD nginx -g "daemon off;"
+CMD /usr/sbin/nginx -g "daemon off;"
