@@ -12,17 +12,7 @@ server {
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
         server_name _;
-        return 301 https://www.parrot.sh;
-}
-
-# redirect old website
-server {
-        listen 443 ssl;
-        listen [::]:443 ssl;
-        include snippets/snakeoil.conf;
-        include snippets/realip.conf;
-        server_name parrotsec.org www.parrotsec.org;
-        return 301 https://www.parrot.sh$request_uri;
+        return 301 https://www.parrotlinux.com;
 }
 
 # website
@@ -34,7 +24,7 @@ server {
         root /var/www/html;
         index index.php index.html;
 
-        server_name blog.* docs.* documentation.* start.* www.* vscodium.com *.vscodium.com;
+        server_name blog.* docs.* documentation.* start.* www.* vscodium.com *.vscodium.com parrotsec.org parrotsec.io parrot.sh parrotlinux.com parrotlinux.org;
 
         location / {
                 proxy_pass http://172.18.42.3;
@@ -67,7 +57,7 @@ server {
 
         root /var/www/static;
         index index.html;
-        server_name static.* director.geo.* geo.* cdn.* gibson1.infra.parrot.sh;
+        server_name static.* director.geo.* geo.* cdn.* gibson1.infra.parrot.sh gibson2.infra.parrot.sh;
         location / {
                 autoindex on;
                 try_files $uri $uri/ =404;
