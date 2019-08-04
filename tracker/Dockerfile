@@ -13,7 +13,7 @@ RUN apt-get update;apt-get -y install golang-go curl git;rm -rf /var/lib/apt/lis
 RUN git clone https://github.com/chihaya/chihaya.git; \
 	cd chihaya; \
 	CGO_ENABLED=0 GO111MODULE=on go build ./cmd/chihaya; \
-	mv chihaya /tracker; \
+	mv chihaya /tracker
 
 STOPSIGNAL SIGTERM
 
