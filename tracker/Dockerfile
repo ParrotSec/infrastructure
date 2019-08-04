@@ -15,11 +15,7 @@ RUN git clone https://github.com/chihaya/chihaya.git; \
 	CGO_ENABLED=0 GO111MODULE=on go build ./cmd/chihaya; \
 	mv chihaya /tracker; \
 
-FROM debian:buster
-
 USER chihaya
-
-WORKDIR /
 
 STOPSIGNAL SIGTERM
 
