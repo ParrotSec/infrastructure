@@ -2,7 +2,6 @@ version: "3"
 services:
   gateway:
     container_name: gateway
-    image: debian:buster
     build: ./gateway/
     volumes:
       - ./data/gateway/html:/var/www/html
@@ -21,9 +20,24 @@ services:
     networks:
       internal:
         ipv4_address: 172.18.42.2
+  tracker:
+    container_name: tracker
+    build: ./tracker/
+    expose:
+      - "80"
+    ports:
+      - "6880:6880"
+      - "6969:6969"
+    volumes:
+      - ./tracker/config.conf:/config.conf
+    restart: always
+    networks:
+      internal:
+        ipv4_address: 172.18.42.5
+      phpnet:
+        ipv4_address: 172.18.43.5
   website:
     container_name: website
-    image: debian:buster
     build: ./website/
     depends_on:
       - php
@@ -44,7 +58,6 @@ services:
         ipv4_address: 172.18.43.3
   php:
     container_name: php
-    image: php:7.3-fpm-buster
     build: ./php/
     volumes:
       - ./data/website:/var/www
@@ -56,7 +69,6 @@ services:
         ipv4_address: 172.18.43.2
 #  dnsdist:
 #    container_name: dnsdist
-#    image: debian:buster
 #    build: ./geodns/dnsdist/
 #    restart: always
 #    depends_on:
@@ -74,7 +86,6 @@ services:
 #        ipv4_address: 172.18.53.2
 #  pdns:
 #    container_name: pdns
-#    image: debian:buster
 #    build: ./geodns/pdns/
 #    restart: always
 #    expose:
@@ -89,7 +100,6 @@ services:
 #        ipv4_address: 172.18.53.3
 #  recursor:
 #    container_name: recursor
-#    image: debian:buster
 #    build: ./geodns/recursor/
 #    restart: always
 #    expose:

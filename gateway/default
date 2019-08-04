@@ -106,3 +106,28 @@ server {
                 add_header Cache-Control "public";
         }
 }
+
+# tracker
+# website
+server {
+        listen 443 ssl;
+        listen [::]:443 ssl;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        root /var/www/html;
+        index index.php index.html;
+
+        server_name tracker.* torrent.* wolf.*;
+
+        location / {
+                proxy_pass http://172.18.42.5;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header x-real-ip $remote_addr;
+        }
+
+        #location ~ /\.ht {
+        #       deny all;
+        #}
+
+}
