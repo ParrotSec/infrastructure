@@ -21,7 +21,7 @@ server {
         listen [::]:443 ssl;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
-        server_name parrotsec.org www.parrotsec.org parrot.sh www.parrot.sh fzbx.io www.fzbx.io parrotsec.io www.parrotsec.io;
+        server_name fzbx.io www.fzbx.io;
         return 301 https://www.parrotlinux.com;
 }
 
