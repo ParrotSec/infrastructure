@@ -18,4 +18,4 @@ RUN git clone https://github.com/chihaya/chihaya.git; \
 
 STOPSIGNAL SIGTERM
 
-ENTRYPOINT ["/chihaya", "--config", "/config.conf"]
+ENTRYPOINT ["/tracker", "--config", "/config.conf"]
