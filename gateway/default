@@ -117,7 +117,7 @@ server {
         root /var/www/html;
         index index.php index.html;
 
-        server_name tracker.* torrent.* wolf.*;
+        server_name tracker.* torrent.* wolf.* tracker2.* torrent2.* wolf2.*;
 
         location / {
                 proxy_pass http://172.18.42.5;
