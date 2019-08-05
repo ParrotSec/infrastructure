@@ -108,7 +108,6 @@ server {
 }
 
 # tracker
-# website
 server {
         listen 443 ssl;
         listen [::]:443 ssl;
@@ -120,14 +119,8 @@ server {
         server_name tracker.* torrent.* wolf.* tracker2.* torrent2.* wolf2.*;
 
         location / {
-                proxy_pass http://172.18.42.5;
+                proxy_pass http://172.18.42.5:80;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header x-real-ip $remote_addr;
         }
-
-        #location ~ /\.ht {
-        #       deny all;
-        #}
-
 }
