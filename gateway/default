@@ -12,7 +12,7 @@ server {
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
         server_name _;
-        return 301 https://www.parrotlinux.com;
+        return 301 https://www.parrotlinux.org;
 }
 
 # redirect old websites to new domain
