@@ -21,8 +21,38 @@ server {
         listen [::]:443 ssl;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
-        server_name fzbx.io www.fzbx.io;
-        return 301 https://www.parrotlinux.com;
+        server_name fzbx.io www.fzbx.io parrot.sh www.parrot.sh parrotsec.org www.parrotsec.org parrotsec.io www.parrotsec.io;
+        return 301 https://parrotlinux.org;
+}
+
+# redirect old community to new domain
+server {
+        listen 443 ssl;
+        listen [::]:443 ssl;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_name community.parrotsec.org community.parrot.sh community.parrotlinux.com community.parrotsec.io;
+        return 301 https://community.parrotlinux.org;
+}
+
+# redirect old blog to new domain
+server {
+        listen 443 ssl;
+        listen [::]:443 ssl;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_name blog.parrotsec.org blog.parrot.sh blog.parrotlinux.com blog.parrotsec.io;
+        return 301 https://blog.parrotlinux.org;
+}
+
+# redirect old docs to new domain
+server {
+        listen 443 ssl;
+        listen [::]:443 ssl;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_name docs.parrotsec.org docs.parrot.sh docs.parrotlinux.com docs.parrotsec.io;
+        return 301 https://docs.parrotlinux.org;
 }
 
 # website
