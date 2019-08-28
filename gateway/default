@@ -12,15 +12,9 @@ server {
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
         server_name _;
-        location ~ ^/docs/(?<path>.*) {
-	        return 301 https://docs.parrotlinux.org/$path;
-        }
-        location ~ ^/blog/(?<path>.*) {
-	        return 301 https://blog.parrotlinux.org/$path;
-        }
         location ~ ^/(?<path>.*) {
-	        return 301 https://www.parrotlinux.org/$path;
-        }
+	        return 301 https://parrotlinux.org/$path;
+	    }
 }
 
 # redirect old websites to new domain
@@ -30,9 +24,15 @@ server {
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
         server_name fzbx.io www.fzbx.io parrot.sh www.parrot.sh parrotsec.org www.parrotsec.org parrotsec.io www.parrotsec.io;
+	    location ~ ^/docs/(?<path>.*) {
+	        return 301 https://docs.parrotlinux.org/$path;
+        }
+        location ~ ^/blog/(?<path>.*) {
+	        return 301 https://blog.parrotlinux.org/$path;
+        }
         location ~ ^/(?<path>.*) {
-	        return 301 https://www.parrotlinux.org/$path;
-	    }
+	        return 301 https://parrotlinux.org/$path;
+        }
 }
 
 # redirect old community to new domain
