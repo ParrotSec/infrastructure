@@ -1,0 +1,203 @@
+upstream archive {
+    server 127.0.0.1:8080;
+    server 127.0.0.1:8081 backup;
+}
+
+geo $unipa {
+  default 0;
+  147.163.0.0/16 1;
+}
+
+server {
+        listen 8081 default_server;
+        server_tokens off;
+        access_log  off;
+        error_log off;
+        root /var/www/html/parrot;
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
+
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+        listen 443 ssl default_server;
+        listen [::]:443 ssl default_server;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_tokens off;
+        access_log  off;
+
+        root /var/www/html;
+
+        # Add index.php to the list if you are using PHP
+        index index.html index.php;
+
+        location ~ ^/parrot/(?<fwd_zone>iso|misc|pool)/(?<fwd_path>.*)(?<fwd_file>\.iso|\.img|\.ova|\.deb|\.udeb|\.dsc|\.gz|\.xz|\.bz2|\.lzma)$ {
+        #if ($unipa) {
+        #        rewrite ^ https://parrot.mirror.garr.it/mirrors$uri;
+        #}
+
+                proxy_pass http://archive/$fwd_zone/$fwd_path$fwd_file;
+                proxy_intercept_errors on;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                #proxy_buffering off;
+                proxy_buffer_size   1024k;
+                proxy_buffers   4 1024k;
+                proxy_busy_buffers_size   1024k;
+                add_header Pragma "no-cache";
+                add_header Cache-Control "no-cache";
+        }
+
+        location ~ ^/parrot/dists/(?<fwd_path>.*)(?<fwd_file>\.iso|\.img|\.ova)$ {
+        if ($unipa) {
+                rewrite ^ http://mirror.udupalermo.it$uri;
+        }
+
+                proxy_pass http://archive/dists/$fwd_path$fwd_file;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                #proxy_buffering off;
+                proxy_buffer_size   1024k;
+                proxy_buffers   4 1024k;
+                proxy_busy_buffers_size   1024k;
+                add_header Pragma "no-cache";
+                add_header Cache-Control "no-cache";
+        }
+
+        location ~ ^/parrot/(?<fwd_path>.*)(\.mirrorlist)$ {
+                proxy_pass http://archive/$fwd_path?mirrorlist;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                #proxy_buffering off;
+                add_header Pragma "no-cache";
+                add_header Cache-Control "no-cache";
+        }
+
+        location ~ ^/parrot/(?<fwd_path>.*)(\.mirrorstats)$ {
+                proxy_pass http://archive/$fwd_path?mirrorstats;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                #proxy_buffering off;
+                proxy_buffer_size   1024k;
+                proxy_buffers   4 1024k;
+                proxy_busy_buffers_size   1024k;
+                add_header Pragma "no-cache";
+                add_header Cache-Control "no-cache";
+        }
+
+        location ~ ^/speedtest/(.*)(\.php)$ {
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+        }
+        location /speedtest/garbage.php {
+                include snippets/fastcgi-php.conf;
+                fastcgi_pass unix:/var/run/php/php7.0-fpm.sock;
+                expires 30d;
+                add_header Pragma "public";
+                add_header Cache-Control "public, must-revalidate, proxy-revalidate";
+        }
+        location ~ /\.git {
+                deny all;
+        }
+
+        location /parrot/dists/ {
+                try_files $uri $uri/ =404;
+                fancyindex on;
+                fancyindex_exact_size off;
+                add_header Pragma "no-cache";
+                add_header Cache-Control "no-cache";
+        }
+
+        location /vscodium/debs/dists/ {
+                try_files $uri $uri/ =404;
+                fancyindex on;
+                fancyindex_exact_size off;
+                add_header Pragma "no-cache";
+                add_header Cache-Control "no-cache";
+        }
+
+        location /vscodium/rpms/repodata/ {
+                try_files $uri $uri/ =404;
+                fancyindex on;
+                fancyindex_exact_size off;
+                add_header Pragma "no-cache";
+                add_header Cache-Control "no-cache";
+        }
+
+        location / {
+                #root /srv;
+                try_files $uri $uri/ =404;
+                fancyindex on;
+                fancyindex_exact_size off;
+                #fancyindex_footer README.html;
+                expires 30d;
+                #add_header Pragma "public";
+                add_header Cache-Control "public, must-revalidate, proxy-revalidate";
+        }
+
+        location ~ /\.ht {
+                deny all;
+        }
+}
+
+
+server {
+        listen 80;
+        listen [::]:80;
+        listen 443 ssl;
+        listen [::]:443 ssl;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_tokens off;
+
+        server_name repository.vscodium.com download.vscodium.com;
+
+        root /var/www/html/vscodium;
+
+        # Add index.php to the list if you are using PHP
+        index index.html index.php;
+
+
+        location ~ /\.git {
+                deny all;
+        }
+
+
+        location /vscodium/debs/dists/ {
+                try_files $uri $uri/ =404;
+                fancyindex on;
+                fancyindex_exact_size off;
+                add_header Pragma "no-cache";
+                add_header Cache-Control "no-cache";
+        }
+
+        location /vscodium/rpms/repodata/ {
+                try_files $uri $uri/ =404;
+                fancyindex on;
+                fancyindex_exact_size off;
+                add_header Pragma "no-cache";
+                add_header Cache-Control "no-cache";
+        }
+
+        location / {
+                #root /srv;
+                try_files $uri $uri/ =404;
+                fancyindex on;
+                fancyindex_exact_size off;
+                #fancyindex_footer README.html;
+                expires 30d;
+                add_header Pragma "public";
+                add_header Cache-Control "public, must-revalidate, proxy-revalidate";
+        }
+
+        location ~ /\.ht {
+                deny all;
+        }
+}

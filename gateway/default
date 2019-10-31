@@ -153,6 +153,34 @@ server {
         }
 }
 
+# board
+server {
+        listen 443 ssl;
+        listen [::]:443 ssl;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+
+        server_name board.*;
+
+        http2_idle_timeout 5m;
+
+        location / {
+                proxy_pass http://172.18.42.6;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-Proto https;
+                proxy_buffers 64 16384k;
+                proxy_buffer_size 512k;
+        }
+
+        location ~* \.(css|js|png|gif|jpg|sass|eot|svg|ttf|woff|woff2)$ {
+                proxy_pass http://172.18.42.6;
+                proxy_set_header X-Real-IP $remote_addr;
+                expires max;
+                add_header Pragma public;
+                add_header Cache-Control "public";
+        }
+}
+
 # tracker
 server {
         listen 443 ssl;

@@ -66,6 +66,64 @@ services:
     networks:
       phpnet:
         ipv4_address: 172.18.43.2
+  archive:
+    container_name: archive
+    build: ./archive/
+    volumes:
+      - ./data/archive/:/var/www/
+      - ./archive/default:/etc/nginx/sites-enabled/default
+      - ./data/logs/archive/:/var/log/nginx/
+    restart: always
+    expose:
+      - "80"
+      - "443"
+    networks:
+      archive:
+        ipv4_address: 172.18.44.2
+  archive_mirrorbits:
+    container_name: archive_mirrorbits
+    build: ./archive_mirrorbits/
+    volumes:
+      - ./data/archive/:/var/www/
+      - ./archive_mirrorbits/mirrorbits.conf:/etc/mirrorbits.conf
+    restart: always
+    expose:
+      - "9000"
+    networks:
+      archive:
+        ipv4_address: 172.18.44.3
+  archive_rsync:
+    container_name: archive_rsync
+    build: ./archive_utils/
+    volumes:
+      - ./data/archive/:/var/www/
+    restart: always
+    ports:
+      - "873:873"
+    networks:
+      archive:
+        ipv4_address: 172.18.44.3
+  archive_updater:
+    container_name: archive_updater
+    build: ./archive_utils/
+    volumes:
+      - ./data/archive/:/var/www/
+    restart: always
+    networks:
+      archive:
+        ipv4_address: 172.18.44.4
+  redis:
+    container_name: redis
+    build: ./redis/
+    volumes:
+      - ./data/redis/:/var/lib/redis/
+      - ./data/logs/redis/:/var/log/redis/
+    restart: always
+    expose:
+      - "6379"
+    networks:
+        archive:
+          ipv4_address: 172.18.44.5
 #  dnsdist:
 #    container_name: dnsdist
 #    build: ./geodns/dnsdist/
@@ -119,6 +177,11 @@ networks:
     ipam:
       config:
         - subnet: 172.18.42.0/24
+  archive:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.44.0/24
   phpnet:
     driver: bridge
     ipam:
