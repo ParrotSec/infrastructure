@@ -1,0 +1,493 @@
+domains:
+- domain: geo.parrot.sh
+  ttl: 2
+  records:
+    geo.parrot.sh:
+      - soa: ns1.parrot.sh ns.parrot.sh 2014090125 7200 3600 1209600 3600
+      - soa: ns2.parrot.sh ns.parrot.sh 2014090125 7200 3600 1209600 3600
+      - soa: ns3.parrot.sh ns.parrot.sh 2014090125 7200 3600 1209600 3600
+      - soa: ns4.parrot.sh ns.parrot.sh 2014090125 7200 3600 1209600 3600
+      - ns: ns1.parrot.sh
+      - ns: ns2.parrot.sh
+      - ns: ns3.parrot.sh
+      - ns: ns4.parrot.sh
+      - a: 142.93.8.207
+      - aaaa: 2604:a880:400:d1::7c7:f001
+      - a: 178.128.183.175
+      - aaaa: 2604:a880:2:d0::22ac:7001
+      - a: 212.237.22.141
+      - aaaa: 2a00:6d40:60:9f8d::1
+      - a: 89.40.116.230  
+      - aaaa: 2a03:a140:10:10e6::1
+      - a: 89.36.210.176
+      - aaaa: 2a00:6d40:40:4bb0::1
+      - a: 80.211.238.94
+      - aaaa: fe80::250:56ff:feaa:f81e
+      - a: 139.99.96.146
+      - a: 139.59.6.115
+      - aaaa: 2400:6180:100:d0::842:4001
+      - a: 13.239.157.177
+      - a: 178.62.107.4
+      - aaaa: 2a03:b0c0:1:d0::590:6001
+      - a: 165.227.40.43
+      - aaaa: 2604:a880:cad:d0::5ed:5001
+      - a: 108.61.161.119
+      - aaaa: 2401:c080:1000:4867:5400:1ff:fedb:6539
+      - a: 209.141.60.226
+      - a: 209.141.32.25
+      - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+      - a: 104.244.79.186
+      - aaaa: 2605:6400:0030:fc1c:aaaa:feed:dead:beef
+      - a: 198.251.90.161
+      - a: 198.251.90.163
+      - a: 198.251.90.108
+      - a: 198.251.90.109
+      - a: 198.251.90.110
+
+    _acme-challenge.geo.parrot.sh:
+      - txt: K7cvVD51lGfY5DZRlbW6o-WLEVOBMT16p-gtn0-emwM
+
+
+# geo continents
+    #north america
+    na.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - a: 142.93.8.207 
+      - aaaa: 2604:a880:400:d1::7c7:f001
+      - a: 178.128.183.175
+      - aaaa: 2604:a880:2:d0::22ac:7001
+      - a: 165.227.40.43
+      - aaaa: 2604:a880:cad:d0::5ed:5001
+      - a: 209.141.60.226
+      - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+      - a: 198.251.90.161
+      - a: 198.251.90.163
+      - a: 198.251.90.108
+      - a: 198.251.90.109
+      - a: 198.251.90.110
+
+    #south america
+    sa.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: na.geo.parrot.sh
+
+    #europe
+    eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - a: 212.237.22.141
+      - aaaa: 2a00:6d40:60:9f8d::1
+      - a: 89.40.116.230
+      - aaaa: 2a03:a140:10:10e6::1
+      - a: 89.36.210.176
+      - aaaa: 2a00:6d40:40:4bb0::1
+      - a: 80.211.238.94  
+      - aaaa: fe80::250:56ff:feaa:f81e
+      - a: 178.62.107.4
+      - aaaa: 2a03:b0c0:1:d0::590:6001
+      - a: 104.244.79.186
+      - aaaa: 2605:6400:0030:fc1c:aaaa:feed:dead:beef
+      - a: 198.251.90.161
+      - a: 198.251.90.163
+      - a: 198.251.90.108
+      - a: 198.251.90.109
+      - a: 198.251.90.110
+
+    #asia
+    as.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - a: 139.99.96.146
+      - a: 139.59.6.115
+      - aaaa: 2400:6180:100:d0::842:4001
+      - a: 108.61.161.119
+      - aaaa: 2401:c080:1000:4867:5400:1ff:fedb:6539
+      - a: 209.141.32.25
+
+    #oceania
+    oc.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - a: 139.99.96.146
+      - aaaa: 2400:6180:100:d0::842:4001
+      - a: 13.239.157.177
+
+    #africa
+    #missing servers - using italy + anycast
+    af.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - a: 178.62.107.4
+      - aaaa: 2a03:b0c0:1:d0::590:6001
+      - a: 198.251.90.161
+      - a: 198.251.90.163
+      - a: 198.251.90.108
+      - a: 198.251.90.109
+      - a: 198.251.90.110
+
+    #antartica
+    #missing servers - using north europe + anycast
+    an.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - a: 89.40.116.230
+      - aaaa: 2a03:a140:10:10e6::1
+      - a: 13.239.157.177
+      - a: 198.251.90.161
+      - a: 198.251.90.163
+      - a: 198.251.90.108
+      - a: 198.251.90.109
+      - a: 198.251.90.110
+
+# geo countries
+    it.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - a: 212.237.22.141
+      - aaaa: 2a00:6d40:60:9f8d::1
+      - a: 89.36.210.176 
+      - aaaa: 2a00:6d40:40:4bb0::1
+      - a: 80.211.238.94
+      - aaaa: fe80::250:56ff:feaa:f81e
+    uk.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - a: 178.62.107.4
+      - aaaa: 2a03:b0c0:1:d0::590:6001
+      - a: 198.251.90.161
+    gb.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: uk.eu.geo.parrot.sh
+    de.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - a: 89.40.116.230
+      - aaaa: 2a03:a140:10:10e6::1
+      - a: 104.244.79.186
+      - aaaa: 2605:6400:0030:fc1c:aaaa:feed:dead:beef
+      - a: 198.251.90.161
+    pl.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: de.eu.geo.parrot.sh
+      - alias: it.eu.geo.parrot.sh
+    ro.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: it.eu.geo.parrot.sh
+    no.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: de.eu.geo.parrot.sh
+      - alias: uk.eu.geo.parrot.sh
+    se.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: de.eu.geo.parrot.sh
+    fi.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: de.eu.geo.parrot.sh
+    he.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: uk.eu.geo.parrot.sh
+    ie.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: uk.eu.geo.parrot.sh
+    ch.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: it.eu.geo.parrot.sh
+    gr.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: it.eu.geo.parrot.sh
+    pl.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: de.eu.geo.parrot.sh
+    be.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: de.eu.geo.parrot.sh
+      - alias: uk.eu.geo.parrot.sh
+    cz.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: de.eu.geo.parrot.sh
+      - alias: it.eu.geo.parrot.sh
+    at.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: de.eu.geo.parrot.sh
+    si.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: it.eu.geo.parrot.sh
+    hr.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: it.eu.geo.parrot.sh
+    ba.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: it.eu.geo.parrot.sh
+    al.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: it.eu.geo.parrot.sh
+    lu.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - a: 104.244.79.186
+      - aaaa: 2605:6400:0030:fc1c:aaaa:feed:dead:beef
+      - a: 198.251.90.161
+      - a: 198.251.90.163
+      - a: 198.251.90.108
+      - a: 198.251.90.109
+      - a: 198.251.90.110
+    nl.eu.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: de.eu.geo.parrot.sh
+      - alias: uk.eu.geo.parrot.sh
+
+    us.na.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - a: 142.93.8.207  
+      - aaaa: 2604:a880:400:d1::7c7:f001
+      - a: 178.128.183.175
+      - aaaa: 2604:a880:2:d0::22ac:7001
+      - a: 165.227.40.43
+      - aaaa: 2604:a880:cad:d0::5ed:5001
+      - a: 209.141.60.226
+      - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+      - a: 198.251.90.161
+    ca.na.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - a: 165.227.40.43
+      - aaaa: 2604:a880:cad:d0::5ed:5001
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+      - a: 198.251.90.161
+
+    sg.as.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - a: 139.99.96.146
+    in.as.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - a: 139.59.6.115
+      - aaaa: 2400:6180:100:d0::842:4001
+    il.as.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: de.eu.geo.parrot.sh
+    cn.as.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - a: 209.141.32.25
+      - a: 108.61.161.119
+      - a: 139.99.96.146
+      - aaaa: 2401:c080:1000:4867:5400:1ff:fedb:6539
+    jp.as.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - a: 108.61.161.119
+      - aaaa: 2401:c080:1000:4867:5400:1ff:fedb:6539
+    kr.as.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: sg.as.geo.parrot.sh
+      - alias: jp.as.geo.parrot.sh
+    ru.as.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: de.eu.geo.parrot.sh
+      - alias: it.eu.geo.parrot.sh
+      - a: 198.251.90.161
+      - a: 198.251.90.163
+    mv.as.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: sg.as.geo.parrot.sh
+
+    au.oc.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - a: 13.239.157.177
+    nz.oc.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - alias: au.oc.geo.parrot.sh
+
+# ASnumbers
+    as206701.geo.parrot.sh: #fibra.city shared
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - cname: it.eu.geo.parrot.sh
+    as12874.geo.parrot.sh: # fastweb
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - cname: it.eu.geo.parrot.sh
+    as20580.geo.parrot.sh: # tim
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - cname: it.eu.geo.parrot.sh
+    as8244.geo.parrot.sh: # tim sparkle italia
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - cname: it.eu.geo.parrot.sh
+    as30722.geo.parrot.sh: # vodafone italia
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - cname: it.eu.geo.parrot.sh
+    as12551.geo.parrot.sh: # enel
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - cname: it.eu.geo.parrot.sh
+    as137.geo.parrot.sh: # garr
+      - txt: "questa universita' e' una merda - ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - cname: it.eu.geo.parrot.sh
+
+
+# special routes
+    unipa.geo.parrot.sh:
+      - txt: "suca %ip %af %ci %cc %co %cn %re %na %as"
+      - a: 147.163.53.184
+
+# services
+  services:
+    director.geo.parrot.sh:
+      default: ['%as.geo.parrot.sh', '%ci.%cc.%cn.geo.parrot.sh', '%cc.%cn.geo.parrot.sh', '%cn.geo.parrot.sh', 'geo.parrot.sh']
+      #147.163.0.0/15: 'unipa.geo.parrot.sh'
+
+
+
+
+- domain: parrotsec.io
+  ttl: 2
+  records:
+    parrotsec.io:
+      - soa: ns1.parrotsec.io ns.parrotsec.io 2014090125 7200 3600 1209600 3600
+      - soa: ns2.parrotsec.io ns.parrotsec.io 2014090125 7200 3600 1209600 3600
+      - soa: ns3.parrotsec.io ns.parrotsec.io 2014090125 7200 3600 1209600 3600
+      - soa: ns4.parrotsec.io ns.parrotsec.io 2014090125 7200 3600 1209600 3600
+      - ns:
+           content: ns1.parrotsec.io
+           ttl: 1
+      - ns: ns2.parrotsec.io
+      - ns: ns3.parrotsec.io
+      - ns: ns4.parrotsec.io
+      - mx: 10 mail.parrotsec.io
+      - a: 198.251.90.161
+      - a: 198.251.90.163
+      - a: 198.251.90.108
+      - a: 198.251.90.109
+      - a: 198.251.90.110
+      - a: 209.141.60.226
+      - a: 209.141.32.25
+      - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+      - a: 104.244.79.186
+      - aaaa: 2605:6400:0030:fc1c:aaaa:feed:dead:beef
+    _acme-challenge.parrotsec.io:
+      - txt: "ImEuJ4rittZ5IrHINRFHJ9x_GcmdzthT7RZlWOX0yhQ"
+      - txt: "uz15NFNyaVzlRM--Tp4KjHIOnc6ANoc2TOQ5jDBOHHY"
+    dkim._domainkey.parrotsec.io:
+      - txt: "v=DKIM1;k=rsa;t=s;s=email;p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEA58uB+0fIIhBr30OInF8oaejg0Xgj23BfMRSOYj062LJYFhquGbFdMPK65M0ZsImGpTas8yN4rPbNhvIAZ/GeObKYTnAXPbtxaI2yrFjQ6qjqeKeEMnUPIyvcj4J2FFCVOQ4792oBBPu5QxVApTo3P53vvJwnd4zVbIPn+O6TglZjnJM3P3XNxGulQOU+TKqmStK7Pxu0mXOpujJ/OKsj3QjXsSGYqxD5v1eYRJKWqe/1+hXTKhLh74kvmrSM/RzZRZenB3HUE++DkxiFw9Hd5CNZfYVb7K4+ha7yovs1xOOpgY+ePxfuSSss6eO70VxIfRTo0oob5xkFOF3/WR/ugQIDAQAB"
+
+#standard records
+    ns1.parrotsec.io:
+      - a: 198.251.90.161
+      - a: 198.251.90.163
+      - a: 198.251.90.108
+      - a: 198.251.90.109
+      - a: 198.251.90.110
+    ns2.parrotsec.io:
+      - a: 198.251.90.161
+      - a: 198.251.90.163
+      - a: 198.251.90.108
+      - a: 198.251.90.109
+      - a: 198.251.90.110
+    ns3.parrotsec.io:
+      - a: 198.251.90.161
+      - a: 198.251.90.163
+      - a: 198.251.90.108
+      - a: 198.251.90.109
+      - a: 198.251.90.110
+    ns4.parrotsec.io:
+      - a: 198.251.90.161
+      - a: 198.251.90.163
+      - a: 198.251.90.108
+      - a: 198.251.90.109
+      - a: 198.251.90.110
+    ns.parrotsec.io:
+      - a: 198.251.90.161
+      - a: 198.251.90.163
+      - a: 198.251.90.108
+      - a: 198.251.90.109
+      - a: 198.251.90.110
+    mail.parrotsec.io:
+      - a: 51.75.34.218
+    node2.parrotsec.io:
+      - a: 51.68.152.167
+    www.parrotsec.io:
+      - cname: geo.parrotsec.io
+    archive.parrotsec.io:
+      - cname: geo.parrotsec.io
+    deb.parrotsec.io:
+      - cname: geo.parrotsec.io
+    cdimage.parrotsec.io:
+      - cname: geo.parrotsec.io
+    dvdimage.parrotsec.io:
+      - cname: geo.parrotsec.io
+    download.parrotsec.io:
+      - cname: geo.parrotsec.io
+    static.parrotsec.io:
+      - cname: geo.parrotsec.io
+    community.parrotsec.io:
+      - cname: geo.parrotsec.io
+    start.parrotsec.io:
+      - cname: geo.parrotsec.io
+    webmail.parrotsec.io:
+      - cname: geo.parrotsec.io
+    cdn.parrotsec.io:
+      - cname: geo.parrotsec.io
+
+    na.geo.parrotsec.io:
+      - a: 198.251.90.161
+      - a: 198.251.90.163
+      - a: 198.251.90.108
+      - a: 198.251.90.109
+      - a: 198.251.90.110
+      - a: 209.141.60.226
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+      - aaaa: 2605:6400:0010:0795:aaaa:feed:dead:beef
+    sa.geo.parrotsec.io:
+      - a: 198.251.90.161
+      - a: 198.251.90.163
+      - a: 198.251.90.108
+      - a: 198.251.90.109
+      - a: 198.251.90.110
+      - a: 209.141.60.226
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+      - aaaa: 2605:6400:0010:0795:aaaa:feed:dead:beef
+    eu.geo.parrotsec.io:
+      - a: 198.251.90.161
+      - a: 198.251.90.163
+      - a: 198.251.90.108
+      - a: 198.251.90.109
+      - a: 198.251.90.110
+      - a: 104.244.79.186
+      - aaaa: 2605:6400:0030:0795:aaaa:feed:dead:beef
+    af.geo.parrotsec.io:
+      - a: 198.251.90.161
+      - a: 198.251.90.163
+      - a: 198.251.90.108
+      - a: 198.251.90.109
+      - a: 198.251.90.110
+      - a: 104.244.79.186
+      - aaaa: 2605:6400:0030:0795:aaaa:feed:dead:beef
+    as.geo.parrotsec.io:
+      - a: 198.251.90.161
+      - a: 198.251.90.163
+      - a: 198.251.90.108
+      - a: 198.251.90.109
+      - a: 198.251.90.110
+      - a: 209.141.32.25
+      - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+    oc.geo.parrotsec.io:
+      - a: 198.251.90.161
+      - a: 198.251.90.163
+      - a: 198.251.90.108
+      - a: 198.251.90.109
+      - a: 198.251.90.110
+      - a: 209.141.32.25
+      - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+    an.geo.parrotsec.io:
+      - a: 198.251.90.161
+      - a: 198.251.90.163
+      - a: 198.251.90.108
+      - a: 198.251.90.109
+      - a: 198.251.90.110
+      - aaaa: 2605:6400:0010:0795:aaaa:feed:dead:beef
+      - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+      - aaaa: 2605:6400:0030:0795:aaaa:feed:dead:beef
+
+
+# services
+  services:
+    geo.parrotsec.io:
+#      147.163.1.3/32: 'unipa.geo.parrot.sh'
+#      147.163.1.22/32: 'unipa.geo.parrot.sh'
+      default: ['%as.geo.parrotsec.io', '%ci.%cc.%cn.geo.parrotsec.io', '%cc.%cn.geo.parrotsec.io', '%cn.geo.parrotsec.io', 'geo.parrotsec.io']
