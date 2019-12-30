@@ -1,0 +1,128 @@
+apac.any.parrot.sh
+209.141.32.25
+
+lasvegas.cdn.parrot.sh
+209.141.60.226
+2605:6400:0020:0795:aaaa:feed:dead:beef
+
+newyork.cdn.parrot.sh
+198.98.49.91
+2605:6400:0010:0669:aaaa:feed:dead:beef
+
+luxemburg.cdn.parrot.sh
+104.244.79.186
+2605:6400:0030:fc1c:aaaa:feed:dead:beef
+
+frankfurt.cdn.parrot.sh
+172.105.72.56
+2a01:7e01::f03c:92ff:fee2:8773
+
+london.cdn.parrot.sh
+139.162.234.16
+2a01:7e00::f03c:92ff:fee2:8777
+
+toronto.cdn.parrot.sh
+172.105.5.69
+2600:3c04::f03c:92ff:fee2:870b
+
+dallas.cdn.parrot.sh
+45.79.57.113
+2600:3c00::f03c:92ff:fee2:876b
+
+mumbai.cdn.parrot.sh
+172.105.49.243
+2400:8904::f03c:92ff:fee2:87ba
+
+tokyo.cdn.parrot.sh
+172.105.220.183
+2400:8902::f03c:92ff:fee2:8722
+
+singapore.cdn.parrot.sh
+139.162.24.92
+2400:8901::f03c:92ff:fee2:8706
+
+sydney.cdn.parrot.sh
+172.105.162.206
+2400:8907::f03c:92ff:fee2:87ff
+
+any.parrot.sh
+198.251.90.161
+198.251.90.163
+198.251.90.108
+198.251.90.109
+198.251.90.110
+
+
+
+
+
+
+
+
+
+
+
+------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+      #lasvegas.cdn.parrot.sh
+      - a: 209.141.60.226
+      - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+
+      #toronto.cdn.parrot.sh
+      - a: 172.105.5.69
+      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
+
+      #london.cdn.parrot.sh
+      - a: 139.162.234.16
+      - aaaa: 2a01:7e00::f03c:92ff:fee2:8777
+
+      #frankfurt.cdn.parrot.sh
+      - a: 172.105.72.56
+      - aaaa: 2a01:7e01::f03c:92ff:fee2:8773
+
+      #luxemburg.cdn.parrot.sh
+      - a: 104.244.79.186
+      - aaaa: 2605:6400:0030:fc1c:aaaa:feed:dead:beef
+
+      #mumbai.cdn.parrot.sh
+      - a: 172.105.49.243
+      - aaaa: 2400:8904::f03c:92ff:fee2:87ba
+
+      #singapore.cdn.parrot.sh
+      - a: 139.162.24.92
+      - aaaa: 2400:8901::f03c:92ff:fee2:8706
+
+      #sydney.cdn.parrot.sh
+      - a: 172.105.162.206
+      - aaaa: 2400:8907::f03c:92ff:fee2:87ff
+
+      #tokyo.cdn.parrot.sh
+      - a: 172.105.220.183
+      - aaaa: 2400:8902::f03c:92ff:fee2:8722
+
+      #apac.any.parrot.sh
+      - a: 209.141.32.25
+
+      #any.parrot.sh
+      - cname: any.parrot.sh

@@ -70,6 +70,14 @@ services:
       phpnet:
         ipv4_address: 172.18.43.2
 
+  manager:
+    container_name: manager
+    build: ./manager/
+    volumes:
+      - ./data/:/data
+      - ./websites.txt:/data/websites.txt
+    restart: always
+
 networks:
   internal:
     driver: bridge
@@ -86,8 +94,3 @@ networks:
     ipam:
       config:
         - subnet: 172.18.43.0/24
-  dnsnet:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.18.53.0/24
