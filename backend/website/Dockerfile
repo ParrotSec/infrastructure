@@ -10,7 +10,6 @@ RUN apt-get update;apt-get -y dist-upgrade; rm -rf /var/lib/apt/lists/*
 RUN apt-get update;apt-get -y install nginx;rm -rf /var/lib/apt/lists/*
 
 
-
 EXPOSE 80 443
 STOPSIGNAL SIGTERM
 CMD /usr/sbin/nginx -g "daemon off;"

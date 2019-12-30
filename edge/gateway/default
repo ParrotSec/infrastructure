@@ -1,0 +1,590 @@
+proxy_cache_path /srv/tracker/ levels=1:2 keys_zone=tracker:1m max_size=50m inactive=240m use_temp_path=off;
+proxy_cache_path /srv/edge/ levels=1:2 keys_zone=edge:4m max_size=4g inactive=14400m use_temp_path=off;
+proxy_cache_path /srv/archive/ levels=1:2 keys_zone=archive:4m max_size=10g inactive=240m use_temp_path=off;
+proxy_cache_path /srv/dists/ levels=1 keys_zone=dists:1m max_size=2g inactive=120m use_temp_path=off;
+limit_req_zone $binary_remote_addr zone=torrent:120m rate=1r/s;
+limit_req_zone $binary_remote_addr zone=limited:60m rate=8r/s;
+limit_req_zone $binary_remote_addr zone=standard:60m rate=20r/s;
+limit_req_zone $binary_remote_addr zone=high:30m rate=30r/s;
+
+
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    
+    return 301 https://$host$request_uri;
+    server_tokens off;
+    limit_req zone=limited burst=10;
+}
+
+###########
+# website #
+###########
+
+server {
+        listen 443 ssl default_server http2;
+        listen [::]:443 ssl default_server http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        root /var/www/html;
+        index index.php index.html;
+        server_tokens off;
+        limit_req zone=standard burst=30;
+
+        server_name parrotsec.org parrotsec.io parrot.sh parrotlinux.org parrotlinux.com fzbx.io www.* start.* blog.* docs.* vscodium.com *.vscodium.com;
+
+        location / {
+                proxy_pass https://176.31.101.54;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-forwarded-for $remote_addr;
+                add_header X-Cache-Status $upstream_cache_status;
+                proxy_buffering on;
+                proxy_buffer_size 64k;
+                proxy_buffers 64 32k;
+                proxy_busy_buffers_size 128k;
+                proxy_max_temp_file_size 2048m;
+                proxy_temp_file_write_size 512k;
+
+                proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+                proxy_cache_background_update on;
+                proxy_cache_lock on;
+                proxy_cache edge;
+                #proxy_cache_revalidate on;
+                proxy_cache_min_uses 1;
+        }
+
+        location ~ ^/(?<path>|css|js|img|fonts|blog/css|blog/js|blog/img|blog/fonts|wp-content/uploads|docs/img|docs/css|docs/js|docs/search|docs/fonts)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot)$ {
+                proxy_pass https://176.31.101.54/$path/$cachefile;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                add_header X-Cache-Status $upstream_cache_status;
+                proxy_buffering on;
+                proxy_buffer_size 64k;
+                proxy_buffers 64 32k;
+                proxy_busy_buffers_size 128k;
+                proxy_max_temp_file_size 2048m;
+                proxy_temp_file_write_size 512k;
+                proxy_ignore_headers X-Accel-Expires;
+                proxy_ignore_headers Expires;
+                proxy_ignore_headers Cache-Control;
+
+                proxy_cache_valid any 1440m;
+                proxy_cache_bypass $cookie_nocache $arg_nocache;
+                proxy_cache_methods GET HEAD POST;
+                proxy_cache_key $proxy_host$request_uri$cookie_jessionid;
+
+                proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+                proxy_cache_background_update on;
+                proxy_cache_lock on;
+                proxy_cache edge;
+                proxy_cache_revalidate off;
+                proxy_cache_min_uses 1;
+        }
+
+        location ~ /\.ht {
+               deny all;
+        }
+        location ~ /\.git {
+               deny all;
+        }
+
+}
+
+################
+# static files #
+################
+
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        root /var/www/static;
+        server_tokens off;
+        index index.html index.htm;
+        server_name static.* cdn.* geo.*;
+        limit_req zone=standard burst=10;
+
+        location / {
+                proxy_pass https://176.31.101.54;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-forwarded-for $remote_addr;
+                add_header X-Cache-Status $upstream_cache_status;
+                proxy_buffering on;
+                proxy_buffer_size 64k;
+                proxy_buffers 64 32k;
+                proxy_busy_buffers_size 128k;
+                proxy_max_temp_file_size 2048m;
+                proxy_temp_file_write_size 512k;
+                proxy_ignore_headers X-Accel-Expires;
+                proxy_ignore_headers Expires;
+                proxy_ignore_headers Cache-Control;
+
+                proxy_cache_valid any 1440m;
+                proxy_cache_bypass $cookie_nocache $arg_nocache;
+                proxy_cache_methods GET HEAD POST;
+                proxy_cache_key $proxy_host$request_uri$cookie_jessionid;
+
+                proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+                proxy_cache_background_update on;
+                proxy_cache_lock on;
+                proxy_cache edge;   
+                proxy_cache_revalidate off;
+                proxy_cache_min_uses 1;
+        }
+
+
+
+        location ~ /\.ht {
+               deny all;
+        }
+        location ~ /\.git {
+               deny all;
+        }
+
+}
+
+###########
+# webmail #
+###########
+
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        root /var/www/html;
+        server_tokens off;
+        index index.php index.html;
+        limit_req zone=standard burst=15;
+
+	client_max_body_size 64M;
+
+        server_name webmail.* mail.*;
+
+        location / {
+                proxy_pass https://51.75.34.218;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-forwarded-for $remote_addr;
+                add_header X-Cache-Status $upstream_cache_status;
+                proxy_buffering on;
+                proxy_buffer_size 64k;
+                proxy_buffers 64 32k;
+                proxy_busy_buffers_size 128k;
+                proxy_max_temp_file_size 2048m;
+                proxy_temp_file_write_size 512k;
+
+                proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+                proxy_cache_background_update on;
+                proxy_cache_lock on;
+                proxy_cache edge;
+                proxy_cache_revalidate on;
+                proxy_cache_min_uses 2;
+        }
+
+        location ~ ^/(?<path>assets|js|css|inc|/SOGo\.woa/WebServerResources/css|/SOGo\.woa/WebServerResources/js)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot)$ {
+
+                proxy_pass https://51.75.34.218/$path/$cachefile;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                add_header X-Cache-Status $upstream_cache_status;
+                proxy_buffering on;
+                proxy_buffer_size 64k;
+                proxy_buffers 64 32k;
+                proxy_busy_buffers_size 128k;
+                proxy_max_temp_file_size 2048m;
+                proxy_temp_file_write_size 512k;
+                proxy_ignore_headers X-Accel-Expires;
+                proxy_ignore_headers Expires;
+                proxy_ignore_headers Cache-Control;
+
+                proxy_cache_valid any 1440m;
+                proxy_cache_bypass $cookie_nocache $arg_nocache;
+                proxy_cache_methods GET HEAD POST;
+                proxy_cache_key $proxy_host$request_uri$cookie_jessionid;
+
+                proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+                proxy_cache_background_update on;
+                proxy_cache_lock on;
+                proxy_cache edge;
+                proxy_cache_revalidate off;
+                proxy_cache_min_uses 1;
+        }
+
+        location ~ /\.ht {
+               deny all;
+        }
+        location ~ /\.git {
+               deny all;
+        }
+
+}
+
+###################
+# nest git server #
+###################
+
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        root /var/www/html;
+        server_tokens off;
+        index index.php index.html;
+        limit_req zone=standard burst=10;
+
+	client_max_body_size 6144M;
+
+        server_name nest.* git.* dev.*;
+
+        location / {
+                proxy_pass https://51.75.34.219;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-forwarded-for $remote_addr;
+                add_header X-Cache-Status $upstream_cache_status;
+                proxy_buffering on;
+                proxy_buffer_size 64k;
+                proxy_buffers 64 32k;
+                proxy_busy_buffers_size 128k;
+                proxy_max_temp_file_size 2048m;
+                proxy_temp_file_write_size 512k;
+
+                proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+                proxy_cache_background_update on;
+                proxy_cache_lock on;
+                proxy_cache edge;
+                proxy_cache_revalidate on;
+                proxy_cache_min_uses 2;
+        }
+
+        location ~ ^/(?<path>|snippets|assets|uploads)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot)$ {
+
+                proxy_pass https://51.75.34.219/$path/$cachefile;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                add_header X-Cache-Status $upstream_cache_status;
+                proxy_buffering on;
+                proxy_buffer_size 64k;
+                proxy_buffers 64 32k;
+                proxy_busy_buffers_size 128k;
+                proxy_max_temp_file_size 2048m;
+                proxy_temp_file_write_size 512k;
+                proxy_ignore_headers X-Accel-Expires;
+                proxy_ignore_headers Expires;
+                #proxy_ignore_headers Cache-Control;
+
+                proxy_cache_valid any 1440m;
+                proxy_cache_bypass $cookie_nocache $arg_nocache;
+                proxy_cache_methods GET HEAD POST;
+                proxy_cache_key $proxy_host$request_uri$cookie_jessionid;
+
+                proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+                proxy_cache_background_update on;
+                proxy_cache_lock on;
+                proxy_cache edge;
+                proxy_cache_revalidate on;
+                proxy_cache_min_uses 1;
+        }
+
+}
+
+################
+# build server #
+################
+
+server {
+	listen 443 ssl http2;
+	listen [::]:443 ssl http2;
+	include snippets/snakeoil.conf;
+	include snippets/realip.conf;
+	server_tokens off;
+        index index.php index.html;
+        limit_req zone=standard burst=10;
+
+	client_max_body_size 6144M;
+
+	server_name download-build.*;
+
+        location / {
+                proxy_pass http://5.196.69.31:82;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-forwarded-for $remote_addr;
+                add_header X-Cache-Status $upstream_cache_status;
+                proxy_buffering on;
+                proxy_buffer_size 64k;
+                proxy_buffers 64 32k;
+                proxy_busy_buffers_size 128k;
+                proxy_max_temp_file_size 2048m;
+                proxy_temp_file_write_size 512k;
+
+                proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+                proxy_cache_background_update on;
+                proxy_cache_lock on;
+                proxy_cache edge;
+                proxy_cache_revalidate on;
+                proxy_cache_min_uses 2;
+        }
+}
+
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_tokens off;
+        index index.php index.html;
+        limit_req zone=standard burst=5;
+
+        server_name build.*;
+
+        location / {
+                proxy_pass https://5.196.69.31;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-forwarded-for $remote_addr;
+                add_header X-Cache-Status $upstream_cache_status;
+                proxy_buffering on;
+                proxy_buffer_size 64k;
+                proxy_buffers 64 32k;
+                proxy_busy_buffers_size 128k;
+                proxy_max_temp_file_size 2048m;
+                proxy_temp_file_write_size 512k;
+
+                proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+                proxy_cache_background_update on;
+                proxy_cache_lock on;
+                proxy_cache edge;
+                proxy_cache_revalidate on;
+                proxy_cache_min_uses 2;
+        }
+
+        location ~ ^/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot)$ {
+
+                proxy_pass https://5.196.69.31/$cachefile;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                add_header X-Cache-Status $upstream_cache_status;
+                proxy_buffering on;
+                proxy_buffer_size 64k;
+                proxy_buffers 64 32k;
+                proxy_busy_buffers_size 128k;
+                proxy_max_temp_file_size 2048m;
+                proxy_temp_file_write_size 512k;
+                proxy_ignore_headers X-Accel-Expires;
+                proxy_ignore_headers Expires;
+                #proxy_ignore_headers Cache-Control;
+
+                proxy_cache_valid any 1440m;
+                proxy_cache_bypass $cookie_nocache $arg_nocache;
+                proxy_cache_methods GET HEAD POST;
+                proxy_cache_key $proxy_host$request_uri$cookie_jessionid;
+
+                proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+                proxy_cache_background_update on;
+                proxy_cache_lock on;
+                proxy_cache edge;
+                proxy_cache_revalidate on;
+                proxy_cache_min_uses 1;
+        }
+
+}
+
+
+##################
+# archive server #
+##################
+
+server {
+        listen 80;
+        listen [::]:80;
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        root /var/www/html;
+        server_tokens off;
+        index index.php index.html;
+        limit_req zone=high burst=35;
+
+        server_name archive.* deb.* mirror.* download.* downloads.* dl.* cdimage.* dvdimage.* ftp.* repo.* http.* get.* *.deb.parrotsec.org *.deb.parrot.sh *.deb.parrotlinux.com *.deb.parrotlinux.org *.mirror.parrotsec.org *.mirror.parrot.sh *.mirror.parrotlinux.com *.mirror.parrotlinux.org emea-mirror.* apac-mirror.* ncsa-mirror.* cfmirror.* scappellamento-float-left.* repository.vscodium.com download.vscodium.com;
+
+        location / {
+                proxy_pass https://51.75.34.217;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-forwarded-for $remote_addr;
+                add_header X-Cache-Status $upstream_cache_status;
+                proxy_buffering on;
+                proxy_buffer_size 64k;
+                proxy_buffers 64 32k;
+                proxy_busy_buffers_size 128k;
+                proxy_max_temp_file_size 2048m;
+                proxy_temp_file_write_size 512k;
+
+                proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+                proxy_cache_background_update on;
+                proxy_cache_lock on;
+                proxy_cache archive;
+                proxy_cache_revalidate on;
+                proxy_cache_min_uses 2;
+        }
+
+        location ~ ^(\.deb|\.udeb|\.dsc|\.gz|\.xz|\.bz2|\.lzma)$ {
+                proxy_pass https://51.75.34.217;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-forwarded-for $remote_addr;
+                add_header X-Cache-Status $upstream_cache_status;
+                proxy_buffering on;
+                proxy_buffer_size 64k;
+                proxy_buffers 64 32k;
+                proxy_busy_buffers_size 128k;
+                proxy_max_temp_file_size 2048m;
+                proxy_temp_file_write_size 512k;
+
+                proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+                proxy_cache_background_update on;
+                proxy_cache_lock on;
+                proxy_cache archive;
+                proxy_cache_revalidate off;
+                proxy_cache_min_uses 1;
+        }
+
+        location /parrot/dists/ {
+                proxy_pass https://51.75.34.217;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-forwarded-for $remote_addr;
+                add_header X-Cache-Status $upstream_cache_status;
+                proxy_buffering on;
+                proxy_buffer_size 64k;
+                proxy_buffers 64 32k;
+                proxy_busy_buffers_size 128k;
+                proxy_max_temp_file_size 2048m;
+                proxy_temp_file_write_size 512k;
+
+                proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+                proxy_cache_background_update on;
+                proxy_cache_lock on;
+                proxy_cache dists;
+                proxy_cache_revalidate on;
+                proxy_cache_min_uses 1;
+        }
+
+        location ~ ^(?<file>/speedtest/garbage.php|/speedtest/empty.php)$ {
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-forwarded-for $remote_addr;
+                add_header X-Cache-Status $upstream_cache_status;
+                proxy_ignore_headers X-Accel-Expires;
+                proxy_ignore_headers Expires;
+                proxy_ignore_headers Cache-Control;
+                add_header Pragma "no-cache";
+                add_header Cache-Control "no-cache";
+                proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+                proxy_cache_background_update on;
+                proxy_cache_lock off;
+                proxy_cache archive;
+                proxy_cache_revalidate off;
+                proxy_cache_min_uses 1;
+                proxy_cache_valid any 30d;
+                proxy_cache_key "$scheme$host$file";
+                proxy_pass https://51.75.34.217$file?skSize=20;
+                proxy_buffering on;
+                proxy_buffer_size 64k;
+                proxy_buffers 64 32k;
+                proxy_busy_buffers_size 128k;
+                proxy_max_temp_file_size 2048m;
+                proxy_temp_file_write_size 512k;
+        }
+
+        location ~ /\.ht {
+               deny all;
+        }
+        location ~ /\.git {
+               deny all;
+        }
+
+}
+
+###########
+# tracker #
+###########
+
+server {
+	listen 443 ssl http2;
+	listen [::]:443 ssl http2;
+	include snippets/snakeoil.conf;
+	include snippets/realip.conf;
+	server_tokens off;
+    index index.php index.html;
+    limit_req zone=torrent burst=2;
+
+	server_name tracker.* wolf.* torrent.*;
+
+        location / {
+                proxy_pass https://176.31.101.54;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-forwarded-for $remote_addr;
+                add_header X-Cache-Status $upstream_cache_status;
+                proxy_buffering on;
+                proxy_buffer_size 64k;
+                proxy_buffers 64 32k;
+                proxy_busy_buffers_size 128k;
+                proxy_max_temp_file_size 512m;
+                proxy_temp_file_write_size 512k;
+
+                proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+                proxy_cache_background_update on;
+                proxy_cache_lock on;
+                proxy_cache tracker;
+                proxy_cache_revalidate off;
+                proxy_cache_min_uses 1;
+        }
+	access_log off;
+}
+
+server {
+	listen 443 ssl http2;
+	listen [::]:443 ssl http2;
+	include snippets/snakeoil.conf;
+	include snippets/realip.conf;
+	server_tokens off;
+    index index.php index.html;
+    limit_req zone=torrent burst=2;
+
+	server_name tracker2.* wolf2.* torrent2.*;
+
+        location / {
+                proxy_pass https://51.68.152.167;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-forwarded-for $remote_addr;
+                add_header X-Cache-Status $upstream_cache_status;
+                proxy_buffering on;
+                proxy_buffer_size 64k;
+                proxy_buffers 64 32k;
+                proxy_busy_buffers_size 128k;
+                proxy_max_temp_file_size 512m;
+                proxy_temp_file_write_size 512k;
+
+                proxy_cache_use_stale error timeout updating http_500 http_502 http_503 http_504;
+                proxy_cache_background_update on;
+                proxy_cache_lock on;
+                proxy_cache tracker;
+                proxy_cache_revalidate off;
+                proxy_cache_min_uses 1;
+        }
+	access_log off;
+}

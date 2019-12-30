@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV VERSION 0.2
 
 # Update system
-RUN apt-get update;apt-get -y dist-upgrade; rm -rf /var/lib/apt/lists/* #;echo "resolvconf resolvconf/linkify-resolvconf boolean false" | debconf-set-selections
+RUN apt-get update;apt-get -y dist-upgrade; rm -rf /var/lib/apt/lists/*
 
 # Install dependencies
 RUN apt-get update;apt-get -y install nginx ssl-cert;rm -rf /var/lib/apt/lists/*

@@ -32,10 +32,10 @@ ns6.opennic.glue.	7200	IN	A	207.192.71.13
 ns8.opennic.glue.	7200	IN	A	178.63.116.152
 ns8.opennic.glue.	7200	IN	AAAA	2a01:4f8:141:4281::999
 ns9.opennic.glue.	7200	IN	A	51.77.227.84
-ns10.opennic.glue.	7200	IN	A	188.226.146.136
-ns10.opennic.glue.	7200	IN	AAAA	2001:470:1f04:ebf::2
 ns11.opennic.glue.	7200	IN	A	51.75.173.177
 ns12.opennic.glue.	7200	IN	A	79.124.7.81
+ns13.opennic.glue.	7200	IN	A	144.76.103.143
+ns13.opennic.glue.	7200	IN	AAAA	2a01:4f8:192:43a5::2
 
 ;; Query time: 130 msec
 ;; SERVER: 75.127.96.89#53(75.127.96.89)

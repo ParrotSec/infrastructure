@@ -92,29 +92,11 @@ server {
 }
 
 
-# unipa
-server {
-        listen 80;
-        listen [::]:80;
-        root /var/www/parrot-unipa-website/_site;
-        index index.html index.fx index.php index.htm index.nginx-debian.html;
-        server_name unipa.*;
-        location / {
-                try_files $uri $uri/ =404;
-        }
-
-        location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }
-        location ~* /(system|vendor)/.*\.(txt|xml|md|html|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
-        location ~* /user/.*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
-#        access_log off;
-}
-
-
 server {
         listen 80;
         listen [::]:80;
         root /var/www/vscodium/_site;
-        index index.html index.fx index.php index.htm index.nginx-debian.html;
+        index index.html index.fx index.php;
         server_name vscodium.com *.vscodium.com;
         location / {
                 try_files $uri $uri/ =404;
