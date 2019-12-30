@@ -45,7 +45,7 @@ func worker(c chan int, p Project) {
 	// check if folder exists
 	_, err := os.Stat("/data/" + p.container)
 	if errors.Is(err, os.ErrNotExist) {
-		os.MkdirAll("/data/" + p.container)
+		os.MkdirAll("/data/" + p.container, 0755)
 	}
 
 	<-c

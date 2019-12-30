@@ -12,8 +12,6 @@ services:
       - ./gateway/realip.conf:/etc/nginx/snippets/realip.conf
       - ./gateway/nginx.conf:/etc/nginx/nginx.conf
     restart: always
-    depends_on:
-      - website
     ports:
       - "80:80"
       - "443:443"
