@@ -228,6 +228,6 @@ domains:
 # services
   services:
     director.geo.parrot.sh:
-      default: ['%as.geo.parrot.sh', '%ci.%cc.%cn.geo.parrot.sh', '%cc.%cn.geo.parrot.sh', '%cn.geo.parrot.sh', 'geo.parrot.sh']
+      default: ['%as.geo.parrot.sh', '%ci.%cc.%cn.geo.parrot.sh', '%cc.%cn.geo.parrot.sh', '%cn.geo.parrot.sh', 'any.parrot.sh']
       #147.163.0.0/15: 'unipa.geo.parrot.sh'
 
