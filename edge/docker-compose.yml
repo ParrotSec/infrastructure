@@ -28,6 +28,7 @@ services:
       - recursor
       - gateway
     ports:
+      - "53:53/usp"
       - "53:53"
     expose:
       - "53"
