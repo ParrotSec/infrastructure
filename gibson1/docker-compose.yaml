@@ -124,5 +124,4 @@ networks:
       config:
         - subnet: 172.18.43.0/24
   wekan:
-  	driver: bridge
-  	
+    driver: bridge
