@@ -4,6 +4,7 @@ services:
     container_name: gateway
     build: ./gateway/
     volumes:
+      - ./data/gateway/cache:/srv/
       - ./data/gateway/html:/var/www/html
       - ./data/certs:/root/certs
       - ./data/logs/gateway:/var/log/nginx

@@ -484,6 +484,14 @@ server {
                 proxy_cache_revalidate on;
                 proxy_cache_min_uses 1;
         }
+        
+        location ~ ^(\.iso|\.ova|\.img)$ {
+                proxy_pass https://51.75.34.217;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-forwarded-for $remote_addr;
+                add_header X-Cache-Status $upstream_cache_status;
+        }
 
         location ~ ^(?<file>/speedtest/garbage.php|/speedtest/empty.php)$ {
                 proxy_set_header Host $host;
