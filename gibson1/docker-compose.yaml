@@ -9,6 +9,7 @@ services:
       - ./data/logs/gateway:/var/log/nginx
       - ./gateway/snakeoil.conf:/etc/nginx/snippets/snakeoil.conf
       - ./gateway/default:/etc/nginx/sites-enabled/default
+      - ./gateway/cryptpad:/etc/nginx/sites-enabled/cryptpad
       - ./gateway/realip.conf:/etc/nginx/snippets/realip.conf
       - ./gateway/nginx.conf:/etc/nginx/nginx.conf
     restart: always
