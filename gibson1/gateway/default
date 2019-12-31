@@ -205,7 +205,7 @@ server {
         add_header X-Permitted-Cross-Domain-Policies none;
         add_header Referrer-Policy "same-origin";
 
-        server_name cloud.* pad.* poll.* paste.* cryptpad.*;
+        server_name cloud.* pad.* poll.* paste.* cryptpad.* crypt.* secure.*;
 
         http2_idle_timeout 5m;
 
