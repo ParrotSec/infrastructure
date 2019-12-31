@@ -31,7 +31,7 @@ server {
         server_tokens off;
         limit_req zone=standard burst=30;
 
-        server_name parrotsec.org parrotsec.io parrot.sh parrotlinux.org parrotlinux.com fzbx.io www.* start.* blog.* docs.* vscodium.com *.vscodium.com;
+        server_name parrotsec.org parrotsec.io parrot.sh parrotlinux.org parrotlinux.com fzbx.io www.* start.* board.* blog.* docs.*;
 
         location / {
                 proxy_pass https://176.31.101.54;
@@ -527,8 +527,8 @@ server {
 	include snippets/snakeoil.conf;
 	include snippets/realip.conf;
 	server_tokens off;
-    index index.php index.html;
-    limit_req zone=torrent burst=2;
+        index index.php index.html;
+        limit_req zone=torrent burst=2;
 
 	server_name tracker.* wolf.* torrent.*;
 
@@ -561,8 +561,8 @@ server {
 	include snippets/snakeoil.conf;
 	include snippets/realip.conf;
 	server_tokens off;
-    index index.php index.html;
-    limit_req zone=torrent burst=2;
+        index index.php index.html;
+        limit_req zone=torrent burst=2;
 
 	server_name tracker2.* wolf2.* torrent2.*;
 

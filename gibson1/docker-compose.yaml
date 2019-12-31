@@ -22,7 +22,7 @@ services:
     networks:
       internal:
         ipv4_address: 172.18.42.2
-      wekan: []
+      wekan:
 
   tracker:
     container_name: tracker
