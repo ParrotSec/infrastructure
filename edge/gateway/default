@@ -528,7 +528,7 @@ server {
 	include snippets/realip.conf;
 	server_tokens off;
         index index.php index.html;
-        limit_req zone=torrent burst=2;
+        limit_req zone=torrent burst=1;
 
 	server_name tracker.* wolf.* torrent.*;
 
@@ -562,7 +562,7 @@ server {
 	include snippets/realip.conf;
 	server_tokens off;
         index index.php index.html;
-        limit_req zone=torrent burst=2;
+        limit_req zone=torrent burst=1;
 
 	server_name tracker2.* wolf2.* torrent2.*;
 
