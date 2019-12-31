@@ -77,6 +77,35 @@ services:
       - ./data/:/data
       - ./websites.txt:/data/websites.txt
     restart: always
+  
+  wekan-db:
+    container_name: wekan-db
+    image: mongo:4.0
+    restart: always
+    command: mongod --smallfiles --oplogSize 128
+    networks:
+      - wekan
+    expose:
+      - 27017
+    volumes:
+      - ./data/wekan/db:/data/db
+      - ./data/wekan/dump:/dump
+  wekan:
+    container_name: wekan
+    image: wekanteam/wekan:meteor-1.8
+    depends_on:
+      - wekan-db
+    restart: always
+    networks:
+      - wekan
+    expose:
+      - 8080
+    environment:
+      - MONGO_URL=mongodb://wekan-db:27017/wekan
+      - ROOT_URL=https://board.parrotlinux.org
+      - MAIL_FROM='Parrot Board <noreply.board@parrotsec.org>'
+      - WITH_API=true
+      - BROWSER_POLICY_ENABLED=true
 
 networks:
   internal:
@@ -94,3 +123,6 @@ networks:
     ipam:
       config:
         - subnet: 172.18.43.0/24
+  wekan:
+  	driver: bridge
+  	
