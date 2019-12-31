@@ -14,12 +14,15 @@ services:
     restart: always
     depends_on:
       - website
+      - wekan
+      - tracker
     ports:
       - "80:80"
       - "443:443"
     networks:
       internal:
         ipv4_address: 172.18.42.2
+      wekan: []
 
   tracker:
     container_name: tracker
