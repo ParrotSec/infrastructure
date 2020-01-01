@@ -95,7 +95,7 @@ services:
       - ./data/wekan/dump:/dump
   wekan:
     container_name: wekan
-    image: wekanteam/wekan:meteor-1.8
+    image: wekanteam/wekan:v3.57
     depends_on:
       - wekan-db
     restart: always
