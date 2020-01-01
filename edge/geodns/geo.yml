@@ -1,6 +1,6 @@
 domains:
 - domain: geo.parrot.sh
-  ttl: 614
+  ttl: 10
   records:
     geo.parrot.sh:
       - soa: ns1.parrot.sh ns.parrot.sh 2014090125 7200 3600 1209600 3600
