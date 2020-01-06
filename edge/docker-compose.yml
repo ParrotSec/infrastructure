@@ -76,7 +76,7 @@ services:
       - ./data/logs/:/logs/
     network_mode: "host"
     privileged: true
-    cap-add:
+    cap_add:
       - NET_ADMIN
       - NET_RAW
 
