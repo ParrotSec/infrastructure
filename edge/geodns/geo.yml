@@ -37,6 +37,8 @@ domains:
       - aaaa: 2400:8901::f03c:92ff:fee2:8706
       - a: 172.105.162.206
       - aaaa: 2400:8907::f03c:92ff:fee2:87ff
+      - a: 172.104.226.86
+      - aaaa: 2a01:7e01::f03c:92ff:febb:c795
 
 
 # geo continents
@@ -77,6 +79,9 @@ domains:
       #frankfurt.cdn.parrot.sh
       - a: 172.105.72.56
       - aaaa: 2a01:7e01::f03c:92ff:fee2:8773
+      #onion.cdn.parrot.sh
+      - a: 172.105.5.69
+      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
       #luxemburg.cdn.parrot.sh
       - a: 104.244.79.186
       - aaaa: 2605:6400:0030:fc1c:aaaa:feed:dead:beef
@@ -120,6 +125,9 @@ domains:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       #any.parrot.sh
       - cname: any.parrot.sh
+      #onion.cdn.parrot.sh
+      - a: 172.105.5.69
+      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
 
 # geo countries
     uk.eu.geo.parrot.sh:
