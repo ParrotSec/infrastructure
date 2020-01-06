@@ -66,6 +66,16 @@ services:
       dnsnet:
         ipv4_address: 172.18.12.4
 
+  firewall:
+    container_name: firewall
+    build: ./firewall/
+    restart: always
+    volumes:
+      - ./firewall/jail/:/etc/fail2ban/jail.d/
+      - ./firewall/filter/:/etc/fail2ban/filter.d/
+      - ./data/logs/:/logs/
+    network_mode: "host"
+
 
 
 networks:
