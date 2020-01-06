@@ -74,6 +74,7 @@ services:
       - ./firewall/jail/:/etc/fail2ban/jail.d/
       - ./firewall/filter/:/etc/fail2ban/filter.d/
       - ./data/logs/:/logs/
+      - /var/log/:/var/log/
     network_mode: "host"
     privileged: true
     cap_add:
