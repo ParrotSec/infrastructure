@@ -73,6 +73,7 @@ services:
     volumes:
       - ./firewall/jail/:/etc/fail2ban/jail.d/
       - ./firewall/filter/:/etc/fail2ban/filter.d/
+      - ./data/firewall/:/var/lib/fail2ban/
       - ./data/logs/:/logs/
       - /var/log/:/var/log/
     network_mode: "host"
