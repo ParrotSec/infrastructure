@@ -130,6 +130,60 @@ services:
     networks:
       - internal
 
+  nest:
+    container_name: nest
+    image: gitlab/gitlab-ce:latest
+    restart: always
+    expose:
+      - "22"
+      - "80"
+      - "443"
+      - "8090"
+    ports:
+      - "22:22"
+      - "20080:80"
+      - "20443:443"
+      - "20081:8090"
+    environment:
+      GITLAB_OMNIBUS_CONFIG: |
+        external_url 'https://nest.parrot.sh';
+        gitlab_rails['lfs_enabled'] = true;
+        gitlab_rails['gitlab_ssh_host'] = 'git.parrotsec.org'
+        gitlab_rails['gitlab_email_enabled'] = true
+        gitlab_rails['gitlab_email_from'] = 'nest@parrotsec.org'
+        gitlab_rails['gitlab_email_display_name'] = 'Parrot Dev Portal'
+        gitlab_rails['gitlab_email_reply_to'] = 'noreply@parrotsec.org'
+        gitlab_rails['gitlab_email_subject_suffix'] = '[NEST]'
+        gitlab_rails['gitlab_default_can_create_group'] = false
+        gitlab_rails['gitlab_default_theme'] = 2
+        gitlab_rails['incoming_email_enabled'] = true
+        gitlab_rails['incoming_email_address'] = "nest+%{key}@parrotsec.org"
+        gitlab_rails['incoming_email_email'] = "nest@parrotsec.org"
+        gitlab_rails['incoming_email_host'] = "mail.parrotsec.org"
+        gitlab_rails['incoming_email_port'] = 993
+        gitlab_rails['incoming_email_ssl'] = true
+        gitlab_rails['incoming_email_start_tls'] = false
+        gitlab_rails['smtp_enable'] = true
+        gitlab_rails['smtp_address'] = "mail.parrotsec.org"
+        gitlab_rails['smtp_port'] = 587
+        gitlab_rails['smtp_user_name'] = 'nest@parrotsec.org'
+        gitlab_rails['smtp_domain'] = "mail.parrotsec.org"
+        gitlab_rails['smtp_authentication'] = "login"
+        gitlab_rails['smtp_enable_starttls_auto'] = true
+        gitlab_rails['smtp_tls'] = false
+        gitlab_rails['smtp_openssl_verify_mode'] = 'none'
+        unicorn['worker_processes'] = 3
+        letsencrypt['enable'] = false
+        nginx['ssl_certificate'] = "/etc/ssl/private/fullchain.pem"
+        nginx['ssl_certificate_key'] = "/etc/ssl/private/privkey.pem"
+    volumes:
+      - ./data/certs:/etc/ssl/private
+      - ./data/nest/config:/etc/gitlab:Z
+      - ./data/logs/gitlab:/var/log/gitlab:Z
+      - ./data/nest/data:/var/opt/gitlab:Z
+    networks:
+      - internal
+
 networks:
   internal:
     driver: bridge
