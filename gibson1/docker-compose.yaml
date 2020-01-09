@@ -128,7 +128,8 @@ services:
       - ./data/cryptpad/config:/cryptpad/cfg:rw
       - ./data/cryptpad/data:/cryptpad/data:rw
     networks:
-      - internal
+      internal:
+        ipv4_address: 172.18.42.6
 
   nest:
     container_name: nest
@@ -182,7 +183,8 @@ services:
       - ./data/logs/gitlab:/var/log/gitlab:Z
       - ./data/nest/data:/var/opt/gitlab:Z
     networks:
-      - internal
+      internal:
+        ipv4_address: 172.18.42.7
 
 networks:
   internal:
