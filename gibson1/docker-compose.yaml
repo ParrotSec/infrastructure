@@ -73,16 +73,16 @@ services:
       phpnet:
         ipv4_address: 172.18.43.2
 
-  manager:
-    container_name: manager
-    build: ./manager/
-    volumes:
-      - ./data/:/data
-      - ./websites.txt:/data/websites.txt
-    restart: always
-    networks:
-      internal:
-        ipv4_address: 172.18.43.200
+  #manager:
+  #  container_name: manager
+  #  build: ./manager/
+  #  volumes:
+  #    - ./data/:/data
+  #    - ./websites.txt:/data/websites.txt
+  #  restart: always
+  #  networks:
+  #    internal:
+  #      ipv4_address: 172.18.43.200
   
   wekan-db:
     container_name: wekan-db
