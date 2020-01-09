@@ -245,7 +245,7 @@ server {
 
 	client_max_body_size 6144M;
 
-        server_name nest.* git.* dev.* gitlab.*;
+        server_name nest.* nest2.* git.* dev.* gitlab.*;
 
         location / {
                 proxy_pass https://176.31.101.54:20443;
@@ -312,7 +312,7 @@ server {
 
 	client_max_body_size 6144M;
 
-        server_name old-nest.* oldnest.* nest-backup.* nest-legacy.* nest-v1.*;
+        server_name old-nest.* oldnest.* nest-backup.* nest-legacy.* nest1.*;
 
         location / {
                 proxy_pass https://51.75.34.219;
