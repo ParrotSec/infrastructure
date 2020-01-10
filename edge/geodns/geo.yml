@@ -39,6 +39,12 @@ domains:
       - aaaa: 2400:8907::f03c:92ff:fee2:87ff
       - a: 172.104.226.86
       - aaaa: 2a01:7e01::f03c:92ff:febb:c795
+      - a: 212.237.22.141
+      - aaaa: 2a00:6d40:60:9f8d::1
+      - a: 89.36.210.176
+      - aaaa: 2a00:6d40:40:4bb0::1
+      - a: 80.211.238.94
+      - aaaa: 2a00:6d40:72:275e::1
 
 
 # geo continents
@@ -125,9 +131,6 @@ domains:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       #any.parrot.sh
       - cname: any.parrot.sh
-      #onion.cdn.parrot.sh
-      - a: 172.105.5.69
-      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
 
 # geo countries
     uk.eu.geo.parrot.sh:
@@ -143,11 +146,15 @@ domains:
       #frankfurt.cdn.parrot.sh
       - a: 172.105.72.56
       - aaaa: 2a01:7e01::f03c:92ff:fee2:8773
+      #onion.cdn.parrot.sh
+      - a: 172.105.5.69
+      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
     lu.eu.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       #luxemburg.cdn.parrot.sh
       - a: 104.244.79.186
       - aaaa: 2605:6400:0030:fc1c:aaaa:feed:dead:beef
+
 
     us.na.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
@@ -204,28 +211,47 @@ domains:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       - alias: au.oc.geo.parrot.sh
 
+# Extra edge nodes
+    aruba.geo.parrot.sh:
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      #frankfurt2.cdn.parrot.sh
+      - a: 89.40.116.230
+      - aaaa: 2a03:a140:10:10e6::1
+      #arezzo1.cdn.parrot.sh
+      - a: 212.237.22.141
+      - aaaa: 2a00:6d40:60:9f8d::1
+      #arezzo2.cdn.parrot.sh
+      - a: 89.36.210.176
+      - aaaa: 2a00:6d40:40:4bb0::1
+      #arezzo3.cdn.parrot.sh
+      - a: 80.211.238.94
+      - aaaa: 2a00:6d40:72:275e::1
+
 # ASnumbers
+    as30548.geo.parrot.sh: #aruba
+      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
+      - cname: aruba.geo.parrot.sh
     as206701.geo.parrot.sh: #fibra.city shared
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: de.eu.geo.parrot.sh
+      - cname: eu.geo.parrot.sh
     as12874.geo.parrot.sh: # fastweb
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: de.eu.geo.parrot.sh
+      - cname: eu.geo.parrot.sh
     as20580.geo.parrot.sh: # tim
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: de.eu.geo.parrot.sh
+      - cname: eu.geo.parrot.sh
     as8244.geo.parrot.sh: # tim sparkle italia
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: de.eu.geo.parrot.sh
+      - cname: eu.geo.parrot.sh
     as30722.geo.parrot.sh: # vodafone italia
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: de.eu.geo.parrot.sh
+      - cname: eu.geo.parrot.sh
     as12551.geo.parrot.sh: # enel
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: de.eu.geo.parrot.sh
+      - cname: eu.geo.parrot.sh
     as137.geo.parrot.sh: # garr
       - txt: "garr - ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: de.eu.geo.parrot.sh
+      - cname: aruba.geo.parrot.sh
 
 
 # special routes
@@ -237,5 +263,5 @@ domains:
   services:
     director.geo.parrot.sh:
       default: ['%as.geo.parrot.sh', '%ci.%cc.%cn.geo.parrot.sh', '%cc.%cn.geo.parrot.sh', '%cn.geo.parrot.sh', 'any.parrot.sh']
-      #147.163.0.0/15: 'unipa.geo.parrot.sh'
+      147.163.0.0/15: 'aruba.geo.parrot.sh'
 
