@@ -180,6 +180,13 @@ services:
         letsencrypt['enable'] = false
         nginx['ssl_certificate'] = "/etc/ssl/private/fullchain.pem"
         nginx['ssl_certificate_key'] = "/etc/ssl/private/privkey.pem"
+        pages_external_url "https://pages.nest.parrot.sh/"
+        gitlab_pages['enable'] = true
+        gitlab_pages['max_connections'] = 1000
+        gitlab_pages['log_verbose'] = false
+        gitlab_pages['listen_proxy'] = "0.0.0.0:8090"
+        gitlab_pages['use_http2'] = true
+        gitlab_pages['inplace_chroot'] = true
     volumes:
       - ./data/certs:/etc/ssl/private
       - ./data/nest/config:/etc/gitlab:Z
