@@ -1,8 +1,8 @@
 #!/bin/bash
 
-SOURCE_PARROT=master.rsync.parrot.sh/parrot
+SOURCE_PARROT="rsync://master.rsync.parrot.sh/parrot"
 TARGET_PARROT=/var/www/parrot
-SOURCE_ALL=master.rsync.parrot.sh/internal
+SOURCE_ALL="rsync://master.rsync.parrot.sh/internal"
 TARGET_ALL=/var/www
 
 while true; do
