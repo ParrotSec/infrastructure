@@ -1,9 +1,9 @@
 #!/bin/bash
 
 SOURCE_PARROT="rsync://master.rsync.parrot.sh/parrot"
-TARGET_PARROT=/var/www/parrot
+TARGET_PARROT=/var/www/html/parrot
 SOURCE_ALL="rsync://master.rsync.parrot.sh/internal"
-TARGET_ALL=/var/www
+TARGET_ALL=/var/www/html
 
 while true; do
 	#flock -xn /tmp/parrot-rsync.lock -c "rsync -PahvHtSx --delay-updates --delete-after master.rsync.parrot.sh/parrot /var/www/html/parrot"

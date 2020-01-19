@@ -39,5 +39,5 @@ services:
     container_name: updater
     build: ./updater/
     volumes:
-      - ./data/repository/:/var/www/html/
+      - ./data/repository/:/var/www/html
     restart: always
