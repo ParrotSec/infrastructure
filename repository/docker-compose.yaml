@@ -24,7 +24,7 @@ services:
     volumes:
       - ./data/repository/:/var/www/html/
       - ./rsync/rsyncd.conf:/etc/rsyncd.conf
-    restart: aways
+    restart: always
     ports:
      - "873:873"
   php-repo:
