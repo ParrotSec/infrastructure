@@ -1,0 +1,43 @@
+version: "3"
+services:
+  repository:
+    container_name: repostory
+    build: ./repository/
+    volumes:
+      - ./data/repository/:/var/www/html/
+      - ./data/certs:/root/certs
+      - ./data/logs/repository:/var/log/nginx
+      - ./repository/snakeoil.conf:/etc/nginx/snippets/snakeoil.conf
+      - ./repository/default:/etc/nginx/sites-enabled/default
+      - ./repository/realip.conf:/etc/nginx/snippets/realip.conf
+      - ./repository/nginx.conf:/etc/nginx/nginx.conf
+      - ./repository/php-fpm.conf:/etc/nginx/snippets/php-fpm.conf
+    restart: always
+    depends_on:
+      - php-repo
+    ports:
+      - "80:80"
+      - "443:443"
+  rsync:
+    container_name: rsyncd
+    build: ./rsync/
+    volumes:
+      - ./data/repository/:/var/www/html/
+      - ./rsync/rsyncd.conf:/etc/rsyncd.conf
+    restart: aways
+    ports:
+     - "873:873"
+  php-repo:
+    container_name: php-repo
+    build: ./php/
+    volumes:
+      - ./data/repostory/:/var/www/html/
+    expose:
+      - "9000"
+    restart: always
+  updater:
+    container_name: updater
+    build: ./updater/
+    volumes:
+      - ./data/repository/:/var/www/html/
+    restart: always
