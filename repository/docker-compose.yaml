@@ -31,7 +31,7 @@ services:
     container_name: php-repo
     build: ./php/
     volumes:
-      - ./data/repostory/:/var/www/html/
+      - ./data/repository/:/var/www/html/
     expose:
       - "9000"
     restart: always
