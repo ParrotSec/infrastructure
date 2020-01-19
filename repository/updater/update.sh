@@ -16,6 +16,6 @@ while true; do
 done &
 
 while true; do
-	flock -xn $TARGET_ALL/SYNC_IN_PROGRESS.txt -c "rsync -qaHtSx --exclude=dists --exclude=iso $SOURCE_PARROT $TARGET_PARROT/"
+	flock -xn $TARGET_ALL/SYNC_IN_PROGRESS.txt -c "rsync -qaHtSx --exclude=parrot $SOURCE_PARROT $TARGET_PARROT/"
 	sleep 3600
 done
