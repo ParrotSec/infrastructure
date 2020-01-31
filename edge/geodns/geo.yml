@@ -37,8 +37,6 @@ domains:
       - aaaa: 2400:8901::f03c:92ff:fee2:8706
       - a: 172.105.162.206
       - aaaa: 2400:8907::f03c:92ff:fee2:87ff
-      - a: 172.104.226.86
-      - aaaa: 2a01:7e01::f03c:92ff:febb:c795
       - a: 212.237.22.141
       - aaaa: 2a00:6d40:60:9f8d::1
       - a: 89.36.210.176
@@ -85,24 +83,9 @@ domains:
       #frankfurt.cdn.parrot.sh
       - a: 172.105.72.56
       - aaaa: 2a01:7e01::f03c:92ff:fee2:8773
-      #onion.cdn.parrot.sh
-      - a: 172.105.5.69
-      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
       #luxemburg.cdn.parrot.sh
       - a: 104.244.79.186
       - aaaa: 2605:6400:0030:fc1c:aaaa:feed:dead:beef
-      #frankfurt2.cdn.parrot.sh
-      - a: 89.40.116.230
-      - aaaa: 2a03:a140:10:10e6::1
-      #arezzo1.cdn.parrot.sh
-      - a: 212.237.22.141
-      - aaaa: 2a00:6d40:60:9f8d::1
-      #arezzo2.cdn.parrot.sh
-      - a: 89.36.210.176
-      - aaaa: 2a00:6d40:40:4bb0::1
-      #arezzo3.cdn.parrot.sh
-      - a: 80.211.238.94
-      - aaaa: 2a00:6d40:72:275e::1
 
     #asia
     as.geo.parrot.sh:
@@ -158,12 +141,6 @@ domains:
       #frankfurt.cdn.parrot.sh
       - a: 172.105.72.56
       - aaaa: 2a01:7e01::f03c:92ff:fee2:8773
-      #onion.cdn.parrot.sh
-      - a: 172.105.5.69
-      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
-      #frankfurt2.cdn.parrot.sh
-      - a: 89.40.116.230
-      - aaaa: 2a03:a140:10:10e6::1
       
     lu.eu.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
@@ -223,18 +200,8 @@ domains:
       #london.cdn.parrot.sh
       - a: 139.162.234.16
       - aaaa: 2a01:7e00::f03c:92ff:fee2:8777
-      #frankfurt2.cdn.parrot.sh
-      - a: 89.40.116.230
-      - aaaa: 2a03:a140:10:10e6::1
-      #arezzo1.cdn.parrot.sh
-      - a: 212.237.22.141
-      - aaaa: 2a00:6d40:60:9f8d::1
-      #arezzo2.cdn.parrot.sh
-      - a: 89.36.210.176
-      - aaaa: 2a00:6d40:40:4bb0::1
-      #arezzo3.cdn.parrot.sh
-      - a: 80.211.238.94
-      - aaaa: 2a00:6d40:72:275e::1
+
+
     au.oc.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       #sydney.cdn.parrot.sh

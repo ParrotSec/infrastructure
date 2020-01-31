@@ -1,0 +1,11 @@
+version: "3"
+services:
+  director:
+    container_name: director
+    build: ./mirrorbits/
+    volumes:
+      - ./mirrorbits/mirrors.sh:/mirrors.sh
+      - ./data/repository:/var/www/html
+    restart: always
+    expose:
+      - "9000"
