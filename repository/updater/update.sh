@@ -5,6 +5,12 @@ TARGET_PARROT=/var/www/html/parrot
 SOURCE_ALL="rsync://master.rsync.parrot.sh/internal"
 TARGET_ALL=/var/www/html
 
+#init
+mkdir -p $TARGET_PARROT
+rm $TARGET_PARROT/SYNC_IN_PROGRESS.* || true
+rm $TARGET_ALL/SYNC_IN_PROGRESS.* || true
+
+
 while true; do
 	mkdir -p $TARGET_PARROT
 	#flock -xn /tmp/parrot-rsync.lock -c "rsync -PahvHtSx --delay-updates --delete-after master.rsync.parrot.sh/parrot /var/www/html/parrot"
