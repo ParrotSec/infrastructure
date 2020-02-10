@@ -108,7 +108,7 @@ server {
         root /var/www/html;
         index index.php index.html;
         server_tokens off;
-        limit_req zone=high burst=20;
+        limit_req zone=high burst=60;
 
         server_name cloud.* pad.* poll.* paste.* cryptpad.* crypt.* secure.*;
 
