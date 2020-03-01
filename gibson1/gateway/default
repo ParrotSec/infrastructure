@@ -23,7 +23,7 @@ server {
         listen [::]:443 ssl;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
-        server_name fzbx.io www.fzbx.io parrot.sh www.parrot.sh parrotsec.org www.parrotsec.org parrotsec.io www.parrotsec.io;
+        server_name fzbx.io www.fzbx.io parrot.sh www.parrot.sh parrotsec.io www.parrotsec.io parrotlinux.net www.parrotlinux.net;
 	    location ~ ^/docs/(?<path>.*) {
 	        return 301 https://docs.parrotlinux.org/$path;
         }
@@ -80,7 +80,7 @@ server {
         root /var/www/html;
         index index.php index.html;
 
-        server_name blog.* docs.* documentation.* start.* www.* vscodium.com *.vscodium.com parrotsec.org parrotsec.io parrot.sh parrotlinux.com parrotlinux.org;
+        server_name blog.* docs.* documentation.* start.* www.* parrotsec.org parrotlinux.com parrotlinux.org;
 
         location / {
                 proxy_pass http://172.18.42.3;
