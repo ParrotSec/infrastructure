@@ -54,6 +54,7 @@ services:
       - ./data/logs/website:/var/log/nginx
       - ./website/default:/etc/nginx/sites-enabled/default
       - ./website/php-fpm.conf:/etc/nginx/snippets/php-fpm.conf
+      - ./gateway/nginx.conf:/etc/nginx/nginx.conf
     restart: always
     networks:
       internal:
