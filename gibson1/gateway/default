@@ -27,11 +27,8 @@ server {
 	    location ~ ^/docs/(?<path>.*) {
 	        return 301 https://docs.parrotlinux.org/$path;
         }
-        location ~ ^/blog/(?<path>.*) {
-	        return 301 https://blog.parrotlinux.org/$path;
-        }
         location ~ ^/(?<path>.*) {
-	        return 301 https://parrotlinux.org/$path;
+	        return 301 https://parrotsec.org/$path;
         }
 }
 
@@ -47,17 +44,6 @@ server {
 	    }
 }
 
-# redirect old blog to new domain
-server {
-        listen 443 ssl;
-        listen [::]:443 ssl;
-        include snippets/snakeoil.conf;
-        include snippets/realip.conf;
-        server_name blog.parrotsec.org blog.parrot.sh blog.parrotlinux.com blog.parrotsec.io;
-        location ~ ^/(?<path>.*) {
-	        return 301 https://blog.parrotlinux.org/$path;
-	    }
-}
 
 # redirect old docs to new domain
 server {
