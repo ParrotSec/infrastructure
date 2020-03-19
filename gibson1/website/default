@@ -43,13 +43,7 @@ server {
         location / {
                 try_files $uri $uri/ =404;
         }
-
-        location ~ \.php$ {
-                include snippets/php-fpm.conf;
-        }
-        location ~ \.fx$ {
-                include snippets/php-fpm.conf;
-        }
+        
         location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }
         location ~* /(system|vendor)/.*\.(txt|xml|md|html|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
         location ~* /user/.*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
