@@ -17,23 +17,19 @@ server {
 	    }
 }
 
-# redirect old websites to new domain
+# redirect websites to main domain
 server {
         listen 443 ssl;
         listen [::]:443 ssl;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
-        server_name fzbx.io www.fzbx.io parrot.sh www.parrot.sh parrotsec.io www.parrotsec.io parrotlinux.net www.parrotlinux.net;
-	    location ~ ^/docs/(?<path>.*) {
-	        return 301 https://docs.parrotsec.org/$path;
-        }
+        server_name fzbx.io www.fzbx.io parrot.sh www.parrot.sh parrotsec.io www.parrotsec.io parrotlinux.com www.parrotlinux.com parrotlinux.net www.parrotlinux.net;
         location ~ ^/(?<path>.*) {
 	        return 301 https://parrotsec.org/$path;
         }
 }
 
-# redirect old community to new domain
-server {
+# redirect community to main domain
         listen 443 ssl;
         listen [::]:443 ssl;
         include snippets/snakeoil.conf;
@@ -41,19 +37,6 @@ server {
         server_name community.parrot.sh community.parrotlinux.com community.parrotlinux.net community.parrotsec.io;
         location ~ ^/(?<path>.*) {
 	        return 301 https://community.parrotsec.org/$path;
-	    }
-}
-
-
-# redirect old docs to new domain
-server {
-        listen 443 ssl;
-        listen [::]:443 ssl;
-        include snippets/snakeoil.conf;
-        include snippets/realip.conf;
-        server_name docs.parrot.sh docs.parrotlinux.com docs.parrotsec.io docs.parrotlinux.net;
-        location ~ ^/(?<path>.*) {
-	        return 301 https://docs.parrotsec.org/$path;
 	    }
 }
 
@@ -66,7 +49,7 @@ server {
         root /var/www/html;
         index index.php index.html;
 
-        server_name blog.* docs.* documentation.* start.* www.* parrotsec.org parrotlinux.com parrotlinux.org parrotlinux.net;
+        server_name blog.* docs.* documentation.* start.* www.* parrotsec.org parrotlinux.org;
 
         location / {
                 proxy_pass http://172.18.42.3;
@@ -81,6 +64,10 @@ server {
                 expires max;
                 add_header Pragma public;
                 add_header Cache-Control "public";
+        }
+        
+        location ~ ^/docs/(?<path>.*) {
+	        return 301 https://docs.parrotsec.org/$path;
         }
 
         #location ~ /\.ht {
