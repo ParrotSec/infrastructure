@@ -30,6 +30,7 @@ server {
 }
 
 # redirect community to main domain
+server {
         listen 443 ssl;
         listen [::]:443 ssl;
         include snippets/snakeoil.conf;
