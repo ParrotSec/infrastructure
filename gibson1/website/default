@@ -12,11 +12,6 @@ server {
                 try_files $uri $uri/ =404;
         }
         
-        location /docs/ {
-                root /var/www/documentation/site;
-                try_files $uri $uri/ =404;
-        }
-        
         location /download.php {
 		        return 301 https://parrotsec.org/download;
 		}
