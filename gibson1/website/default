@@ -12,6 +12,29 @@ server {
                 try_files $uri $uri/ =404;
         }
         
+        location /docs/ {
+                root /var/www/documentation/site;
+                try_files $uri $uri/ =404;
+        }
+        
+        location /download.php {
+		        return 301 https://parrotsec.org/download;
+		}
+
+        location /download.php {
+		        return 301 https://parrotsec.org/download;
+        }
+        location /download-security.php {
+		        return 301 https://parrotsec.org/download;
+		}
+        location /download-home.php {
+		        return 301 https://parrotsec.org/download;
+		}
+        location /download-other.php {
+		        return 301 https://parrotsec.org/download;
+		}
+        
+        
 
         location ~ \.php$ {
                 include snippets/php-fpm.conf;
