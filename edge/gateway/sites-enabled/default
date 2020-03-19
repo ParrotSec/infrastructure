@@ -32,7 +32,7 @@ server {
         server_tokens off;
         limit_req zone=standard burst=60;
 
-        server_name parrotsec.org parrotsec.io parrot.sh parrotlinux.org parrotlinux.com fzbx.io www.* start.* board.* blog.* docs.*;
+        server_name parrotsec.org parrotsec.io parrot.sh parrotlinux.org parrotlinux.com parrotlinux.net fzbx.io www.* start.* board.* blog.* docs.*;
         location / {
                 proxy_pass https://176.31.101.54;
                 proxy_set_header Host $host;

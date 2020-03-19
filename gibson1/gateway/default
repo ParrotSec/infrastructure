@@ -13,7 +13,7 @@ server {
         include snippets/realip.conf;
         server_name _;
         location ~ ^/(?<path>.*) {
-	        return 301 https://parrotlinux.org/$path;
+	        return 301 https://parrotsec.org/$path;
 	    }
 }
 
@@ -25,7 +25,7 @@ server {
         include snippets/realip.conf;
         server_name fzbx.io www.fzbx.io parrot.sh www.parrot.sh parrotsec.io www.parrotsec.io parrotlinux.net www.parrotlinux.net;
 	    location ~ ^/docs/(?<path>.*) {
-	        return 301 https://docs.parrotlinux.org/$path;
+	        return 301 https://docs.parrotsec.org/$path;
         }
         location ~ ^/(?<path>.*) {
 	        return 301 https://parrotsec.org/$path;
@@ -38,9 +38,9 @@ server {
         listen [::]:443 ssl;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
-        server_name community.parrotsec.org community.parrot.sh community.parrotlinux.com community.parrotsec.io;
+        server_name community.parrot.sh community.parrotlinux.com community.parrotlinux.net community.parrotsec.io;
         location ~ ^/(?<path>.*) {
-	        return 301 https://community.parrotlinux.org/$path;
+	        return 301 https://community.parrotsec.org/$path;
 	    }
 }
 
@@ -51,9 +51,9 @@ server {
         listen [::]:443 ssl;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
-        server_name docs.parrotsec.org docs.parrot.sh docs.parrotlinux.com docs.parrotsec.io;
+        server_name docs.parrot.sh docs.parrotlinux.com docs.parrotsec.io docs.parrotlinux.net;
         location ~ ^/(?<path>.*) {
-	        return 301 https://docs.parrotlinux.org/$path;
+	        return 301 https://docs.parrotsec.org/$path;
 	    }
 }
 
@@ -66,7 +66,7 @@ server {
         root /var/www/html;
         index index.php index.html;
 
-        server_name blog.* docs.* documentation.* start.* www.* parrotsec.org parrotlinux.com parrotlinux.org;
+        server_name blog.* docs.* documentation.* start.* www.* parrotsec.org parrotlinux.com parrotlinux.org parrotlinux.net;
 
         location / {
                 proxy_pass http://172.18.42.3;
