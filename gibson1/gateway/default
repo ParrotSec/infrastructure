@@ -65,10 +65,6 @@ server {
                 add_header Pragma public;
                 add_header Cache-Control "public";
         }
-        
-        location ~ ^/docs/(?<path>.*) {
-	        return 301 https://docs.parrotsec.org/$path;
-        }
 
         #location ~ /\.ht {
         #       deny all;
