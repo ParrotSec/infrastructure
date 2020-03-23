@@ -78,7 +78,6 @@ services:
       - "8080:8080" # ipfs gateway
     volumes:
       - ./data/ipfs:/data/ipfs:z
-      - ./data/repository:/ipns/repository.ipfs.parrot.sh
       - ./data/website/public:/ipns/website.ipfs.parrot.sh
       - ./data/documentation/site:/ipns/website.ipfs.parrot.sh/docs
       - ./data/static:/ipns/static.ipfs.parrot.sh
