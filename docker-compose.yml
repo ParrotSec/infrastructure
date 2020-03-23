@@ -98,7 +98,7 @@ services:
     networks:
       - ipfs
   ipfs-cluster-manager:
-    container_name: ipfs-cluster
+    container_name: ipfs-cluster-manager
     image: ipfs/ipfs-cluster:latest
     depends_on:
       - ipfs
