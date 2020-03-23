@@ -105,31 +105,6 @@ services:
     restart: always
     networks:
       - ipfs
-  ipfs-cluster-manager:
-    container_name: ipfs-cluster-manager
-    image: ipfs/ipfs-cluster:latest
-    depends_on:
-      - ipfs
-      - ipfs-cluster
-    environment:
-      CLUSTER_PEERNAME: ${IPFS_CLUSTER_PEERNAME}
-      CLUSTER_SECRET: ${IPFS_CLUSTER_SECRET}
-      CLUSTER_IPFSHTTP_NODEMULTIADDRESS: /dns4/ipfs/tcp/5001
-      CLUSTER_CRDT_TRUSTEDPEERS: '*' # Trust all peers in Cluster
-      CLUSTER_RESTAPI_HTTPLISTENMULTIADDRESS: /ip4/0.0.0.0/tcp/9094 # Expose API
-      CLUSTER_MONITORPINGINTERVAL: 2s # Speed up peer discovery
-    command: >
-      bash -c "ipfs-cluster-ctl pin add --name cluster-website --replicas /ipns/website.ipfs.parrot.sh;
-              ipfs-cluster-ctl pin add --name cluster-repository --replicas /ipns/repository.ipfs.parrot.sh;
-              ipfs-cluster-ctl pin add --name cluster-static --replicas /ipns/static.ipfs.parrot.sh"
-    volumes:
-      - ./data/ipfs:/data/ipfs:z
-      - ./data/repository:/ipns/repository.ipfs.parrot.sh
-      - ./data/website/public:/ipns/website.ipfs.parrot.sh
-      - ./data/documentation/site:/ipns/website.ipfs.parrot.sh/docs
-      - ./data/static:/ipns/static.ipfs.parrot.sh
-    networks:
-      - ipfs
 
 
 
