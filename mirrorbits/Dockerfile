@@ -15,7 +15,8 @@ RUN wget https://github.com/etix/mirrorbits/releases/download/v0.5.1/mirrorbits-
     mv mirrorbits/mirrorbits /usr/local/bin/mirrorbits;\
     ln -s /usr/local/bin/mirrorbits /usr/local/bin/mb;\
     mkdir -p /usr/local/share/mirrorbits/;\
-    mv mirrorbits/templates/ /usr/local/share/mirrorbits/
+    mv mirrorbits/templates/* /usr/local/share/mirrorbits/
+
 
 COPY mirrorbits.conf /etc/mirrorbits.conf
 COPY init.sh /init.sh
