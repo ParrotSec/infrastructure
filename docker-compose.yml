@@ -23,6 +23,7 @@ services:
       - "443:443"
     networks:
       - main
+
   rsync:
     container_name: rsyncd
     build: ./rsync/
@@ -44,6 +45,8 @@ services:
     restart: always
     networks:
       - main
+
+
   director:
     container_name: director
     build: ./mirrorbits/
@@ -82,30 +85,7 @@ services:
     restart: always
     networks:
       - ipfs
-  ipfs-cluster:
-    container_name: ipfs-cluster
-    image: ipfs/ipfs-cluster:latest
-    depends_on:
-      - ipfs
-    environment:
-      CLUSTER_PEERNAME: ${IPFS_CLUSTER_PEERNAME}
-      CLUSTER_SECRET: ${IPFS_CLUSTER_SECRET}
-      CLUSTER_IPFSHTTP_NODEMULTIADDRESS: /dns4/ipfs/tcp/5001
-      CLUSTER_CRDT_TRUSTEDPEERS: '*' # Trust all peers in Cluster
-      CLUSTER_RESTAPI_HTTPLISTENMULTIADDRESS: /ip4/0.0.0.0/tcp/9094 # Expose API
-      CLUSTER_MONITORPINGINTERVAL: 2s # Speed up peer discovery
-    ports:
-      - ${IPFS_CLUSTER_BIND}:9096:9096
-    volumes:
-      - ./data/ipfs:/data/ipfs:z
-      - ./data/ipfs-cluster:/data/ipfs-cluster:z
-      - ./data/repository:/ipns/repository.ipfs.parrot.sh
-      - ./data/website/public:/ipns/website.ipfs.parrot.sh
-      - ./data/documentation/site:/ipns/website.ipfs.parrot.sh/docs
-      - ./data/static:/ipns/static.ipfs.parrot.sh
-    restart: always
-    networks:
-      - ipfs
+
 
 
 
