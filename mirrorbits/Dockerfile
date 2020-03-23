@@ -20,4 +20,4 @@ COPY mirrorbits.conf /etc/mirrorbits.conf
 COPY init.sh /init.sh
 
 CMD bash /init.sh
-ENTRYPOINT /usr/local/bin/mirrorbits 
+ENTRYPOINT /usr/local/bin/mirrorbits daemon
