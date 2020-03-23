@@ -96,7 +96,7 @@ services:
       CLUSTER_RESTAPI_HTTPLISTENMULTIADDRESS: /ip4/0.0.0.0/tcp/9094 # Expose API
       CLUSTER_MONITORPINGINTERVAL: 2s # Speed up peer discovery
     ports:
-      - 9096:9096
+      - ${IPFS_CLUSTER_BIND}:9096:9096
     volumes:
       - ./data/ipfs-cluster/datastore:/data/ipfs/datastore
       - ./data/ipfs-cluster/keystore:/data/ipfs/keystore
