@@ -45,6 +45,12 @@ services:
     restart: always
     networks:
       - main
+  updater:
+    container_name: updater
+    build: ./updater/
+    volumes:
+      - ./data/repository/:/var/www/repository
+    restart: always
 
 
   director:
