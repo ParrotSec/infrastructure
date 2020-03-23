@@ -16,7 +16,7 @@ services:
       - ./gateway/php-fpm.conf:/etc/nginx/snippets/php-fpm.conf
     restart: always
     depends_on:
-      - php
+      - php-repo
       - ipfs
     ports:
       - "80:80"
