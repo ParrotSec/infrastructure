@@ -1,3 +1,0 @@
-parrot website php https://nest.parrot.sh/parrot-organization/parrotsec.org
-docs website mkdocs https://nest.parrot.sh/parrot-organization/documentation
-blog website jekyll https://nest.parrot.sh/parrot-organization/blog

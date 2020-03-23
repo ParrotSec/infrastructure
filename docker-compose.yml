@@ -1,0 +1,134 @@
+version: "3"
+services:
+  gateway:
+    container_name: gateway
+    build: ./gateway/
+    volumes:
+      - ./data/website/public:/var/www/htmml/
+      - ./data/documentation/site:/var/www/html/docs
+      - ./data/static:/var/www/static
+      - ./data/repository/:/var/www/repository/
+      - ./data/certs:/root/certs
+      - ./gateway/realip.conf:/etc/nginx/snippets/realip.conf
+      - ./gateway/snakeoil.conf:/etc/nginx/snippets/snakeoil.conf
+      - ./gateway/default:/etc/nginx/sites-enabled/default
+      - ./gateway/nginx.conf:/etc/nginx/nginx.conf
+      - ./gateway/php-fpm.conf:/etc/nginx/snippets/php-fpm.conf
+    restart: always
+    depends_on:
+      - php
+      - ipfs
+    ports:
+      - "80:80"
+      - "443:443"
+    networks:
+      - main
+  rsync:
+    container_name: rsyncd
+    build: ./rsync/
+    volumes:
+      - ./data/repository/:/var/www/repository/
+      - ./rsync/rsyncd.conf:/etc/rsyncd.conf
+    restart: always
+    ports:
+     - "873:873"
+    networks:
+      - main
+  php:
+    container_name: php
+    image: php:7.3-fpm-buster
+    volumes:
+      - ./data/repository/speedtest:/var/www/repository/speedtest
+    expose:
+      - "9000"
+    restart: always
+    networks:
+      - main
+  director:
+    container_name: director
+    build: ./mirrorbits/
+    volumes:
+      - ./mirrorbits/mirrors.sh:/mirrors.sh
+      - ./data/repository:/var/www/repository
+      - ./data/logs/mirrorbits:/var/log/mirrorbits
+    restart: always
+    expose:
+      - "9000"
+    networks:
+      - main
+  ipfs:
+    container_name: ipfs
+    image: ipfs/go-ipfs
+    ports:
+      - "4001:4001" # ipfs swarm
+    #  - "5001:5001" # ipfs api
+      - "8080:8080" # ipfs gateway
+    volumes:
+      - ./data/ipfs/datastore:/data/ipfs/datastore
+      - ./data/ipfs/keystore:/data/ipfs/keystore
+      - ./data/ipfs/blocks:/data/ipfs/blocks
+      - ./data/repository:/ipns/repository.ipfs.parrot.sh
+      - ./data/website/public:/ipns/website.ipfs.parrot.sh
+      - ./data/documentation/site:/ipns/website.ipfs.parrot.sh/docs
+      - ./data/static:/ipns/static.ipfs.parrot.sh
+    networks:
+      - ipfs
+  ipfs-cluster:
+    container_name: ipfs-cluster
+    image: ipfs/ipfs-cluster:latest
+    depends_on:
+      - ipfs
+    environment:
+      CLUSTER_PEERNAME: ${IPFS_CLUSTER_PEERNAME}
+      CLUSTER_SECRET: ${IPFS_CLUSTER_SECRET}
+      CLUSTER_IPFSHTTP_NODEMULTIADDRESS: /dns4/ipfs/tcp/5001
+      CLUSTER_CRDT_TRUSTEDPEERS: '*' # Trust all peers in Cluster
+      CLUSTER_RESTAPI_HTTPLISTENMULTIADDRESS: /ip4/0.0.0.0/tcp/9094 # Expose API
+      CLUSTER_MONITORPINGINTERVAL: 2s # Speed up peer discovery
+    ports:
+      - 9096:9096
+    volumes:
+      - ./data/ipfs/datastore:/data/ipfs/datastore
+      - ./data/ipfs/keystore:/data/ipfs/keystore
+      - ./data/ipfs/blocks:/data/ipfs/blocks
+      - ./data/repository:/ipns/repository.ipfs.parrot.sh
+      - ./data/website/public:/ipns/website.ipfs.parrot.sh
+      - ./data/documentation/site:/ipns/website.ipfs.parrot.sh/docs
+      - ./data/static:/ipns/static.ipfs.parrot.sh
+    networks:
+      - ipfs
+  ipfs-cluster-manager:
+    container_name: ipfs-cluster
+    image: ipfs/ipfs-cluster:latest
+    depends_on:
+      - ipfs
+      - ipfs-cluster
+    environment:
+      CLUSTER_PEERNAME: ${IPFS_CLUSTER_PEERNAME}
+      CLUSTER_SECRET: ${IPFS_CLUSTER_SECRET}
+      CLUSTER_IPFSHTTP_NODEMULTIADDRESS: /dns4/ipfs/tcp/5001
+      CLUSTER_CRDT_TRUSTEDPEERS: '*' # Trust all peers in Cluster
+      CLUSTER_RESTAPI_HTTPLISTENMULTIADDRESS: /ip4/0.0.0.0/tcp/9094 # Expose API
+      CLUSTER_MONITORPINGINTERVAL: 2s # Speed up peer discovery
+    command: >
+      bash -c "ipfs-cluster-ctl pin add --name cluster-website --replicas /ipns/website.ipfs.parrot.sh;
+              ipfs-cluster-ctl pin add --name cluster-website --replicas /ipns/repository.ipfs.parrot.sh;
+              ipfs-cluster-ctl pin add --name cluster-website --replicas /ipns/website.ipfs.parrot.sh"
+    volumes:
+      - ./data/ipfs/datastore:/data/ipfs/datastore
+      - ./data/ipfs/keystore:/data/ipfs/keystore
+      - ./data/ipfs/blocks:/data/ipfs/blocks
+      - ./data/repository:/ipns/repository.ipfs.parrot.sh
+      - ./data/website/public:/ipns/website.ipfs.parrot.sh
+      - ./data/documentation/site:/ipns/website.ipfs.parrot.sh/docs
+      - ./data/static:/ipns/static.ipfs.parrot.sh
+    networks:
+      - ipfs
+
+
+
+networks:
+  main:
+    driver: bridge
+  ipfs:
+    driver: bridge
