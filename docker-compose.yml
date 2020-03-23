@@ -98,6 +98,7 @@ services:
       - ${IPFS_CLUSTER_BIND}:9096:9096
     volumes:
       - ./data/ipfs:/data/ipfs:z
+      - ./data/ipfs-cluster:/data/ipfs-cluster:z
       - ./data/repository:/ipns/repository.ipfs.parrot.sh
       - ./data/website/public:/ipns/website.ipfs.parrot.sh
       - ./data/documentation/site:/ipns/website.ipfs.parrot.sh/docs
