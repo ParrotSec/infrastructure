@@ -74,9 +74,9 @@ services:
     #  - "5001:5001" # ipfs api
       - "8080:8080" # ipfs gateway
     volumes:
-      - ./data/ipfs/datastore:/data/ipfs/datastore
-      - ./data/ipfs/keystore:/data/ipfs/keystore
-      - ./data/ipfs/blocks:/data/ipfs/blocks
+      - ./data/ipfs/datastore:/data/ipfs/datastore:z
+      - ./data/ipfs/keystore:/data/ipfs/keystore:z
+      - ./data/ipfs/blocks:/data/ipfs/blocks:z
       - ./data/repository:/ipns/repository.ipfs.parrot.sh
       - ./data/website/public:/ipns/website.ipfs.parrot.sh
       - ./data/documentation/site:/ipns/website.ipfs.parrot.sh/docs
@@ -98,9 +98,9 @@ services:
     ports:
       - ${IPFS_CLUSTER_BIND}:9096:9096
     volumes:
-      - ./data/ipfs-cluster/datastore:/data/ipfs/datastore
-      - ./data/ipfs-cluster/keystore:/data/ipfs/keystore
-      - ./data/ipfs-cluster/blocks:/data/ipfs/blocks
+      - ./data/ipfs-cluster/datastore:/data/ipfs/datastore:z
+      - ./data/ipfs-cluster/keystore:/data/ipfs/keystore:z
+      - ./data/ipfs-cluster/blocks:/data/ipfs/blocks:z
       - ./data/repository:/ipns/repository.ipfs.parrot.sh
       - ./data/website/public:/ipns/website.ipfs.parrot.sh
       - ./data/documentation/site:/ipns/website.ipfs.parrot.sh/docs
@@ -125,9 +125,9 @@ services:
               ipfs-cluster-ctl pin add --name cluster-website --replicas /ipns/repository.ipfs.parrot.sh;
               ipfs-cluster-ctl pin add --name cluster-website --replicas /ipns/website.ipfs.parrot.sh"
     volumes:
-      - ./data/ipfs-cluster/datastore:/data/ipfs/datastore
-      - ./data/ipfs-cluster/keystore:/data/ipfs/keystore
-      - ./data/ipfs-cluster/blocks:/data/ipfs/blocks
+      - ./data/ipfs-cluster/datastore:/data/ipfs/datastore:z
+      - ./data/ipfs-cluster/keystore:/data/ipfs/keystore:Z
+      - ./data/ipfs-cluster/blocks:/data/ipfs/blocks:z
       - ./data/repository:/ipns/repository.ipfs.parrot.sh
       - ./data/website/public:/ipns/website.ipfs.parrot.sh
       - ./data/documentation/site:/ipns/website.ipfs.parrot.sh/docs
