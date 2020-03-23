@@ -47,6 +47,8 @@ services:
   director:
     container_name: director
     build: ./mirrorbits/
+    depends_on:
+      - director-redis
     volumes:
       - ./mirrorbits/mirrors.sh:/mirrors.sh
       - ./data/repository:/var/www/repository
@@ -56,6 +58,14 @@ services:
       - "9000"
     networks:
       - main
+      - director
+  director-redis:
+    image: redis
+    volumes:
+      - ./data/redis:/var/lib/redis
+    networks:
+      - director
+      
   ipfs:
     container_name: ipfs
     image: ipfs/go-ipfs
@@ -129,6 +139,8 @@ services:
 
 networks:
   main:
+    driver: bridge
+  director:
     driver: bridge
   ipfs:
     driver: bridge
