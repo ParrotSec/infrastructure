@@ -7,7 +7,7 @@ ENV VERSION 0.1
 RUN apt-get update;apt-get -y dist-upgrade; rm -rf /var/lib/apt/lists/*
 
 # Install dependencies
-RUN apt-get update;apt-get -y install rsync geoip-database geoip-database-extra;rm -rf /var/lib/apt/lists/*
+RUN apt-get update;apt-get -y install rsync geoip-database geoip-database-extra wget;rm -rf /var/lib/apt/lists/*
 
 # Install mirrorbits
 RUN wget https://github.com/etix/mirrorbits/releases/download/v0.5.1/mirrorbits-v0.5.1.tar.gz -O mirrorbits.tar.gz;\
