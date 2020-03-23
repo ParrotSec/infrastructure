@@ -4,7 +4,7 @@ services:
     container_name: gateway
     build: ./gateway/
     volumes:
-      - ./data/website/public:/var/www/htmml/
+      - ./data/website/public:/var/www/html/
       - ./data/documentation/site:/var/www/html/docs
       - ./data/static:/var/www/static
       - ./data/repository/:/var/www/repository/
@@ -98,9 +98,9 @@ services:
     ports:
       - 9096:9096
     volumes:
-      - ./data/ipfs/datastore:/data/ipfs/datastore
-      - ./data/ipfs/keystore:/data/ipfs/keystore
-      - ./data/ipfs/blocks:/data/ipfs/blocks
+      - ./data/ipfs-cluster/datastore:/data/ipfs/datastore
+      - ./data/ipfs-cluster/keystore:/data/ipfs/keystore
+      - ./data/ipfs-cluster/blocks:/data/ipfs/blocks
       - ./data/repository:/ipns/repository.ipfs.parrot.sh
       - ./data/website/public:/ipns/website.ipfs.parrot.sh
       - ./data/documentation/site:/ipns/website.ipfs.parrot.sh/docs
@@ -125,9 +125,9 @@ services:
               ipfs-cluster-ctl pin add --name cluster-website --replicas /ipns/repository.ipfs.parrot.sh;
               ipfs-cluster-ctl pin add --name cluster-website --replicas /ipns/website.ipfs.parrot.sh"
     volumes:
-      - ./data/ipfs/datastore:/data/ipfs/datastore
-      - ./data/ipfs/keystore:/data/ipfs/keystore
-      - ./data/ipfs/blocks:/data/ipfs/blocks
+      - ./data/ipfs-cluster/datastore:/data/ipfs/datastore
+      - ./data/ipfs-cluster/keystore:/data/ipfs/keystore
+      - ./data/ipfs-cluster/blocks:/data/ipfs/blocks
       - ./data/repository:/ipns/repository.ipfs.parrot.sh
       - ./data/website/public:/ipns/website.ipfs.parrot.sh
       - ./data/documentation/site:/ipns/website.ipfs.parrot.sh/docs
