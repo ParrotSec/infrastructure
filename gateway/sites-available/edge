@@ -1,0 +1,467 @@
+proxy_cache_path /cache/ levels=1:2 keys_zone=cache:4m max_size=10g inactive=720m use_temp_path=off;
+
+limit_req_zone $binary_remote_addr zone=torrent:120m rate=1r/s;
+limit_req_zone $binary_remote_addr zone=limited:60m rate=5r/s;
+limit_req_zone $binary_remote_addr zone=standard:60m rate=10r/s;
+limit_req_zone $binary_remote_addr zone=high:30m rate=20r/s;
+
+
+upstream pad {
+        ip_hash;
+        keepalive 32;
+        server pad-1.internal.parrot.sh resolve weight=5 max_fails=2 fail_timeout=60 slow_start=120;
+        server pad-2.internal.parrot.sh resolve;
+        server pad-3.internal.parrot.sh resolve backup;
+}
+
+upstream nextcloud {
+        ip_hash;
+        keepalive 32;
+        server nextcloud-1.internal.parrot.sh resolve weight=5 max_fails=2 fail_timeout=60 slow_start=120;
+        server nextcloud-2.internal.parrot.sh resolve;
+        server nextcloud-3.internal.parrot.sh resolve backup;
+}
+
+upstream webmail {
+        ip_hash;
+        keepalive 8;
+        server webmail-1.internal.parrot.sh resolve weight=5 max_fails=2 fail_timeout=60 slow_start=120;
+        server webmail-2.internal.parrot.sh resolve;
+        server webmail-3.internal.parrot.sh resolve backup;
+}
+
+upstream nest {
+        ip_hash;
+        keepalive 16;
+        server nest-1.internal.parrot.sh resolve weight=5 max_fails=2 fail_timeout=60 slow_start=120;
+        server nest-2.internal.parrot.sh resolve;
+        server nest-3.internal.parrot.sh resolve backup;
+}
+
+upstream repository {
+        ip_hash;
+        keepalive 64;
+        server 127.0.0.1:8443;
+        server repository-1.internal.parrot.sh resolve weight=5 max_fails=1 fail_timeout=30 slow_start=60 backup;
+        server repository-2.internal.parrot.sh resolve backup;
+        server repository-3.internal.parrot.sh resolve backup;
+}
+
+upstream tracker {
+        ip_hash;
+        keepalive 32;
+        server tracker-1.internal.parrot.sh resolve weight=5 max_fails=2 fail_timeout=60 slow_start=120;
+        server tracker-2.internal.parrot.sh resolve;
+        server tracker-3.internal.parrot.sh resolve backup;
+}
+
+# redirect http to https
+server {
+    listen 80 default_server;
+    listen [::]:80 default_server;
+    return 301 https://$host$request_uri;
+}
+
+# redirect invalid websites
+server {
+        listen 443 ssl http2 default_server;
+        listen [::]:443 ssl http2 default_server;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_tokens off;
+        server_name _;
+        location ~ ^/(?<path>.*) {
+                return 302 https://parrotsec.org/$path;
+            }
+}
+
+
+# redirect secondary domains to main domain
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_tokens off;
+        server_name fzbx.io www.fzbx.io parrot.sh www.parrot.sh parrotsec.io www.parrotsec.io parrotlinux.com www.parrotlinux.com parrotlinux.net www.parrotlinux.net;
+        location ~ ^/(?<path>.*) {
+                return 302 https://parrotsec.org/$path;
+        }
+}
+
+# redirect community to main domain
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_tokens off;
+        server_name community.parrot.sh community.parrotlinux.com community.parrotlinux.net community.parrotsec.io community.parrotlinux.org;
+        location ~ ^/(?<path>.*) {
+                return 302 https://community.parrotsec.org/$path;
+            }
+}
+
+
+# main website
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_tokens off;
+        root /var/www/html;
+        index index.php index.html;
+
+        server_name www.* parrotsec.org parrotlinux.org;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+        
+        # redirect legacy download urls
+        location /download.php {
+                        return 301 https://parrotsec.org/download;
+        }
+        location /download-security.php {
+                        return 301 https://parrotsec.org/download;
+                }
+        location /download-home.php {
+                        return 301 https://parrotsec.org/download;
+                }
+        location /download-other.php {
+                        return 301 https://parrotsec.org/download;
+                }
+
+        # deny access to unauthorized resources
+        location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }
+        location ~* /(system|vendor)/.*\.(txt|xml|md|html|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
+        location ~* /user/.*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
+
+}
+
+# documentation website
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_tokens off;
+        root /var/www/html/docs;
+        index index.php index.html;
+
+        server_name docs.* documentation.*;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+
+        # deny access to unauthorized resources
+        location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }
+        location ~* /(system|vendor)/.*\.(txt|xml|md|html|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
+        location ~* /user/.*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
+
+}
+
+# old blog redirection
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_tokens off;
+
+        server_name blog.*;
+
+        return 301 https://www.parrotsec.org/blog/$request_uri;
+}
+
+# speedtest page
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_tokens off;
+        root /var/www/speedtest;
+        index index.php index.html;
+
+        server_name speedtest.* *.cdn.*;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+        location ~ ^/speedtest/(.*)(\.php)$ {
+                include snippets/php-fpm.conf;
+        }
+        location /speedtest/empty.php {
+                include snippets/php-fpm.conf;
+                expires 30d;
+                add_header Pragma "public";
+                add_header Cache-Control "public, must-revalidate, proxy-revalidate";
+        }
+        location /speedtest/garbage.php {
+                include snippets/php-fpm.conf;
+                expires 30d;
+                add_header Pragma "public";
+                add_header Cache-Control "public, must-revalidate, proxy-revalidate";
+        }
+
+        # deny access to unauthorized resources
+        location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }
+        location ~* /(system|vendor)/.*\.(txt|xml|md|html|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
+        location ~* /user/.*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
+}
+
+# content delivery network
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_tokens off;
+        root /var/www/static;
+        index index.html;
+
+        server_name cdn.* static.* ;
+
+        location / {
+                try_files $uri $uri/ =404;
+        }
+
+        # deny access to unauthorized resources
+        location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }
+}
+
+# cryptpad
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_tokens off;
+
+        server_name pad.* poll.* paste.* cryptpad.* crypt.* secure.*;
+
+        location / {
+                proxy_pass https://pad;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection $connection_upgrade;
+                include snippets/cache-buffer.conf
+        }
+        location ~ ^/(?<path>|css|js|img|fonts|common|customize|file|pad|bower_components|)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot) {
+                proxy_pass https://pad;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection $connection_upgrade;
+                include snippets/cache-aggressive.conf
+        }
+
+        # deny access to unauthorized resources
+        location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }
+        location ~* /(system|vendor)/.*\.(txt|xml|md|html|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
+        location ~* /user/.*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
+
+}
+
+# nextcloud
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_tokens off;
+
+        server_name cloud.*\;
+
+        location / {
+                proxy_pass https://nextcloud;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection $connection_upgrade;
+                include snippets/cache-buffer.conf
+        }
+        location ~ ^/(?<path>|css|js|img|fonts|common|customize|file|pad|bower_components|)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot) {
+                proxy_pass https://nextcloud;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection $connection_upgrade;
+                include snippets/cache-aggressive.conf
+        }
+
+        # deny access to unauthorized resources
+        location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }
+        location ~* /(system|vendor)/.*\.(txt|xml|md|html|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
+        location ~* /user/.*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
+
+}
+
+# webmail
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_tokens off;
+
+        server_name webmail.* mail.*;
+
+        location / {
+                proxy_pass https://webmail;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection $connection_upgrade;
+                include snippets/cache-buffer.conf
+        }
+        location ~ ^/(?<path>assets|js|css|inc|/SOGo\.woa/WebServerResources/css|/SOGo\.woa/WebServerResources/js)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot)$ {
+                proxy_pass https://webmail;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection $connection_upgrade;
+                include snippets/cache-buffer.conf
+        }
+
+        # deny access to unauthorized resources
+        location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }
+        location ~* /(system|vendor)/.*\.(txt|xml|md|html|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
+        location ~* /user/.*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
+
+}
+
+# nest
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_tokens off;
+
+        server_name pad.* poll.* paste.* cryptpad.* crypt.* secure.*;
+
+        location / {
+                proxy_pass https://nest;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection $connection_upgrade;
+                include snippets/cache-buffer.conf
+        }
+        location ~ ^/(?<path>|snippets|assets|uploads)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot)$ {
+                proxy_pass https://nest;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection $connection_upgrade;
+                include snippets/cache-aggressive.conf
+        }
+
+        # deny access to unauthorized resources
+        location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }
+        location ~* /(system|vendor)/.*\.(txt|xml|md|html|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
+        location ~* /user/.*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
+
+}
+
+
+# repository
+server {
+        listen 80;
+        listen [::]:80;
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_tokens off;
+        root /var/www/html/docs;
+        index index.php index.html;
+
+        server_name archive.* deb.* mirror.* download.* downloads.* dl.* cdimage.* dvdimage.* ftp.* repo.* http.* get.* *.deb.parrotsec.org *.deb.parrot.sh *.deb.parrotlinux.com *.deb.parrotlinux.org *.mirror.parrotsec.org *.mirror.parrot.sh *.mirror.parrotlinux.com *.mirror.parrotlinux.org emea-mirror.* apac-mirror.* ncsa-mirror.* cfmirror.* scappellamento-float-left.*;
+
+        # serve files from repository revalidating file status
+        location / {
+                proxy_pass https://repository;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                include snippets/cache-buffer.conf
+        }
+
+        # serve files from cache when possible ignoring cache revalidation
+        location ~ ^(\.deb|\.udeb|\.dsc|\.gz|\.xz|\.bz2|\.lzma)$ {
+                proxy_pass https://repository;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                include snippets/cache-aggressive.conf
+        }
+
+        # do not cache resource
+        location ~ ^(\.iso|\.ova|\.img)$ {
+                proxy_pass https://repository;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Forwarded-For $remote_addr;
+        }
+
+        # pass speedtest garbage file
+        location ~ ^(?<file>/speedtest/garbage.php|/speedtest/empty.php)$ {
+                proxy_pass https://repository$file?skSize=20;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                include snippets/cache-aggressive.conf
+        }
+
+
+        # deny access to unauthorized resources
+        location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }
+        location ~* /(system|vendor)/.*\.(txt|xml|md|html|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
+        location ~* /user/.*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
+
+}
+
+
+
+# tracker
+server {
+        listen 80;
+        listen [::]:80;
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_tokens off;
+
+        server_name tracker.* wolf.* torrent.* tracker2.* wolf2.* torrent2.*;
+
+        location / {
+                proxy_pass https://tracker;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection $connection_upgrade;
+                include snippets/cache-buffer.conf
+        }
+
+        # deny access to unauthorized resources
+        location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }
+        location ~* /(system|vendor)/.*\.(txt|xml|md|html|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
+        location ~* /user/.*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
+
+}

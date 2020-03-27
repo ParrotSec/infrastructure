@@ -1,0 +1,17 @@
+version: "3"
+services:
+  firewall:
+    container_name: firewall
+    build: ./firewall/
+    restart: always
+    volumes:
+      - ./firewall/jail/:/etc/fail2ban/jail.d/
+      - ./firewall/filter/:/etc/fail2ban/filter.d/
+      - ./data/firewall/:/var/lib/fail2ban/
+      - ./data/logs/:/logs/
+      - /var/log/:/var/log/
+    network_mode: "host"
+    privileged: true
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW

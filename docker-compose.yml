@@ -8,10 +8,15 @@ services:
       - ./data/documentation/site:/var/www/html/docs
       - ./data/static:/var/www/static
       - ./data/repository/:/var/www/repository/
+      - ./data/speedtest/:/var/www/speedtest/
       - ./data/certs:/root/certs
       - ./gateway/realip.conf:/etc/nginx/snippets/realip.conf
-      - ./gateway/snakeoil.conf:/etc/nginx/snippets/snakeoil.conf
-      - ./gateway/default:/etc/nginx/sites-enabled/default
+      - ./gateway/realip.conf:/etc/nginx/snippets/realip.conf
+      - ./gateway/cache-buffering.conf:/etc/nginx/snippets/cache-buffering.conf
+      - ./gateway/cache-aggressive.conf:/etc/nginx/snippets/cache-aggressive.conf
+      - ./gateway/sites-available:/etc/nginx/sites-available
+      - ./gateway/sites-available/edge:/etc/nginx/sites-enabled/edge
+      #- ./gateway/sites-available/repo:/etc/nginx/sites-enabled/repo
       - ./gateway/nginx.conf:/etc/nginx/nginx.conf
       - ./gateway/php-fpm.conf:/etc/nginx/snippets/php-fpm.conf
     restart: always
@@ -23,57 +28,6 @@ services:
       - "443:443"
     networks:
       - main
-
-  rsync:
-    container_name: rsyncd
-    build: ./rsync/
-    volumes:
-      - ./data/repository/:/var/www/repository/
-      - ./rsync/rsyncd.conf:/etc/rsyncd.conf
-    restart: always
-    ports:
-     - "873:873"
-    networks:
-      - main
-  php-repo:
-    container_name: php-repo
-    image: php:7.3-fpm-buster
-    volumes:
-      - ./data/repository/speedtest:/var/www/repository/speedtest
-    expose:
-      - "9000"
-    restart: always
-    networks:
-      - main
-  updater:
-    container_name: updater
-    build: ./updater/
-    volumes:
-      - ./data/repository/:/var/www/repository
-    restart: always
-
-
-  director:
-    container_name: director
-    build: ./mirrorbits/
-    depends_on:
-      - director-redis
-    volumes:
-      - ./mirrorbits/mirrors.sh:/mirrors.sh
-      - ./data/repository:/var/www/repository
-      - ./data/logs/mirrorbits:/var/log/mirrorbits
-    restart: always
-    expose:
-      - "9000"
-    networks:
-      - main
-      - director
-  director-redis:
-    image: redis
-    volumes:
-      - ./data/redis:/var/lib/redis
-    networks:
-      - director
       
   ipfs:
     container_name: ipfs
@@ -83,10 +37,11 @@ services:
     #  - "5001:5001" # ipfs api
       - "8080:8080" # ipfs gateway
     volumes:
-      - ./data/ipfs:/data/ipfs:z
+      - ./data/ipfs:/data/ipfs
       - ./data/website/public:/ipns/website.ipfs.parrot.sh
       - ./data/documentation/site:/ipns/website.ipfs.parrot.sh/docs
       - ./data/static:/ipns/static.ipfs.parrot.sh
+      - ./data/speedtest:/ipns/speedtest.ipfs.parrot.sh
     restart: always
     networks:
       - ipfs
@@ -96,8 +51,6 @@ services:
 
 networks:
   main:
-    driver: bridge
-  director:
     driver: bridge
   ipfs:
     driver: bridge

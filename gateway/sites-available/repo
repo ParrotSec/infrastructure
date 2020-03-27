@@ -1,4 +1,4 @@
-upstream repository {
+upstream archive {
     server 127.0.0.1:8080;
     server 127.0.0.1:8081 backup;
 }
@@ -10,24 +10,26 @@ server {
         server_tokens off;
         access_log  off;
         error_log off;
-        root /var/www/html/parrot;
+        root /var/www/repository/parrot;
         location / {
                 try_files $uri $uri/ =404;
+                add_header Pragma "public";
+                add_header Cache-Control "public, must-revalidate, proxy-revalidate";
         }
 }
 
 # full rules
 server {
-        listen 80 default_server;
-        listen [::]:80 default_server;
-        listen 443 ssl default_server;
-        listen [::]:443 ssl default_server;
+        listen 8000 default_server;
+        listen [::]:8000 default_server;
+        listen 8443 ssl default_server;
+        listen [::]:8443 ssl default_server;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
         server_tokens off;
         access_log  off;
 
-        root /var/www/html;
+        root /var/www/repository;
 
         # Add index.php to the list if you are using PHP
         index index.html index.php;
@@ -44,8 +46,6 @@ server {
                 proxy_buffer_size   1024k;
                 proxy_buffers   512 64k;
                 proxy_busy_buffers_size   1024k;
-                add_header Pragma "no-cache";
-                add_header Cache-Control "no-cache";
         }
 
         location ~ ^/parrot/dists/(?<fwd_path>.*)(?<fwd_file>\.iso|\.img)$ {
@@ -57,8 +57,6 @@ server {
                 proxy_buffer_size   1024k;
                 proxy_buffers   512 64k;
                 proxy_busy_buffers_size   1024k;
-                add_header Pragma "no-cache";
-                add_header Cache-Control "no-cache";
         }
         
         location ~ ^/parrot/(?<fwd_path>.*)(\.mirrorlist)$ {
@@ -90,6 +88,12 @@ server {
         location ~ ^/speedtest/(.*)(\.php)$ {
                 include snippets/php-fpm.conf;
         }
+        location /speedtest/empty.php {
+                include snippets/php-fpm.conf;
+                expires 30d;
+                add_header Pragma "public";
+                add_header Cache-Control "public, must-revalidate, proxy-revalidate";
+        }
         location /speedtest/garbage.php {
                 include snippets/php-fpm.conf;
                 expires 30d;
@@ -106,7 +110,6 @@ server {
         }
         
         location / {
-                #root /srv;
                 try_files $uri $uri/ =404;
                 fancyindex on;
                 fancyindex_exact_size off;

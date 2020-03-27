@@ -1,0 +1,32 @@
+version: "3"
+services:
+  gateway:
+    volumes:
+      - ./gateway/sites-available/repo:/etc/nginx/sites-enabled/repo
+  rsync:
+    container_name: rsyncd
+    build: ./rsync/
+    volumes:
+      - ./data/repository/:/var/www/repository/
+      - ./rsync/rsyncd.conf:/etc/rsyncd.conf
+    restart: always
+    ports:
+     - "873:873"
+    networks:
+      - main
+  php-repo:
+    container_name: php-repo
+    image: php:7.3-fpm-buster
+    volumes:
+      - ./data/repository/speedtest:/var/www/repository/speedtest
+    expose:
+      - "9000"
+    restart: always
+    networks:
+      - main
+  updater:
+    container_name: updater
+    build: ./updater/
+    volumes:
+      - ./data/repository/:/var/www/repository
+    restart: always

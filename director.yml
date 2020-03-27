@@ -1,0 +1,29 @@
+version: "3"
+services:
+  director:
+    container_name: director
+    build: ./mirrorbits/
+    depends_on:
+      - director-redis
+      - rsync
+      - updater
+    volumes:
+      - ./mirrorbits/mirrors.sh:/mirrors.sh
+      - ./data/repository:/var/www/repository
+      - ./data/logs/mirrorbits:/var/log/mirrorbits
+    restart: always
+    expose:
+      - "9000"
+    networks:
+      - main
+      - director
+  director-redis:
+    image: redis
+    volumes:
+      - ./data/redis:/var/lib/redis
+    networks:
+      - director
+
+networks:
+  director:
+    driver: bridge
