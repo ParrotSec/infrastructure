@@ -28,7 +28,7 @@ services:
       - ./geodns/pdns.conf:/etc/powerdns/pdns.conf
       - ./geodns/pdns.service:/lib/systemd/system/pdns.service
       - ./geodns/geoip.conf:/etc/powerdns/pdns.d/geoip.conf
-      - ./geodns/geo.yml:/etc/powerdns/geo.yml
+      - ./geodns/zones.yml:/etc/powerdns/zones.yml
     networks:
       dnsnet:
         ipv4_address: 172.18.12.3

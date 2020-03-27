@@ -30,6 +30,14 @@ upstream webmail {
         server webmail-3.internal.parrot.sh resolve backup;
 }
 
+upstream community {
+        ip_hash;
+        keepalive 16;
+        server community-1.internal.parrot.sh resolve weight=5 max_fails=2 fail_timeout=60 slow_start=120;
+        server community-2.internal.parrot.sh resolve;
+        server community-3.internal.parrot.sh resolve backup;
+}
+
 upstream nest {
         ip_hash;
         keepalive 16;
@@ -44,15 +52,6 @@ upstream repository {
         server 127.0.0.1:8443;
         server repository-1.internal.parrot.sh resolve weight=5 max_fails=1 fail_timeout=30 slow_start=60 backup;
         server repository-2.internal.parrot.sh resolve backup;
-        server repository-3.internal.parrot.sh resolve backup;
-}
-
-upstream tracker {
-        ip_hash;
-        keepalive 32;
-        server tracker-1.internal.parrot.sh resolve weight=5 max_fails=2 fail_timeout=60 slow_start=120;
-        server tracker-2.internal.parrot.sh resolve;
-        server tracker-3.internal.parrot.sh resolve backup;
 }
 
 # redirect http to https
@@ -450,7 +449,7 @@ server {
         server_name tracker.* wolf.* torrent.* tracker2.* wolf2.* torrent2.*;
 
         location / {
-                proxy_pass https://tracker;
+                proxy_pass https://repository;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real_IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
