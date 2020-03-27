@@ -1,0 +1,25 @@
+FROM debian:buster
+MAINTAINER Lorenzo "Palinuro" Faletra (palinuro@linux.it)
+ENV DEBIAN_FRONTEND noninteractive
+ENV VERSION 0.1
+
+# Update system
+RUN apt-get update;apt-get -y dist-upgrade; rm -rf /var/lib/apt/lists/*
+
+# Install dependencies
+RUN apt-get update;apt-get -y install geoipupdate; \
+	rm -rf /var/lib/apt/lists/*
+
+COPY update.sh /update.sh
+
+RUN chmod +x /update.sh
+
+ENV MM_USER $MM_USER
+ENV MM_KEY $MM_KEY
+ENV MM_SUBSCRIPTIONS $MM_SUBSCRIPTIONS
+
+RUN echo "AccountID $MM_USER" > /etc/GeoIP.conf;\
+	echo "LicenseKey $MM_KEY" >> /etc/GeoIP.conf;\
+	echo "EditionIDs $MM_SUBSCRIPTIONS" /etc/GeoIP.conf
+
+CMD /update.sh

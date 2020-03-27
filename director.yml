@@ -8,6 +8,7 @@ services:
       - rsync
       - updater
     volumes:
+      - ./data/geoipdb:/var/lib/GeoIP
       - ./mirrorbits/mirrors.sh:/mirrors.sh
       - ./data/repository:/var/www/repository
       - ./data/logs/mirrorbits:/var/log/mirrorbits

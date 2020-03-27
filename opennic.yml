@@ -22,9 +22,12 @@ services:
     container_name: pdns
     build: ./geodns/pdns/
     restart: always
+    depends_on:
+      - geoipupdate
     expose:
       - "8053"
     volumes:
+      - ./data/geoipdb:/var/lib/GeoIP
       - ./geodns/pdns.conf:/etc/powerdns/pdns.conf
       - ./geodns/pdns.service:/lib/systemd/system/pdns.service
       - ./geodns/geoip.conf:/etc/powerdns/pdns.d/geoip.conf
@@ -45,6 +48,16 @@ services:
     networks:
       dnsnet:
         ipv4_address: 172.18.12.4
+  geoipupdate:
+    container_name: geoipupdate
+    build: ./geodns/geoipupdate/
+    volumes:
+      - ./data/geoipdb:/var/lib/GeoIP
+    restart: always
+    environment:
+      - MM_USER=${MM_USER}
+      - MM_KEY=${MM_KEY}
+      - MM_SUBSCRIPTIONS=${MM_SUBSCRIPTIONS}
 
 
 
