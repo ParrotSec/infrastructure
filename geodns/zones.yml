@@ -273,6 +273,15 @@ domains:
       #toronto.cdn.parrot.sh
       - a: 172.105.5.69
       - aaaa: 2600:3c04::f03c:92ff:fee2:870b
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #sanfrancisco.d.cdn.parrot.sh
+      - a: 167.172.126.146
+      - aaaa: 2604:a880:2:d1::1e2:1
+      #toronto.d.cdn.poarrot.sh
+      - a: 167.99.189.229
+      - aaaa: 2604:a880:cad:d0::8e3:8001
 
 
     #south america
@@ -284,6 +293,12 @@ domains:
       #lasvegas.cdn.parrot.sh
       - a: 209.141.60.226
       - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #sanfrancisco.d.cdn.parrot.sh
+      - a: 167.172.126.146
+      - aaaa: 2604:a880:2:d1::1e2:1
 
 
     #europe
@@ -298,6 +313,15 @@ domains:
       #luxemburg.cdn.parrot.sh
       - a: 104.244.79.186
       - aaaa: 2605:6400:0030:fc1c:aaaa:feed:dead:beef
+      #london.d.cdn.poarrot.sh
+      - a: 161.35.36.53
+      - aaaa: 2a03:b0c0:1:e0::62d:d001
+      #amsterdam.d.cdn.poarrot.sh
+      - a: 142.93.136.116
+      - aaaa: 2a03:b0c0:2:f0::16e:d001
+      #frankfurt.d.cdn.poarrot.sh
+      - a: 178.128.204.62
+      - aaaa: 2a03:b0c0:3:e0::2f5:1001
 
     #asia
     as.geo.parrot.sh:
@@ -310,6 +334,12 @@ domains:
       - aaaa: 2400:8901::f03c:92ff:fee2:8706
       #apac.any.parrot.sh
       - a: 209.141.32.25
+      #bangalore.d.cdn.poarrot.sh
+      - a: 165.22.209.106
+      - aaaa: 2400:6180:100:d0::84d:e001
+      #singapore.d.cdn.poarrot.sh
+      - a: 68.183.178.72
+      - aaaa: 2400:6180:0:d1::57d:3001
 
     #oceania
     oc.geo.parrot.sh:
@@ -325,6 +355,9 @@ domains:
       #tokyo.cdn.parrot.sh
       - a: 172.105.220.183
       - aaaa: 2400:8902::f03c:92ff:fee2:8722
+      #singapore.d.cdn.poarrot.sh
+      - a: 68.183.178.72
+      - aaaa: 2400:6180:0:d1::57d:3001
 
     #africa
     #missing servers - using europe
@@ -345,6 +378,9 @@ domains:
       #london.cdn.parrot.sh
       - a: 139.162.234.16
       - aaaa: 2a01:7e00::f03c:92ff:fee2:8777
+      #london.d.cdn.poarrot.sh
+      - a: 161.35.36.53
+      - aaaa: 2a03:b0c0:1:e0::62d:d001
     gb.eu.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       - alias: uk.eu.geo.parrot.sh
@@ -353,6 +389,18 @@ domains:
       #frankfurt.cdn.parrot.sh
       - a: 172.105.72.56
       - aaaa: 2a01:7e01::f03c:92ff:fee2:8773
+      #frankfurt.d.cdn.poarrot.sh
+      - a: 178.128.204.62
+      - aaaa: 2a03:b0c0:3:e0::2f5:1001
+    nl.eu.geo.parrot.sh:
+      #amsterdam.d.cdn.poarrot.sh
+      - a: 142.93.136.116
+      - aaaa: 2a03:b0c0:2:f0::16e:d001
+    dk.eu.geo.parrot.sh:
+      #amsterdam.d.cdn.poarrot.sh
+      - a: 142.93.136.116
+      - aaaa: 2a03:b0c0:2:f0::16e:d001
+     
       
     lu.eu.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
@@ -365,14 +413,16 @@ domains:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       - cname: na.geo.parrot.sh
 
+
+
     ca.na.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       #toronto.cdn.parrot.sh
       - a: 172.105.5.69
       - aaaa: 2600:3c04::f03c:92ff:fee2:870b
-      #newyork.cdn.parrot.sh
-      - a: 198.98.49.91
-      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+      #toronto.d.cdn.poarrot.sh
+      - a: 167.99.189.229
+      - aaaa: 2604:a880:cad:d0::8e3:8001
       
 
 
@@ -384,11 +434,17 @@ domains:
       #sydney.cdn.parrot.sh
       - a: 172.105.162.206
       - aaaa: 2400:8907::f03c:92ff:fee2:87ff
+      #singapore.d.cdn.poarrot.sh
+      - a: 68.183.178.72
+      - aaaa: 2400:6180:0:d1::57d:3001
     in.as.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       #mumbai.cdn.parrot.sh
       - a: 172.105.49.243
       - aaaa: 2400:8904::f03c:92ff:fee2:87ba
+      #bangalore.d.cdn.poarrot.sh
+      - a: 165.22.209.106
+      - aaaa: 2400:6180:100:d0::84d:e001
     cn.as.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       #apac.any.parrot.sh
@@ -399,6 +455,9 @@ domains:
       #singapore.cdn.parrot.sh
       - a: 139.162.24.92
       - aaaa: 2400:8901::f03c:92ff:fee2:8706
+      #singapore.d.cdn.poarrot.sh
+      - a: 68.183.178.72
+      - aaaa: 2400:6180:0:d1::57d:3001
     jp.as.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       #tokyo.cdn.parrot.sh
@@ -412,6 +471,12 @@ domains:
       #london.cdn.parrot.sh
       - a: 139.162.234.16
       - aaaa: 2a01:7e00::f03c:92ff:fee2:8777
+      #frankfurt.d.cdn.poarrot.sh
+      - a: 178.128.204.62
+      - aaaa: 2a03:b0c0:3:e0::2f5:1001
+      #amsterdam.d.cdn.poarrot.sh
+      - a: 142.93.136.116
+      - aaaa: 2a03:b0c0:2:f0::16e:d001
 
 
     au.oc.geo.parrot.sh:
@@ -419,12 +484,415 @@ domains:
       #sydney.cdn.parrot.sh
       - a: 172.105.162.206
       - aaaa: 2400:8907::f03c:92ff:fee2:87ff
+      #singapore.d.cdn.poarrot.sh
+      - a: 68.183.178.72
+      - aaaa: 2400:6180:0:d1::57d:3001
 
     nz.oc.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       #sydney.cdn.parrot.sh
       - a: 172.105.162.206
       - aaaa: 2400:8907::f03c:92ff:fee2:87ff
+    
+# USA routing optimizations
+    al.us.na.geo.parrot.sh:
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+    ak.us.na.geo.parrot.sh:
+      #sanfrancisco.d.cdn.parrot.sh
+      - a: 167.172.126.146
+      - aaaa: 2604:a880:2:d1::1e2:1
+      #toronto.d.cdn.poarrot.sh
+      - a: 167.99.189.229
+      - aaaa: 2604:a880:cad:d0::8e3:8001
+    az.us.na.geo.parrot.sh:
+      #lasvegas.cdn.parrot.sh
+      - a: 209.141.60.226
+      - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+      #sanfrancisco.d.cdn.parrot.sh
+      - a: 167.172.126.146
+      - aaaa: 2604:a880:2:d1::1e2:1
+    ar.us.na.geo.parrot.sh:
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+    ca.us.na.geo.parrot.sh:
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+    co.us.na.geo.parrot.sh:
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+      #lasvegas.cdn.parrot.sh
+      - a: 209.141.60.226
+      - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+      #sanfrancisco.d.cdn.parrot.sh
+      - a: 167.172.126.146
+      - aaaa: 2604:a880:2:d1::1e2:1
+    ct.us.na.geo.parrot.sh:
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+    de.us.na.geo.parrot.sh:
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+    fl.us.na.geo.parrot.sh:
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+    ga.us.na.geo.parrot.sh:
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+    hi.us.na.geo.parrot.sh:
+      #sanfrancisco.d.cdn.parrot.sh
+      - a: 167.172.126.146
+      - aaaa: 2604:a880:2:d1::1e2:1
+      #lasvegas.cdn.parrot.sh
+      - a: 209.141.60.226
+      - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+      #apac.any.parrot.sh
+      - a: 209.141.32.25
+      #tokyo.cdn.parrot.sh
+      - a: 172.105.220.183
+      - aaaa: 2400:8902::f03c:92ff:fee2:8722
+      #singapore.cdn.parrot.sh
+      - a: 139.162.24.92
+      - aaaa: 2400:8901::f03c:92ff:fee2:8706
+      #singapore.d.cdn.poarrot.sh
+      - a: 68.183.178.72
+      - aaaa: 2400:6180:0:d1::57d:3001
+    id.us.na.geo.parrot.sh:
+      #lasvegas.cdn.parrot.sh
+      - a: 209.141.60.226
+      - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+      #sanfrancisco.d.cdn.parrot.sh
+      - a: 167.172.126.146
+      - aaaa: 2604:a880:2:d1::1e2:1
+    il.us.na.geo.parrot.sh:
+       #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+    id.us.na.geo.parrot.sh:
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+      #toronto.d.cdn.poarrot.sh
+      - a: 167.99.189.229
+      - aaaa: 2604:a880:cad:d0::8e3:8001
+      #toronto.cdn.parrot.sh
+      - a: 172.105.5.69
+      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
+    ia.us.na.geo.parrot.sh:
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+      #toronto.d.cdn.poarrot.sh
+      - a: 167.99.189.229
+      - aaaa: 2604:a880:cad:d0::8e3:8001
+      #toronto.cdn.parrot.sh
+      - a: 172.105.5.69
+      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+    ks.us.na.geo.parrot.sh:
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+      #lasvegas.cdn.parrot.sh
+      - a: 209.141.60.226
+      - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+    ky.us.na.geo.parrot.sh:
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+      #toronto.d.cdn.poarrot.sh
+      - a: 167.99.189.229
+      - aaaa: 2604:a880:cad:d0::8e3:8001
+      #toronto.cdn.parrot.sh
+      - a: 172.105.5.69
+      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
+    la.us.na.geo.parrot.sh:
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+    ma.us.na.geo.parrot.sh:
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+      #toronto.d.cdn.poarrot.sh
+      - a: 167.99.189.229
+      - aaaa: 2604:a880:cad:d0::8e3:8001
+      #toronto.cdn.parrot.sh
+      - a: 172.105.5.69
+      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
+    mi.us.na.geo.parrot.sh:
+      #toronto.d.cdn.poarrot.sh
+      - a: 167.99.189.229
+      - aaaa: 2604:a880:cad:d0::8e3:8001
+      #toronto.cdn.parrot.sh
+      - a: 172.105.5.69
+      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
+    mn.us.na.geo.parrot.sh:
+      #toronto.d.cdn.poarrot.sh
+      - a: 167.99.189.229
+      - aaaa: 2604:a880:cad:d0::8e3:8001
+      #toronto.cdn.parrot.sh
+      - a: 172.105.5.69
+      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
+    ms.us.na.geo.parrot.sh:
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+    mu.us.na.geo.parrot.sh:
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+    mt.us.na.geo.parrot.sh:
+      #lasvegas.cdn.parrot.sh
+      - a: 209.141.60.226
+      - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+      #sanfrancisco.d.cdn.parrot.sh
+      - a: 167.172.126.146
+      - aaaa: 2604:a880:2:d1::1e2:1
+    ne.us.na.geo.parrot.sh:
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+      #lasvegas.cdn.parrot.sh
+      - a: 209.141.60.226
+      - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+    nv.us.na.geo.parrot.sh:
+      #sanfrancisco.d.cdn.parrot.sh
+      - a: 167.172.126.146
+      - aaaa: 2604:a880:2:d1::1e2:1
+      #lasvegas.cdn.parrot.sh
+      - a: 209.141.60.226
+      - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+    nh.us.na.geo.parrot.sh:
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+    nj.us.na.geo.parrot.sh:
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+    nm.us.na.geo.parrot.sh:
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+    ny.us.na.geo.parrot.sh:
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+    nc.us.na.geo.parrot.sh:
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+    nd.us.na.geo.parrot.sh:
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+      #toronto.d.cdn.poarrot.sh
+      - a: 167.99.189.229
+      - aaaa: 2604:a880:cad:d0::8e3:8001
+    oh.us.na.geo.parrot.sh:
+      #toronto.d.cdn.poarrot.sh
+      - a: 167.99.189.229
+      - aaaa: 2604:a880:cad:d0::8e3:8001
+      #toronto.cdn.parrot.sh
+      - a: 172.105.5.69
+      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+    ok.us.na.geo.parrot.sh:
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+    or.us.na.geo.parrot.sh:
+      #sanfrancisco.d.cdn.parrot.sh
+      - a: 167.172.126.146
+      - aaaa: 2604:a880:2:d1::1e2:1
+    pa.us.na.geo.parrot.sh:
+      #toronto.d.cdn.poarrot.sh
+      - a: 167.99.189.229
+      - aaaa: 2604:a880:cad:d0::8e3:8001
+      #toronto.cdn.parrot.sh
+      - a: 172.105.5.69
+      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+    rh.us.na.geo.parrot.sh:
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+    sc.us.na.geo.parrot.sh:
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+    sd.us.na.geo.parrot.sh:
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+    tn.us.na.geo.parrot.sh:
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+    tx.us.na.geo.parrot.sh:
+      #dallas.cdn.parrot.sh
+      - a: 45.79.57.113
+      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
+    ut.us.na.geo.parrot.sh:
+      #lasvegas.cdn.parrot.sh
+      - a: 209.141.60.226
+      - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+      #sanfrancisco.d.cdn.parrot.sh
+      - a: 167.172.126.146
+      - aaaa: 2604:a880:2:d1::1e2:1
+    vt.us.na.geo.parrot.sh:
+      #toronto.d.cdn.poarrot.sh
+      - a: 167.99.189.229
+      - aaaa: 2604:a880:cad:d0::8e3:8001
+      #toronto.cdn.parrot.sh
+      - a: 172.105.5.69
+      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+    va.us.na.geo.parrot.sh:
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+    wa.us.na.geo.parrot.sh:
+      #sanfrancisco.d.cdn.parrot.sh
+      - a: 167.172.126.146
+      - aaaa: 2604:a880:2:d1::1e2:1
+    wv.us.na.geo.parrot.sh:
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+      #newyork.cdn.parrot.sh
+      - a: 198.98.49.91
+      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
+    wi.us.na.geo.parrot.sh:
+      #toronto.d.cdn.poarrot.sh
+      - a: 167.99.189.229
+      - aaaa: 2604:a880:cad:d0::8e3:8001
+      #toronto.cdn.parrot.sh
+      - a: 172.105.5.69
+      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
+      #newyork.d.cdn.parrot.sh
+      - a: 161.35.10.109
+      - aaaa: 2604:a880:400:d0::17e0:e001
+    wy.us.na.geo.parrot.sh:
+      #lasvegas.cdn.parrot.sh
+      - a: 209.141.60.226
+      - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
+      #sanfrancisco.d.cdn.parrot.sh
+      - a: 167.172.126.146
+      - aaaa: 2604:a880:2:d1::1e2:1
 
 # Extra edge nodes
     aruba.geo.parrot.sh:
