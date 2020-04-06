@@ -14,12 +14,4 @@ COPY update.sh /update.sh
 
 RUN chmod +x /update.sh
 
-ENV MM_USER $MM_USER
-ENV MM_KEY $MM_KEY
-ENV MM_SUBSCRIPTIONS $MM_SUBSCRIPTIONS
-
-RUN echo "AccountID $MM_USER" > /etc/GeoIP.conf;\
-	echo "LicenseKey $MM_KEY" >> /etc/GeoIP.conf;\
-	echo "EditionIDs $MM_SUBSCRIPTIONS" /etc/GeoIP.conf
-
 CMD /update.sh

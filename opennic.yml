@@ -53,11 +53,8 @@ services:
     build: ./geodns/geoipupdate/
     volumes:
       - ./data/geoipdb:/var/lib/GeoIP
+      - /etc/GeoIP.conf:/etc/GeoIP.conf
     restart: always
-    environment:
-      - MM_USER=${MM_USER}
-      - MM_KEY=${MM_KEY}
-      - MM_SUBSCRIPTIONS=${MM_SUBSCRIPTIONS}
 
 
 
