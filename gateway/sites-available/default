@@ -323,7 +323,7 @@ server {
                 proxy_set_header X-Real_IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection $conne,ction_upgrade;
+                proxy_set_header Connection $connection_upgrade;
                 include snippets/cache-buffer.conf;
         }
 
