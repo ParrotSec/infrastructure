@@ -243,7 +243,7 @@ server {
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
-                include snippets/cache-buffer.conf
+                include snippets/cache-buffer.conf;
         }
         location ~ ^/(?<path>|css|js|img|fonts|common|customize|file|pad|bower_components|)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot) {
                 proxy_pass https://pad;
@@ -252,7 +252,7 @@ server {
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
-                include snippets/cache-aggressive.conf
+                include snippets/cache-aggressive.conf;
         }
 
         # deny access to unauthorized resources
@@ -279,7 +279,7 @@ server {
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
-                include snippets/cache-buffer.conf
+                include snippets/cache-buffer.conf;
         }
         location ~ ^/(?<path>|css|js|img|fonts|common|customize|file|pad|bower_components|)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot) {
                 proxy_pass https://nextcloud;
@@ -288,7 +288,7 @@ server {
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
-                include snippets/cache-aggressive.conf
+                include snippets/cache-aggressive.conf;
         }
 
         # deny access to unauthorized resources
@@ -315,7 +315,7 @@ server {
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
-                include snippets/cache-buffer.conf
+                include snippets/cache-buffer.conf;
         }
         location ~ ^/(?<path>assets|js|css|inc|/SOGo\.woa/WebServerResources/css|/SOGo\.woa/WebServerResources/js)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot)$ {
                 proxy_pass https://webmail;
@@ -323,8 +323,8 @@ server {
                 proxy_set_header X-Real_IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection $connection_upgrade;
-                include snippets/cache-buffer.conf
+                proxy_set_header Connection $conne,ction_upgrade;
+                include snippets/cache-buffer.conf;
         }
 
         # deny access to unauthorized resources
@@ -351,7 +351,7 @@ server {
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
-                include snippets/cache-buffer.conf
+                include snippets/cache-buffer.conf;
         }
         location ~ ^/(?<path>|snippets|assets|uploads)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot)$ {
                 proxy_pass https://nest;
@@ -360,7 +360,7 @@ server {
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
-                include snippets/cache-aggressive.conf
+                include snippets/cache-aggressive.conf;
         }
 
         # deny access to unauthorized resources
@@ -391,7 +391,7 @@ server {
                 proxy_set_header Host $host;
                 proxy_set_header X-Real_IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
-                include snippets/cache-buffer.conf
+                include snippets/cache-buffer.conf;
         }
 
         # serve files from cache when possible ignoring cache revalidation
@@ -400,7 +400,7 @@ server {
                 proxy_set_header Host $host;
                 proxy_set_header X-Real_IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
-                include snippets/cache-aggressive.conf
+                include snippets/cache-aggressive.conf;
         }
 
         # do not cache resource
@@ -417,7 +417,7 @@ server {
                 proxy_set_header Host $host;
                 proxy_set_header X-Real_IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
-                include snippets/cache-aggressive.conf
+                include snippets/cache-aggressive.conf;
         }
 
 
@@ -449,7 +449,7 @@ server {
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
-                include snippets/cache-buffer.conf
+                include snippets/cache-buffer.conf;
         }
 
         # deny access to unauthorized resources
