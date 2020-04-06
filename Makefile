@@ -75,6 +75,11 @@ central-up:
 central: central-down central-update central-up
 
 
+ipfspin:
+	docker run -ti ipfs ipfs pin /ipns/website.ipfs.parrot.sh
+	docker run -ti ipfs ipfs pin /ipns/docs.ipfs.parrot.sh
+	docker run -ti ipfs ipfs pin /ipns/static.ipfs.parrot.sh
+	docker run -ti ipfs ipfs pin /ipns/speedtest.ipfs.parrot.sh
 
 
 reposync:
