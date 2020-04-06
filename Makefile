@@ -4,7 +4,7 @@ MIRROR=-f docker-compose.yml -f opennic.yml -f firewall.yml -f repository.yml
 GIBSON=-f docker-compose.yml -f opennic.yml -f firewall.yml -f repository.yml -f director.yml
 CENTRAL=-f docker-compose.yml -f opennic.yml -f firewall.yml -f repository.yml -f director.yml -f central.yml
 
-edge-down:
+edge-stop:
 	$(D) $(EDGE) down
 
 edge-update:
@@ -13,7 +13,7 @@ edge-update:
 	$(D) $(EDGE) build
 	$(D) $(EDGE) up -d
 
-edge-up:
+edge-start:
 	$(D) $(EDGE) pull
 	$(D) $(EDGE) build
 	$(D) $(EDGE) up -d
@@ -24,12 +24,12 @@ edge-ps:
 edge-logs:
 	$(D) $(EDGE) logs
 
-edge: edge-down edge-update edge-up
+edge: edge-stop edge-update edge-start
 
 
 
 
-gibson-down:
+gibson-stop:
 	$(D) $(GIBSON) down
 
 gibson-update:
@@ -38,7 +38,7 @@ gibson-update:
 	$(D) $(GIBSON) build
 	$(D) $(GIBSON) up -d
 
-gibson-up:
+gibson-start:
 	$(D) $(GIBSON) pull
 	$(D) $(GIBSON) build
 	$(D) $(GIBSON) up -d
@@ -49,10 +49,12 @@ gibson-ps:
 gibson-logs:
 	$(D) $(GIBSON) logs
 
-gibson: gibson-down gibson-update gibson-up
+gibson: gibson-stop gibson-update gibson-start
 
 
-mirror-down:
+
+
+mirror-stop:
 	$(D) $(MIRROR) down
 
 mirror-update:
@@ -61,7 +63,7 @@ mirror-update:
 	$(D) $(MIRROR) build
 	$(D) $(MIRROR) up -d
 
-mirror-up:
+mirror-start:
 	$(D) $(MIRROR) pull
 	$(D) $(MIRROR) build
 	$(D) $(MIRROR) up -d
@@ -72,11 +74,11 @@ mirror-ps:
 mirror-logs:
 	$(D) $(MIRROR) logs
 
-mirror: mirror-down mirror-update mirror-up
+mirror: mirror-stop mirror-update mirror-start
 
 
 
-central-down:
+central-stop:
 	$(D) $(CENTRAL) down
 
 central-update:
@@ -85,12 +87,12 @@ central-update:
 	$(D) $(CENTRAL) build
 	$(D) $(CENTRAL) up -d
 
-central-up:
+central-start:
 	$(D) $(CENTRAL) pull
 	$(D) $(CENTRAL) build
 	$(D) $(CENTRAL) up -d
 
-central: central-down central-update central-up
+central: central-stop central-update central-start
 
 
 ipfspin:
