@@ -342,7 +342,7 @@ server {
         include snippets/realip.conf;
         server_tokens off;
 
-        server_name pad.* poll.* paste.* cryptpad.* crypt.* secure.*;
+        server_name nest.* git.* dev.*;
 
         location / {
                 proxy_pass https://nest;
