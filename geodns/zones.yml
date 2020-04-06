@@ -18,6 +18,8 @@ domains:
       - a: 51.178.92.105
       - aaaa: 2001:41d0:303:d269::
       # strasbourg
+      - a: 51.91.152.156
+      - aaaa: 2001:41d0:403:2f9c::
       # montreal
       - a: 51.161.118.148
       - aaaa: 2607:5300:203:7094::
@@ -47,6 +49,8 @@ domains:
       - aaaa: 2001:41d0:303:d269::
     sa.b.internal.parrot.sh:
       # strasbourg
+      - a: 51.91.152.156
+      - aaaa: 2001:41d0:403:2f9c::
     sa.c.internal.parrot.sh:
       # warsaw
       - a: 51.83.238.32
@@ -60,6 +64,8 @@ domains:
       - a: 51.178.92.105
       - aaaa: 2001:41d0:303:d269::
       # strasbourg
+      - a: 51.91.152.156
+      - aaaa: 2001:41d0:403:2f9c::
     eu.b.internal.parrot.sh:
       # montreal
       - a: 51.161.118.148
@@ -71,6 +77,8 @@ domains:
 
     af.a.internal.parrot.sh:
       # strasbourg
+      - a: 51.91.152.156
+      - aaaa: 2001:41d0:403:2f9c::
     af.b.internal.parrot.sh:
       # gravelines
       - a: 51.178.92.105
