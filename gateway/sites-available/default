@@ -8,35 +8,35 @@ limit_req_zone $binary_remote_addr zone=high:30m rate=20r/s;
 
 upstream pad {
         keepalive 32;
-        server pad-1.internal.parrot.sh weight=30 max_fails=2 fail_timeout=60 slow_start=120;
+        server pad-1.internal.parrot.sh weight=30 max_fails=2 fail_timeout=60;
         server pad-2.internal.parrot.sh weight=1 backup;
         server pad-3.internal.parrot.sh backup;
 }
 
 upstream nextcloud {
         keepalive 32;
-        server nextcloud-1.internal.parrot.sh weight=5 max_fails=2 fail_timeout=60 slow_start=120;
+        server nextcloud-1.internal.parrot.sh weight=5 max_fails=2 fail_timeout=60;
         server nextcloud-2.internal.parrot.sh;
         server nextcloud-3.internal.parrot.sh backup;
 }
 
 upstream webmail {
         keepalive 8;
-        server webmail-1.internal.parrot.sh weight=5 max_fails=2 fail_timeout=60 slow_start=120;
+        server webmail-1.internal.parrot.sh weight=5 max_fails=2 fail_timeout=60;
         server webmail-2.internal.parrot.sh;
         server webmail-3.internal.parrot.sh backup;
 }
 
 upstream community {
         keepalive 16;
-        server community-1.internal.parrot.sh resolve weight=5 max_fails=2 fail_timeout=60 slow_start=120;
+        server community-1.internal.parrot.sh resolve weight=5 max_fails=2 fail_timeout=60;
         server community-2.internal.parrot.sh resolve;
         server community-3.internal.parrot.sh resolve backup;
 }
 
 upstream nest {
         keepalive 16;
-        server nest-1.internal.parrot.sh weight=5 max_fails=2 fail_timeout=60 slow_start=120;
+        server nest-1.internal.parrot.sh weight=5 max_fails=2 fail_timeout=60;
         server nest-2.internal.parrot.sh;
         server nest-3.internal.parrot.sh backup;
 }
@@ -44,7 +44,7 @@ upstream nest {
 upstream repository {
         keepalive 64;
         server 127.0.0.1:8443;
-        server repository-1.internal.parrot.sh weight=5 max_fails=1 fail_timeout=30 slow_start=60 backup;
+        server repository-1.internal.parrot.sh weight=5 max_fails=1 fail_timeout=30 backup;
         server repository-2.internal.parrot.sh backup;
 }
 
