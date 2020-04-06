@@ -179,7 +179,7 @@ server {
         root /var/www/speedtest;
         index index.php index.html;
 
-        server_name speedtest.* *.cdn.*;
+        server_name speedtest.* *.cdn.parrotsec.org *.cdn.parrot.sh *.cdn.parrotlinux.org *.cdn.parrotlinux.com;
 
         location / {
                 try_files $uri $uri/ =404;
