@@ -19,6 +19,7 @@ services:
       - main
       - director
   director-redis:
+    container_name: redis
     image: redis
     volumes:
       - ./data/redis:/var/lib/redis
