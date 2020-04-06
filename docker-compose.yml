@@ -11,7 +11,7 @@ services:
       - ./data/speedtest/:/var/www/speedtest/
       - ./data/certs:/root/certs
       - ./gateway/realip.conf:/etc/nginx/snippets/realip.conf
-      - ./gateway/cache-buffering.conf:/etc/nginx/snippets/cache-buffering.conf
+      - ./gateway/cache-buffer.conf:/etc/nginx/snippets/cache-buffer.conf
       - ./gateway/cache-aggressive.conf:/etc/nginx/snippets/cache-aggressive.conf
       - ./gateway/sites-available:/etc/nginx/sites-available
       - ./gateway/sites-available/default:/etc/nginx/sites-enabled/default
