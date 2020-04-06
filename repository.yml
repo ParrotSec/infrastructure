@@ -14,16 +14,6 @@ services:
      - "873:873"
     networks:
       - main
-  php-repo:
-    container_name: php-repo
-    image: php:7.3-fpm-buster
-    volumes:
-      - ./data/repository/speedtest:/var/www/repository/speedtest
-    expose:
-      - "9000"
-    restart: always
-    networks:
-      - main
   updater:
     container_name: updater
     build: ./updater/
