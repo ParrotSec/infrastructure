@@ -5,11 +5,11 @@ services:
     build: ./gateway/
     volumes:
       - /root/certs:/root/certs
-      - ./data/website/public:/var/www/html/
-      - ./data/documentation/site:/var/www/html/docs
-      - ./data/static:/var/www/static
+      - /ipns/website.ipfs.parrot.sh:/var/www/html/
+      - /ipns/documentation.ipfs.parrot.sh:/var/www/html/docs
+      - /ipns/static.ipfs.parrot.sh:/var/www/static
       - ./data/repository/:/var/www/repository/
-      - ./data/speedtest/:/var/www/speedtest/
+      - ./data/repository/speedtest/:/var/www/speedtest/
       - ./gateway/realip.conf:/etc/nginx/snippets/realip.conf
       - ./gateway/snakeoil.conf:/etc/nginx/snippets/snakeoil.conf
       - ./gateway/cache-buffer.conf:/etc/nginx/snippets/cache-buffer.conf
@@ -23,7 +23,7 @@ services:
     restart: always
     depends_on:
       - php-repo
-      - ipfs
+     # - ipfs
     ports:
       - "80:80"
       - "443:443"
@@ -41,22 +41,23 @@ services:
     networks:
       - main
       
-  ipfs:
-    container_name: ipfs
-    image: ipfs/go-ipfs
-    ports:
-      - "4001:4001" # ipfs swarm
-    #  - "5001:5001" # ipfs api
-      - "8080:8080" # ipfs gateway
-    volumes:
-      - ./data/ipfs:/data/ipfs
-      - ./data/website/public:/ipns/website.ipfs.parrot.sh
-      - ./data/documentation/site:/ipns/docs.ipfs.parrot.sh/
-      - ./data/static:/ipns/static.ipfs.parrot.sh
-      - ./data/speedtest:/ipns/speedtest.ipfs.parrot.sh
-    restart: always
-    networks:
-      - ipfs
+  #ipfs:
+  #  container_name: ipfs
+  #  image: ipfs/go-ipfs
+  #  privileged: true
+  #  ports:
+  #    - "4001:4001" # ipfs swarm
+  #  #  - "5001:5001" # ipfs api
+  #    - "8080:8080" # ipfs gateway
+  #  volumes:
+  #    - ./data/ipfs:/data/ipfs
+  #    - ./data/website/public:/ipns/website.ipfs.parrot.sh
+  #    - ./data/documentation/site:/ipns/docs.ipfs.parrot.sh/
+  #    - ./data/static:/ipns/static.ipfs.parrot.sh
+  #    - ./data/speedtest:/ipns/speedtest.ipfs.parrot.sh
+  #  restart: always
+  #  networks:
+  #    - ipfs
 
 
 
