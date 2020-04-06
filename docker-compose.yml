@@ -14,7 +14,7 @@ services:
       - ./gateway/cache-buffering.conf:/etc/nginx/snippets/cache-buffering.conf
       - ./gateway/cache-aggressive.conf:/etc/nginx/snippets/cache-aggressive.conf
       - ./gateway/sites-available:/etc/nginx/sites-available
-      - ./gateway/sites-available/edge:/etc/nginx/sites-enabled/edge
+      - ./gateway/sites-available/default:/etc/nginx/sites-enabled/default
       #- ./gateway/sites-available/repo:/etc/nginx/sites-enabled/repo
       - ./gateway/nginx.conf:/etc/nginx/nginx.conf
       - ./gateway/php-fpm.conf:/etc/nginx/snippets/php-fpm.conf
