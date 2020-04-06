@@ -37,7 +37,7 @@ server {
 
         location ~ ^/parrot/(?<fwd_zone>iso|misc|pool)/(?<fwd_path>.*)(?<fwd_file>\.iso|\.img|\.ova|\.deb|\.udeb|\.dsc|\.gz|\.xz|\.bz2|\.lzma)$ {
 
-                proxy_pass http://archive/$fwd_zone/$fwd_path$fwd_file;
+                proxy_pass http://repository/$fwd_zone/$fwd_path$fwd_file;
                 proxy_intercept_errors on;
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Host $host;
@@ -49,7 +49,7 @@ server {
         }
 
         location ~ ^/parrot/dists/(?<fwd_path>.*)(?<fwd_file>\.iso|\.img)$ {
-                proxy_pass http://archive/dists/$fwd_path$fwd_file;
+                proxy_pass http://repository/dists/$fwd_path$fwd_file;
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
@@ -60,7 +60,7 @@ server {
         }
         
         location ~ ^/parrot/(?<fwd_path>.*)(\.mirrorlist)$ {
-                proxy_pass http://archive/$fwd_path?mirrorlist;
+                proxy_pass http://repository/$fwd_path?mirrorlist;
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
@@ -73,7 +73,7 @@ server {
         }
 
         location ~ ^/parrot/(?<fwd_path>.*)(\.mirrorstats)$ {
-                proxy_pass http://archive/$fwd_path?mirrorstats;
+                proxy_pass http://repository/$fwd_path?mirrorstats;
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
