@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV VERSION 0.1
 
 # Update system
-RUN apt-get update;apt-get -y dist-upgrade; rm -rf /var/lib/apt/lists/*
+RUN sed -i "s/main/main contrib/g" /etc/apt/sources.list && apt-get update && apt-get -y dist-upgrade; rm -rf /var/lib/apt/lists/*
 
 # Install dependencies
 RUN apt-get update;apt-get -y install geoipupdate; \
