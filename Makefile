@@ -96,10 +96,10 @@ central: central-stop central-update central-start
 
 
 ipfspin:
-	docker exec -ti ipfs ipfs pin add /ipns/website.ipfs.parrot.sh
-	docker exec -ti ipfs ipfs pin add /ipns/docs.ipfs.parrot.sh
-	docker exec -ti ipfs ipfs pin add /ipns/static.ipfs.parrot.sh
-	docker exec -ti ipfs ipfs pin add /ipns/speedtest.ipfs.parrot.sh
+	docker exec -ti ipfs ipfs pin add /ipns/website.ipfs.parrot.sh &
+	docker exec -ti ipfs ipfs pin add /ipns/docs.ipfs.parrot.sh &
+	docker exec -ti ipfs ipfs pin add /ipns/static.ipfs.parrot.sh &
+	docker exec -ti ipfs ipfs pin add /ipns/speedtest.ipfs.parrot.sh &
 
 
 reposync:
