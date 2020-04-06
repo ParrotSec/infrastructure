@@ -19,6 +19,7 @@ services:
       #- ./gateway/sites-available/repo:/etc/nginx/sites-enabled/repo
       - ./gateway/nginx.conf:/etc/nginx/nginx.conf
       - ./gateway/php-fpm.conf:/etc/nginx/snippets/php-fpm.conf
+      - ./data/logs/gateway:/var/log/nginx
     restart: always
     depends_on:
       - php-repo
