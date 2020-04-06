@@ -18,6 +18,12 @@ edge-up:
 	$(D) $(EDGE) build
 	$(D) $(EDGE) up -d
 
+edge-ps:
+	$(D) $(EDGE) ps
+
+edge-logs:
+	$(D) $(EDGE) logs
+
 edge: edge-down edge-update edge-up
 
 
@@ -37,6 +43,12 @@ gibson-up:
 	$(D) $(GIBSON) build
 	$(D) $(GIBSON) up -d
 
+gibson-ps:
+	$(D) $(GIBSON) ps
+
+gibson-logs:
+	$(D) $(GIBSON) logs
+
 gibson: gibson-down gibson-update gibson-up
 
 
@@ -53,6 +65,12 @@ mirror-up:
 	$(D) $(MIRROR) pull
 	$(D) $(MIRROR) build
 	$(D) $(MIRROR) up -d
+
+mirror-ps:
+	$(D) $(MIRROR) ps
+
+mirror-logs:
+	$(D) $(MIRROR) logs
 
 mirror: mirror-down mirror-update mirror-up
 
