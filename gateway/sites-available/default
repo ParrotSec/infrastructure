@@ -29,9 +29,9 @@ upstream webmail {
 
 upstream community {
         keepalive 16;
-        server community-1.internal.parrot.sh resolve weight=5 max_fails=2 fail_timeout=60;
-        server community-2.internal.parrot.sh resolve;
-        server community-3.internal.parrot.sh resolve backup;
+        server community-1.internal.parrot.sh weight=5 max_fails=2 fail_timeout=60;
+        server community-2.internal.parrot.sh;
+        server community-3.internal.parrot.sh backup;
 }
 
 upstream nest {
