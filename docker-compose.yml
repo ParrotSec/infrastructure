@@ -4,12 +4,12 @@ services:
     container_name: gateway
     build: ./gateway/
     volumes:
+      - /root/certs:/root/certs
       - ./data/website/public:/var/www/html/
       - ./data/documentation/site:/var/www/html/docs
       - ./data/static:/var/www/static
       - ./data/repository/:/var/www/repository/
       - ./data/speedtest/:/var/www/speedtest/
-      - ./data/certs:/root/certs
       - ./gateway/realip.conf:/etc/nginx/snippets/realip.conf
       - ./gateway/cache-buffer.conf:/etc/nginx/snippets/cache-buffer.conf
       - ./gateway/cache-aggressive.conf:/etc/nginx/snippets/cache-aggressive.conf
