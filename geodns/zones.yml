@@ -13,109 +13,109 @@ domains:
       - ns: ns4.parrot.sh
       # warsaw
       - a: 51.83.238.32
-      - aaaa: 2001:41d0:602:3520::
+      - aaaa: 2001:41d0:602:3520::0
       # gravelines
       - a: 51.178.92.105
-      - aaaa: 2001:41d0:303:d269::
+      - aaaa: 2001:41d0:303:d269::0
       # strasbourg
       - a: 51.91.152.156
-      - aaaa: 2001:41d0:403:2f9c::
+      - aaaa: 2001:41d0:403:2f9c::0
       # montreal
       - a: 51.161.118.148
-      - aaaa: 2607:5300:203:7094::
+      - aaaa: 2607:5300:203:7094::0
       # singapore
       - a: 139.99.69.216
-      - aaaa: 2402:1f00:8001:8d8::
+      - aaaa: 2402:1f00:8001:8d8::0
 
     na.a.internal.parrot.sh:
       # montreal
       - a: 51.161.118.148
-      - aaaa: 2607:5300:203:7094::
+      - aaaa: 2607:5300:203:7094::0
     na.b.internal.parrot.sh:
       # gravelines
       - a: 51.178.92.105
-      - aaaa: 2001:41d0:303:d269::
+      - aaaa: 2001:41d0:303:d269::0
     na.c.internal.parrot.sh:
       # warsaw
       - a: 51.83.238.32
-      - aaaa: 2001:41d0:602:3520::
+      - aaaa: 2001:41d0:602:3520::0
 
     sa.a.internal.parrot.sh:
       # montreal
       - a: 51.161.118.148
-      - aaaa: 2607:5300:203:7094::
+      - aaaa: 2607:5300:203:7094::0
       # gravelines
       - a: 51.178.92.105
-      - aaaa: 2001:41d0:303:d269::
+      - aaaa: 2001:41d0:303:d269::0
     sa.b.internal.parrot.sh:
       # strasbourg
       - a: 51.91.152.156
-      - aaaa: 2001:41d0:403:2f9c::
+      - aaaa: 2001:41d0:403:2f9c::0
     sa.c.internal.parrot.sh:
       # warsaw
       - a: 51.83.238.32
-      - aaaa: 2001:41d0:602:3520::
+      - aaaa: 2001:41d0:602:3520::0
 
     eu.a.internal.parrot.sh:
       # warsaw
       - a: 51.83.238.32
-      - aaaa: 2001:41d0:602:3520::
+      - aaaa: 2001:41d0:602:3520::0
       # gravelines
       - a: 51.178.92.105
-      - aaaa: 2001:41d0:303:d269::
+      - aaaa: 2001:41d0:303:d269::0
       # strasbourg
       - a: 51.91.152.156
-      - aaaa: 2001:41d0:403:2f9c::
+      - aaaa: 2001:41d0:403:2f9c::0
     eu.b.internal.parrot.sh:
       # montreal
       - a: 51.161.118.148
-      - aaaa: 2607:5300:203:7094::
+      - aaaa: 2607:5300:203:7094::0
     eu.c.internal.parrot.sh:
       # singapore
       - a: 139.99.69.216
-      - aaaa: 2402:1f00:8001:8d8::
+      - aaaa: 2402:1f00:8001:8d8::0
 
     af.a.internal.parrot.sh:
       # strasbourg
       - a: 51.91.152.156
-      - aaaa: 2001:41d0:403:2f9c::
+      - aaaa: 2001:41d0:403:2f9c::0
     af.b.internal.parrot.sh:
       # gravelines
       - a: 51.178.92.105
-      - aaaa: 2001:41d0:303:d269::
+      - aaaa: 2001:41d0:303:d269::0
     af.c.internal.parrot.sh:
       # montreal
       - a: 51.161.118.148
-      - aaaa: 2607:5300:203:7094::
+      - aaaa: 2607:5300:203:7094::0
 
     as.a.internal.parrot.sh:
       # warsaw
       - a: 51.83.238.32
-      - aaaa: 2001:41d0:602:3520::
+      - aaaa: 2001:41d0:602:3520::0
       # singapore
       - a: 139.99.69.216
-      - aaaa: 2402:1f00:8001:8d8::
+      - aaaa: 2402:1f00:8001:8d8::0
     as.b.internal.parrot.sh:
       # montreal
       - a: 51.161.118.148
-      - aaaa: 2607:5300:203:7094::
+      - aaaa: 2607:5300:203:7094::0
     as.c.internal.parrot.sh:
       # gravelines
       - a: 51.178.92.105
-      - aaaa: 2001:41d0:303:d269::
+      - aaaa: 2001:41d0:303:d269::0
 
     oc.a.internal.parrot.sh:
       # singapore
       - a: 139.99.69.216
-      - aaaa: 2402:1f00:8001:8d8::
+      - aaaa: 2402:1f00:8001:8d8::0
     oc.b.internal.parrot.sh:
       # montreal
       - a: 51.161.118.148
-      - aaaa: 2607:5300:203:7094::
+      - aaaa: 2607:5300:203:7094::0
     oc.c.internal.parrot.sh:
       # warsaw
       - a: 51.83.238.32
-      - aaaa: 2001:41d0:602:3520::
+      - aaaa: 2001:41d0:602:3520::0
 
     pad.internal.parrot.sh:
       -a: 10.42.42.1
