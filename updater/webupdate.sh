@@ -9,8 +9,8 @@ STATIC_TARGET="/var/www/static"
 
 
 while true; do
-	ipfs get $SITE_SOURCE -o $SITE_TARGET
-    ipfs get $DOCS_SOURCE -o $DOCS_TARGET
-    ipfs get $STATIC_SOURCE -o $STATIC_TARGET
+	ipfs --api=/ip4/ipfs/tcp/5001 get $SITE_SOURCE -o $SITE_TARGET
+    ipfs --api=/ip4/ipfs/tcp/5001 get $DOCS_SOURCE -o $DOCS_TARGET
+    ipfs --api=/ip4/ipfs/tcp/5001 get $STATIC_SOURCE -o $STATIC_TARGET
 	sleep 300
 done

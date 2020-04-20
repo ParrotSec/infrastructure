@@ -58,8 +58,9 @@ services:
   ipfs-updater:
     container_name: ipfs-updater
     image: ipfs/go-ipfs
+    depends_on:
+      - ipfs
     volumes:
-      - ./data/ipfs:/data/ipfs
       - ./data/website/html:/var/www/html/
       - ./data/website/docs:/var/www/html/docs
       - ./data/website/static:/var/www/static
@@ -67,9 +68,8 @@ services:
     restart: always
     networks:
       - ipfs
-    entrypoint:
-      - /bin/bash
-      - /webupdate.sh
+    entrypoint: /bin/sh
+    command: /webupdate.sh
 
 networks:
   main:
