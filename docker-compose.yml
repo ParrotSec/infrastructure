@@ -51,6 +51,10 @@ services:
       - "4001:4001" # ipfs swarm
     #  - "5001:5001" # ipfs api
       - "8080:8080" # ipfs gateway
+    expose:
+      - 4001
+      - 5001
+      - 8080
     volumes:
       - ./data/ipfs:/data/ipfs
     restart: always
@@ -73,7 +77,7 @@ services:
       ipfs:
         ipv4_address: 172.18.44.4
     entrypoint: /bin/sh
-    command: /webupdate.sh
+    command: sh /webupdate.sh
 
 networks:
   main:
