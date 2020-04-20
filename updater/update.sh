@@ -13,7 +13,7 @@ rm $TARGET_ALL/SYNC_IN_PROGRESS.* || true
 
 while true; do
 	mkdir -p $TARGET_PARROT
-	#flock -xn /tmp/parrot-rsync.lock -c "rsync -PahvHtSx --delay-updates --delete-after master.rsync.parrot.sh/parrot /var/www/html/parrot"
+	#flock -xn /tmp/parrot-rsync.lock -c "rsync -PahvHtSx --delay-updates --delete-after master.rsync.parrot.sh/parrot /var/www/repository/parrot"
 	touch $TARGET_PARROT/SYNC_IN_PROGRESS.lock || true
 	flock -xn $TARGET_PARROT/SYNC_IN_PROGRESS.pool.lock -c "rsync -qaHtSx --exclude=dists --exclude=iso $SOURCE_PARROT $TARGET_PARROT/"
 	flock -xn $TARGET_PARROT/SYNC_IN_PROGRESS.dists.lock -c "rsync -qaHtSx --exclude=iso --delay-updates --delete-after $SOURCE_PARROT $TARGET_PARROT/"
