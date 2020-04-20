@@ -28,7 +28,9 @@ services:
       - "80:80"
       - "443:443"
     networks:
-      - main
+      main:
+      ipfs:
+        ipv4_address: 172.18.44.3
   
   php-repo:
     container_name: php-repo
@@ -53,7 +55,8 @@ services:
       - ./data/ipfs:/data/ipfs
     restart: always
     networks:
-      - ipfs
+      ipfs:
+        ipv4_address: 172.18.44.2
   
   ipfs-updater:
     container_name: ipfs-updater
@@ -67,7 +70,8 @@ services:
       - ./updater/webupdate.sh:/webupdate.sh
     restart: always
     networks:
-      - ipfs
+      ipfs:
+        ipv4_address: 172.18.44.4
     entrypoint: /bin/sh
     command: /webupdate.sh
 
@@ -76,3 +80,6 @@ networks:
     driver: bridge
   ipfs:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.44.0/29
