@@ -77,7 +77,6 @@ services:
     networks:
       ipfs:
         ipv4_address: 172.18.44.4
-    entrypoint: /bin/sh
     command: /bin/bash /webupdate.sh
 
 networks:

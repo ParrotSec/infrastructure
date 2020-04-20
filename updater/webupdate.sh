@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 export SITE_SOURCE="/ipns/www.parrotsec.org"
 export SITE_TARGET="/var/www/html"
