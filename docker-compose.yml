@@ -68,6 +68,7 @@ services:
     depends_on:
       - ipfs
     volumes:
+      - ./data/ipfs:/data/ipfs
       - ./data/website/html:/var/www/html/
       - ./data/website/docs:/var/www/html/docs
       - ./data/website/static:/var/www/static
