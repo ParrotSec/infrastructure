@@ -64,7 +64,7 @@ services:
   
   ipfs-updater:
     container_name: ipfs-updater
-    image: ipfs/go-ipfs
+    build: ./updater/
     depends_on:
       - ipfs
     volumes:
@@ -77,7 +77,7 @@ services:
       ipfs:
         ipv4_address: 172.18.44.4
     entrypoint: /bin/sh
-    command: /bin/sh /webupdate.sh
+    command: /bin/bash /update.sh
 
 networks:
   main:

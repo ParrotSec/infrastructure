@@ -20,3 +20,4 @@ services:
     volumes:
       - ./data/repository/:/var/www/repository
     restart: always
+    command: /bin/bash /update.sh
