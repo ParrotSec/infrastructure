@@ -1,5 +1,9 @@
 version: "3"
 services:
+  gateway:
+    networks:
+      director:
+        ipv4_address: 172.18.45.4
   director:
     container_name: director
     build: ./mirrorbits/
@@ -14,18 +18,23 @@ services:
       - ./data/logs/mirrorbits:/var/log/mirrorbits
     restart: always
     expose:
-      - "9000"
+      - "8080"
     networks:
-      - main
-      - director
+      main:
+      director:
+        ipv4_address: 172.18.45.2
   director-redis:
     container_name: redis
     image: redis
     volumes:
       - ./data/redis:/var/lib/redis
     networks:
-      - director
+      director:
+        ipv4_address: 172.18.45.3
 
 networks:
   director:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.45.0/29
