@@ -49,7 +49,7 @@ gibson-ps:
 gibson-logs:
 	$(D) $(GIBSON) logs
 
-gibson: gibson-stop gibson-update gibson-start
+gibson: gibson-stop gibson-update
 
 
 
