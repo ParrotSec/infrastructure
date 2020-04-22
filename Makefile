@@ -96,13 +96,13 @@ central: central-stop central-update central-start
 
 
 ipfspin:
-	docker exec -ti ipfs ipfs pin add /ipns/www.parrotsec.org &
-	docker exec -ti ipfs ipfs pin add /ipns/docs.parrotsec.org &
-	docker exec -ti ipfs ipfs pin add /ipns/static.parrotsec.org &
+	docker exec ipfs ipfs pin add /ipns/www.parrotsec.org &
+	docker exec ipfs ipfs pin add /ipns/docs.parrotsec.org &
+	docker exec ipfs ipfs pin add /ipns/static.parrotsec.org &
 
 
 reposync:
-	docker exec -ti updater rsync -PahvHtSxl --delay-updates --delete-after master.rsync.parrot.sh/parrot /var/www/repository/parrot
+	docker exec -i updater rsync -PahvHtSxl --delay-updates --delete-after master.rsync.parrot.sh/parrot /var/www/repository/parrot
 
 
 cleanlogs:
