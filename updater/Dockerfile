@@ -14,7 +14,7 @@ RUN wget https://dist.ipfs.io/go-ipfs/v0.4.23/go-ipfs_v0.4.23_linux-amd64.tar.gz
     tar xf go-ipfs_v0.4.23_linux-amd64.tar.gz;\
     cd go-ipfs;\
     ./install.sh;\
-    cd ..; rm -rf go-ipfs
+    cd ..; rm -rf go-ipfs*
 
 COPY ./update.sh /update.sh
 COPY ./webupdate.sh /webupdate.sh

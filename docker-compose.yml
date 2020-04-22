@@ -6,7 +6,7 @@ services:
     volumes:
       - /root/certs:/root/certs
       - ./data/website/html:/var/www/html/
-      - ./data/website/docs:/var/www/html/docs
+      - ./data/website/docs:/var/www/docs
       - ./data/website/static:/var/www/static
       - ./data/repository/:/var/www/repository/
       - ./data/repository/speedtest/:/var/www/speedtest/
@@ -70,7 +70,7 @@ services:
     volumes:
       - ./data/ipfs:/data/ipfs
       - ./data/website/html:/var/www/html/
-      - ./data/website/docs:/var/www/html/docs
+      - ./data/website/docs:/var/www/docs
       - ./data/website/static:/var/www/static
       - ./updater/webupdate.sh:/webupdate.sh
     restart: always
