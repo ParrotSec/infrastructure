@@ -380,7 +380,6 @@ server {
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
         server_tokens off;
-        root /var/www/html/docs;
         index index.php index.html;
 
         server_name archive.* deb.* mirror.* download.* downloads.* dl.* cdimage.* dvdimage.* ftp.* repo.* http.* get.* *.deb.parrotsec.org *.deb.parrot.sh *.deb.parrotlinux.com *.deb.parrotlinux.org *.mirror.parrotsec.org *.mirror.parrot.sh *.mirror.parrotlinux.com *.mirror.parrotlinux.org emea-mirror.* apac-mirror.* ncsa-mirror.* cfmirror.* scappellamento-float-left.*;
