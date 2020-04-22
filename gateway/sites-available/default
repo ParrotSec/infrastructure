@@ -168,63 +168,6 @@ server {
         return 301 https://www.parrotsec.org/blog/$request_uri;
 }
 
-# speedtest page
-server {
-        listen 443 ssl http2;
-        listen [::]:443 ssl http2;
-        include snippets/snakeoil.conf;
-        include snippets/realip.conf;
-        server_tokens off;
-        root /var/www/speedtest;
-        index index.php index.html;
-
-        server_name speedtest.* *.cdn.parrotsec.org *.cdn.parrot.sh *.cdn.parrotlinux.org *.cdn.parrotlinux.com;
-
-        location / {
-                try_files $uri $uri/ =404;
-        }
-        location ~ ^/speedtest/(.*)(\.php)$ {
-                include snippets/php-fpm.conf;
-        }
-        location /speedtest/empty.php {
-                include snippets/php-fpm.conf;
-                expires 30d;
-                add_header Pragma "public";
-                add_header Cache-Control "public, must-revalidate, proxy-revalidate";
-        }
-        location /speedtest/garbage.php {
-                include snippets/php-fpm.conf;
-                expires 30d;
-                add_header Pragma "public";
-                add_header Cache-Control "public, must-revalidate, proxy-revalidate";
-        }
-
-        # deny access to unauthorized resources
-        location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }
-        location ~* /(system|vendor)/.*\.(txt|xml|md|html|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
-        location ~* /user/.*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
-}
-
-# content delivery network
-server {
-        listen 443 ssl http2;
-        listen [::]:443 ssl http2;
-        include snippets/snakeoil.conf;
-        include snippets/realip.conf;
-        server_tokens off;
-        root /var/www/static;
-        index index.html;
-
-        server_name cdn.* static.*;
-
-        location / {
-                try_files $uri $uri/ =404;
-        }
-
-        # deny access to unauthorized resources
-        location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }
-}
-
 # cryptpad
 server {
         listen 443 ssl http2;
