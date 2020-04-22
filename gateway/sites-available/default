@@ -239,7 +239,7 @@ server {
         location / {
                 proxy_pass https://pad;
                 proxy_set_header Host $host;
-                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
@@ -248,7 +248,7 @@ server {
         location ~ ^/(?<path>|css|js|img|fonts|common|customize|file|pad|bower_components|)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot) {
                 proxy_pass https://pad;
                 proxy_set_header Host $host;
-                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
@@ -275,7 +275,7 @@ server {
         location / {
                 proxy_pass https://nextcloud;
                 proxy_set_header Host $host;
-                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
@@ -284,7 +284,7 @@ server {
         location ~ ^/(?<path>|css|js|img|fonts|common|customize|file|pad|bower_components|)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot) {
                 proxy_pass https://nextcloud;
                 proxy_set_header Host $host;
-                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
@@ -311,7 +311,7 @@ server {
         location / {
                 proxy_pass https://webmail;
                 proxy_set_header Host $host;
-                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
@@ -320,7 +320,7 @@ server {
         location ~ ^/(?<path>assets|js|css|inc|/SOGo\.woa/WebServerResources/css|/SOGo\.woa/WebServerResources/js)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot)$ {
                 proxy_pass https://webmail;
                 proxy_set_header Host $host;
-                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
@@ -347,7 +347,7 @@ server {
         location / {
                 proxy_pass https://nest;
                 proxy_set_header Host $host;
-                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
@@ -356,7 +356,7 @@ server {
         location ~ ^/(?<path>|snippets|assets|uploads)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot)$ {
                 proxy_pass https://nest;
                 proxy_set_header Host $host;
-                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
@@ -388,7 +388,7 @@ server {
         location / {
                 proxy_pass https://repository;
                 proxy_set_header Host $host;
-                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
                 include snippets/cache-buffer.conf;
         }
@@ -397,7 +397,7 @@ server {
         location ~ ^(\.deb|\.udeb|\.dsc|\.gz|\.xz|\.bz2|\.lzma)$ {
                 proxy_pass https://repository;
                 proxy_set_header Host $host;
-                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
                 include snippets/cache-aggressive.conf;
         }
@@ -406,7 +406,7 @@ server {
         location ~ ^(\.iso|\.ova|\.img)$ {
                 proxy_pass https://repository;
                 proxy_set_header Host $host;
-                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
         }
 
@@ -414,7 +414,7 @@ server {
         location ~ ^(?<file>/speedtest/garbage.php|/speedtest/empty.php)$ {
                 proxy_pass https://repository$file?skSize=20;
                 proxy_set_header Host $host;
-                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
                 include snippets/cache-aggressive.conf;
         }
@@ -444,7 +444,7 @@ server {
         location / {
                 proxy_pass https://repository;
                 proxy_set_header Host $host;
-                proxy_set_header X-Real_IP $remote_addr;
+                proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
