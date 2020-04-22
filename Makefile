@@ -1,5 +1,5 @@
 D=docker-compose
-EDGE=-f docker-compose.yml -f opennic.yml -f firewall.yml
+EDGE=-f docker-compose.yml -f opennic.yml -f firewall.yml -f edge.yml
 MIRROR=-f docker-compose.yml -f opennic.yml -f firewall.yml -f repository.yml
 GIBSON=-f docker-compose.yml -f opennic.yml -f firewall.yml -f repository.yml -f director.yml
 CENTRAL=-f docker-compose.yml -f opennic.yml -f firewall.yml -f repository.yml -f director.yml -f central.yml
@@ -102,7 +102,7 @@ ipfspin:
 
 
 reposync:
-	docker exec -ti updater rsync -PahvHtSx --delay-updates --delete-after master.rsync.parrot.sh/parrot /var/www/repository/parrot
+	docker exec -ti updater rsync -PahvHtSxl --delay-updates --delete-after master.rsync.parrot.sh/parrot /var/www/repository/parrot
 
 
 cleanlogs:

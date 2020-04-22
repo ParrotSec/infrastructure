@@ -41,13 +41,6 @@ upstream nest {
         server nest-3.internal.parrot.sh backup;
 }
 
-upstream repository {
-        keepalive 64;
-        server 127.0.0.1:8443;
-        server repository-1.internal.parrot.sh weight=5 max_fails=1 fail_timeout=30 backup;
-        server repository-2.internal.parrot.sh backup;
-}
-
 # redirect http to https
 server {
     listen 80 default_server;
@@ -362,63 +355,6 @@ server {
                 proxy_set_header Connection $connection_upgrade;
                 include snippets/cache-aggressive.conf;
         }
-
-        # deny access to unauthorized resources
-        location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }
-        location ~* /(system|vendor)/.*\.(txt|xml|md|html|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
-        location ~* /user/.*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
-
-}
-
-
-# repository
-server {
-        listen 80;
-        listen [::]:80;
-        listen 443 ssl http2;
-        listen [::]:443 ssl http2;
-        include snippets/snakeoil.conf;
-        include snippets/realip.conf;
-        server_tokens off;
-        index index.php index.html;
-
-        server_name archive.* deb.* mirror.* download.* downloads.* dl.* cdimage.* dvdimage.* ftp.* repo.* http.* get.* *.deb.parrotsec.org *.deb.parrot.sh *.deb.parrotlinux.com *.deb.parrotlinux.org *.mirror.parrotsec.org *.mirror.parrot.sh *.mirror.parrotlinux.com *.mirror.parrotlinux.org emea-mirror.* apac-mirror.* ncsa-mirror.* cfmirror.* scappellamento-float-left.*;
-
-        # serve files from repository revalidating file status
-        location / {
-                proxy_pass https://repository;
-                proxy_set_header Host $host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $remote_addr;
-                include snippets/cache-buffer.conf;
-        }
-
-        # serve files from cache when possible ignoring cache revalidation
-        location ~ ^(\.deb|\.udeb|\.dsc|\.gz|\.xz|\.bz2|\.lzma)$ {
-                proxy_pass https://repository;
-                proxy_set_header Host $host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $remote_addr;
-                include snippets/cache-aggressive.conf;
-        }
-
-        # do not cache resource
-        location ~ ^(\.iso|\.ova|\.img)$ {
-                proxy_pass https://repository;
-                proxy_set_header Host $host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $remote_addr;
-        }
-
-        # pass speedtest garbage file
-        location ~ ^(?<file>/speedtest/garbage.php|/speedtest/empty.php)$ {
-                proxy_pass https://repository$file?skSize=20;
-                proxy_set_header Host $host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $remote_addr;
-                include snippets/cache-aggressive.conf;
-        }
-
 
         # deny access to unauthorized resources
         location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }

@@ -1,0 +1,5 @@
+version: "3"
+services:
+  gateway:
+    volumes:
+      - ./gateway/sites-available/repo:/etc/nginx/sites-enabled/repo-edge

@@ -21,16 +21,17 @@ server {
 
 # full rules
 server {
-        listen 8000 default_server;
-        listen [::]:8000 default_server;
-        listen 8443 ssl default_server;
-        listen [::]:8443 ssl default_server;
+        listen 80;
+        listen [::]:80;
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
         server_tokens off;
-        access_log  off;
 
         root /var/www/repository;
+
+        server_name archive.* deb.* mirror.* download.* downloads.* dl.* cdimage.* dvdimage.* ftp.* repo.* http.* get.* *.deb.parrotsec.org *.deb.parrot.sh *.deb.parrotlinux.com *.deb.parrotlinux.org *.mirror.parrotsec.org *.mirror.parrot.sh *.mirror.parrotlinux.com *.mirror.parrotlinux.org emea-mirror.* apac-mirror.* ncsa-mirror.* cfmirror.* scappellamento-float-left.* *.gibson.infra.parrot.sh *.cdn.parrot.sh *.any.parrot.sh;
 
         # Add index.php to the list if you are using PHP
         index index.html index.php;
