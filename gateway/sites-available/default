@@ -41,6 +41,12 @@ upstream nest {
         server nest-3.internal.parrot.sh backup;
 }
 
+upstream tracker {
+        keepalive 16;
+        server repostory-1.internal.parrot.sh weight=5 max_fails=2 fail_timeout=60;
+        server repository-2.internal.parrot.sh backup;
+}
+
 # redirect http to https
 server {
     listen 80 default_server;
@@ -378,7 +384,7 @@ server {
         server_name tracker.* wolf.* torrent.* tracker2.* wolf2.* torrent2.*;
 
         location / {
-                proxy_pass https://repository;
+                proxy_pass https://tracker;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
