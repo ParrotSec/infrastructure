@@ -8,43 +8,43 @@ limit_req_zone $binary_remote_addr zone=high:30m rate=20r/s;
 
 upstream pad {
         keepalive 32;
-        server pad-1.internal.parrot.sh weight=30 max_fails=2 fail_timeout=60;
-        server pad-2.internal.parrot.sh weight=1 backup;
-        server pad-3.internal.parrot.sh backup;
+        server pad-1.internal.parrot.sh:443 weight=30 max_fails=2 fail_timeout=60;
+        server pad-2.internal.parrot.sh:443 weight=1 backup;
+        server pad-3.internal.parrot.sh:443 backup;
 }
 
 upstream nextcloud {
         keepalive 32;
-        server nextcloud-1.internal.parrot.sh weight=5 max_fails=2 fail_timeout=60;
+        server nextcloud-1.internal.parrot.sh:443 weight=5 max_fails=2 fail_timeout=60;
         server nextcloud-2.internal.parrot.sh;
-        server nextcloud-3.internal.parrot.sh backup;
+        server nextcloud-3.internal.parrot.sh:443 backup;
 }
 
 upstream webmail {
         keepalive 8;
-        server webmail-1.internal.parrot.sh weight=5 max_fails=2 fail_timeout=60;
+        server webmail-1.internal.parrot.sh:443 weight=5 max_fails=2 fail_timeout=60;
         server webmail-2.internal.parrot.sh;
-        server webmail-3.internal.parrot.sh backup;
+        server webmail-3.internal.parrot.sh:443 backup;
 }
 
 upstream community {
         keepalive 16;
-        server community-1.internal.parrot.sh weight=5 max_fails=2 fail_timeout=60;
+        server community-1.internal.parrot.sh:443 weight=5 max_fails=2 fail_timeout=60;
         server community-2.internal.parrot.sh;
-        server community-3.internal.parrot.sh backup;
+        server community-3.internal.parrot.sh:443 backup;
 }
 
 upstream nest {
         keepalive 16;
-        server nest-1.internal.parrot.sh weight=5 max_fails=2 fail_timeout=60;
+        server nest-1.internal.parrot.sh:443 weight=5 max_fails=2 fail_timeout=60;
         server nest-2.internal.parrot.sh;
-        server nest-3.internal.parrot.sh backup;
+        server nest-3.internal.parrot.sh:443 backup;
 }
 
 upstream tracker {
         keepalive 16;
-        server repository-1.internal.parrot.sh weight=5 max_fails=2 fail_timeout=60;
-        server repository-2.internal.parrot.sh backup;
+        server repository-1.internal.parrot.sh:443 weight=5 max_fails=2 fail_timeout=60;
+        server repository-2.internal.parrot.sh:443 backup;
 }
 
 # redirect http to https

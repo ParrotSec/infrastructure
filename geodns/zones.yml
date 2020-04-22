@@ -13,109 +13,109 @@ domains:
       - ns: ns4.parrot.sh
       # warsaw
       - a: 51.83.238.32
-      #- aaaa: 2001:41d0:602:3520::0
+      - aaaa: 2001:41d0:602:3520:bbbb:feed:dead:beef
       # gravelines
       - a: 51.178.92.105
-      #- aaaa: 2001:41d0:303:d269::0
+      - aaaa: 2001:41d0:0303:d269:aaaa:feed:dead:beef
       # strasbourg
       - a: 51.91.152.156
-      #- aaaa: 2001:41d0:403:2f9c::0
+      - aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
       # montreal
       - a: 51.161.118.148
-      #- aaaa: 2607:5300:203:7094::0
+      - aaaa: 2607:5300:0203:7094:dddd:feed:dead:beef
       # singapore
       - a: 139.99.69.216
-      #- aaaa: 2402:1f00:8001:8d8::0
+      - aaaa: 2402:1f00:8001:08d8:eeee:feed:dead:beef
 
     na.a.internal.parrot.sh:
       # montreal
       - a: 51.161.118.148
-      #- aaaa: 2607:5300:203:7094::0
+      - aaaa: 2607:5300:0203:7094:dddd:feed:dead:beef
     na.b.internal.parrot.sh:
       # gravelines
       - a: 51.178.92.105
-      #- aaaa: 2001:41d0:303:d269::0
+      - aaaa: 2001:41d0:0303:d269:aaaa:feed:dead:beef
     na.c.internal.parrot.sh:
       # warsaw
       - a: 51.83.238.32
-      #- aaaa: 2001:41d0:602:3520::0
+      - aaaa: 2001:41d0:602:3520:bbbb:feed:dead:beef
 
     sa.a.internal.parrot.sh:
       # montreal
       - a: 51.161.118.148
-      #- aaaa: 2607:5300:203:7094::0
+      - aaaa: 2607:5300:0203:7094:dddd:feed:dead:beef
       # gravelines
       - a: 51.178.92.105
-      #- aaaa: 2001:41d0:303:d269::0
+      - aaaa: 2001:41d0:0303:d269:aaaa:feed:dead:beef
     sa.b.internal.parrot.sh:
       # strasbourg
       - a: 51.91.152.156
-      #- aaaa: 2001:41d0:403:2f9c::0
+      - aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
     sa.c.internal.parrot.sh:
       # warsaw
       - a: 51.83.238.32
-      #- aaaa: 2001:41d0:602:3520::0
+      - aaaa: 2001:41d0:602:3520:bbbb:feed:dead:beef
 
     eu.a.internal.parrot.sh:
       # warsaw
       - a: 51.83.238.32
-      #- aaaa: 2001:41d0:602:3520::0
+      - aaaa: 2001:41d0:602:3520:bbbb:feed:dead:beef
       # gravelines
       - a: 51.178.92.105
-      #- aaaa: 2001:41d0:303:d269::0
+      - aaaa: 2001:41d0:0303:d269:aaaa:feed:dead:beef
       # strasbourg
       - a: 51.91.152.156
-      #- aaaa: 2001:41d0:403:2f9c::0
+      - aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
     eu.b.internal.parrot.sh:
       # montreal
       - a: 51.161.118.148
-      #- aaaa: 2607:5300:203:7094::0
+      - aaaa: 2607:5300:0203:7094:dddd:feed:dead:beef
     eu.c.internal.parrot.sh:
       # singapore
       - a: 139.99.69.216
-      #- aaaa: 2402:1f00:8001:8d8::0
+      - aaaa: 2402:1f00:8001:08d8:eeee:feed:dead:beef
 
     af.a.internal.parrot.sh:
       # strasbourg
       - a: 51.91.152.156
-      #- aaaa: 2001:41d0:403:2f9c::0
+      - aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
     af.b.internal.parrot.sh:
       # gravelines
       - a: 51.178.92.105
-      #- aaaa: 2001:41d0:303:d269::0
+      - aaaa: 2001:41d0:0303:d269:aaaa:feed:dead:beef
     af.c.internal.parrot.sh:
       # montreal
       - a: 51.161.118.148
-      #- aaaa: 2607:5300:203:7094::0
+      - aaaa: 2607:5300:0203:7094:dddd:feed:dead:beef
 
     as.a.internal.parrot.sh:
       # warsaw
       - a: 51.83.238.32
-      #- aaaa: 2001:41d0:602:3520::0
+      - aaaa: 2001:41d0:602:3520:bbbb:feed:dead:beef
       # singapore
       - a: 139.99.69.216
-      #- aaaa: 2402:1f00:8001:8d8::0
+      - aaaa: 2402:1f00:8001:08d8:eeee:feed:dead:beef
     as.b.internal.parrot.sh:
       # montreal
       - a: 51.161.118.148
-      #- aaaa: 2607:5300:203:7094::0
+      - aaaa: 2607:5300:0203:7094:dddd:feed:dead:beef
     as.c.internal.parrot.sh:
       # gravelines
       - a: 51.178.92.105
-      #- aaaa: 2001:41d0:303:d269::0
+      - aaaa: 2001:41d0:0303:d269:aaaa:feed:dead:beef
 
     oc.a.internal.parrot.sh:
       # singapore
       - a: 139.99.69.216
-      #- aaaa: 2402:1f00:8001:8d8::0
+      - aaaa: 2402:1f00:8001:08d8:eeee:feed:dead:beef
     oc.b.internal.parrot.sh:
       # montreal
       - a: 51.161.118.148
-      #- aaaa: 2607:5300:203:7094::0
+      - aaaa: 2607:5300:0203:7094:dddd:feed:dead:beef
     oc.c.internal.parrot.sh:
       # warsaw
       - a: 51.83.238.32
-      #- aaaa: 2001:41d0:602:3520::0
+      - aaaa: 2001:41d0:602:3520:bbbb:feed:dead:beef
 
     pad.internal.parrot.sh:
       -a: 10.42.42.1
