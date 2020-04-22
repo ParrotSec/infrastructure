@@ -2,4 +2,4 @@ version: "3"
 services:
   gateway:
     volumes:
-      - ./gateway/sites-available/repo:/etc/nginx/sites-enabled/repo-edge
+      - ./gateway/sites-available/repo-edge:/etc/nginx/sites-enabled/repo-edge

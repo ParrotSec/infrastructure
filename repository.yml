@@ -2,7 +2,7 @@ version: "3"
 services:
   gateway:
     volumes:
-      - ./gateway/sites-available/repo:/etc/nginx/sites-enabled/repo-master
+      - ./gateway/sites-available/repo-master:/etc/nginx/sites-enabled/repo-master
   rsync:
     container_name: rsyncd
     build: ./rsync/
