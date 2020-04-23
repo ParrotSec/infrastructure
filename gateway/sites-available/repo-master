@@ -93,7 +93,7 @@ server {
 
         location ~ ^(?<file>/parrot/misc/*MB\.bin|/mirrors/parrot/misc/*MB\.bin)$ {
                 try_files $uri $uri/ =404;
-                add_header Access-Control-Allow-Origin "*"
+                add_header Access-Control-Allow-Origin "*";
                 add_header Pragma "no-cache";
                 add_header Cache-Control "no-cache";
         }
