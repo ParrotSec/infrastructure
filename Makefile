@@ -95,7 +95,14 @@ central-start:
 central: central-stop central-update central-start
 
 
-ipfspin:
+ipfs-bootstrap:
+	docker-compose exec ipfs ipfs bootstrap add /ip4/51.91.152.156/tcp/4001/p2p/QmTGCxnerPXq77i3w7jPThB93rBbLAJvg1RR4rTsEA8fR6
+	docker-compose exec ipfs ipfs bootstrap add /ip4/51.178.92.105/tcp/4001/p2p/QmPdyJpEKNDXe8Ug41siw3pjCyWvmHayFWDqCPbK6YvhoX
+	docker-compose exec ipfs ipfs bootstrap add /ip4/51.83.238.32/tcp/4001/p2p/QmUjKeBFqawkMYRLPQQ1gcLtfNjXrb5DMVEyVQfMWRkmxf
+	docker-compose exec ipfs ipfs bootstrap add /ip4/51.161.118.148/tcp/4001/p2p/QmSW1JdCDzsELVJtCHsnYTiSWswEJXo1VPPhEgwA9o76Nt
+	docker-compose exec ipfs ipfs bootstrap add /ip4/139.99.69.216/tcp/4001/p2p/QmZ3qVBvDHwF1VpbaqFBu1mWeQMHuoTAHocgfPcksghqWN
+
+ipfs-pin:
 	docker exec ipfs ipfs pin add /ipns/www.parrotsec.org &
 	docker exec ipfs ipfs pin add /ipns/docs.parrotsec.org &
 	docker exec ipfs ipfs pin add /ipns/static.parrotsec.org &
