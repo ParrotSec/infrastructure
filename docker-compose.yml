@@ -9,14 +9,13 @@ services:
       - ./data/website/docs:/var/www/docs
       - ./data/website/static:/var/www/static
       - ./data/repository/:/var/www/repository/
-      - ./data/repository/speedtest/:/var/www/speedtest/
+      - ./speedtest/:/var/www/speedtest/
       - ./gateway/realip.conf:/etc/nginx/snippets/realip.conf
       - ./gateway/snakeoil.conf:/etc/nginx/snippets/snakeoil.conf
       - ./gateway/cache-buffer.conf:/etc/nginx/snippets/cache-buffer.conf
       - ./gateway/cache-aggressive.conf:/etc/nginx/snippets/cache-aggressive.conf
       - ./gateway/sites-available:/etc/nginx/sites-available
       - ./gateway/sites-available/default:/etc/nginx/sites-enabled/default
-      #- ./gateway/sites-available/repo:/etc/nginx/sites-enabled/repo
       - ./gateway/nginx.conf:/etc/nginx/nginx.conf
       - ./gateway/php-fpm.conf:/etc/nginx/snippets/php-fpm.conf
       - ./data/logs/gateway:/var/log/nginx
@@ -37,6 +36,7 @@ services:
     image: php:7.3-fpm-buster
     volumes:
       - ./data/repository/speedtest:/var/www/repository/speedtest
+      - ./speedtest/:/var/www/speedtest/
     expose:
       - "9000"
     restart: always

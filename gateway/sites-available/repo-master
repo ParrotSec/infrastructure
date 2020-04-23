@@ -90,18 +90,6 @@ server {
         location ~ ^/speedtest/(.*)(\.php)$ {
                 include snippets/php-fpm.conf;
         }
-        location /speedtest/empty.php {
-                include snippets/php-fpm.conf;
-                expires 30d;
-                add_header Pragma "public";
-                add_header Cache-Control "public, must-revalidate, proxy-revalidate";
-        }
-        location /speedtest/garbage.php {
-                include snippets/php-fpm.conf;
-                expires 30d;
-                add_header Pragma "public";
-                add_header Cache-Control "public, must-revalidate, proxy-revalidate";
-        }
         
         location /parrot/dists/ {
                 try_files $uri $uri/ =404;
