@@ -10,6 +10,7 @@ services:
       - ./data/website/static:/var/www/static
       - ./data/repository/:/var/www/repository/
       - ./speedtest/:/var/www/speedtest/
+      - ./speedtest/:/var/www/repository/speedtest/
       - ./gateway/realip.conf:/etc/nginx/snippets/realip.conf
       - ./gateway/snakeoil.conf:/etc/nginx/snippets/snakeoil.conf
       - ./gateway/cache-buffer.conf:/etc/nginx/snippets/cache-buffer.conf
