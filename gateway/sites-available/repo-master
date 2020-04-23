@@ -91,7 +91,7 @@ server {
                 include snippets/php-fpm.conf;
         }
 
-        location ~ ^(?<file>/parrot/misc/*MB\.bin|/mirrors/parrot/misc/*MB\.bin)$ {
+        location ~ ^(?<file>/parrot/misc/.*MB\.bin|/mirrors/parrot/misc/.*MB\.bin)$ {
                 try_files $uri $uri/ =404;
                 add_header Access-Control-Allow-Origin "*";
                 add_header Pragma "no-cache";
