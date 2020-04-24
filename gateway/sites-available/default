@@ -16,29 +16,22 @@ upstream pad {
 upstream nextcloud {
         keepalive 32;
         server nextcloud-1.internal.parrot.sh:443 weight=5 max_fails=2 fail_timeout=60;
-        server nextcloud-2.internal.parrot.sh;
+        server nextcloud-2.internal.parrot.sh:443;
         server nextcloud-3.internal.parrot.sh:443 backup;
 }
 
 upstream webmail {
         keepalive 8;
         server webmail-1.internal.parrot.sh:443 weight=5 max_fails=2 fail_timeout=60;
-        server webmail-2.internal.parrot.sh;
+        server webmail-2.internal.parrot.sh:443;
         server webmail-3.internal.parrot.sh:443 backup;
 }
 
 upstream community {
         keepalive 16;
         server community-1.internal.parrot.sh:443 weight=5 max_fails=2 fail_timeout=60;
-        server community-2.internal.parrot.sh;
+        server community-2.internal.parrot.sh:443;
         server community-3.internal.parrot.sh:443 backup;
-}
-
-upstream nest {
-        keepalive 16;
-        server nest-1.internal.parrot.sh:443 weight=5 max_fails=2 fail_timeout=60;
-        server nest-2.internal.parrot.sh;
-        server nest-3.internal.parrot.sh:443 backup;
 }
 
 upstream tracker {
@@ -235,7 +228,7 @@ server {
         include snippets/realip.conf;
         server_tokens off;
 
-        server_name cloud.*;
+        server_name cloud.* nextcloud.*;
 
         location / {
                 proxy_pass https://nextcloud;
@@ -290,42 +283,6 @@ server {
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
                 include snippets/cache-buffer.conf;
-        }
-
-        # deny access to unauthorized resources
-        location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }
-        location ~* /(system|vendor)/.*\.(txt|xml|md|html|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
-        location ~* /user/.*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
-
-}
-
-# nest
-server {
-        listen 443 ssl http2;
-        listen [::]:443 ssl http2;
-        include snippets/snakeoil.conf;
-        include snippets/realip.conf;
-        server_tokens off;
-
-        server_name nest.* git.* dev.*;
-
-        location / {
-                proxy_pass https://nest;
-                proxy_set_header Host $host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $remote_addr;
-                proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection $connection_upgrade;
-                include snippets/cache-buffer.conf;
-        }
-        location ~ ^/(?<path>|snippets|assets|uploads)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot)$ {
-                proxy_pass https://nest;
-                proxy_set_header Host $host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $remote_addr;
-                proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection $connection_upgrade;
-                include snippets/cache-aggressive.conf;
         }
 
         # deny access to unauthorized resources

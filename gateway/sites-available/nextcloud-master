@@ -1,0 +1,35 @@
+# nextcloud
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        server_tokens off;
+
+        server_name cloud.* nextcloud.*;
+
+        location / {
+                proxy_pass https://nextcloud:443;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection $connection_upgrade;
+                include snippets/cache-buffer.conf;
+        }
+        location ~ ^/(?<path>|css|js|img|fonts|common|customize|file|pad|bower_components|)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot) {
+                proxy_pass https://nextcloud:443;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection $connection_upgrade;
+                include snippets/cache-aggressive.conf;
+        }
+
+        # deny access to unauthorized resources
+        location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }
+        location ~* /(system|vendor)/.*\.(txt|xml|md|html|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
+        location ~* /user/.*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
+
+}

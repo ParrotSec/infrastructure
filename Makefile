@@ -1,8 +1,20 @@
+include env
+export
+
 D=docker-compose
 EDGE=-f docker-compose.yml -f opennic.yml -f firewall.yml -f edge.yml
-MIRROR=-f docker-compose.yml -f opennic.yml -f firewall.yml -f repository.yml
+MIRROR=-f docker-compose.yml -f firewall.yml -f repository.yml
 GIBSON=-f docker-compose.yml -f opennic.yml -f firewall.yml -f repository.yml -f director.yml
-CENTRAL=-f docker-compose.yml -f opennic.yml -f firewall.yml -f repository.yml -f director.yml -f central.yml
+
+ifeq($(GIBSON_ID), 1)
+	GIBSON += -f gibson1.yml
+else ifeq($(GIBSON_ID), 2)
+	GIBSON += -f gibson2.yml
+else ifeq($(GIBSON_ID), 3)
+	GIBSON += -f gibson3.yml
+else
+	GIBSON += -f gibson-leaf.yml
+endif
 
 edge-stop:
 	$(D) $(EDGE) down

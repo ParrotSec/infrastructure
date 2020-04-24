@@ -1,0 +1,66 @@
+version: "3"
+services:
+  gateway:
+    volumes:
+      - ./gateway/sites-available/nextcloud-master:/etc/nginx/sites-enabled/nextcloud
+
+
+  nextcloud:
+    container_name: nextcloud
+    image: nextcloud:latest
+    restart: always
+    expose:
+      - "80"
+      - "443"
+    volumes:
+      - ./data/nextcloud/:/var/www/html/
+    environment:
+      - VIRTUAL_HOST=cloud.parrot.sh
+      - POSTGRES_HOST=nextcloud-db
+      - POSTGRES_DB_FILE=/run/secrets/ndb_db
+      - POSTGRES_USER_FILE=/run/secrets/ndb_user
+      - POSTGRES_PASSWORD_FILE=/run/secrets/ndb_pass
+      - NEXTCLOUD_ADMIN_PASSWORD_FILE=/run/secrets/nextcloud_admin_password
+      - NEXTCLOUD_ADMIN_USER_FILE=/run/secrets/nextcloud_admin_user
+    secrets:
+      - nextcloud_admin_password
+      - nextcloud_admin_user
+      - ndb_db
+      - ndb_user
+      - ndb_pass
+    depends_on:
+      - gateway
+      - nextcloud-db
+    networks:
+      - main
+      - nextcloud-db
+
+  nextcloud-db:
+    container_name: nextcloud-db
+    image: postgres
+    restart: always
+    volumes:
+      - ./data/nextcloud-db/:/var/lib/postgresql/data/
+    environment:
+      - POSTGRES_DB_FILE=/run/secrets/ndb_db
+      - POSTGRES_USER_FILE=/run/secrets/ndb_user
+      - POSTGRES_PASSWORD_FILE=/run/secrets/ndb_pass
+    secrets:
+      - ndb_db
+      - ndb_user
+      - ndb_pass
+    networks:
+      - nextcloud-db
+
+
+secrets:
+  nextcloud_admin_password:
+    file: /root/nextcloud/nextcloud_admin_password.txt
+  nextcloud_admin_user:
+    file: /root/nextcloud/nextcloud_admin_user.txt
+  ndb_db:
+    file: /root/nextcloud/postgres_db.txt
+  ndb_password:
+    file: /root/nextcloud/postgres_password.txt
+  ndb_user:
+    file: /root/nextcloud/postgres_user.txt
