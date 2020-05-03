@@ -9,7 +9,7 @@ services:
       - ./gateway/sites-available/mail-edge:/etc/nginx/sites-enabled/mail
 
   cryptpad:
-    container_name: cryptpad.local
+    container_name: cryptpad
     image: cryptpad/cryptpad
     restart: always
     depends_on:
