@@ -65,3 +65,8 @@ services:
       POSTGRES_PASSWORD: ${NEXTCLOUD_DB_PASS}
     networks:
       - nextcloud-db
+
+
+networks:
+  nextcloud-db:
+    driver: bridge
