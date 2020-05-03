@@ -40,13 +40,12 @@ services:
     volumes:
       - ./data/nextcloud/:/var/www/html/
     environment:
-      - VIRTUAL_HOST=cloud.parrot.sh
-      - POSTGRES_HOST=nextcloud-db
-      - POSTGRES_DB_FILE=/run/secrets/ndb_db
-      - POSTGRES_USER_FILE=/run/secrets/ndb_user
-      - POSTGRES_PASSWORD_FILE=/run/secrets/ndb_pass
-      - NEXTCLOUD_ADMIN_PASSWORD_FILE=/run/secrets/nextcloud_admin_password
-      - NEXTCLOUD_ADMIN_USER_FILE=/run/secrets/nextcloud_admin_user
+      VIRTUAL_HOST: "cloud.parrot.sh"
+      POSTGRES_DB: ${NEXTCLOUD_DB}
+      POSTGRES_USER: ${NEXTCLOUD_DB_USER}
+      POSTGRES_PASSWORD: ${NEXTCLOUD_DB_PASS}
+      NEXTCLOUD_ADMIN_PASSWORD: ${NEXTCLOUD_PASS}
+      NEXTCLOUD_ADMIN_USER: ${NEXTCLOUD_USER}
     secrets:
       - nextcloud_admin_password
       - nextcloud_admin_user
@@ -67,25 +66,8 @@ services:
     volumes:
       - ./data/nextcloud-db/:/var/lib/postgresql/data/
     environment:
-      - POSTGRES_DB_FILE=/run/secrets/ndb_db
-      - POSTGRES_USER_FILE=/run/secrets/ndb_user
-      - POSTGRES_PASSWORD_FILE=/run/secrets/ndb_pass
-    secrets:
-      - ndb_db
-      - ndb_user
-      - ndb_pass
+      POSTGRES_DB: ${NEXTCLOUD_DB}
+      POSTGRES_USER: ${NEXTCLOUD_DB_USER}
+      POSTGRES_PASSWORD: ${NEXTCLOUD_DB_PASS}
     networks:
       - nextcloud-db
-
-
-secrets:
-  nextcloud_admin_password:
-    file: /root/nextcloud/nextcloud_admin_password.txt
-  nextcloud_admin_user:
-    file: /root/nextcloud/nextcloud_admin_user.txt
-  ndb_db:
-    file: /root/nextcloud/postgres_db.txt
-  ndb_password:
-    file: /root/nextcloud/postgres_password.txt
-  ndb_user:
-    file: /root/nextcloud/postgres_user.txt
