@@ -5,21 +5,6 @@ limit_req_zone $binary_remote_addr zone=limited:60m rate=5r/s;
 limit_req_zone $binary_remote_addr zone=standard:60m rate=10r/s;
 limit_req_zone $binary_remote_addr zone=high:30m rate=20r/s;
 
-
-upstream pad {
-        keepalive 32;
-        server pad-1.internal.parrot.sh:443 weight=30 max_fails=2 fail_timeout=60;
-        server pad-2.internal.parrot.sh:443 weight=1 backup;
-        server pad-3.internal.parrot.sh:443 backup;
-}
-
-upstream nextcloud {
-        keepalive 32;
-        server nextcloud-1.internal.parrot.sh:443 weight=5 max_fails=2 fail_timeout=60;
-        server nextcloud-2.internal.parrot.sh:443;
-        server nextcloud-3.internal.parrot.sh:443 backup;
-}
-
 upstream webmail {
         keepalive 8;
         server webmail-1.internal.parrot.sh:443 weight=5 max_fails=2 fail_timeout=60;

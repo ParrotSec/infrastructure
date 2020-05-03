@@ -104,6 +104,9 @@ central-start:
 	$(D) $(CENTRAL) build
 	$(D) $(CENTRAL) up -d
 
+central-ps:
+	$(D) $(CENTRAL) ps
+
 central: central-stop central-update central-start
 
 
