@@ -21,6 +21,7 @@ services:
       - "8080"
     networks:
       main:
+        ipv4_address: 172.18.10.4
       director:
         ipv4_address: 172.18.45.2
   director-redis:

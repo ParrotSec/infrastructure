@@ -3,6 +3,7 @@ services:
   gateway:
     volumes:
       - ./gateway/sites-available/repo-master:/etc/nginx/sites-enabled/repo
+
   rsync:
     container_name: rsyncd
     build: ./rsync/
@@ -13,7 +14,9 @@ services:
     ports:
      - "873:873"
     networks:
-      - main
+      main:
+        ipv4_address: 172.18.10.8
+  
   updater:
     container_name: updater
     build: ./updater/

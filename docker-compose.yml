@@ -29,6 +29,7 @@ services:
       - "443:443"
     networks:
       main:
+        ipv4_address: 172.18.10.2
       ipfs:
         ipv4_address: 172.18.44.3
   
@@ -42,7 +43,8 @@ services:
       - "9000"
     restart: always
     networks:
-      - main
+      main:
+        ipv4_address: 172.18.10.3
       
   ipfs:
     container_name: ipfs
@@ -83,6 +85,9 @@ services:
 networks:
   main:
     driver: bridge
+    ipam:
+      config:
+        - subnet: 172.18.10.0/28
   ipfs:
     driver: bridge
     ipam:

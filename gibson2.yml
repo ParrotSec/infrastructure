@@ -70,4 +70,5 @@ services:
       - ./data/logs/nest:/var/log/gitlab:Z
       - ./data/nest/data:/var/opt/gitlab:Z
     networks:
-      - main
+      main:
+        ipv4_address: 172.18.10.6

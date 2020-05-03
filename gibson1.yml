@@ -9,7 +9,7 @@ services:
       - ./gateway/sites-available/mail-edge:/etc/nginx/sites-enabled/mail
 
   cryptpad:
-    container_name: cryptpad
+    container_name: cryptpad.local
     image: cryptpad/cryptpad
     restart: always
     depends_on:
@@ -28,7 +28,8 @@ services:
       - ./data/cryptpad/config:/cryptpad/cfg:rw
       - ./data/cryptpad/data:/cryptpad/data:rw
     networks:
-      - main
+      main:
+        ipv4_address: 172.18.10.5
 
   nextcloud:
     container_name: nextcloud
