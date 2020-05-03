@@ -154,25 +154,25 @@ director-feed:
 	docker exec director mirrorbits add -http http://mirrors.sjtug.sjtu.edu.cn/parrot -rsync rsync://mirrors.sjtug.sjtu.edu.cn/parrot -comment "SJTUG (SJTU *NIX User Group)" apac.sjtug
 	docker exec director mirrorbits add -http http://mirror.lagoon.nc/pub/parrot -rsync rsync://mirror.lagoon.nc/parrot -comment "Lagoon" apac.lagoon
 	docker exec director mirrorbits add -http https://mirrors.tuna.tsinghua.edu.cn/parrot -rsync rsync://mirrors.tuna.tsinghua.edu.cn/parrot -comment "TUNA (Tsinghua university of Beijing, TUNA association)" apac.tuna
-	docker exec director mirrorbits add -http https://us1.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.us1
-	docker exec director mirrorbits add -http https://us2.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.us2
-	docker exec director mirrorbits add -http https://us3.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.us3
-	docker exec director mirrorbits add -http https://latam1.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.latam1
-	docker exec director mirrorbits add -http https://latam2.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.latam2
-	docker exec director mirrorbits add -http https://latam3.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.latam3
-	docker exec director mirrorbits add -http https://euro1.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.euro1
-	docker exec director mirrorbits add -http https://euro2.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.euro2
-	docker exec director mirrorbits add -http https://euro3.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.euro3
-	docker exec director mirrorbits add -http https://africa1.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.africa1
-	docker exec director mirrorbits add -http https://africa2.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.africa2
-	docker exec director mirrorbits add -http https://africa3.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.africa3
-	docker exec director mirrorbits add -http https://africa4.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.africa4
-	docker exec director mirrorbits add -http https://meast1.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.meast1
-	docker exec director mirrorbits add -http https://meast2.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.meast2
-	docker exec director mirrorbits add -http https://india1.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.india1
-	docker exec director mirrorbits add -http https://china1.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.china1
-	docker exec director mirrorbits add -http https://pacific1.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.pacific1
-	docker exec director mirrorbits add -http https://pacific2.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.pacific2
+	docker exec director mirrorbits add -http https://us1-ncsa-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.us1
+	docker exec director mirrorbits add -http https://us2-ncsa-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.us2
+	docker exec director mirrorbits add -http https://us3-ncsa-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.us3
+	docker exec director mirrorbits add -http https://latam1-ncsa-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.latam1
+	docker exec director mirrorbits add -http https://latam2-ncsa-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.latam2
+	docker exec director mirrorbits add -http https://latam3-ncsa-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.latam3
+	docker exec director mirrorbits add -http https://euro1-emea-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.euro1
+	docker exec director mirrorbits add -http https://euro2-emea-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.euro2
+	docker exec director mirrorbits add -http https://euro3-emea-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.euro3
+	docker exec director mirrorbits add -http https://africa1-emea-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.africa1
+	docker exec director mirrorbits add -http https://africa2-emea-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.africa2
+	docker exec director mirrorbits add -http https://africa3-emea-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.africa3
+	docker exec director mirrorbits add -http https://africa4-emea-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.africa4
+	docker exec director mirrorbits add -http https://meast1-emea-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.meast1
+	docker exec director mirrorbits add -http https://meast2-emea-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.meast2
+	docker exec director mirrorbits add -http https://india1-apac-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.india1
+	docker exec director mirrorbits add -http https://china1-apac-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.china1
+	docker exec director mirrorbits add -http https://pacific1-apac-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.pacific1
+	docker exec director mirrorbits add -http https://pacific2-apac-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.pacific2
 
 
 director-enable:
