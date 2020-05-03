@@ -46,12 +46,6 @@ services:
       POSTGRES_PASSWORD: ${NEXTCLOUD_DB_PASS}
       NEXTCLOUD_ADMIN_PASSWORD: ${NEXTCLOUD_PASS}
       NEXTCLOUD_ADMIN_USER: ${NEXTCLOUD_USER}
-    secrets:
-      - nextcloud_admin_password
-      - nextcloud_admin_user
-      - ndb_db
-      - ndb_user
-      - ndb_pass
     depends_on:
       - gateway
       - nextcloud-db
