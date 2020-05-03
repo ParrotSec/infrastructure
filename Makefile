@@ -6,11 +6,11 @@ EDGE=-f docker-compose.yml -f opennic.yml -f firewall.yml -f edge.yml
 MIRROR=-f docker-compose.yml -f firewall.yml -f repository.yml
 GIBSON=-f docker-compose.yml -f opennic.yml -f firewall.yml -f repository.yml -f director.yml
 
-ifeq($(GIBSON_ID), 1)
+ifeq ($(GIBSON_ID), 1)
 	GIBSON += -f gibson1.yml
-else ifeq($(GIBSON_ID), 2)
+else ifeq ($(GIBSON_ID), 2)
 	GIBSON += -f gibson2.yml
-else ifeq($(GIBSON_ID), 3)
+else ifeq ($(GIBSON_ID), 3)
 	GIBSON += -f gibson3.yml
 else
 	GIBSON += -f gibson-leaf.yml
