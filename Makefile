@@ -143,7 +143,7 @@ director-feed:
 	docker exec director mirrorbits add -http https://mirror.yandex.ru/mirrors/parrot -rsync rsync://mirror.yandex.ru/mirrors/parrot/ -comment "Yandex Mirror" apac.yandex
 	docker exec director mirrorbits add -http http://mirror.truenetwork.ru/parrot -rsync rsync://mirror.truenetwork.ru/parrot -comment "Truenetwork" apac.truenetwork
 	docker exec director mirrorbits add -http http://mirrors.comsys.kpi.ua/parrot -rsync rsync://mirrors.comsys.kpi.ua/parrot-iso -comment "KPI (National Technical University of Ukraine - Comsys)" emea.comsys
-	docker exec director mirrorbits add -http http://mirror.amberit.com.bd/parrotsec -rsync rsync://mirror.amberit.com.bd/parrotsec -comment "Amberit (Dhakacom)"
+	docker exec director mirrorbits add -http http://mirror.amberit.com.bd/parrotsec -rsync rsync://mirror.amberit.com.bd/parrotsec -comment "Amberit (Dhakacom)" apac.amberit
 	docker exec director mirrorbits add -http https://free.nchc.org.tw/parrot -ftp ftp://free.nchc.org.tw/parrot/ -comment "NCHC (Free Software Lab)" apac.nchc
 	docker exec director mirrorbits add -http https://mirror.0x.sg/parrot -rsync rsync://mirror.0x.sg/parrot -comment "0x" apac.0x
 	docker exec director mirrorbits add -http https://mirrors.ustc.edu.cn/parrot -rsync rsync://mirrors.ustc.edu.cn/repo/parrot/ -comment "University of Science and Technology of China and USTCLUG" apac.ustc
@@ -154,11 +154,78 @@ director-feed:
 	docker exec director mirrorbits add -http http://mirrors.sjtug.sjtu.edu.cn/parrot -rsync rsync://mirrors.sjtug.sjtu.edu.cn/parrot -comment "SJTUG (SJTU *NIX User Group)" apac.sjtug
 	docker exec director mirrorbits add -http http://mirror.lagoon.nc/pub/parrot -rsync rsync://mirror.lagoon.nc/parrot -comment "Lagoon" apac.lagoon
 	docker exec director mirrorbits add -http https://mirrors.tuna.tsinghua.edu.cn/parrot -rsync rsync://mirrors.tuna.tsinghua.edu.cn/parrot -comment "TUNA (Tsinghua university of Beijing, TUNA association)" apac.tuna
-	
+	docker exec director mirrorbits add -http https://us1.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.us1
+	docker exec director mirrorbits add -http https://us2.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.us2
+	docker exec director mirrorbits add -http https://us3.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.us3
+	docker exec director mirrorbits add -http https://latam1.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.latam1
+	docker exec director mirrorbits add -http https://latam2.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.latam2
+	docker exec director mirrorbits add -http https://latam3.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.latam3
+	docker exec director mirrorbits add -http https://euro1.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.euro1
+	docker exec director mirrorbits add -http https://euro2.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.euro2
+	docker exec director mirrorbits add -http https://euro3.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.euro3
+	docker exec director mirrorbits add -http https://africa1.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.africa1
+	docker exec director mirrorbits add -http https://africa2.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.africa2
+	docker exec director mirrorbits add -http https://africa3.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.africa3
+	docker exec director mirrorbits add -http https://africa4.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.africa4
+	docker exec director mirrorbits add -http https://meast1.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.meast1
+	docker exec director mirrorbits add -http https://meast2.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.meast2
+	docker exec director mirrorbits add -http https://india1.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.india1
+	docker exec director mirrorbits add -http https://china1.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.china1
+	docker exec director mirrorbits add -http https://pacific1.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.pacific1
+	docker exec director mirrorbits add -http https://pacific2.mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.pacific2
 
 
 director-enable:
-	echo 1
+	docker exec director mirrorbits enable ncsa.mit
+	docker exec director mirrorbits enable ncsa.clarkson
+	docker exec director mirrorbits enable ncsa.osuosl
+	docker exec director mirrorbits enable ncsa.berkeley
+	docker exec director mirrorbits enable ncsa.muug
+	docker exec director mirrorbits enable emea.garr
+	docker exec director mirrorbits enable emea.halifax
+	docker exec director mirrorbits enable emea.esslingen
+	docker exec director mirrorbits enable emea.nluug
+	docker exec director mirrorbits enable emea.umu
+	docker exec director mirrorbits enable emea.uoc
+	docker exec director mirrorbits enable emea.belnet
+	docker exec director mirrorbits enable emea.osluz
+	docker exec director mirrorbits enable emea.up
+	docker exec director mirrorbits enable emea.dotsrc
+	docker exec director mirrorbits enable emea.cythin
+	docker exec director mirrorbits enable emea.quantum
+	docker exec director mirrorbits enable apac.yandex
+	docker exec director mirrorbits enable apac.truenetwork
+	docker exec director mirrorbits enable emea.comsys
+	docker exec director mirrorbits enable apac.amberit
+	docker exec director mirrorbits enable apac.nchc
+	docker exec director mirrorbits enable apac.0x
+	docker exec director mirrorbits enable apac.ustc
+	docker exec director mirrorbits enable apac.kku
+	docker exec director mirrorbits enable apac.datautama
+	docker exec director mirrorbits enable apac.takeshi
+	docker exec director mirrorbits enable apac.shu
+	docker exec director mirrorbits enable apac.sjtug
+	docker exec director mirrorbits enable apac.lagoon
+	docker exec director mirrorbits enable apac.tuna
+	docker exec director mirrorbits enable parrot.us1
+	docker exec director mirrorbits enable parrot.us2
+	docker exec director mirrorbits enable parrot.us3
+	docker exec director mirrorbits enable parrot.latam1
+	docker exec director mirrorbits enable parrot.latam2
+	docker exec director mirrorbits enable parrot.latam3
+	docker exec director mirrorbits enable parrot.euro1
+	docker exec director mirrorbits enable parrot.euro2
+	docker exec director mirrorbits enable parrot.euro3
+	docker exec director mirrorbits enable parrot.meast1
+	docker exec director mirrorbits enable parrot.meast2
+	docker exec director mirrorbits enable parrot.africa1
+	docker exec director mirrorbits enable parrot.africa2
+	docker exec director mirrorbits enable parrot.africa3
+	docker exec director mirrorbits enable parrot.africa4
+	docker exec director mirrorbits enable parrot.india1
+	docker exec director mirrorbits enable parrot.china1
+	docker exec director mirrorbits enable parrot.pacific1
+	docker exec director mirrorbits enable parrot.pacific2
 
 
 
