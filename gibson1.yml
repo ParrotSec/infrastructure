@@ -51,8 +51,9 @@ services:
       - gateway
       - nextcloud-db
     networks:
-      - main
-      - nextcloud-db
+      main:
+        ipv4_address: 172.18.10.9
+      nextcloud-db:
 
   nextcloud-db:
     container_name: nextcloud-db
