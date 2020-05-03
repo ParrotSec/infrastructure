@@ -5,20 +5,6 @@ limit_req_zone $binary_remote_addr zone=limited:60m rate=5r/s;
 limit_req_zone $binary_remote_addr zone=standard:60m rate=10r/s;
 limit_req_zone $binary_remote_addr zone=high:30m rate=20r/s;
 
-upstream webmail {
-        keepalive 8;
-        server webmail-1.internal.parrot.sh:443 weight=5 max_fails=2 fail_timeout=60;
-        server webmail-2.internal.parrot.sh:443;
-        server webmail-3.internal.parrot.sh:443 backup;
-}
-
-upstream community {
-        keepalive 16;
-        server community-1.internal.parrot.sh:443 weight=5 max_fails=2 fail_timeout=60;
-        server community-2.internal.parrot.sh:443;
-        server community-3.internal.parrot.sh:443 backup;
-}
-
 upstream tracker {
         keepalive 16;
         server repository-1.internal.parrot.sh:443 weight=5 max_fails=2 fail_timeout=60;
@@ -168,43 +154,6 @@ server {
         location ~* /user/.*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
 
 }
-
-# webmail
-server {
-        listen 443 ssl http2;
-        listen [::]:443 ssl http2;
-        include snippets/snakeoil.conf;
-        include snippets/realip.conf;
-        server_tokens off;
-
-        server_name webmail.* mail.*;
-
-        location / {
-                proxy_pass https://webmail;
-                proxy_set_header Host $host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $remote_addr;
-                proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection $connection_upgrade;
-                include snippets/cache-buffer.conf;
-        }
-        location ~ ^/(?<path>assets|js|css|inc|/SOGo\.woa/WebServerResources/css|/SOGo\.woa/WebServerResources/js)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot)$ {
-                proxy_pass https://webmail;
-                proxy_set_header Host $host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $remote_addr;
-                proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection $connection_upgrade;
-                include snippets/cache-buffer.conf;
-        }
-
-        # deny access to unauthorized resources
-        location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }
-        location ~* /(system|vendor)/.*\.(txt|xml|md|html|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
-        location ~* /user/.*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
-
-}
-
 
 
 # tracker

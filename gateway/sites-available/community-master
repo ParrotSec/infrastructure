@@ -1,0 +1,19 @@
+# community
+server {
+        listen 443 ssl;
+        listen [::]:443 ssl;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+
+        server_name community.* cdn-community.* forum.*;
+
+        http2_idle_timeout 5m;
+
+        location / {
+                proxy_pass https://community.local:8443;
+                proxy_set_header Host community.parrotsec.org;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-Proto https;
+                include snippets/cache-buffer.conf;
+        }
+}
