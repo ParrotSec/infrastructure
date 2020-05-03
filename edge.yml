@@ -7,4 +7,4 @@ services:
       - ./gateway/sites-available/nest-edge:/etc/nginx/sites-enabled/nest
       - ./gateway/sites-available/nextcloud-edge:/etc/nginx/sites-enabled/nextcloud
       - ./gateway/sites-available/community-edge:/etc/nginx/sites-enabled/community
-      - ./gateway/sites-available/mail-edge:/etc/nginx/sites-enabled/mail
+      - ./gateway/sites-available/webmail-edge:/etc/nginx/sites-enabled/webmail
