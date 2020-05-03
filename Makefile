@@ -138,7 +138,7 @@ director-feed:
 	docker exec director mirrorbits add -http https://matojo.unizar.es/parrot -rsync rsync://matojo.unizar.es/parrot -comment "Osluz (Oficina de software libre de la Universidad de Zaragoza)" emea.osluz
 	docker exec director mirrorbits add -http https://mirrors.up.pt/parrot -rsync rsync://mirrors.up.pt/parrot -comment "U.Porto (University of Porto)" emea.up
 	docker exec director mirrorbits add -http https://mirrors.dotsrc.org/parrot -rsync rsync://mirrors.dotsrc.org/parrot -comment "Dotsrc (Aalborg university)" emea.dotsrc
-	docker exec director mirrorbits add -http https://parrot.mirror.cythin.com/parrot -rsnc rsync://parrot.mirror.cythin.com/parrot -comment "cythin.com" emea.cythin
+	docker exec director mirrorbits add -http https://parrot.mirror.cythin.com/parrot -rsync rsync://parrot.mirror.cythin.com/parrot -comment "cythin.com" emea.cythin
 	docker exec director mirrorbits add -http https://quantum-mirror.hu/mirrors/pub/parrot -rsync rsync://quantum-mirror.hu/mirrors/pub/parrot/ -comment "quantum-mirror.hu" emea.quantum
 	docker exec director mirrorbits add -http https://mirror.yandex.ru/mirrors/parrot -rsync rsync://mirror.yandex.ru/mirrors/parrot/ -comment "Yandex Mirror" apac.yandex
 	docker exec director mirrorbits add -http http://mirror.truenetwork.ru/parrot -rsync rsync://mirror.truenetwork.ru/parrot -comment "Truenetwork" apac.truenetwork
@@ -150,7 +150,7 @@ director-feed:
 	docker exec director mirrorbits add -http https://mirror.kku.ac.th/parrot -rsync rsync://mirror.kku.ac.th/parrot -comment "KKU (Khon Kaen University)" apac.kku
 	docker exec director mirrorbits add -http http://kartolo.sby.datautama.net.id/parrot -rsync rsync://kartolo.sby.datautama.net.id/parrot -comment "Datautama (PT. Data Utama Dinamika)" apac.datautama
 	docker exec director mirrorbits add -http https://mirrors.takeshi.nz/parrot -rsync rsync://mirrors.takeshi.nz/parrot -comment "Takeshi (D T Consulting Ltd)" apac.takeshi
-	docker exec director mirrorbits add -http https://http://mirrors.shu.edu.cn/parrot -rsync rsync://http://mirrors.shu.edu.cn/parrot -comment "SHU(Shanghai University)" apac.shu
+	docker exec director mirrorbits add -http http://mirrors.shu.edu.cn/parrot -rsync rsync://mirrors.shu.edu.cn/parrot -comment "SHU(Shanghai University)" apac.shu
 	docker exec director mirrorbits add -http http://mirrors.sjtug.sjtu.edu.cn/parrot -rsync rsync://mirrors.sjtug.sjtu.edu.cn/parrot -comment "SJTUG (SJTU *NIX User Group)" apac.sjtug
 	docker exec director mirrorbits add -http http://mirror.lagoon.nc/pub/parrot -rsync rsync://mirror.lagoon.nc/parrot -comment "Lagoon" apac.lagoon
 	docker exec director mirrorbits add -http https://mirrors.tuna.tsinghua.edu.cn/parrot -rsync rsync://mirrors.tuna.tsinghua.edu.cn/parrot -comment "TUNA (Tsinghua university of Beijing, TUNA association)" apac.tuna
