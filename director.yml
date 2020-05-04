@@ -29,6 +29,7 @@ services:
     image: redis
     volumes:
       - ./data/redis:/var/lib/redis
+      - ./data/redis:/data
     networks:
       director:
         ipv4_address: 172.18.45.3
