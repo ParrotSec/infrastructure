@@ -128,6 +128,10 @@ director-feed:
 	docker exec director mirrorbits add -http https://ftp.osuosl.org/pub/parrotos -rsync rsync://ftp.osuosl.org/parrotos -comment "Oregon State University - Open Source Lab" ncsa.osuosl
 	docker exec director mirrorbits add -http https://mirrors.ocf.berkeley.edu/parrot -rsync rsync://mirrors.ocf.berkeley.edu/parrot -comment "Berkeley Open Computing Facility" ncsa.berkeley
 	docker exec director mirrorbits add -http https://muug.ca/mirror/parrot -rsync rsync://muug.ca/parrot -comment "Manitoba Unix User Group" ncsa.muug
+	docker exec director mirrorbits add -http https://mirror.cedia.org.ec/parrot -rsync rsync://mirror.cedia.org.ec/parrot -comment "RED CEDIA (National research and education center of Ecuador)" ncsa.cedia
+	docker exec director mirrorbits add -http https://mirror.uta.edu.ec/parrot -rsync rsync://mirror.uta.edu.ec/parrot -comment "UTA (Universidad Técnica de ambato)" ncsa.uta
+	docker exec director mirrorbits add -http http://mirror.ueb.edu.ec/parrot -rsync rsync://mirror.ueb.edu.ec/parrot -comment "UEB (Universidad Estatal de Bolivar)" ncsa.ueb
+	docker exec director mirrorbits add -http http://sft.if.usp.br/parrot -rsync rsync://sft.if.usp.br/parrot -comment "University of Sao Paulo" ncsa.usp
 	docker exec director mirrorbits add -http https://parrot.mirror.garr.it/parrot -rsync rsync://parrot.mirror.garr.it/parrot -comment "GARR Consortium (Italian Research & Education Network)" emea.garr
 	docker exec director mirrorbits add -http https://ftp.halifax.rwth-aachen.de/parrotsec -rsync rsync://ftp.halifax.rwth-aachen.de/parrotsec -comment "RWTH-Aachen (Halifax students group)" emea.halifax
 	docker exec director mirrorbits add -http https://ftp-stud.hs-esslingen.de/Mirrors/archive.parrotsec.org -rsync rsync://ftp-stud.hs-esslingen.de/archive.parrotsec.org -comment "Esslingen (University of Applied Sciences)" emea.esslingen
@@ -181,6 +185,10 @@ director-enable:
 	docker exec director mirrorbits enable ncsa.osuosl
 	docker exec director mirrorbits enable ncsa.berkeley
 	docker exec director mirrorbits enable ncsa.muug
+	docker exec director mirrorbits enable ncsa.cedia
+	docker exec director mirrorbits enable ncsa.uta
+	docker exec director mirrorbits enable ncsa.ueb
+	docker exec director mirrorbits enable ncsa.usp
 	docker exec director mirrorbits enable emea.garr
 	docker exec director mirrorbits enable emea.halifax
 	docker exec director mirrorbits enable emea.esslingen
