@@ -1,5 +1,5 @@
 upstream webmail {
-        server 10.42.42.3;
+        server 51.91.86.197:9443;
 }
 
 # webmail
@@ -13,7 +13,7 @@ server {
         server_name webmail.* mail.*;
 
         location / {
-                proxy_pass https://webmail:8443;
+                proxy_pass https://webmail;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
