@@ -28,7 +28,6 @@ services:
     container_name: redis
     image: redis
     volumes:
-      - ./data/redis:/var/lib/redis
       - ./data/redis:/data
     command: /usr/local/bin/redis-server --appendonly yes
     networks:
