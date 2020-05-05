@@ -1,3 +1,8 @@
+upstream community {
+        keepalive 16;
+        server 10.42.42.2;
+}
+
 # community
 server {
         listen 443 ssl;
@@ -10,7 +15,7 @@ server {
         http2_idle_timeout 5m;
 
         location / {
-                proxy_pass https://community.local:8443;
+                proxy_pass https://community:8443;
                 proxy_set_header Host community.parrotsec.org;
                 proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-Proto https;
