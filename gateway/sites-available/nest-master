@@ -1,3 +1,8 @@
+upstream nest {
+        keepalive 16;
+        server nest:20443;
+}
+
 # nest
 server {
         listen 443 ssl http2;
@@ -9,7 +14,7 @@ server {
         server_name nest.* git.* dev.*;
 
         location / {
-                proxy_pass https://nest:20443;
+                proxy_pass https://nest;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
