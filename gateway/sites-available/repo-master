@@ -1,6 +1,7 @@
 upstream localarchive {
-    server 172.18.45.2:8080;
-    server 127.0.0.1:8081 backup;
+        keepalive 128;
+        server 172.18.45.2:8080;
+        server 127.0.0.1:8081 backup;
 }
 
 # serve files directly if mirrorbits is not available

@@ -1,5 +1,5 @@
 upstream nest {
-        keepalive 16;
+        keepalive 32;
         server nest-1.internal.parrot.sh:443 weight=5 max_fails=2 fail_timeout=60;
         server nest-2.internal.parrot.sh:443;
         server nest-3.internal.parrot.sh:443 backup;

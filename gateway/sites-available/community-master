@@ -1,5 +1,5 @@
 upstream community {
-        keepalive 16;
+        keepalive 512;
         server 10.42.42.2:8443;
 }
 

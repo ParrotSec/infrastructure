@@ -1,5 +1,5 @@
 upstream pad {
-        keepalive 32;
+        keepalive 128;
         server pad-1.internal.parrot.sh:443 weight=30 max_fails=2 fail_timeout=60;
         server pad-2.internal.parrot.sh:443 weight=1 backup;
         server pad-3.internal.parrot.sh:443 backup;

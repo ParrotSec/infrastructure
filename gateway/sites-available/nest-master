@@ -1,5 +1,5 @@
 upstream nest {
-        keepalive 16;
+        keepalive 128;
         server 10.42.42.2:20443;
 }
 
