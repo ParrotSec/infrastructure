@@ -139,86 +139,52 @@ domains:
   services:
     pad-1.internal.parrot.sh:
       default: ['%cn.a.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.0/24: 'pad.internal.parrot.sh'
     pad-2.internal.parrot.sh:
       default: ['%cn.b.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.0/24: 'pad.internal.parrot.sh'
     pad-3.internal.parrot.sh:
       default: ['%cn.c.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.0/24: 'pad.internal.parrot.sh'
 
     nextcloud-1.internal.parrot.sh:
       default: ['%cn.a.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.0/24: 'nextcloud.internal.parrot.sh'
     nextcloud-2.internal.parrot.sh:
       default: ['%cn.b.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.0/24: 'nextcloud.internal.parrot.sh'
     nextcloud-3.internal.parrot.sh:
       default: ['%cn.c.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.0/24: 'nextcloud.internal.parrot.sh'
 
     webmail-1.internal.parrot.sh:
       default: ['%cn.a.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.0/24: 'webmail.internal.parrot.sh'
     webmail-2.internal.parrot.sh:
       default: ['%cn.b.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.0/24: 'webmail.internal.parrot.sh'
     webmail-3.internal.parrot.sh:
       default: ['%cn.c.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.0/24: 'webmail.internal.parrot.sh'
 
     community-1.internal.parrot.sh:
       default: ['%cn.a.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.0/24: 'community.internal.parrot.sh'
     community-2.internal.parrot.sh:
       default: ['%cn.b.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.0/24: 'community.internal.parrot.sh'
     community-3.internal.parrot.sh:
       default: ['%cn.c.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.0/24: 'community.internal.parrot.sh'
 
     nest-1.internal.parrot.sh:
       default: ['%cn.a.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.0/24: 'nest.internal.parrot.sh'
     nest-2.internal.parrot.sh:
       default: ['%cn.b.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.0/24: 'nest.internal.parrot.sh'
     nest-3.internal.parrot.sh:
       default: ['%cn.c.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.0/24: 'nest.internal.parrot.sh'
 
     gibson-1.internal.parrot.sh:
       default: ['%cn.a.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.0/24: '127.0.0.1'
     gibson-2.internal.parrot.sh:
       default: ['%cn.b.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.1/32: '10.42.42.2'
-      10.42.42.2/32: '10.42.42.3'
-      10.42.42.3/32: '10.42.42.1'
-      10.42.42.10/32: 'repository.internal.parrot.sh'
-      10.42.42.11/32: 'repository.internal.parrot.sh'
     gibson-3.internal.parrot.sh:
       default: ['%cn.b.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.0/24: 'oc.a.internal.parrot.sh'
-      10.42.42.11/32: 'na.a.internal.parrot.sh'
 
     repository-1.internal.parrot.sh:
       default: ['%cn.a.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.0/24: '127.0.0.1'
     repository-2.internal.parrot.sh:
       default: ['%cn.b.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.1/32: '10.42.42.2'
-      10.42.42.2/32: '10.42.42.3'
-      10.42.42.3/32: '10.42.42.1'
-      10.42.42.10/32: 'repository.internal.parrot.sh'
-      10.42.42.11/32: 'repository.internal.parrot.sh'
     repository-3.internal.parrot.sh:
       default: ['%cn.c.internal.parrot.sh', 'internal.parrot.sh']
-      10.42.42.1/32: '10.42.42.3'
-      10.42.42.2/32: '10.42.42.1'
-      10.42.42.3/32: '10.42.42.2'
-      10.42.42.10/32: 'repository.internal.parrot.sh'
-      10.42.42.11/32: 'repository.internal.parrot.sh'
 
 
 
