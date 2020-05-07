@@ -48,20 +48,18 @@ server {
 
         # pass speedtest garbage file
         location /speedtest/garbage.php {
-                proxy_pass https://repository/speedtest/garbage.php?skSize=20;
+                proxy_pass https://repository/speedtest/garbage.php?cors=true&skSize=20;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
-                add_header Access-Control-Allow-Origin "*";
                 include snippets/cache-aggressive.conf;
         }
         # pass speedtest garbage file
         location /speedtest/empty.php {
-                proxy_pass https://repository/speedtest/empty.php;
+                proxy_pass https://repository/speedtest/empty.php?cors=true;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
-                add_header Access-Control-Allow-Origin "*";
                 include snippets/cache-aggressive.conf;
         }
         location ~ ^(?<file>/parrot/misc/.*MB\.bin|/mirrors/parrot/misc/.*MB\.bin)$ {
@@ -69,7 +67,6 @@ server {
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
-                add_header Access-Control-Allow-Origin "*";
                 include snippets/cache-aggressive.conf;
         }
 
