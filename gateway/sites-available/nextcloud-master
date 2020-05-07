@@ -8,8 +8,11 @@ server {
 
         server_name cloud.* nextcloud.*;
 
+        underscores_in_headers on;
+
         location / {
                 proxy_pass http://172.18.10.9;
+                proxy_redirect off;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;
@@ -25,6 +28,7 @@ server {
         }
         location ~ \.(?:css|js|woff2?|svg|gif|map)$ {
                 proxy_pass http://172.18.10.9;
+                proxy_redirect off;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-For $remote_addr;

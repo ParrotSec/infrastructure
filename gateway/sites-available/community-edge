@@ -1,7 +1,7 @@
 upstream community {
-        keepalive 128;
-        server community-1.internal.parrot.sh:443 weight=5 max_fails=2 fail_timeout=60;
-        server community-2.internal.parrot.sh:443;
+        keepalive 64;
+        server community-1.internal.parrot.sh:443;
+        server community-2.internal.parrot.sh:443 backup;
         server community-3.internal.parrot.sh:443 backup;
 }
 

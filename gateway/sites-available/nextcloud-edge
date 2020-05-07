@@ -1,7 +1,7 @@
 upstream nextcloud {
         keepalive 64;
-        server nextcloud-1.internal.parrot.sh:443 weight=5 max_fails=2 fail_timeout=60;
-        server nextcloud-2.internal.parrot.sh:443;
+        server nextcloud-1.internal.parrot.sh:443;
+        server nextcloud-2.internal.parrot.sh:443 backup;
         server nextcloud-3.internal.parrot.sh:443 backup;
 }
 
