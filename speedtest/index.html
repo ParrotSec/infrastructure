@@ -9,6 +9,15 @@
 function I(i){return document.getElementById(i);}
 
 var SPEEDTEST_SERVERS=[
+		// cloudflare
+		{
+		name:"Worldwide (Coudflare)",
+		server:"//mirror.parrot.sh/",
+		dlURL:"/mirrors/parrot/misc/10MB.bin",
+		ulURL:"/speedtest/empty.php",
+		pingURL:"/speedtest/empty.php",
+		getIpURL:"/speedtest/getIP.php"
+	},
 	// master nodes
 	{
 		name:"Europe, Poland, Warsaw (OVH)",
@@ -50,7 +59,6 @@ var SPEEDTEST_SERVERS=[
 		pingURL:"/speedtest/empty.php",
 		getIpURL:"/speedtest/getIP.php"
 	},
-	/*
 	// cdn digitalocean
 	{
 		name:"North America, USA, San Francisco (DigitalOcean)",
@@ -219,16 +227,6 @@ var SPEEDTEST_SERVERS=[
 	{
 		name:"Worldwide (Anycast ip address)",
 		server:"//any.parrot.sh/",
-		dlURL:"/mirrors/parrot/misc/10MB.bin",
-		ulURL:"/speedtest/empty.php",
-		pingURL:"/speedtest/empty.php",
-		getIpURL:"/speedtest/getIP.php"
-	},
-	*/
-	// cloudflare
-	{
-		name:"Worldwide (Coudflare)",
-		server:"//mirror.parrot.sh/",
 		dlURL:"/mirrors/parrot/misc/10MB.bin",
 		ulURL:"/speedtest/empty.php",
 		pingURL:"/speedtest/empty.php",
