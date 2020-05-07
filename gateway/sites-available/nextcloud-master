@@ -16,9 +16,14 @@ server {
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
                 proxy_set_header X-Forwarded-Proto https;
+                add_header Front-End-Https on;
+                add_header X-Robots-Tag none;
+                add_header X-Download-Options noopen;
+                add_header X-Permitted-Cross-Domain-Policies none;
+                fastcgi_hide_header X-Powered-By;
                 include snippets/cache-buffer.conf;
         }
-        location ~ ^/(?<path>|css|js|img|fonts|common|customize|file|pad|bower_components|)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot) {
+        location ~ \.(?:css|js|woff2?|svg|gif|map)$ {
                 proxy_pass http://172.18.10.9;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
@@ -26,7 +31,13 @@ server {
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
                 proxy_set_header X-Forwarded-Proto https;
+                add_header Front-End-Https on;
+                add_header X-Robots-Tag none;
+                add_header X-Download-Options noopen;
+                add_header X-Permitted-Cross-Domain-Policies none;
+                add_header Cache-Control "public, max-age=15778463";
                 include snippets/cache-aggressive.conf;
+                access_log off;
         }
 
         # deny access to unauthorized resources
