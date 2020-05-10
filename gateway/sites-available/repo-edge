@@ -1,6 +1,6 @@
 
 upstream repository {
-        keepalive 64;
+        keepalive 16;
         server repository-1.internal.parrot.sh:443 weight=5 max_fails=1 fail_timeout=30;
         server repository-2.internal.parrot.sh:443 backup;
         server repository-3.internal.parrot.sh:443 backup;

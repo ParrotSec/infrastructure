@@ -1,5 +1,5 @@
 upstream community {
-        keepalive 64;
+        keepalive 16;
         server community-1.internal.parrot.sh:443;
         server community-2.internal.parrot.sh:443 backup;
         server community-3.internal.parrot.sh:443 backup;

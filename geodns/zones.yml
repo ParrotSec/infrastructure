@@ -67,13 +67,19 @@ domains:
       - a: 51.91.152.156
       - aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
     eu.b.internal.parrot.sh:
+      # warsaw
+      - a: 51.83.238.32
+      - aaaa: 2001:41d0:602:3520:bbbb:feed:dead:beef
+      # gravelines
+      - a: 51.178.92.105
+      - aaaa: 2001:41d0:0303:d269:aaaa:feed:dead:beef
+      # strasbourg
+      - a: 51.91.152.156
+      - aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
+    eu.c.internal.parrot.sh:
       # montreal
       - a: 51.161.118.148
       - aaaa: 2607:5300:0203:7094:dddd:feed:dead:beef
-    eu.c.internal.parrot.sh:
-      # singapore
-      - a: 139.99.69.216
-      - aaaa: 2402:1f00:8001:08d8:eeee:feed:dead:beef
 
     af.a.internal.parrot.sh:
       # strasbourg

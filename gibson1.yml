@@ -4,9 +4,9 @@ services:
     volumes:
       - ./gateway/sites-available/cryptpad-master:/etc/nginx/sites-enabled/cryptpad
       - ./gateway/sites-available/nextcloud-master:/etc/nginx/sites-enabled/nextcloud
-      - ./gateway/sites-available/nest-edge:/etc/nginx/sites-enabled/nest
-      - ./gateway/sites-available/community-edge:/etc/nginx/sites-enabled/community
-      - ./gateway/sites-available/webmail-edge:/etc/nginx/sites-enabled/webmail
+      - ./gateway/sites-available/nest-master:/etc/nginx/sites-enabled/nest
+      - ./gateway/sites-available/community-master:/etc/nginx/sites-enabled/community
+      - ./gateway/sites-available/webmail-master:/etc/nginx/sites-enabled/webmail
 
   cryptpad:
     container_name: cryptpad
@@ -17,6 +17,9 @@ services:
     expose:
       - "3000"
       - "3001"
+    ports:
+      - "3000:3000"
+      - "3001:3001"
     volumes:
       - ./data/cryptpad/files:/cryptpad/datastore:rw
       - ./data/cryptpad/customize:/cryptpad/customize:rw
@@ -38,6 +41,9 @@ services:
     expose:
       - "80"
       - "443"
+    ports:
+      - "9080:80"
+      - "9443:443"
     volumes:
       - ./data/nextcloud/:/var/www/html/
     environment:

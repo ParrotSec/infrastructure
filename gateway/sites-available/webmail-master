@@ -1,5 +1,5 @@
 upstream webmail {
-        keepalive 64;
+        keepalive 32;
         server 51.91.86.197:9443;
 }
 

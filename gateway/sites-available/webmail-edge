@@ -3,7 +3,8 @@ upstream webmail {
         server 51.91.86.197:9443;
         #server webmail-1.internal.parrot.sh:443;
         #server webmail-2.internal.parrot.sh:443 backup;
-        server webmail-3.internal.parrot.sh:443 backup;
+        #server webmail-3.internal.parrot.sh:443 backup;
+        server webmail-1.internal.parrot.sh:443 backup;
 }
 
 # webmail

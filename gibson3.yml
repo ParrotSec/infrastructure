@@ -2,8 +2,8 @@ version: "3"
 services:
   gateway:
     volumes:
-      - ./gateway/sites-available/cryptpad-edge:/etc/nginx/sites-enabled/cryptpad
-      - ./gateway/sites-available/nextcloud-edge:/etc/nginx/sites-enabled/nextcloud
-      - ./gateway/sites-available/nest-edge:/etc/nginx/sites-enabled/nest
-      - ./gateway/sites-available/community-edge:/etc/nginx/sites-enabled/community
+      - ./gateway/sites-available/cryptpad-master:/etc/nginx/sites-enabled/cryptpad
+      - ./gateway/sites-available/nextcloud-master:/etc/nginx/sites-enabled/nextcloud
+      - ./gateway/sites-available/nest-master:/etc/nginx/sites-enabled/nest
+      - ./gateway/sites-available/community-master:/etc/nginx/sites-enabled/community
       - ./gateway/sites-available/webmail-master:/etc/nginx/sites-enabled/webmail

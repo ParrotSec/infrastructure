@@ -1,5 +1,5 @@
 upstream nest {
-        keepalive 128;
+        keepalive 64;
         server 10.42.42.2:20443;
 }
 
@@ -21,6 +21,15 @@ server {
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
                 include snippets/cache-buffer.conf;
+        }
+        location ~ ^/(?<path>|snippets|assets|uploads)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot)$ {
+                proxy_pass https://nest;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Upgrade $http_upgrade;
+                proxy_set_header Connection $connection_upgrade;
+                include snippets/cache-aggressive.conf;
         }
 
         # deny access to unauthorized resources
