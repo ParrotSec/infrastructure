@@ -32,7 +32,52 @@ server {
 
         root /var/www/repository;
 
-        server_name archive.* deb.* mirror.* download.* downloads.* dl.* cdimage.* dvdimage.* ftp.* repo.* http.* get.* *.deb.parrotsec.org *.deb.parrot.sh *.deb.parrotlinux.com *.deb.parrotlinux.org *.mirror.parrotsec.org *.mirror.parrot.sh *.mirror.parrotlinux.com *.mirror.parrotlinux.org emea-mirror.* apac-mirror.* ncsa-mirror.* cfmirror.* scappellamento-float-left.* *.gibson.infra.parrot.sh *.cdn.parrot.sh *.any.parrot.sh;
+        server_name us1-ncsa-mirror.parrot.sh
+                    us2-ncsa-mirror.parrot.sh
+                    us3-ncsa-mirror.parrot.sh
+                    latam1-ncsa-mirror.parrot.sh
+                    latam2-ncsa-mirror.parrot.sh
+                    latam3-ncsa-mirror.parrot.sh
+                    euro1-emea-mirror.parrot.sh
+                    euro2-emea-mirror.parrot.sh
+                    euro3-emea-mirror.parrot.sh
+                    africa1-emea-mirror.parrot.sh
+                    africa2-emea-mirror.parrot.sh
+                    africa3-emea-mirror.parrot.sh
+                    africa4-emea-mirror.parrot.sh
+                    meast1-emea-mirror.parrot.sh
+                    meast2-emea-mirror.parrot.sh
+                    india1-apac-mirror.parrot.sh
+                    china1-apac-mirror.parrot.sh
+                    pacific1-mirror.parrot.sh
+                    pacific2-mirror.parrot.sh
+                    deb.*
+                    mirror.*
+                    download.*
+                    dl.*
+                    cdimage.*
+                    dvdimage.*
+                    ftp.*
+                    repo.*
+                    http.*
+                    get.*
+                    *.deb.parrotsec.org
+                    *.deb.parrot.sh
+                    *.deb.parrotlinux.com
+                    *.deb.parrotlinux.org
+                    *.mirror.parrotsec.org
+                    *.mirror.parrot.sh
+                    *.mirror.parrotlinux.com
+                    *.mirror.parrotlinux.org
+                    emea-mirror.*
+                    apac-mirror.*
+                    ncsa-mirror.*
+                    cfmirror.*
+                    *.gibson.infra.parrot.sh
+                    *.cdn.parrot.sh
+                    *.geo.parrot.sh
+                    *.any.parrot.sh
+                    archive.*;
 
         # Add index.php to the list if you are using PHP
         index index.html index.php;
