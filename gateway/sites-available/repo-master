@@ -49,8 +49,8 @@ server {
                     meast2-emea-mirror.parrot.sh
                     india1-apac-mirror.parrot.sh
                     china1-apac-mirror.parrot.sh
-                    pacific1-mirror.parrot.sh
-                    pacific2-mirror.parrot.sh
+                    pacific1-apac-mirror.parrot.sh
+                    pacific2-apac-mirror.parrot.sh
                     deb.*
                     mirror.*
                     download.*
