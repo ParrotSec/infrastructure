@@ -16,7 +16,6 @@ server {
 
         location / {
                 proxy_pass https://community;
-                proxy_set_header Host community.parrotsec.org;
                 proxy_set_header X-Real-IP $remote_addr;
                 proxy_set_header X-Forwarded-Proto https;
                 include snippets/cache-buffer.conf;
