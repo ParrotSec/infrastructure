@@ -7,7 +7,7 @@ ENV VERSION 0.1
 RUN apt-get update;apt-get -y dist-upgrade; rm -rf /var/lib/apt/lists/*
 
 # Install dependencies
-RUN apt-get update;apt-get -y install rsync nano;echo "EDITOR=nano" > /etc/environment;rm -rf /var/lib/apt/lists/*
+RUN apt-get update;apt-get -y install rsync;rm -rf /var/lib/apt/lists/*
 
 
 EXPOSE 873
