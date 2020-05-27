@@ -52,7 +52,7 @@ server {
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
         server_tokens off;
-        server_name community.parrot.sh community.parrotlinux.com community.parrotlinux.net community.parrotsec.io community.parrotlinux.org;
+        server_name community.parrot.sh community.parrotlinux.com community.parrotlinux.net community.parrotsec.io;
         location ~ ^/(?<path>.*) {
                 return 302 https://community.parrotsec.org/$path;
             }
