@@ -160,5 +160,9 @@ server {
                 expires 30d;
                 add_header Pragma "public";
                 add_header Cache-Control "public, must-revalidate, proxy-revalidate";
+
+                rewrite /merged/pool/DEVUAN/(.*)          /devuan/pool/$1;
+                rewrite /merged/pool/DEBIAN-SECURITY/(.*) https://deb.debian.org/debian-security/pool/$1;
+                rewrite /merged/pool/DEBIAN/(.*)          https://deb.debian.org/debian/pool/$1;
         }
 }
