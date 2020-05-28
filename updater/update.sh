@@ -5,8 +5,13 @@ TARGET_PARROT=/var/www/repository/parrot
 SOURCE_ALL="rsync://master.rsync.parrot.sh/internal"
 TARGET_ALL=/var/www/repository
 
+D1DEB="rsync://mirrors.dotsrc.org/devuan"
+D1ISO="rsync://mirror.leaseweb.net/devuan"
+TARGET="/var/www/repository"
+
 #init
 mkdir -p $TARGET_PARROT
+mkdir -p $TARGET/devuan
 rm $TARGET_PARROT/SYNC_IN_PROGRESS.* || true
 rm $TARGET_ALL/SYNC_IN_PROGRESS.* || true
 
@@ -22,7 +27,6 @@ while true; do
 	sleep 600
 done &
 
-
 # if the parrot repository is not being update, then sync the whole internal archive
 # otherwise wait 100 seconds and retry
 while true; do
@@ -34,4 +38,14 @@ while true; do
 		sleep 43200
 	done
 	sleep 100
+done &
+
+while true; do
+	touch $TARGET/devuan/SYNC_IN_PROGRESS.lock || true
+	flock -xn $TARGET/devuan/SYNC_IN_PROGRESS.pool.lock -c "rsync -qaHtSx --preallocate --safe-links --delete-after $D1DEB/devuan/pool/ $TARGET/devuan/pool/"
+	flock -xn $TARGET/devuan/SYNC_IN_PROGRESS.dists.lock -c "rsync -qaHtSx --preallocate --safe-links --delay-updates --delete-after $D1DEB/devuan/dists/ $TARGET/devuan/dists/"
+	flock -xn $TARGET/devuan/SYNC_IN_PROGRESS.merged.lock -c "rsync -qaHtSx --preallocate --safe-links --delay-updates --delete-after $D1DEB/merged/ $TARGET/merged/"
+	flock -xn $TARGET/devuan/SYNC_IN_PROGRESS.iso.lock -c "rsync -qaHtSx --preallocate --safe-links --delay-updates --delete-after $D1ISO/ $TARGET/devuan/iso/"
+	rm $TARGET/devuan/SYNC_IN_PROGRESS.* || true
+	sleep 600
 done
