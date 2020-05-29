@@ -520,7 +520,7 @@ domains:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       - cname: nl.as.geo.parrot.sh
       - cname: de.eu.geo.parrot.sh
-    iq..as.geo.parrot.sh:
+    iq.as.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       - cname: nl.as.geo.parrot.sh
       - cname: de.eu.geo.parrot.sh
