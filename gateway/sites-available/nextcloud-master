@@ -40,7 +40,7 @@ server {
                 add_header X-Download-Options noopen;
                 add_header X-Permitted-Cross-Domain-Policies none;
                 add_header Cache-Control "public, max-age=15778463";
-                include snippets/cache-aggressive.conf;
+                include snippets/cache-buffer.conf;
                 access_log off;
         }
 
