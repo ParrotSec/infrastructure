@@ -22,7 +22,7 @@ edge-stop:
 edge-update:
 	git pull
 	$(D) $(EDGE) pull
-	$(D) $(EDGE) build --no-cache
+	$(D) $(EDGE) build
 	$(D) $(EDGE) up -d
 
 edge-start:
@@ -47,7 +47,7 @@ gibson-stop:
 gibson-update:
 	git pull
 	$(D) $(GIBSON) pull
-	$(D) $(GIBSON) build --no-cache
+	$(D) $(GIBSON) build
 	$(D) $(GIBSON) up -d
 
 gibson-start:
