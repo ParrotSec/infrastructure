@@ -32,7 +32,7 @@ server {
         }
         location ~ \.(?:css|js|woff2?|svg|gif|map)$ {
                 limit_req_status 444;
-                limit_req zone=high burst=20 delay=120;
+                limit_req zone=high burst=20 delay=170;
 
                 proxy_pass http://10.42.42.1:9080;
                 proxy_redirect off;

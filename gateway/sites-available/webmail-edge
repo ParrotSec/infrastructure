@@ -19,15 +19,8 @@ server {
         server_name webmail.* mail.*;
 
         location / {
-                proxy_pass https://webmail;
-                proxy_set_header Host $host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $remote_addr;
-                proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection $connection_upgrade;
-                include snippets/cache-buffer.conf;
-        }
-        location ~ ^/(?<path>assets|js|css|inc|/SOGo\.woa/WebServerResources/css|/SOGo\.woa/WebServerResources/js)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot)$ {
+                limit_req_status 444;
+                limit_req zone=mid burst=5 delay=40;
                 proxy_pass https://webmail;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;

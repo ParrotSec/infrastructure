@@ -15,6 +15,9 @@ server {
         server_name webmail.* mail.*;
 
         location / {
+                limit_req_status 444;
+                limit_req zone=mid burst=10 delay=50;
+
                 proxy_pass https://webmail;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
