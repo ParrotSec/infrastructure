@@ -11,7 +11,7 @@ server {
         listen [::]:443 ssl;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
-        include snippets/ratelimit.conf;
+        
 
         server_name community.* cdn-community.* forum.*;
 

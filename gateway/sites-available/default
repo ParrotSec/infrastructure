@@ -60,7 +60,7 @@ server {
         listen [::]:443 ssl http2;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
-        include snippets/ratelimit.conf;
+        
         server_tokens off;
         root /var/www/html;
         index index.php index.html;
@@ -101,7 +101,7 @@ server {
         listen [::]:443 ssl http2;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
-        include snippets/ratelimit.conf;
+        
         server_tokens off;
         root /var/www/html/docs;
         index index.php index.html;
@@ -141,7 +141,7 @@ server {
         listen [::]:443 ssl http2;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
-        include snippets/ratelimit.conf;
+        
         server_tokens off;
         root /var/www/speedtest/;
         index index.php index.html;
@@ -168,7 +168,7 @@ server {
         listen [::]:443 ssl http2;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
-        include snippets/ratelimit.conf;
+        
         server_tokens off;
 
         server_name tracker.* wolf.* torrent.* tracker2.* wolf2.* torrent2.*;
