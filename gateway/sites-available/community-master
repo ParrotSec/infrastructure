@@ -9,12 +9,15 @@ server {
         listen [::]:443 ssl;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
+        include snippets/ratelimit.conf;
 
         server_name community.* cdn-community.* forum.*;
 
         http2_idle_timeout 5m;
 
         location / {
+                limit_req_status 444;
+                limit_req zone=high burst=5 delay=30;
                 proxy_pass https://community;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;

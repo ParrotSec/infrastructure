@@ -1,10 +1,5 @@
 proxy_cache_path /cache/ levels=1:2 keys_zone=cache:4m max_size=10g inactive=720m use_temp_path=off;
 
-limit_req_zone $binary_remote_addr zone=torrent:120m rate=1r/s;
-limit_req_zone $binary_remote_addr zone=limited:60m rate=5r/s;
-limit_req_zone $binary_remote_addr zone=standard:60m rate=10r/s;
-limit_req_zone $binary_remote_addr zone=high:30m rate=20r/s;
-
 upstream tracker {
         keepalive 16;
         server repository-1.internal.parrot.sh:443 weight=5 max_fails=2 fail_timeout=60;
@@ -28,7 +23,7 @@ server {
         server_name _;
         location ~ ^/(?<path>.*) {
                 return 302 https://parrotsec.org/$path;
-            }
+        }
 }
 
 
@@ -55,7 +50,7 @@ server {
         server_name community.parrot.sh community.parrotlinux.com community.parrotlinux.net community.parrotsec.io;
         location ~ ^/(?<path>.*) {
                 return 302 https://community.parrotsec.org/$path;
-            }
+        }
 }
 
 
@@ -65,6 +60,7 @@ server {
         listen [::]:443 ssl http2;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
+        include snippets/ratelimit.conf;
         server_tokens off;
         root /var/www/html;
         index index.php index.html;
@@ -72,6 +68,9 @@ server {
         server_name www.* parrotsec.org parrotlinux.org;
 
         location / {
+                limit_req_status 444;
+                limit_req zone=boost burst=20 delay=20;
+
                 try_files $uri $uri/ =404;
         }
         
@@ -102,6 +101,7 @@ server {
         listen [::]:443 ssl http2;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
+        include snippets/ratelimit.conf;
         server_tokens off;
         root /var/www/html/docs;
         index index.php index.html;
@@ -109,6 +109,9 @@ server {
         server_name docs.* documentation.*;
 
         location / {
+                limit_req_status 444;
+                limit_req zone=boost burst=20 delay=20;
+
                 try_files $uri $uri/ =404;
         }
 
@@ -138,6 +141,7 @@ server {
         listen [::]:443 ssl http2;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
+        include snippets/ratelimit.conf;
         server_tokens off;
         root /var/www/speedtest/;
         index index.php index.html;
@@ -164,11 +168,15 @@ server {
         listen [::]:443 ssl http2;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
+        include snippets/ratelimit.conf;
         server_tokens off;
 
         server_name tracker.* wolf.* torrent.* tracker2.* wolf2.* torrent2.*;
 
         location / {
+                limit_req_status 444;
+                limit_req zone=low burst=3 delay=5;
+
                 proxy_pass https://tracker;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;

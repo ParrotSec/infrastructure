@@ -11,11 +11,15 @@ server {
         listen [::]:443 ssl http2;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
+        include snippets/ratelimit.conf;
         server_tokens off;
 
         server_name cloud.* nextcloud.*;
 
         location / {
+                limit_req_status 444;
+                limit_req zone=mid burst=10 delay=30;
+
                 proxy_pass https://nextcloud;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
@@ -25,6 +29,9 @@ server {
                 include snippets/cache-buffer.conf;
         }
         location ~ ^/(?<path>|css|js|img|fonts|common|customize|file|pad|bower_components|)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot) {
+                limit_req_status 444;
+                limit_req zone=mid burst=20 delay=120;
+
                 proxy_pass https://nextcloud;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;

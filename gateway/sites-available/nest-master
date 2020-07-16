@@ -9,11 +9,15 @@ server {
         listen [::]:443 ssl http2;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
+        include snippets/ratelimit.conf;
         server_tokens off;
 
         server_name nest.* git.* dev.*;
 
         location / {
+                limit_req_status 444;
+                limit_req zone=mid burst=10 delay=30;
+
                 proxy_pass https://nest;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
@@ -23,6 +27,9 @@ server {
                 include snippets/cache-buffer.conf;
         }
         location ~ ^/(?<path>|snippets|assets|uploads)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot)$ {
+                limit_req_status 444;
+                limit_req zone=high burst=20 delay=50;
+
                 proxy_pass https://nest;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
