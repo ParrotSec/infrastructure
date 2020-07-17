@@ -18,7 +18,7 @@ server {
 
         location / {
                 limit_req_status 444;
-                limit_req zone=mid burst=10 delay=40;
+                limit_req zone=mid burst=20 delay=60;
 
                 proxy_pass http://10.42.42.1:3000;
                 proxy_http_version 1.1;
@@ -31,7 +31,7 @@ server {
 
         location ~* \.(css|js|png|gif|jpg|sass|eot|svg|ttf|woff|woff2)$ {
                 limit_req_status 444;
-                limit_req zone=high burst=20 delay=90;
+                limit_req zone=high burst=30 delay=120;
 
                 proxy_pass http://10.42.42.1:3000;
                 proxy_set_header Host $host;

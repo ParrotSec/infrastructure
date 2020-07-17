@@ -69,7 +69,7 @@ server {
 
         location / {
                 limit_req_status 444;
-                limit_req zone=boost burst=20 delay=20;
+                limit_req zone=boost burst=20 delay=50;
 
                 try_files $uri $uri/ =404;
         }
@@ -110,7 +110,7 @@ server {
 
         location / {
                 limit_req_status 444;
-                limit_req zone=boost burst=20 delay=20;
+                limit_req zone=boost burst=20 delay=50;
 
                 try_files $uri $uri/ =404;
         }
