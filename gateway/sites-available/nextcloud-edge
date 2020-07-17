@@ -18,7 +18,7 @@ server {
 
         location / {
                 limit_req_status 444;
-                limit_req zone=mid burst=50 delay=100;
+                limit_req zone=mid burst=100 delay=5;
 
                 proxy_pass https://nextcloud;
                 proxy_set_header Host $host;
@@ -30,7 +30,7 @@ server {
         }
         location ~ ^/(?<path>|css|js|img|fonts|common|customize|file|pad|bower_components|)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot) {
                 limit_req_status 444;
-                limit_req zone=high burst=50 delay=200;
+                limit_req zone=high burst=200 delay=20;
 
                 proxy_pass https://nextcloud;
                 proxy_set_header Host $host;

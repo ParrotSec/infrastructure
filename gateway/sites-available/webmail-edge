@@ -20,7 +20,7 @@ server {
 
         location / {
                 limit_req_status 444;
-                limit_req zone=mid burst=5 delay=40;
+                limit_req zone=mid burst=40 delay=5;
                 
                 proxy_pass https://webmail;
                 proxy_set_header Host $host;

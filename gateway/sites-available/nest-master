@@ -16,7 +16,7 @@ server {
 
         location / {
                 limit_req_status 444;
-                limit_req zone=mid burst=10 delay=30;
+                limit_req zone=mid burst=30 delay=10;
 
                 proxy_pass https://nest;
                 proxy_set_header Host $host;
@@ -28,7 +28,7 @@ server {
         }
         location ~ ^/(?<path>|snippets|assets|uploads)/(?<cachefile>\.js|\.css|\.img|\.png|\.jpg|\.jpeg|\.svg|\.ico|\.woff|\.woff2|\.ttf|\.eot)$ {
                 limit_req_status 444;
-                limit_req zone=high burst=20 delay=50;
+                limit_req zone=high burst=50 delay=20;
 
                 proxy_pass https://nest;
                 proxy_set_header Host $host;

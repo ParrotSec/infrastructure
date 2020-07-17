@@ -69,7 +69,7 @@ server {
 
         location / {
                 limit_req_status 444;
-                limit_req zone=boost burst=20 delay=50;
+                limit_req zone=boost burst=50 delay=10;
 
                 try_files $uri $uri/ =404;
         }
@@ -110,7 +110,7 @@ server {
 
         location / {
                 limit_req_status 444;
-                limit_req zone=boost burst=20 delay=50;
+                limit_req zone=boost burst=50 delay=10;
 
                 try_files $uri $uri/ =404;
         }
@@ -175,7 +175,7 @@ server {
 
         location / {
                 limit_req_status 444;
-                limit_req zone=low burst=3 delay=5;
+                limit_req zone=low burst=5 delay=2;
 
                 proxy_pass https://tracker;
                 proxy_set_header Host $host;
