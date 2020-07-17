@@ -169,7 +169,7 @@ server {
         
         location / {
                 limit_req_status 444;
-                limit_req zone=migh burst=120 delay=10;
+                limit_req zone=high burst=120 delay=10;
 
                 try_files $uri $uri/ =404;
                 fancyindex on;
