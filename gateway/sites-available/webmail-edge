@@ -18,6 +18,13 @@ server {
 
         server_name webmail.* mail.*;
 
+        location ~* \.(css)$ {
+                types { } default_type "text/css; charset=utf-8";
+        }
+        location ~* \.(js)$ {
+                types { } default_type "application/javascript; charset=utf-8";
+        }
+
         location / {
                 limit_req_status 444;
                 limit_req zone=mid burst=40 delay=5;
@@ -29,12 +36,6 @@ server {
                 proxy_set_header Upgrade $http_upgrade;
                 proxy_set_header Connection $connection_upgrade;
                 include snippets/cache-buffer.conf;
-        }
-        location ~* \.(css)$ {
-                types { } default_type "text/css; charset=utf-8";
-        }
-        location ~* \.(js)$ {
-                types { } default_type "application/javascript; charset=utf-8";
         }
 
         # deny access to unauthorized resources
