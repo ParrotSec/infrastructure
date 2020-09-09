@@ -211,7 +211,6 @@ domains:
       - ns: ns3.parrot.sh
       - ns: ns4.parrot.sh
       - a: 209.141.60.226
-      - a: 209.141.32.25
       - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
       - a: 198.98.49.91
       - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
@@ -220,27 +219,6 @@ domains:
       - a: 198.251.90.108
       - a: 198.251.90.109
       - a: 198.251.90.110
-      - aaaa: 2a01:7e01::f03c:92ff:fee2:8773
-      - a: 139.162.234.16
-      - aaaa: 2a01:7e00::f03c:92ff:fee2:8777
-      - a: 172.105.5.69
-      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-      - a: 172.105.49.243
-      - aaaa: 2400:8904::f03c:92ff:fee2:87ba
-      - a: 172.105.220.183
-      - aaaa: 2400:8902::f03c:92ff:fee2:8722
-      - a: 139.162.24.92
-      - aaaa: 2400:8901::f03c:92ff:fee2:8706
-      - a: 172.105.162.206
-      - aaaa: 2400:8907::f03c:92ff:fee2:87ff
-      - a: 212.237.22.141
-      - aaaa: 2a00:6d40:60:9f8d::1
-      - a: 89.36.210.176
-      - aaaa: 2a00:6d40:40:4bb0::1
-      - a: 80.211.238.94
-      - aaaa: 2a00:6d40:72:275e::1
 
 
 # geo continents
@@ -313,8 +291,6 @@ domains:
     #oceania
     oc.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #apac.any.parrot.sh
-      - a: 209.141.32.25
       #sydney.cdn.parrot.sh
       - a: 172.105.162.206
       - aaaa: 2400:8907::f03c:92ff:fee2:87ff
