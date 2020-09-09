@@ -220,7 +220,6 @@ domains:
       - a: 198.251.90.108
       - a: 198.251.90.109
       - a: 198.251.90.110
-      - a: 172.105.72.56
       - aaaa: 2a01:7e01::f03c:92ff:fee2:8773
       - a: 139.162.234.16
       - aaaa: 2a01:7e00::f03c:92ff:fee2:8777
@@ -251,15 +250,9 @@ domains:
       #lasvegas.cdn.parrot.sh
       - a: 209.141.60.226
       - aaaa: 2605:6400:0020:0795:aaaa:feed:dead:beef
-      #newyork.cdn.parrot.sh
-      - a: 198.98.49.91
-      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
       #dallas.cdn.parrot.sh
       - a: 45.79.57.113
       - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-      #toronto.cdn.parrot.sh
-      - a: 172.105.5.69
-      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
       #newyork.d.cdn.parrot.sh
       - a: 161.35.10.109
       - aaaa: 2604:a880:400:d0::17e0:e001
@@ -291,12 +284,6 @@ domains:
     #europe
     eu.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #london.cdn.parrot.sh
-      - a: 139.162.234.16
-      - aaaa: 2a01:7e00::f03c:92ff:fee2:8777
-      #frankfurt.cdn.parrot.sh
-      - a: 172.105.72.56
-      - aaaa: 2a01:7e01::f03c:92ff:fee2:8773
       #luxemburg.cdn.parrot.sh
       - a: 104.244.79.186
       - aaaa: 2605:6400:0030:fc1c:aaaa:feed:dead:beef
@@ -316,9 +303,6 @@ domains:
       #mumbai.cdn.parrot.sh
       - a: 172.105.49.243
       - aaaa: 2400:8904::f03c:92ff:fee2:87ba
-      #singapore.cdn.parrot.sh
-      - a: 139.162.24.92
-      - aaaa: 2400:8901::f03c:92ff:fee2:8706
       #bangalore.d.cdn.poarrot.sh
       - a: 165.22.209.106
       - aaaa: 2400:6180:100:d0::84d:e001
@@ -329,9 +313,6 @@ domains:
     #oceania
     oc.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #singapore.cdn.parrot.sh
-      - a: 139.162.24.92
-      - aaaa: 2400:8901::f03c:92ff:fee2:8706
       #apac.any.parrot.sh
       - a: 209.141.32.25
       #sydney.cdn.parrot.sh
@@ -377,9 +358,6 @@ domains:
       - alias: uk.eu.geo.parrot.sh
     de.eu.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #frankfurt.cdn.parrot.sh
-      - a: 172.105.72.56
-      - aaaa: 2a01:7e01::f03c:92ff:fee2:8773
       #frankfurt.d.cdn.poarrot.sh
       - a: 178.128.204.62
       - aaaa: 2a03:b0c0:3:e0::2f5:1001
@@ -415,9 +393,6 @@ domains:
 
     ca.na.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #toronto.cdn.parrot.sh
-      - a: 172.105.5.69
-      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
       #toronto.d.cdn.poarrot.sh
       - a: 167.99.189.229
       - aaaa: 2604:a880:cad:d0::8e3:8001
@@ -425,12 +400,6 @@ domains:
 
     ru.as.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #frankfurt.cdn.parrot.sh
-      - a: 172.105.72.56
-      - aaaa: 2a01:7e01::f03c:92ff:fee2:8773
-      #london.cdn.parrot.sh
-      - a: 139.162.234.16
-      - aaaa: 2a01:7e00::f03c:92ff:fee2:8777
       #frankfurt.d.cdn.poarrot.sh
       - a: 178.128.204.62
       - aaaa: 2a03:b0c0:3:e0::2f5:1001
@@ -561,12 +530,6 @@ domains:
 
     sg.as.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #singapore.cdn.parrot.sh
-      - a: 139.162.24.92
-      - aaaa: 2400:8901::f03c:92ff:fee2:8706
-      #sydney.cdn.parrot.sh
-      - a: 172.105.162.206
-      - aaaa: 2400:8907::f03c:92ff:fee2:87ff
       #singapore.d.cdn.poarrot.sh
       - a: 68.183.178.72
       - aaaa: 2400:6180:0:d1::57d:3001
@@ -575,9 +538,6 @@ domains:
       #tokyo.cdn.parrot.sh
       - a: 172.105.220.183
       - aaaa: 2400:8902::f03c:92ff:fee2:8722
-      #singapore.cdn.parrot.sh
-      - a: 139.162.24.92
-      - aaaa: 2400:8901::f03c:92ff:fee2:8706
       #singapore.d.cdn.poarrot.sh
       - a: 68.183.178.72
       - aaaa: 2400:6180:0:d1::57d:3001
@@ -586,9 +546,6 @@ domains:
       #tokyo.cdn.parrot.sh
       - a: 172.105.220.183
       - aaaa: 2400:8902::f03c:92ff:fee2:8722
-      #singapore.cdn.parrot.sh
-      - a: 139.162.24.92
-      - aaaa: 2400:8901::f03c:92ff:fee2:8706
       #singapore.d.cdn.poarrot.sh
       - a: 68.183.178.72
       - aaaa: 2400:6180:0:d1::57d:3001
@@ -601,9 +558,6 @@ domains:
 
     au.oc.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #sydney.cdn.parrot.sh
-      - a: 172.105.162.206
-      - aaaa: 2400:8907::f03c:92ff:fee2:87ff
       #singapore.d.cdn.poarrot.sh
       - a: 68.183.178.72
       - aaaa: 2400:6180:0:d1::57d:3001
@@ -717,9 +671,6 @@ domains:
       #tokyo.cdn.parrot.sh
       - a: 172.105.220.183
       - aaaa: 2400:8902::f03c:92ff:fee2:8722
-      #singapore.cdn.parrot.sh
-      - a: 139.162.24.92
-      - aaaa: 2400:8901::f03c:92ff:fee2:8706
       #singapore.d.cdn.poarrot.sh
       - a: 68.183.178.72
       - aaaa: 2400:6180:0:d1::57d:3001
@@ -753,9 +704,6 @@ domains:
       #toronto.d.cdn.poarrot.sh
       - a: 167.99.189.229
       - aaaa: 2604:a880:cad:d0::8e3:8001
-      #toronto.cdn.parrot.sh
-      - a: 172.105.5.69
-      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
     ia.us.na.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       #newyork.d.cdn.parrot.sh
@@ -767,9 +715,6 @@ domains:
       #toronto.d.cdn.poarrot.sh
       - a: 167.99.189.229
       - aaaa: 2604:a880:cad:d0::8e3:8001
-      #toronto.cdn.parrot.sh
-      - a: 172.105.5.69
-      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
       #dallas.cdn.parrot.sh
       - a: 45.79.57.113
       - aaaa: 2600:3c00::f03c:92ff:fee2:876b
@@ -792,9 +737,6 @@ domains:
       #toronto.d.cdn.poarrot.sh
       - a: 167.99.189.229
       - aaaa: 2604:a880:cad:d0::8e3:8001
-      #toronto.cdn.parrot.sh
-      - a: 172.105.5.69
-      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
     la.us.na.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       #dallas.cdn.parrot.sh
@@ -811,25 +753,16 @@ domains:
       #toronto.d.cdn.poarrot.sh
       - a: 167.99.189.229
       - aaaa: 2604:a880:cad:d0::8e3:8001
-      #toronto.cdn.parrot.sh
-      - a: 172.105.5.69
-      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
     mi.us.na.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       #toronto.d.cdn.poarrot.sh
       - a: 167.99.189.229
       - aaaa: 2604:a880:cad:d0::8e3:8001
-      #toronto.cdn.parrot.sh
-      - a: 172.105.5.69
-      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
     mn.us.na.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       #toronto.d.cdn.poarrot.sh
       - a: 167.99.189.229
       - aaaa: 2604:a880:cad:d0::8e3:8001
-      #toronto.cdn.parrot.sh
-      - a: 172.105.5.69
-      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
     ms.us.na.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       #dallas.cdn.parrot.sh
@@ -869,9 +802,6 @@ domains:
       #newyork.d.cdn.parrot.sh
       - a: 161.35.10.109
       - aaaa: 2604:a880:400:d0::17e0:e001
-      #newyork.cdn.parrot.sh
-      - a: 198.98.49.91
-      - aaaa: 2605:6400:0010:0669:aaaa:feed:dead:beef
     nj.us.na.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       #newyork.d.cdn.parrot.sh
@@ -923,9 +853,6 @@ domains:
       #toronto.d.cdn.poarrot.sh
       - a: 167.99.189.229
       - aaaa: 2604:a880:cad:d0::8e3:8001
-      #toronto.cdn.parrot.sh
-      - a: 172.105.5.69
-      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
       #newyork.d.cdn.parrot.sh
       - a: 161.35.10.109
       - aaaa: 2604:a880:400:d0::17e0:e001
@@ -947,9 +874,6 @@ domains:
       #toronto.d.cdn.poarrot.sh
       - a: 167.99.189.229
       - aaaa: 2604:a880:cad:d0::8e3:8001
-      #toronto.cdn.parrot.sh
-      - a: 172.105.5.69
-      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
       #newyork.d.cdn.parrot.sh
       - a: 161.35.10.109
       - aaaa: 2604:a880:400:d0::17e0:e001
@@ -1012,9 +936,6 @@ domains:
       #toronto.d.cdn.poarrot.sh
       - a: 167.99.189.229
       - aaaa: 2604:a880:cad:d0::8e3:8001
-      #toronto.cdn.parrot.sh
-      - a: 172.105.5.69
-      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
       #newyork.d.cdn.parrot.sh
       - a: 161.35.10.109
       - aaaa: 2604:a880:400:d0::17e0:e001
@@ -1047,9 +968,6 @@ domains:
       #toronto.d.cdn.poarrot.sh
       - a: 167.99.189.229
       - aaaa: 2604:a880:cad:d0::8e3:8001
-      #toronto.cdn.parrot.sh
-      - a: 172.105.5.69
-      - aaaa: 2600:3c04::f03c:92ff:fee2:870b
       #newyork.d.cdn.parrot.sh
       - a: 161.35.10.109
       - aaaa: 2604:a880:400:d0::17e0:e001
@@ -1061,22 +979,6 @@ domains:
       #sanfrancisco.d.cdn.parrot.sh
       - a: 167.172.126.146
       - aaaa: 2604:a880:2:d1::1e2:1
-
-# Extra edge nodes
-    aruba.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #frankfurt2.cdn.parrot.sh
-      - a: 89.40.116.230
-      - aaaa: 2a03:a140:10:10e6::1
-      #arezzo1.cdn.parrot.sh
-      - a: 212.237.22.141
-      - aaaa: 2a00:6d40:60:9f8d::1
-      #arezzo2.cdn.parrot.sh
-      - a: 89.36.210.176
-      - aaaa: 2a00:6d40:40:4bb0::1
-      #arezzo3.cdn.parrot.sh
-      - a: 80.211.238.94
-      - aaaa: 2a00:6d40:72:275e::1
 
 # ASnumbers
     as30548.geo.parrot.sh: #aruba
