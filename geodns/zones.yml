@@ -262,9 +262,6 @@ domains:
     #europe
     eu.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #luxemburg.cdn.parrot.sh
-      - a: 104.244.79.186
-      - aaaa: 2605:6400:0030:fc1c:aaaa:feed:dead:beef
       #london.d.cdn.poarrot.sh
       - a: 161.35.36.53
       - aaaa: 2a03:b0c0:1:e0::62d:d001
@@ -308,11 +305,11 @@ domains:
       - cname: eu.geo.parrot.sh
 
     #antartica
-    #missing servers - using anycast
+    #missing servers - using europe
     an.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       #any.parrot.sh
-      - cname: any.parrot.sh
+      - cname: eu.geo.parrot.sh
 
 # geo countries
     uk.eu.geo.parrot.sh:
@@ -354,11 +351,6 @@ domains:
     ch.eu.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       - alias: de.eu.geo.parrot.sh
-    lu.eu.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #luxemburg.cdn.parrot.sh
-      - a: 104.244.79.186
-      - aaaa: 2605:6400:0030:fc1c:aaaa:feed:dead:beef
 
 
     us.na.geo.parrot.sh:
@@ -618,8 +610,6 @@ domains:
       #sanfrancisco.d.cdn.parrot.sh
       - a: 167.172.126.146
       - aaaa: 2604:a880:2:d1::1e2:1
-      #apac.any.parrot.sh
-      - a: 209.141.32.25
       #tokyo.cdn.parrot.sh
       - a: 172.105.220.183
       - aaaa: 2400:8902::f03c:92ff:fee2:8722
@@ -892,5 +882,5 @@ domains:
 # services
   services:
     director.geo.parrot.sh:
-      default: ['%as.geo.parrot.sh', '%re.%cc.%cn.geo.parrot.sh', '%cc.%cn.geo.parrot.sh', '%cn.geo.parrot.sh', 'any.parrot.sh']
+      default: ['%as.geo.parrot.sh', '%re.%cc.%cn.geo.parrot.sh', '%cc.%cn.geo.parrot.sh', '%cn.geo.parrot.sh', 'geo.parrot.sh']
 
