@@ -28,7 +28,7 @@ services:
       - ./data/cryptpad/blobstage:/cryptpad/blobstage:rw
       - ./data/cryptpad/tasks:/cryptpad/tasks:rw
       - ./data/cryptpad/block:/cryptpad/block:rw
-      - ./data/cryptpad/config:/cryptpad/cfg:rw
+      - ./data/cryptpad/config:/cryptpad/config:rw
       - ./data/cryptpad/data:/cryptpad/data:rw
     ulimits:
       nofile:
