@@ -67,7 +67,7 @@ services:
 
   nextcloud-db:
     container_name: nextcloud-db
-    image: postgres
+    image: postgres:12
     restart: always
     volumes:
       - ./data/nextcloud-db/:/var/lib/postgresql/data/
