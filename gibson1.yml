@@ -40,7 +40,7 @@ services:
 
   nextcloud:
     container_name: nextcloud
-    image: nextcloud:latest
+    image: nextcloud:19
     restart: always
     expose:
       - "80"
