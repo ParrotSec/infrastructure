@@ -308,7 +308,6 @@ domains:
     #missing servers - using europe
     an.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #any.parrot.sh
       - cname: eu.geo.parrot.sh
 
 # geo countries
