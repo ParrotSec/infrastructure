@@ -13,6 +13,7 @@ services:
       - ./speedtest/:/var/www/repository/speedtest/
       - ./gateway/realip.conf:/etc/nginx/snippets/realip.conf
       - ./gateway/snakeoil.conf:/etc/nginx/snippets/snakeoil.conf
+      - ./gateway/ratelimit.conf:/etc/nginx/snippets/ratelimit.conf
       - ./gateway/cache-buffer.conf:/etc/nginx/snippets/cache-buffer.conf
       - ./gateway/cache-aggressive.conf:/etc/nginx/snippets/cache-aggressive.conf
       - ./gateway/sites-available:/etc/nginx/sites-available

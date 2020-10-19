@@ -4,6 +4,7 @@ server {
         listen [::]:443 ssl http2;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
+        
         server_tokens off;
 
         server_name cloud.* nextcloud.*;
@@ -11,6 +12,9 @@ server {
         underscores_in_headers on;
 
         location / {
+                limit_req_status 444;
+                limit_req zone=mid burst=100 delay=15;
+
                 proxy_pass http://10.42.42.1:9080;
                 proxy_redirect off;
                 proxy_set_header Host $host;
@@ -27,6 +31,9 @@ server {
                 include snippets/cache-buffer.conf;
         }
         location ~ \.(?:css|js|woff2?|svg|gif|map)$ {
+                limit_req_status 444;
+                limit_req zone=high burst=200 delay=20;
+
                 proxy_pass http://10.42.42.1:9080;
                 proxy_redirect off;
                 proxy_set_header Host $host;

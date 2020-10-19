@@ -118,9 +118,12 @@ ipfs-bootstrap:
 	docker-compose exec ipfs ipfs bootstrap add /ip4/139.99.69.216/tcp/4001/p2p/QmZ3qVBvDHwF1VpbaqFBu1mWeQMHuoTAHocgfPcksghqWN
 
 ipfs-pin:
-	docker exec ipfs ipfs pin add /ipns/www.parrotsec.org &
-	docker exec ipfs ipfs pin add /ipns/docs.parrotsec.org &
-	docker exec ipfs ipfs pin add /ipns/static.parrotsec.org &
+	docker exec ipfs ipfs pin add -r /ipns/beta.parrotsec.org &
+	docker exec ipfs ipfs pin add -r /ipns/www.parrotsec.org &
+	docker exec ipfs ipfs pin add -r /ipns/docs.parrotsec.org &
+	docker exec ipfs ipfs pin add -r /ipns/static.parrotsec.org &
+	docker exec ipfs ipfs pin add -r /ipns/beta.palinuro.dev &
+	docker exec ipfs ipfs pin add -r /ipns/palinuro.dev
 
 director-feed:
 	docker exec director mirrorbits add -http https://mirrors.mit.edu/parrot -rsync rsync://mirrors.mit.edu/parrot -comment "SIPB MIT (1Gbps)" ncsa.mit

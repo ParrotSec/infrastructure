@@ -10,8 +10,8 @@ RUN apt-get update;apt-get -y dist-upgrade; rm -rf /var/lib/apt/lists/*
 RUN apt-get update;apt-get -y install rsync wget curl;rm -rf /var/lib/apt/lists/*
 
 # Install ipfs
-RUN wget https://dist.ipfs.io/go-ipfs/v0.4.23/go-ipfs_v0.4.23_linux-amd64.tar.gz; \
-    tar xf go-ipfs_v0.4.23_linux-amd64.tar.gz;\
+RUN wget https://github.com/ipfs/go-ipfs/releases/download/v0.6.0/go-ipfs_v0.6.0_linux-amd64.tar.gz; \
+    tar xf go-ipfs_v0.6.0_linux-amd64.tar.gz;\
     cd go-ipfs;\
     ./install.sh;\
     cd ..; rm -rf go-ipfs*

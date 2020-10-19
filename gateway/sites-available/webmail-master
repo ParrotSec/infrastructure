@@ -9,11 +9,15 @@ server {
         listen [::]:443 ssl http2;
         include snippets/snakeoil.conf;
         include snippets/realip.conf;
+        
         server_tokens off;
 
         server_name webmail.* mail.*;
 
         location / {
+                limit_req_status 444;
+                limit_req zone=mid burst=50 delay=10;
+
                 proxy_pass https://webmail;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
@@ -24,7 +28,7 @@ server {
         }
 
         # deny access to unauthorized resources
-        location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }
+        location ~* /(\.git|bin|logs|backup|tests)/.*$ { return 404; }
         location ~* /(system|vendor)/.*\.(txt|xml|md|html|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
         location ~* /user/.*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
 
