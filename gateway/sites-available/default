@@ -78,6 +78,9 @@ server {
         location /download.php {
                         return 301 https://parrotsec.org/download;
         }
+        location /docs/donate/ {
+                        return 301 https://parrotsec.org/donate;
+        }
         location /download-security.php {
                         return 301 https://parrotsec.org/download;
                 }
