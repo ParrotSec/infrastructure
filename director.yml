@@ -14,6 +14,7 @@ services:
     volumes:
       - ./data/geoipdb:/var/lib/GeoIP
       - ./mirrorbits/mirrors.sh:/mirrors.sh
+      - ./mirrorbits/mirrorbits.conf:/etc/mirrorbits.conf
       - ./data/repository:/var/www/repository
       - ./data/logs/mirrorbits:/var/log/mirrorbits
     restart: always
