@@ -31,8 +31,6 @@ services:
     networks:
       main:
         ipv4_address: 172.18.10.2
-      ipfs:
-        ipv4_address: 172.18.44.3
   
   php-repo:
     container_name: php-repo
@@ -46,41 +44,16 @@ services:
     networks:
       main:
         ipv4_address: 172.18.10.3
-      
-  ipfs:
-    container_name: ipfs
-    image: ipfs/go-ipfs
-    privileged: true
-    ports:
-      - "4001:4001" # ipfs swarm
-    #  - "5001:5001" # ipfs api
-      - "8080:8080" # ipfs gateway
-    expose:
-      - 4001
-      - 5001
-      - 8080
-    volumes:
-      - ./data/ipfs:/data/ipfs
-    restart: always
-    networks:
-      ipfs:
-        ipv4_address: 172.18.44.2
   
-  ipfs-updater:
-    container_name: ipfs-updater
+  web-updater:
+    container_name: web-updater
     build: ./updater/
-    depends_on:
-      - ipfs
     volumes:
-      - ./data/ipfs:/data/ipfs
       - ./data/website/html:/var/www/html/
       - ./data/website/docs:/var/www/docs
       - ./data/website/static:/var/www/static
       - ./updater/webupdate.sh:/webupdate.sh
-    restart: always
-    networks:
-      ipfs:
-        ipv4_address: 172.18.44.4
+    restart: unless-stopped
     command: /bin/bash /webupdate.sh
 
 networks:
@@ -89,8 +62,3 @@ networks:
     ipam:
       config:
         - subnet: 172.18.10.0/28
-  ipfs:
-    driver: bridge
-    ipam:
-      config:
-        - subnet: 172.18.44.0/29
