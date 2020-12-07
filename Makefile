@@ -17,18 +17,18 @@ else
 endif
 
 edge-stop:
-	$(D) $(EDGE) down
+	$(D) $(EDGE) down --remove-orphans
 
 edge-update:
 	git pull
 	$(D) $(EDGE) pull
 	$(D) $(EDGE) build
-	$(D) $(EDGE) up -d
+	$(D) $(EDGE) up -d --remove-orphans
 
 edge-start:
 	$(D) $(EDGE) pull
 	$(D) $(EDGE) build
-	$(D) $(EDGE) up -d
+	$(D) $(EDGE) up -d --remove-orphans
 
 edge-ps:
 	$(D) $(EDGE) ps
@@ -42,18 +42,18 @@ edge: edge-stop edge-update edge-start
 
 
 gibson-stop:
-	$(D) $(GIBSON) down
+	$(D) $(GIBSON) down --remove-orphans
 
 gibson-update:
 	git pull
 	$(D) $(GIBSON) pull
 	$(D) $(GIBSON) build
-	$(D) $(GIBSON) up -d
+	$(D) $(GIBSON) up -d --remove-orphans
 
 gibson-start:
 	$(D) $(GIBSON) pull
 	$(D) $(GIBSON) build
-	$(D) $(GIBSON) up -d
+	$(D) $(GIBSON) up -d --remove-orphans
 
 gibson-ps:
 	$(D) $(GIBSON) ps
@@ -67,18 +67,18 @@ gibson: gibson-stop gibson-update
 
 
 mirror-stop:
-	$(D) $(MIRROR) down
+	$(D) $(MIRROR) down --remove-orphans
 
 mirror-update:
 	git pull
 	$(D) $(MIRROR) pull
 	$(D) $(MIRROR) build
-	$(D) $(MIRROR) up -d
+	$(D) $(MIRROR) up -d --remove-orphans
 
 mirror-start:
 	$(D) $(MIRROR) pull
 	$(D) $(MIRROR) build
-	$(D) $(MIRROR) up -d
+	$(D) $(MIRROR) up -d --remove-orphans
 
 mirror-ps:
 	$(D) $(MIRROR) ps
@@ -91,39 +91,23 @@ mirror: mirror-stop mirror-update mirror-start
 
 
 central-stop:
-	$(D) $(CENTRAL) down
+	$(D) $(CENTRAL) down --remove-orphans
 
 central-update:
 	git pull
 	$(D) $(CENTRAL) pull
 	$(D) $(CENTRAL) build
-	$(D) $(CENTRAL) up -d
+	$(D) $(CENTRAL) up -d --remove-orphans
 
 central-start:
 	$(D) $(CENTRAL) pull
 	$(D) $(CENTRAL) build
-	$(D) $(CENTRAL) up -d
+	$(D) $(CENTRAL) up -d --remove-orphans
 
 central-ps:
 	$(D) $(CENTRAL) ps
 
 central: central-stop central-update central-start
-
-
-ipfs-bootstrap:
-	docker-compose exec ipfs ipfs bootstrap add /ip4/51.91.152.156/tcp/4001/p2p/QmTGCxnerPXq77i3w7jPThB93rBbLAJvg1RR4rTsEA8fR6
-	docker-compose exec ipfs ipfs bootstrap add /ip4/51.178.92.105/tcp/4001/p2p/QmPdyJpEKNDXe8Ug41siw3pjCyWvmHayFWDqCPbK6YvhoX
-	docker-compose exec ipfs ipfs bootstrap add /ip4/51.83.238.32/tcp/4001/p2p/QmUjKeBFqawkMYRLPQQ1gcLtfNjXrb5DMVEyVQfMWRkmxf
-	docker-compose exec ipfs ipfs bootstrap add /ip4/51.161.118.148/tcp/4001/p2p/QmSW1JdCDzsELVJtCHsnYTiSWswEJXo1VPPhEgwA9o76Nt
-	docker-compose exec ipfs ipfs bootstrap add /ip4/139.99.69.216/tcp/4001/p2p/QmZ3qVBvDHwF1VpbaqFBu1mWeQMHuoTAHocgfPcksghqWN
-
-ipfs-pin:
-	docker exec ipfs ipfs pin add -r /ipns/beta.parrotsec.org &
-	docker exec ipfs ipfs pin add -r /ipns/www.parrotsec.org &
-	docker exec ipfs ipfs pin add -r /ipns/docs.parrotsec.org &
-	docker exec ipfs ipfs pin add -r /ipns/static.parrotsec.org &
-	docker exec ipfs ipfs pin add -r /ipns/beta.palinuro.dev &
-	docker exec ipfs ipfs pin add -r /ipns/palinuro.dev
 
 director-feed:
 	docker exec director mirrorbits add -http https://mirrors.mit.edu/parrot -rsync rsync://mirrors.mit.edu/parrot -comment "SIPB MIT (1Gbps)" ncsa.mit
