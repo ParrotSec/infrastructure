@@ -5,6 +5,7 @@ services:
     build: ./gateway/
     volumes:
       - /root/certs:/root/certs
+      - ./data/geoipdb:/var/lib/GeoIP
       - ./data/website/html:/var/www/html/
       - ./data/website/docs:/var/www/docs
       - ./data/website/static:/var/www/static
