@@ -34,9 +34,9 @@ services:
     volumes:
       - ./data/geoipdb:/var/lib/GeoIP
       - ./mirrorbits/mirrors.sh:/mirrors.sh
-      - ./mirrorbits/mirrorbits.conf:/etc/mirrorbits.conf
-      - ./data/repository:/var/www/repository
-      - ./data/logs/mirrorbits:/var/log/mirrorbits
+      - ./mirrorbits/mirrorbits-iso.conf:/etc/mirrorbits.conf
+      - ./data/repository/iso:/var/www/repository/iso
+      - ./data/logs/mirrorbits-iso:/var/log/mirrorbits-iso
     restart: unless-stopped
     expose:
       - "8080"
