@@ -1,4 +1,4 @@
-FROM debian:bullseye
+FROM debian:buster
 MAINTAINER Lorenzo "Palinuro" Faletra (palinuro@linux.it)
 ENV DEBIAN_FRONTEND noninteractive
 ENV VERSION 0.2
