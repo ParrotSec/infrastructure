@@ -7,7 +7,7 @@ ENV VERSION 0.2
 RUN apt-get update;apt-get -y dist-upgrade; rm -rf /var/lib/apt/lists/*
 
 # Install dependencies
-RUN apt-get update;apt-get -y install pdns-recursor geoip-database-extra; \
+RUN apt-get update;apt-get -y install pdns-recursor; \
 	rm -rf /var/lib/apt/lists/*
 
 STOPSIGNAL SIGTERM
