@@ -41,8 +41,6 @@ services:
     expose:
       - "8080"
     networks:
-      main:
-        ipv4_address: 172.18.10.7
       director:
         ipv4_address: 172.18.45.4
   director-redis:
@@ -61,4 +59,4 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 172.18.45.0/29
+        - subnet: 172.18.45.0/28
