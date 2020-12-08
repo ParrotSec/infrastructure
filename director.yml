@@ -17,7 +17,7 @@ services:
       - ./mirrorbits/mirrorbits.conf:/etc/mirrorbits.conf
       - ./data/repository:/var/www/repository
       - ./data/logs/mirrorbits:/var/log/mirrorbits
-    restart: always
+    restart: unless-stopped
     expose:
       - "8080"
     networks:
@@ -37,7 +37,7 @@ services:
       - ./mirrorbits/mirrorbits.conf:/etc/mirrorbits.conf
       - ./data/repository:/var/www/repository
       - ./data/logs/mirrorbits:/var/log/mirrorbits
-    restart: always
+    restart: unless-stopped
     expose:
       - "8080"
     networks:
@@ -51,6 +51,7 @@ services:
     volumes:
       - ./data/redis:/data
     command: /usr/local/bin/redis-server --appendonly yes
+    restart: unless-stopped
     networks:
       director:
         ipv4_address: 172.18.45.3

@@ -21,7 +21,7 @@ services:
   pdns:
     container_name: pdns
     build: ./geodns/pdns/
-    restart: always
+    restart: unless-stopped
     depends_on:
       - geoipupdate
     expose:
@@ -38,7 +38,7 @@ services:
   recursor:
     container_name: recursor
     build: ./geodns/recursor/
-    restart: always
+    restart: unless-stopped
     expose:
       - "8153"
     volumes:
@@ -54,7 +54,7 @@ services:
     volumes:
       - ./data/geoipdb:/var/lib/GeoIP
       - /etc/GeoIP.conf:/etc/GeoIP.conf
-    restart: always
+    restart: unless-stopped
 
 
 

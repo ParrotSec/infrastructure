@@ -22,7 +22,7 @@ services:
       - ./gateway/nginx.conf:/etc/nginx/nginx.conf
       - ./gateway/php-fpm.conf:/etc/nginx/snippets/php-fpm.conf
       - ./data/logs/gateway:/var/log/nginx
-    restart: always
+    restart: unless-stopped
     depends_on:
       - php-repo
      # - ipfs

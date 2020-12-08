@@ -11,7 +11,7 @@ services:
   cryptpad:
     container_name: cryptpad
     image: promasu/cryptpad
-    restart: always
+    restart: unless-stopped
     depends_on:
       - gateway
     expose:
@@ -41,7 +41,7 @@ services:
   nextcloud:
     container_name: nextcloud
     image: nextcloud:20
-    restart: always
+    restart: unless-stopped
     expose:
       - "80"
       - "443"
@@ -68,7 +68,7 @@ services:
   nextcloud-db:
     container_name: nextcloud-db
     image: postgres:12
-    restart: always
+    restart: unless-stopped
     volumes:
       - ./data/nextcloud-db/:/var/lib/postgresql/data/
     environment:

@@ -3,7 +3,7 @@ services:
   firewall:
     container_name: firewall
     build: ./firewall/
-    restart: always
+    restart: unless-stopped
     volumes:
       - ./firewall/jail/:/etc/fail2ban/jail.d/
       - ./firewall/filter/:/etc/fail2ban/filter.d/
