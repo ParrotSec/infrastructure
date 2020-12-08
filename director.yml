@@ -35,7 +35,7 @@ services:
       - ./data/geoipdb:/var/lib/GeoIP
       - ./mirrorbits/mirrors.sh:/mirrors.sh
       - ./mirrorbits/mirrorbits-iso.conf:/etc/mirrorbits.conf
-      - ./data/repository/iso:/var/www/repository/iso
+      - ./data/repository/parrot/iso:/var/www/repository/parrot/iso
       - ./data/logs/mirrorbits-iso:/var/log/mirrorbits-iso
     restart: unless-stopped
     expose:
