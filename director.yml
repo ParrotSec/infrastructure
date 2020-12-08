@@ -25,6 +25,26 @@ services:
         ipv4_address: 172.18.10.4
       director:
         ipv4_address: 172.18.45.2
+  director-iso:
+    container_name: director-iso
+    build: ./mirrorbits/
+    depends_on:
+      - rsync
+      - updater
+    volumes:
+      - ./data/geoipdb:/var/lib/GeoIP
+      - ./mirrorbits/mirrors.sh:/mirrors.sh
+      - ./mirrorbits/mirrorbits.conf:/etc/mirrorbits.conf
+      - ./data/repository:/var/www/repository
+      - ./data/logs/mirrorbits:/var/log/mirrorbits
+    restart: always
+    expose:
+      - "8080"
+    networks:
+      main:
+        ipv4_address: 172.18.10.7
+      director:
+        ipv4_address: 172.18.45.4
   director-redis:
     container_name: redis
     image: redis

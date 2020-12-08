@@ -9,6 +9,9 @@ services:
     build: ./rsync/
     volumes:
       - ./data/repository/:/var/www/repository/
+      - ./data/website/html:/var/www/html/
+      - ./data/website/docs:/var/www/docs
+      - ./data/website/static:/var/www/static
       - ./rsync/rsyncd.conf:/etc/rsyncd.conf
     restart: always
     ports:

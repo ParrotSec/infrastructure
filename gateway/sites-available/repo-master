@@ -4,6 +4,12 @@ upstream localarchive {
         server 127.0.0.1:8081 backup;
 }
 
+upstream localiso {
+        keepalive 64;
+        server 172.18.45.4:8080
+        server 127.0.0.1:8081 backup;
+}
+
 # serve files directly if mirrorbits is not available
 # port 8080 is handled by the mirror redirection daemon
 server {
@@ -84,11 +90,27 @@ server {
         index index.html index.php;
 
 
-        location ~ ^/parrot/(?<fwd_zone>iso|misc|pool)/(?<fwd_path>.*)(?<fwd_file>\.iso|\.img|\.ova|\.deb|\.udeb|\.dsc|\.gz|\.xz|\.bz2|\.lzma)$ {
+        location ~ ^/parrot/(?<fwd_zone>misc|pool)/(?<fwd_path>.*)(?<fwd_file>\.iso|\.img|\.ova|\.deb|\.udeb|\.dsc|\.gz|\.xz|\.bz2|\.lzma)$ {
                 limit_req_status 444;
                 limit_req zone=mid burst=120 delay=10;
 
                 proxy_pass http://localarchive/$fwd_zone/$fwd_path$fwd_file;
+                proxy_intercept_errors on;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_buffering on;
+                proxy_buffer_size   1024k;
+                proxy_buffers   512 64k;
+                proxy_busy_buffers_size   1024k;
+        }
+
+        location ~ ^/parrot/iso/(?<fwd_path>.*)(?<fwd_file>\.iso|\.img|\.ova|\.gz|\.xz|\.bz2|\.lzma|\.zip)$ {
+                limit_req_status 444;
+
+                limit_req zone=low burst=10 delay=4;
+
+                proxy_pass http://localiso/$fwd_path$fwd_file;
                 proxy_intercept_errors on;
                 proxy_set_header X-Forwarded-For $remote_addr;
                 proxy_set_header Host $host;
