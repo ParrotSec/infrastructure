@@ -41,8 +41,10 @@ services:
     expose:
       - "8080"
     networks:
+      main:
+        ipv4_address: 172.18.10.7
       director:
-        ipv4_address: 172.18.45.4
+        ipv4_address: 172.18.45.5
   director-redis:
     container_name: redis
     image: redis
