@@ -6,4 +6,4 @@ services:
       - ./gateway/sites-available/nest-master:/etc/nginx/sites-enabled/nest
       - ./gateway/sites-available/nextcloud-master:/etc/nginx/sites-enabled/nextcloud
       - ./gateway/sites-available/community-master:/etc/nginx/sites-enabled/community
-      - ./gateway/sites-available/mail-master:/etc/nginx/sites-enabled/mail
+      - ./gateway/sites-available/webmail-master:/etc/nginx/sites-enabled/mail

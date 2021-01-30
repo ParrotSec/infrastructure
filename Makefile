@@ -131,6 +131,7 @@ director-feed:
 	docker exec director mirrorbits add -http https://mirrors.dotsrc.org/parrot -rsync rsync://mirrors.dotsrc.org/parrot -comment "Dotsrc (Aalborg university)" emea.dotsrc
 	docker exec director mirrorbits add -http https://parrot.mirror.cythin.com/parrot -rsync rsync://parrot.mirror.cythin.com/parrot -comment "cythin.com" emea.cythin
 	docker exec director mirrorbits add -http https://quantum-mirror.hu/mirrors/pub/parrot -rsync rsync://quantum-mirror.hu/mirrors/pub/parrot/ -comment "quantum-mirror.hu" emea.quantum
+	docker exec director mirrorbits add -http https://mirror.pyratelan.org/parrot/ -rsync rsync://mirror.pyratelan.org/parrot/ -comment "PyrateLAN.party" emea.piratelan
 	docker exec director mirrorbits add -http https://mirror.yandex.ru/mirrors/parrot -rsync rsync://mirror.yandex.ru/mirrors/parrot/ -comment "Yandex Mirror" apac.yandex
 	docker exec director mirrorbits add -http http://mirror.truenetwork.ru/parrot -rsync rsync://mirror.truenetwork.ru/parrot -comment "Truenetwork" apac.truenetwork
 	docker exec director mirrorbits add -http http://mirrors.comsys.kpi.ua/parrot -rsync rsync://mirrors.comsys.kpi.ua/parrot-iso -comment "KPI (National Technical University of Ukraine - Comsys)" emea.comsys
@@ -145,6 +146,7 @@ director-feed:
 	docker exec director mirrorbits add -http http://mirrors.sjtug.sjtu.edu.cn/parrot -rsync rsync://mirrors.sjtug.sjtu.edu.cn/parrot -comment "SJTUG (SJTU *NIX User Group)" apac.sjtug
 	docker exec director mirrorbits add -http http://mirror.lagoon.nc/pub/parrot -rsync rsync://mirror.lagoon.nc/parrot -comment "Lagoon" apac.lagoon
 	docker exec director mirrorbits add -http https://mirrors.tuna.tsinghua.edu.cn/parrot -rsync rsync://mirrors.tuna.tsinghua.edu.cn/parrot -comment "TUNA (Tsinghua university of Beijing, TUNA association)" apac.tuna
+	docker exec director mirrorbits add -http https://mirror.krmir.org/parrot -rsync rsync://mirror.krmir.org/parrot -comment "KMIR" apac.kmir
 	docker exec director mirrorbits add -http https://us1-ncsa-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.us1
 	docker exec director mirrorbits add -http https://us2-ncsa-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.us2
 	docker exec director mirrorbits add -http https://us3-ncsa-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.us3
@@ -164,7 +166,32 @@ director-feed:
 	docker exec director mirrorbits add -http https://china1-apac-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.china1
 	docker exec director mirrorbits add -http https://pacific1-apac-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.pacific1
 	docker exec director mirrorbits add -http https://pacific2-apac-mirror.parrot.sh/mirrors/parrot -rsync rsync://rsync.parrot.sh/parrot -comment "Parrot OS CDN" parrot.pacific2
-
+	docker exec director mb add -http https://storage.bhs.cloud.ovh.net/v1/AUTH_bf525b43ec1b427697abd46cfd74c95a/parrot/ -rsync rsync://rsync.parrot.sh/parrot-iso/ -comment "OVH Montreal" ovh.montreal
+	docker exec director mb add -http https://storage.uk.cloud.ovh.net/v1/AUTH_bf525b43ec1b427697abd46cfd74c95a/parrot/ -rsync rsync://rsync.parrot.sh/parrot-iso/ -comment "OVH London" ovh.london
+	docker exec director mb add -http https://storage.de.cloud.ovh.net/v1/AUTH_bf525b43ec1b427697abd46cfd74c95a/parrot/ -rsync rsync://rsync.parrot.sh/parrot-iso/ -comment "OVH Frankfurt" ovh.frankfurt
+	docker exec director mb add -http https://storage.waw.cloud.ovh.net/v1/AUTH_bf525b43ec1b427697abd46cfd74c95a/parrot/ -rsync rsync://rsync.parrot.sh/parrot-iso/ -comment "OVH Warsaw" ovh.warsaw
+	docker exec director mb add -http https://storage.sgp.cloud.ovh.net/v1/AUTH_bf525b43ec1b427697abd46cfd74c95a/parrot/ -rsync rsync://rsync.parrot.sh/parrot-iso/ -comment "OVH Singapore" ovh.singapore
+	docker exec director mb add -http https://storage.syd.cloud.ovh.net/v1/AUTH_bf525b43ec1b427697abd46cfd74c95a/parrot/ -rsync rsync://rsync.parrot.sh/parrot-iso/ -comment "OVH Sydney" ovh.sydney
+	docker exec director mb add -http https://parrot.us-east-1.linodeobjects.com/parrot/ -rsync rsync://rsync.parrot.sh/parrot-iso/ -comment "Linode Newyork" linode.newyork
+	docker exec director mb add -http https://parrot.eu-central-1.linodeobjects.com/parrot/ -rsync rsync://rsync.parrot.sh/parrot-iso/ -comment "Linode Frankfurt" linode.frankfurt
+	docker exec director mb add -http https://parrot.ap-south-1.linodeobjects.com/parrot/ -rsync rsync://rsync.parrot.sh/parrot-iso/ -comment "Linode Singapore" linode.singapore
+	docker exec director mb add -http https://parrot-sanfrancisco.sfo2.digitaloceanspaces.com/parrot/ -rsync rsync://rsync.parrot.sh/parrot-iso/ -comment "DigitalOCean Sanfrancisco" digitalocean.sanfrancisco
+	docker exec director mb add -http https://parrot-newyork.nyc3.digitaloceanspaces.com/parrot/ -rsync rsync://rsync.parrot.sh/parrot-iso/ -comment "DigitalOCean Newyork" digitalocean.newyork
+	docker exec director mb add -http https://parrot-amsterdam.ams3.digitaloceanspaces.com/parrot/ -rsync rsync://rsync.parrot.sh/parrot-iso/ -comment "DigitalOCean Amsterdam" digitalocean.amsterdam
+	docker exec director mb add -http https://parrot-frankfurt.fra1.digitaloceanspaces.com/parrot/ -rsync rsync://rsync.parrot.sh/parrot-iso// -comment "DigitalOCean Frankfurt" digitalocean.frankfurt
+	docker exec director-iso mb add -http https://storage.bhs.cloud.ovh.net/v1/AUTH_bf525b43ec1b427697abd46cfd74c95a/parrot/iso/ -rsync rsync://rsync.parrot.sh/parrot-iso/iso/ -comment "OVH Montreal" ovh.montreal
+	docker exec director-iso mb add -http https://storage.uk.cloud.ovh.net/v1/AUTH_bf525b43ec1b427697abd46cfd74c95a/parrot/iso/ -rsync rsync://rsync.parrot.sh/parrot-iso/iso/ -comment "OVH London" ovh.london
+	docker exec director-iso mb add -http https://storage.de.cloud.ovh.net/v1/AUTH_bf525b43ec1b427697abd46cfd74c95a/parrot/iso/ -rsync rsync://rsync.parrot.sh/parrot-iso/iso/ -comment "OVH Frankfurt" ovh.frankfurt
+	docker exec director-iso mb add -http https://storage.waw.cloud.ovh.net/v1/AUTH_bf525b43ec1b427697abd46cfd74c95a/parrot/iso/ -rsync rsync://rsync.parrot.sh/parrot-iso/iso/ -comment "OVH Warsaw" ovh.warsaw
+	docker exec director-iso mb add -http https://storage.sgp.cloud.ovh.net/v1/AUTH_bf525b43ec1b427697abd46cfd74c95a/parrot/iso/ -rsync rsync://rsync.parrot.sh/parrot-iso/iso/ -comment "OVH Singapore" ovh.singapore
+	docker exec director-iso mb add -http https://storage.syd.cloud.ovh.net/v1/AUTH_bf525b43ec1b427697abd46cfd74c95a/parrot/iso/ -rsync rsync://rsync.parrot.sh/parrot-iso/iso/ -comment "OVH Sydney" ovh.sydney
+	docker exec director-iso mb add -http https://parrot.us-east-1.linodeobjects.com/parrot/iso/ -rsync rsync://rsync.parrot.sh/parrot-iso/iso/ -comment "Linode Newyork" linode.newyork
+	docker exec director-iso mb add -http https://parrot.eu-central-1.linodeobjects.com/parrot/iso/ -rsync rsync://rsync.parrot.sh/parrot-iso/iso/ -comment "Linode Frankfurt" linode.frankfurt
+	docker exec director-iso mb add -http https://parrot.ap-south-1.linodeobjects.com/parrot/iso/ -rsync rsync://rsync.parrot.sh/parrot-iso/iso/ -comment "Linode Singapore" linode.singapore
+	docker exec director-iso mb add -http https://parrot-sanfrancisco.sfo2.digitaloceanspaces.com/parrot/iso/ -rsync rsync://rsync.parrot.sh/parrot-iso/iso/ -comment "DigitalOCean Sanfrancisco" digitalocean.sanfrancisco
+	docker exec director-iso mb add -http https://parrot-newyork.nyc3.digitaloceanspaces.com/parrot/iso/ -rsync rsync://rsync.parrot.sh/parrot-iso/iso/ -comment "DigitalOCean Newyork" digitalocean.newyork
+	docker exec director-iso mb add -http https://parrot-amsterdam.ams3.digitaloceanspaces.com/parrot/iso/ -rsync rsync://rsync.parrot.sh/parrot-iso/iso/ -comment "DigitalOCean Amsterdam" digitalocean.amsterdam
+	docker exec director-iso mb add -http https://parrot-frankfurt.fra1.digitaloceanspaces.com/parrot/iso/ -rsync rsync://rsync.parrot.sh/parrot-iso/iso/ -comment "DigitalOCean Frankfurt" digitalocean.frankfurt
 
 director-enable:
 	docker exec director mirrorbits enable ncsa.mit
@@ -221,6 +248,32 @@ director-enable:
 	docker exec director mirrorbits enable parrot.china1
 	docker exec director mirrorbits enable parrot.pacific1
 	docker exec director mirrorbits enable parrot.pacific2
+	docker exec director mirrorbits enable ovh.montreal
+	docker exec director mirrorbits enable ovh.london
+	docker exec director mirrorbits enable ovh.frankfurt
+	docker exec director mirrorbits enable ovh.warsaw
+	docker exec director mirrorbits enable ovh.singapore
+	docker exec director mirrorbits enable ovh.sydney
+	docker exec director mirrorbits enable linode.newyork
+	docker exec director mirrorbits enable linode.frankfurt
+	docker exec director mirrorbits enable linode.singapore
+	docker exec director mirrorbits enable digitalocean.sanfrancisco
+	docker exec director mirrorbits enable digitalocean.newyork
+	docker exec director mirrorbits enable digitalocean.amsterdam
+	docker exec director mirrorbits enable digitalocean.frankfurt
+#	docker exec director-iso mirrorbits enable ovh.montreal
+#	docker exec director-iso mirrorbits enable ovh.london
+#	docker exec director-iso mirrorbits enable ovh.frankfurt
+#	docker exec director-iso mirrorbits enable ovh.warsaw
+#	docker exec director-iso mirrorbits enable ovh.singapore
+#	docker exec director-iso mirrorbits enable ovh.sydney
+#	docker exec director-iso mirrorbits enable linode.newyork
+#	docker exec director-iso mirrorbits enable linode.frankfurt
+#	docker exec director-iso mirrorbits enable linode.singapore
+#	docker exec director-iso mirrorbits enable digitalocean.sanfrancisco
+#	docker exec director-iso mirrorbits enable digitalocean.newyork
+#	docker exec director-iso mirrorbits enable digitalocean.amsterdam
+#	docker exec director-iso mirrorbits enable digitalocean.frankfurt
 
 
 
