@@ -26,6 +26,9 @@ domains:
       # singapore
       - a: 139.99.69.216
       - aaaa: 2402:1f00:8001:08d8:eeee:feed:dead:beef
+      # singapore2
+      - a: 51.79.178.45
+      - aaaa: 2402:1f00:8001:d2d:ffff:feed:dead:beef
 
     na.a.internal.parrot.sh:
       # montreal
@@ -101,6 +104,9 @@ domains:
       # singapore
       - a: 139.99.69.216
       - aaaa: 2402:1f00:8001:08d8:eeee:feed:dead:beef
+      # singapore2
+      - a: 51.79.178.45
+      - aaaa: 2402:1f00:8001:d2d:ffff:feed:dead:beef
     as.b.internal.parrot.sh:
       # montreal
       - a: 51.161.118.148
@@ -114,6 +120,9 @@ domains:
       # singapore
       - a: 139.99.69.216
       - aaaa: 2402:1f00:8001:08d8:eeee:feed:dead:beef
+      # singapore2
+      - a: 51.79.178.45
+      - aaaa: 2402:1f00:8001:d2d:ffff:feed:dead:beef
     oc.b.internal.parrot.sh:
       # montreal
       - a: 51.161.118.148
@@ -225,6 +234,9 @@ domains:
       # singapore
       - a: 139.99.69.216
       - aaaa: 2402:1f00:8001:08d8:eeee:feed:dead:beef
+      # singapore2
+      - a: 51.79.178.45
+      - aaaa: 2402:1f00:8001:d2d:ffff:feed:dead:beef
 
 
 # geo continents
