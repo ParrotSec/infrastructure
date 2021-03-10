@@ -18,8 +18,8 @@ domains:
       - a: 51.178.92.105
       - aaaa: 2001:41d0:0303:d269:aaaa:feed:dead:beef
       # strasbourg
-      - a: 51.91.152.156
-      - aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
+      #- a: 51.91.152.156
+      #- aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
       # montreal
       - a: 51.161.118.148
       - aaaa: 2607:5300:0203:7094:dddd:feed:dead:beef
@@ -52,8 +52,8 @@ domains:
       - aaaa: 2001:41d0:0303:d269:aaaa:feed:dead:beef
     sa.b.internal.parrot.sh:
       # strasbourg
-      - a: 51.91.152.156
-      - aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
+      #- a: 51.91.152.156
+      #- aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
     sa.c.internal.parrot.sh:
       # warsaw
       - a: 51.83.238.32
@@ -67,8 +67,8 @@ domains:
       - a: 51.178.92.105
       - aaaa: 2001:41d0:0303:d269:aaaa:feed:dead:beef
       # strasbourg
-      - a: 51.91.152.156
-      - aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
+      #- a: 51.91.152.156
+      #- aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
     eu.b.internal.parrot.sh:
       # warsaw
       - a: 51.83.238.32
@@ -77,8 +77,8 @@ domains:
       - a: 51.178.92.105
       - aaaa: 2001:41d0:0303:d269:aaaa:feed:dead:beef
       # strasbourg
-      - a: 51.91.152.156
-      - aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
+      #- a: 51.91.152.156
+      #- aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
     eu.c.internal.parrot.sh:
       # montreal
       - a: 51.161.118.148
@@ -86,8 +86,8 @@ domains:
 
     af.a.internal.parrot.sh:
       # strasbourg
-      - a: 51.91.152.156
-      - aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
+      #- a: 51.91.152.156
+      #- aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
     af.b.internal.parrot.sh:
       # gravelines
       - a: 51.178.92.105
@@ -137,7 +137,7 @@ domains:
     nextcloud.internal.parrot.sh:
       -a: 10.42.42.1
     webmail.internal.parrot.sh:
-      -a: 10.42.42.3
+      #-a: 10.42.42.3
     community.internal.parrot.sh:
       -a: 10.42.42.2
     nest.internal.parrot.sh:
@@ -145,11 +145,11 @@ domains:
     repository.internal.parrot.sh:
       -a: 10.42.42.1
       -a: 10.42.42.2
-      -a: 10.42.42.3
+      #-a: 10.42.42.3
     tracker.internal.parrot.sh:
       -a: 10.42.42.1
       -a: 10.42.42.2
-      -a: 10.42.42.3
+      #-a: 10.42.42.3
 
   services:
     pad-1.internal.parrot.sh:
@@ -226,8 +226,8 @@ domains:
       - a: 51.178.92.105
       - aaaa: 2001:41d0:0303:d269:aaaa:feed:dead:beef
       # strasbourg
-      - a: 51.91.152.156
-      - aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
+      #- a: 51.91.152.156
+      #- aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
       # montreal
       - a: 51.161.118.148
       - aaaa: 2607:5300:0203:7094:dddd:feed:dead:beef
