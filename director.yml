@@ -15,6 +15,7 @@ services:
       - ./data/geoipdb:/var/lib/GeoIP
       - ./mirrorbits/mirrors.sh:/mirrors.sh
       - ./mirrorbits/mirrorbits.conf:/etc/mirrorbits.conf
+      - ./mirrorbits/templates:/usr/share/mirrorbits
       - ./data/repository:/var/www/repository
       - ./data/logs/mirrorbits:/var/log/mirrorbits
     restart: unless-stopped
@@ -35,6 +36,7 @@ services:
       - ./data/geoipdb:/var/lib/GeoIP
       - ./mirrorbits/mirrors.sh:/mirrors.sh
       - ./mirrorbits/mirrorbits-iso.conf:/etc/mirrorbits.conf
+      - ./mirrorbits/templates:/usr/share/mirrorbits
       - ./data/repository/parrot/iso:/var/www/repository/parrot/iso
       - ./data/logs/mirrorbits-iso:/var/log/mirrorbits-iso
     restart: unless-stopped
