@@ -120,11 +120,9 @@
 {{define "body"}}
 
 <div style="display: grid;">
-    {{range first 1 .MirrorList}}
     <div>
-        <a class="btn" href="{{concaturl $v.HttpURL $.FileInfo.Path}}">Download {{.FileInfo}}</a>
+        <a class="btn" href="{{concaturl "https://download.parrot.sh/parrot" $.FileInfo.Path }}">Download Now</a>
     </div>
-    {{end}}
 
     <div class="row">
         <div class="column" style="margin: 8px; float: left; width: 50%; padding: 10px;">
