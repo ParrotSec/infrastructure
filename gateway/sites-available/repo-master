@@ -136,6 +136,19 @@ server {
                 proxy_buffers   512 64k;
                 proxy_busy_buffers_size   1024k;
         }
+        location ~ ^/mirrors/parrot/dists/(?<fwd_path>.*)(?<fwd_file>\.iso|\.img)$ {
+                limit_req_status 444;
+                limit_req zone=low burst=20 delay=5;
+
+                proxy_pass http://localarchive/dists/$fwd_path$fwd_file;
+                proxy_set_header X-Forwarded-For $remote_addr;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_buffering on;
+                proxy_buffer_size   1024k;
+                proxy_buffers   512 64k;
+                proxy_busy_buffers_size   1024k;
+        }
         
         location ~ ^/parrot/(?<fwd_path>.*)(\.mirrorlist)$ {
                 limit_req_status 444;
@@ -181,6 +194,16 @@ server {
         }
         
         location /parrot/dists/ {
+                limit_req_status 444;
+                limit_req zone=mid burst=20 delay=5;
+
+                try_files $uri $uri/ =404;
+                fancyindex on;
+                fancyindex_exact_size off;
+                add_header Pragma "no-cache";
+                add_header Cache-Control "no-cache";
+        }
+        location /mirrors/parrot/dists/ {
                 limit_req_status 444;
                 limit_req zone=mid burst=20 delay=5;
 
