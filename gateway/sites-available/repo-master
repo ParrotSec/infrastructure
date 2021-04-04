@@ -80,7 +80,9 @@ server {
                     apac-mirror.*
                     ncsa-mirror.*
                     cfmirror.*
+                    gibson.infra.parrot.sh
                     *.gibson.infra.parrot.sh
+                    rsync.parrot.sh
                     *.cdn.parrot.sh
                     *.geo.parrot.sh
                     *.any.parrot.sh
