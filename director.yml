@@ -6,6 +6,7 @@ services:
         ipv4_address: 172.18.45.4
   director:
     container_name: director
+    hostname: '{{.Node.Hostname}}'
     build: ./mirrorbits/
     depends_on:
       - director-redis
@@ -28,6 +29,7 @@ services:
         ipv4_address: 172.18.45.2
   director-iso:
     container_name: director-iso
+    hostname: '{{.Node.Hostname}}'
     build: ./mirrorbits/
     depends_on:
       - rsync
