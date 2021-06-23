@@ -67,8 +67,8 @@ domains:
       - a: 51.178.92.105
       - aaaa: 2001:41d0:0303:d269:aaaa:feed:dead:beef
       # strasbourg
-      #- a: 51.91.152.156
-      #- aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
+      - a: 51.91.152.156
+      - aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
     eu.b.internal.parrot.sh:
       # warsaw
       - a: 51.83.238.32
