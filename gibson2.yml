@@ -52,7 +52,6 @@ services:
         gitlab_rails['smtp_enable_starttls_auto'] = true
         gitlab_rails['smtp_tls'] = false
         gitlab_rails['smtp_openssl_verify_mode'] = 'none'
-        unicorn['worker_processes'] = 3
         letsencrypt['enable'] = false
         nginx['ssl_certificate'] = "/etc/ssl/private/fullchain.pem"
         nginx['ssl_certificate_key'] = "/etc/ssl/private/privkey.pem"
