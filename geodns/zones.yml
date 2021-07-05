@@ -212,12 +212,6 @@ domains:
     repository-3.internal.parrot.sh:
       default: ['%cn.c.internal.parrot.sh', 'internal.parrot.sh']
 
-
-
-
-
-
-
 - domain: geo.parrot.sh
   ttl: 10
   records:
@@ -249,77 +243,59 @@ domains:
       - a: 51.79.178.45
       - aaaa: 2402:1f00:8001:d2d:ffff:feed:dead:beef
 
-
 # geo continents
     #north america
     na.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-      #sanfrancisco.d.cdn.parrot.sh
-      - a: 167.172.126.146
-      - aaaa: 2604:a880:2:d1::1e2:1
-      #toronto.d.cdn.poarrot.sh
-      - a: 167.99.189.229
-      - aaaa: 2604:a880:cad:d0::8e3:8001
-
+      # montreal
+      - a: 51.161.118.148
+      - aaaa: 2607:5300:0203:7094:dddd:feed:dead:beef
 
     #south america
     sa.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-      #sanfrancisco.d.cdn.parrot.sh
-      - a: 167.172.126.146
-      - aaaa: 2604:a880:2:d1::1e2:1
-
+      # strasbourg
+      - a: 51.91.152.156
+      - aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
+      # montreal
+      - a: 51.161.118.148
+      - aaaa: 2607:5300:0203:7094:dddd:feed:dead:beef
 
     #europe
     eu.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #london.d.cdn.poarrot.sh
-      - a: 161.35.36.53
-      - aaaa: 2a03:b0c0:1:e0::62d:d001
-      #amsterdam.d.cdn.poarrot.sh
-      - a: 142.93.136.116
-      - aaaa: 2a03:b0c0:2:f0::16e:d001
-      #frankfurt.d.cdn.poarrot.sh
-      - a: 178.128.204.62
-      - aaaa: 2a03:b0c0:3:e0::2f5:1001
+      # warsaw
+      - a: 51.83.238.32
+      - aaaa: 2001:41d0:602:3520:bbbb:feed:dead:beef
+      # gravelines
+      - a: 51.178.92.105
+      - aaaa: 2001:41d0:0303:d269:aaaa:feed:dead:beef
+      # strasbourg
+      - a: 51.91.152.156
+      - aaaa: 2001:41d0:0403:2f9c:cccc:feed:dead:beef
 
     #asia
     as.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #mumbai.cdn.parrot.sh
-      - a: 172.105.49.243
-      - aaaa: 2400:8904::f03c:92ff:fee2:87ba
-      #bangalore.d.cdn.poarrot.sh
-      - a: 165.22.209.106
-      - aaaa: 2400:6180:100:d0::84d:e001
-      #singapore.d.cdn.poarrot.sh
-      - a: 68.183.178.72
-      - aaaa: 2400:6180:0:d1::57d:3001
+      # warsaw
+      - a: 51.83.238.32
+      - aaaa: 2001:41d0:602:3520:bbbb:feed:dead:beef
+      # singapore
+      - a: 139.99.69.216
+      - aaaa: 2402:1f00:8001:08d8:eeee:feed:dead:beef
+      # singapore2
+      - a: 51.79.178.45
+      - aaaa: 2402:1f00:8001:d2d:ffff:feed:dead:beef
 
     #oceania
     oc.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #sydney.cdn.parrot.sh
-      - a: 172.105.162.206
-      - aaaa: 2400:8907::f03c:92ff:fee2:87ff
-      #tokyo.cdn.parrot.sh
-      - a: 172.105.220.183
-      - aaaa: 2400:8902::f03c:92ff:fee2:8722
-      #singapore.d.cdn.poarrot.sh
-      - a: 68.183.178.72
-      - aaaa: 2400:6180:0:d1::57d:3001
+      # singapore
+      - a: 139.99.69.216
+      - aaaa: 2402:1f00:8001:08d8:eeee:feed:dead:beef
+      # singapore2
+      - a: 51.79.178.45
+      - aaaa: 2402:1f00:8001:d2d:ffff:feed:dead:beef
 
     #africa
     #missing servers - using europe
@@ -333,573 +309,47 @@ domains:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
       - cname: eu.geo.parrot.sh
 
-# geo countries
-    uk.eu.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #london.d.cdn.poarrot.sh
-      - a: 161.35.36.53
-      - aaaa: 2a03:b0c0:1:e0::62d:d001
-    gb.eu.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - alias: uk.eu.geo.parrot.sh
-    ie.eu.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - alias: uk.eu.geo.parrot.sh
-    is.eu.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - alias: uk.eu.geo.parrot.sh
-    de.eu.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #frankfurt.d.cdn.poarrot.sh
-      - a: 178.128.204.62
-      - aaaa: 2a03:b0c0:3:e0::2f5:1001
-    nl.eu.geo.parrot.sh:
-      #amsterdam.d.cdn.poarrot.sh
-      - a: 142.93.136.116
-      - aaaa: 2a03:b0c0:2:f0::16e:d001
-    dk.eu.geo.parrot.sh:
-      #amsterdam.d.cdn.poarrot.sh
-      - a: 142.93.136.116
-      - aaaa: 2a03:b0c0:2:f0::16e:d001
-    pt.eu.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - alias: uk.eu.geo.parrot.sh
-    es.eu.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - alias: uk.eu.geo.parrot.sh
-    ch.eu.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - alias: de.eu.geo.parrot.sh
-
-
-    us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: na.geo.parrot.sh
-
-
-
-    ca.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #toronto.d.cdn.poarrot.sh
-      - a: 167.99.189.229
-      - aaaa: 2604:a880:cad:d0::8e3:8001
-      
-
-    ru.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #frankfurt.d.cdn.poarrot.sh
-      - a: 178.128.204.62
-      - aaaa: 2a03:b0c0:3:e0::2f5:1001
-      #amsterdam.d.cdn.poarrot.sh
-      - a: 142.93.136.116
-      - aaaa: 2a03:b0c0:2:f0::16e:d001
-      #london.d.cdn.poarrot.sh
-      - a: 161.35.36.53
-      - aaaa: 2a03:b0c0:1:e0::62d:d001
+# asian optimizations
+    sg.as.geo.parrot.sh:
+      # singapore
+      - a: 139.99.69.216
+      - aaaa: 2402:1f00:8001:08d8:eeee:feed:dead:beef
+      # singapore2
+      - a: 51.79.178.45
+      - aaaa: 2402:1f00:8001:d2d:ffff:feed:dead:beef
     in.as.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #mumbai.cdn.parrot.sh
-      - a: 172.105.49.243
-      - aaaa: 2400:8904::f03c:92ff:fee2:87ba
-      #bangalore.d.cdn.poarrot.sh
-      - a: 165.22.209.106
-      - aaaa: 2400:6180:100:d0::84d:e001
+      - cname: sg.as.geo.parrot.sh
     lk.as.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: in.as.geo.parrot.sh
+      - cname: sg.as.geo.parrot.sh
     np.as.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: in.as.geo.parrot.sh
+      - cname: sg.as.geo.parrot.sh
     bt.as.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: in.as.geo.parrot.sh
-      - cname: sg.eu.geo.parrot.sh
+      - cname: sg.as.geo.parrot.sh
     mm.as.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: in.as.geo.parrot.sh
-      - cname: sg.eu.geo.parrot.sh
+      - cname: sg.as.geo.parrot.sh
     mn.as.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: jp.as.geo.parrot.sh
-      - cname: sg.eu.geo.parrot.sh
-    mo.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: cn.as.geo.parrot.sh
+      - cname: sg.as.geo.parrot.sh
     th.as.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: sg.eu.geo.parrot.sh
+      - cname: sg.as.geo.parrot.sh
     la.as.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: sg.eu.geo.parrot.sh
+      - cname: sg.as.geo.parrot.sh
     kh.as.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: sg.eu.geo.parrot.sh
+      - cname: sg.as.geo.parrot.sh
     vn.as.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: sg.eu.geo.parrot.sh
+      - cname: sg.as.geo.parrot.sh
     my.as.geo.parrot.sh:
       - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: sg.eu.geo.parrot.sh
-    kp.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: jp.as.geo.parrot.sh
-    kr.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: jp.as.geo.parrot.sh
-    pk.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: in.as.geo.parrot.sh
-    af.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: in.as.geo.parrot.sh
-    bd.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: in.as.geo.parrot.sh
-    kg.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: in.as.geo.parrot.sh
-    tj.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: in.as.geo.parrot.sh
-    tm.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: in.as.geo.parrot.sh
-    uz.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: in.as.geo.parrot.sh
-    ir.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: in.as.geo.parrot.sh
-      - cname: de.eu.geo.parrot.sh
-    az.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: in.as.geo.parrot.sh
-      - cname: de.eu.geo.parrot.sh
-    ge.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: nl.as.geo.parrot.sh
-      - cname: de.eu.geo.parrot.sh
-    iq.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: nl.as.geo.parrot.sh
-      - cname: de.eu.geo.parrot.sh
-    sa.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: nl.as.geo.parrot.sh
-      - cname: de.eu.geo.parrot.sh
-    ae.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: in.as.geo.parrot.sh
-    om.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: in.as.geo.parrot.sh
-    ye.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: in.as.geo.parrot.sh
-    jo.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: nl.as.geo.parrot.sh
-      - cname: de.eu.geo.parrot.sh
-    il.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: nl.as.geo.parrot.sh
-      - cname: de.eu.geo.parrot.sh
-    sy.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: nl.as.geo.parrot.sh
-      - cname: de.eu.geo.parrot.sh
-    lb.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: nl.as.geo.parrot.sh
-      - cname: de.eu.geo.parrot.sh
-    tr.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: nl.as.geo.parrot.sh
-      - cname: de.eu.geo.parrot.sh
-
-
-    sg.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #singapore.d.cdn.poarrot.sh
-      - a: 68.183.178.72
-      - aaaa: 2400:6180:0:d1::57d:3001
-    cn.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #tokyo.cdn.parrot.sh
-      - a: 172.105.220.183
-      - aaaa: 2400:8902::f03c:92ff:fee2:8722
-      #singapore.d.cdn.poarrot.sh
-      - a: 68.183.178.72
-      - aaaa: 2400:6180:0:d1::57d:3001
-    hk.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #tokyo.cdn.parrot.sh
-      - a: 172.105.220.183
-      - aaaa: 2400:8902::f03c:92ff:fee2:8722
-      #singapore.d.cdn.poarrot.sh
-      - a: 68.183.178.72
-      - aaaa: 2400:6180:0:d1::57d:3001
-    jp.as.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #tokyo.cdn.parrot.sh
-      - a: 172.105.220.183
-      - aaaa: 2400:8902::f03c:92ff:fee2:8722
-
-
-    au.oc.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #singapore.d.cdn.poarrot.sh
-      - a: 68.183.178.72
-      - aaaa: 2400:6180:0:d1::57d:3001
-
-    nz.oc.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #sydney.cdn.parrot.sh
-      - a: 172.105.162.206
-      - aaaa: 2400:8907::f03c:92ff:fee2:87ff
-    
-# USA routing optimizations
-    al.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-    ak.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #sanfrancisco.d.cdn.parrot.sh
-      - a: 167.172.126.146
-      - aaaa: 2604:a880:2:d1::1e2:1
-      #toronto.d.cdn.poarrot.sh
-      - a: 167.99.189.229
-      - aaaa: 2604:a880:cad:d0::8e3:8001
-    az.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-      #sanfrancisco.d.cdn.parrot.sh
-      - a: 167.172.126.146
-      - aaaa: 2604:a880:2:d1::1e2:1
-    ar.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-    ca.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-    co.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-      #sanfrancisco.d.cdn.parrot.sh
-      - a: 167.172.126.146
-      - aaaa: 2604:a880:2:d1::1e2:1
-    ct.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-    de.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-    fl.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-    ga.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-    hi.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #sanfrancisco.d.cdn.parrot.sh
-      - a: 167.172.126.146
-      - aaaa: 2604:a880:2:d1::1e2:1
-      #tokyo.cdn.parrot.sh
-      - a: 172.105.220.183
-      - aaaa: 2400:8902::f03c:92ff:fee2:8722
-      #singapore.d.cdn.poarrot.sh
-      - a: 68.183.178.72
-      - aaaa: 2400:6180:0:d1::57d:3001
-    id.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #sanfrancisco.d.cdn.parrot.sh
-      - a: 167.172.126.146
-      - aaaa: 2604:a880:2:d1::1e2:1
-    il.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-    id.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-      #toronto.d.cdn.poarrot.sh
-      - a: 167.99.189.229
-      - aaaa: 2604:a880:cad:d0::8e3:8001
-    ia.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-      #toronto.d.cdn.poarrot.sh
-      - a: 167.99.189.229
-      - aaaa: 2604:a880:cad:d0::8e3:8001
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-    ks.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-    ky.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-      #toronto.d.cdn.poarrot.sh
-      - a: 167.99.189.229
-      - aaaa: 2604:a880:cad:d0::8e3:8001
-    la.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-    ma.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-      #toronto.d.cdn.poarrot.sh
-      - a: 167.99.189.229
-      - aaaa: 2604:a880:cad:d0::8e3:8001
-    mi.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #toronto.d.cdn.poarrot.sh
-      - a: 167.99.189.229
-      - aaaa: 2604:a880:cad:d0::8e3:8001
-    mn.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #toronto.d.cdn.poarrot.sh
-      - a: 167.99.189.229
-      - aaaa: 2604:a880:cad:d0::8e3:8001
-    ms.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-    mu.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-    mt.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #sanfrancisco.d.cdn.parrot.sh
-      - a: 167.172.126.146
-      - aaaa: 2604:a880:2:d1::1e2:1
-    ne.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-    nv.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #sanfrancisco.d.cdn.parrot.sh
-      - a: 167.172.126.146
-      - aaaa: 2604:a880:2:d1::1e2:1
-    nh.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-    nj.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-    nm.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-    ny.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-    nc.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-    nd.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-      #toronto.d.cdn.poarrot.sh
-      - a: 167.99.189.229
-      - aaaa: 2604:a880:cad:d0::8e3:8001
-    oh.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #toronto.d.cdn.poarrot.sh
-      - a: 167.99.189.229
-      - aaaa: 2604:a880:cad:d0::8e3:8001
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-    ok.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-    or.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #sanfrancisco.d.cdn.parrot.sh
-      - a: 167.172.126.146
-      - aaaa: 2604:a880:2:d1::1e2:1
-    pa.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #toronto.d.cdn.poarrot.sh
-      - a: 167.99.189.229
-      - aaaa: 2604:a880:cad:d0::8e3:8001
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-    rh.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-    sc.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-    sd.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-    tn.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-    tx.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #dallas.cdn.parrot.sh
-      - a: 45.79.57.113
-      - aaaa: 2600:3c00::f03c:92ff:fee2:876b
-    ut.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #sanfrancisco.d.cdn.parrot.sh
-      - a: 167.172.126.146
-      - aaaa: 2604:a880:2:d1::1e2:1
-    vt.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #toronto.d.cdn.poarrot.sh
-      - a: 167.99.189.229
-      - aaaa: 2604:a880:cad:d0::8e3:8001
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-    va.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-    wa.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #sanfrancisco.d.cdn.parrot.sh
-      - a: 167.172.126.146
-      - aaaa: 2604:a880:2:d1::1e2:1
-    wv.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-    wi.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #toronto.d.cdn.poarrot.sh
-      - a: 167.99.189.229
-      - aaaa: 2604:a880:cad:d0::8e3:8001
-      #newyork.d.cdn.parrot.sh
-      - a: 161.35.10.109
-      - aaaa: 2604:a880:400:d0::17e0:e001
-    wy.us.na.geo.parrot.sh:
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      #sanfrancisco.d.cdn.parrot.sh
-      - a: 167.172.126.146
-      - aaaa: 2604:a880:2:d1::1e2:1
-
-# ASnumbers
-    as30548.geo.parrot.sh: #aruba
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: de.eu.geo.parrot.sh
-      - cname: nl.eu.geo.parrot.sh
-    as206701.geo.parrot.sh: #fibra.city shared
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: de.eu.geo.parrot.sh
-    as12874.geo.parrot.sh: # fastweb
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: de.eu.geo.parrot.sh
-    as20580.geo.parrot.sh: # tim
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: de.eu.geo.parrot.sh
-    as8244.geo.parrot.sh: # tim sparkle italia
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: de.eu.geo.parrot.sh
-      - cname: nl.eu.geo.parrot.sh
-    as30722.geo.parrot.sh: # vodafone italia
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: de.eu.geo.parrot.sh
-    as12551.geo.parrot.sh: # enel
-      - txt: "ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: de.eu.geo.parrot.sh
-      - cname: nl.eu.geo.parrot.sh
-    as137.geo.parrot.sh: # garr
-      - txt: "garr - ip %ip %af city %ci country %cc %co state %cn region %re name %na as %as"
-      - cname: de.eu.geo.parrot.sh
+      - cname: sg.as.geo.parrot.sh
 
 # services
   services:
