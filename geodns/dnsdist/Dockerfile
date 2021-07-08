@@ -1,4 +1,4 @@
-FROM debian:buster
+FROM debian:beowulf
 MAINTAINER Lorenzo "Palinuro" Faletra (palinuro@linux.it)
 ENV DEBIAN_FRONTEND noninteractive
 ENV VERSION 0.3
