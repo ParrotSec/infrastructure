@@ -46,16 +46,19 @@ services:
       main:
         ipv4_address: 172.18.10.3
   
-  web-updater:
-    container_name: web-updater
-    build: ./updater/
+  mirrordirector:
+    container_name: director
+    hostname: ${HOSTNAME}
+    build: ./mirrordirector/
     volumes:
-      - ./data/website/html:/var/www/html/
-      - ./data/website/docs:/var/www/docs
-      - ./data/website/static:/var/www/static
-      - ./updater/webupdate.sh:/webupdate.sh
+      - ./mirrordirector/config.yaml:/config.yaml
+      - ./data/geoipdb:/var/lib/GeoIP
     restart: unless-stopped
-    command: /bin/bash /webupdate.sh
+    expose:
+      - "8080"
+    networks:
+      main:
+        ipv4_address: 172.18.10.4
 
 networks:
   main:
