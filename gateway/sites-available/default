@@ -4,8 +4,8 @@ proxy_cache_path /cache/ levels=1:2 keys_zone=cache:4m max_size=10g inactive=720
 server {
     listen 80 default_server;
     listen [::]:80 default_server;
-    return 301 https://$host$request_uri;
     location /announce { return 400; }
+    return 301 https://$host$request_uri;
 }
 
 # redirect invalid websites
@@ -16,10 +16,10 @@ server {
         include snippets/realip.conf;
         server_tokens off;
         server_name _;
+        location /announce { return 400; }
         location ~ ^/(?<path>.*) {
                 return 302 https://parrotsec.org/$path;
         }
-        location /announce { return 400; }
 }
 
 
