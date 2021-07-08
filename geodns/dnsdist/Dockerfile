@@ -1,4 +1,4 @@
-FROM debian:beowulf
+FROM debian:bullseye
 MAINTAINER Lorenzo "Palinuro" Faletra (palinuro@linux.it)
 ENV DEBIAN_FRONTEND noninteractive
 ENV VERSION 0.3
