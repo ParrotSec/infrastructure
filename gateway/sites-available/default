@@ -5,6 +5,7 @@ server {
     listen 80 default_server;
     listen [::]:80 default_server;
     return 301 https://$host$request_uri;
+    location /announce { return 400; }
 }
 
 # redirect invalid websites
@@ -161,6 +162,8 @@ server {
 
 # tracker
 server {
+        listen 80;
+        listen [::]:80;
         listen 443 ssl http2;
         listen [::]:443 ssl http2;
         include snippets/snakeoil.conf;
