@@ -10,5 +10,7 @@ RUN apt-get update;apt-get -y dist-upgrade; rm -rf /var/lib/apt/lists/*
 RUN apt-get update;apt-get -y install pdns-recursor; \
 	rm -rf /var/lib/apt/lists/*
 
+RUN mkdir -p /var/run/pdns-recursor
+
 STOPSIGNAL SIGTERM
-CMD /usr/sbin/pdns_recursor --daemon=no --disable-syslog
+CMD /usr/sbin/pdns_recursor --daemon=no --write-pid=no --disable-syslog --log-timestamp=no
