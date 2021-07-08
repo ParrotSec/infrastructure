@@ -1,11 +1,5 @@
 proxy_cache_path /cache/ levels=1:2 keys_zone=cache:4m max_size=10g inactive=720m use_temp_path=off;
 
-upstream tracker {
-        keepalive 16;
-        server repository-1.internal.parrot.sh:443 weight=5 max_fails=2 fail_timeout=60;
-        server repository-2.internal.parrot.sh:443 backup;
-}
-
 # redirect http to https
 server {
     listen 80 default_server;
@@ -162,36 +156,3 @@ server {
 
 }
 
-
-# tracker
-server {
-        listen 80;
-        listen [::]:80;
-        listen 443 ssl http2;
-        listen [::]:443 ssl http2;
-        include snippets/snakeoil.conf;
-        include snippets/realip.conf;
-        
-        server_tokens off;
-
-        server_name tracker.* wolf.* torrent.* tracker2.* wolf2.* torrent2.*;
-
-        location / {
-                limit_req_status 444;
-                limit_req zone=low burst=5 delay=2;
-
-                proxy_pass https://tracker;
-                proxy_set_header Host $host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $remote_addr;
-                proxy_set_header Upgrade $http_upgrade;
-                proxy_set_header Connection $connection_upgrade;
-                include snippets/cache-buffer.conf;
-        }
-
-        # deny access to unauthorized resources
-        location ~* /(\.git|cache|bin|logs|backup|tests)/.*$ { return 404; }
-        location ~* /(system|vendor)/.*\.(txt|xml|md|html|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
-        location ~* /user/.*\.(txt|md|yaml|yml|php|pl|py|cgi|twig|sh|bat)$ { return 404; }
-
-}
