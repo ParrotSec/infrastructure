@@ -86,6 +86,7 @@ server {
                     *.cdn.parrot.sh
                     *.geo.parrot.sh
                     *.any.parrot.sh
+                    *.edge.parrot.sh
                     archive.*;
 
         # Add index.php to the list if you are using PHP

@@ -23,6 +23,10 @@ services:
       - ./gateway/php-fpm.conf:/etc/nginx/snippets/php-fpm.conf
       - ./data/logs/gateway:/var/log/nginx
     restart: unless-stopped
+    cap_add:
+      - SYS_ADMIN
+    devices:
+      - /dev/fuse
     depends_on:
       - php-repo
      # - ipfs
