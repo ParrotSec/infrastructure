@@ -3,7 +3,7 @@ continents:
     MASTER:
       mirrors:
         - name: "Master"
-          url: "https://mirror.parrot.sh/mirrors/parrot"
+          url: "https://deb.parrot.sh/mirrors/parrot"
           index: index.db
           version: 9999
           down: false
@@ -22,16 +22,40 @@ continents:
         - name: 'ncsa.wasabi-tokyo'
           url: 'https://s3.ap-northeast-1.wasabisys.com/parrot-tokyo'
           index: index.db
+        - name: 'ncsa.wasabi-amsterdam'
+          url: 'https://s3.eu-central-1.wasabisys.com/parrot-virginia'
+          index: index.db
         - name: 'emea.halifax'
           url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
           index: index.db
         - name: 'emea.esslingen'
           url: 'https://ftp-stud.hs-esslingen.de/Mirrors/archive.parrotsec.org'
           index: index.db
+        - name: 'emea.nluug'
+          url: 'https://ftp.nluug.nl/os/Linux/distr/parrot'
+          index: index.db
+        - name: 'emea.garr'
+          url: 'https://parrot.mirror.garr.it/parrot'
+          index: index.db
   EU:
+    DEFAULT:
+      mirrors:
+        - name: 'ncsa.wasabi-amsterdam'
+          url: 'https://s3.eu-central-1.wasabisys.com/parrot-virginia'
+          index: index.db
+        - name: 'emea.halifax'
+          url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
+          index: index.db
+        - name: 'emea.esslingen'
+          url: 'https://ftp-stud.hs-esslingen.de/Mirrors/archive.parrotsec.org'
+          index: index.db
+        - name: 'emea.nluug'
+          url: 'https://ftp.nluug.nl/os/Linux/distr/parrot'
+          index: index.db
+        - name: 'emea.garr'
+          url: 'https://parrot.mirror.garr.it/parrot'
+          index: index.db
     # disabled: redirector not ready for iso-only mirrors
-    #DEFAULT:
-    #  mirrors:
     #    - name: emea.linode-frankfurt
     #      url: https://parrot.eu-central-1.linodeobjects.com/parrot
     #      index: index.db.iso
@@ -138,6 +162,9 @@ continents:
       mirrors:
         - name: ncsa.0xem
           url: https://mirror.0xem.ma/parrot/
+          index: index.db
+        - name: 'ncsa.wasabi-virginia'
+          url: 'https://s3.us-east-2.wasabisys.com/parrot-virginia'
           index: index.db
     US:
       mirrors:
