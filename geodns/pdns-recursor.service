@@ -8,7 +8,7 @@ After=network-online.target
 
 [Service]
 Type=notify
-ExecStart=/usr/sbin/pdns_recursor --daemon=no --write-pid=no --disable-syslog --log-timestamp=no
+ExecStart=/usr/sbin/pdns_recursor --daemon=no --disable-syslog
 Restart=on-failure
 StartLimitInterval=0
 PrivateTmp=true
@@ -19,7 +19,7 @@ ProtectSystem=full
 ProtectHome=true
 RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
 LimitNOFILE=4200
-MemoryMax=128M
+MemoryMax=256M
 
 [Install]
 WantedBy=multi-user.target

@@ -11,4 +11,4 @@ RUN apt-get update;apt-get -y install pdns-recursor; \
 	rm -rf /var/lib/apt/lists/*
 
 STOPSIGNAL SIGTERM
-CMD /usr/sbin/pdns_recursor --daemon=no --write-pid=no --disable-syslog --log-timestamp=no
+CMD /usr/sbin/pdns_recursor --daemon=no --disable-syslog

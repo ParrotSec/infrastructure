@@ -7,7 +7,7 @@ After=network-online.target mysqld.service postgresql.service slapd.service mari
 
 [Service]
 Type=notify
-ExecStart=/usr/sbin/pdns_server --guardian=no --daemon=no --disable-syslog --log-timestamp=no --write-pid=no
+ExecStart=/usr/sbin/pdns_server --guardian=no --daemon=no --disable-syslog --log-timestamp=no
 Restart=on-failure
 RestartSec=1
 StartLimitInterval=0
@@ -20,7 +20,7 @@ NoNewPrivileges=true
 ProtectSystem=full
 ProtectHome=true
 RestrictAddressFamilies=AF_UNIX AF_INET AF_INET6
-MemoryMax=128M
+MemoryMax=256M
 
 [Install]
 WantedBy=multi-user.target
