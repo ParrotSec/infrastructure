@@ -11,6 +11,7 @@ RUN apt update;apt -y install rsync rclone golang-go;rm -rf /var/lib/apt/lists/*
 
 # Install software
 RUN go get github.com/parrotsec/mirrordirector
+RUN touch /cache.db
 
 
 EXPOSE 8080
