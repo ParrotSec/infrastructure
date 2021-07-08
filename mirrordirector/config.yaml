@@ -219,6 +219,14 @@ continents:
     #    - name: 'apac.amberit'
     #      url: 'http://mirror.amberit.com.bd/parrotsec'
     #      index: index.db
+    IN:
+      mirrors:
+        - name: 'ncsa.wasabi-tokyo'
+          url: 'https://s3.ap-northeast-1.wasabisys.com/parrot-tokyo'
+          index: index.db
+        - name: 'ncsa.parrot-edge-india'
+          url: 'https://mumbai.cdn.parrot.sh/mirrors/parrot'
+          index: index.db
     TW:
       mirrors:
         - name: 'apac.nchc'
