@@ -159,3 +159,19 @@ server {
 
 }
 
+# tracker
+server {
+        listen 443 ssl http2;
+        listen [::]:443 ssl http2;
+        include snippets/snakeoil.conf;
+        include snippets/realip.conf;
+        
+        server_tokens off;
+
+        server_name tracker.* tracker2.*;
+
+        location / {
+                return 400;
+        }
+
+}
