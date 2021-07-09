@@ -57,19 +57,19 @@ services:
         ipv4_address: 172.18.10.7
   librespeed-frontend:
     image: adolfintel/librespeed
-      environment:
-        MODE: frontend
-        TITLE: Parrot Speed Test
-        ENABLE_ID_OBFUSCATION: true
-        REDACT_IP_ADDRESSES: true
-        EMAIL: speedtest-gdpr@parrotsec.org
-        PASSWORD: ${SPEEDTESTPASS}
-      restart: unless-stopped
-      expose:
-        - "80"
-      networks:
-        main:
-          ipv4_address: 172.18.10.10
+    environment:
+      MODE: frontend
+      TITLE: Parrot Speed Test
+      ENABLE_ID_OBFUSCATION: true
+      REDACT_IP_ADDRESSES: true
+      EMAIL: speedtest-gdpr@parrotsec.org
+      PASSWORD: ${SPEEDTESTPASS}
+    restart: unless-stopped
+    expose:
+      - "80"
+    networks:
+      main:
+        ipv4_address: 172.18.10.10
 
 networks:
   main:
