@@ -48,6 +48,7 @@ services:
     volumes:
       - ./data/librespeed:/config
       - ./speedtest/index.html:/config/www/index.html
+      - ./speedtest/speedtest.js:/usr/share/webapps/librespeed/speedtest.js
     environment:
       MODE: frontend
       TITLE: Parrot Speed Test
