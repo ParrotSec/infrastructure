@@ -10,8 +10,6 @@ services:
       - ./data/website/docs:/var/www/docs
       - ./data/website/static:/var/www/static
       - ./data/repository/:/var/www/repository/
-      - ./speedtest/:/var/www/speedtest/
-      - ./speedtest/:/var/www/repository/speedtest/
       - ./gateway/realip.conf:/etc/nginx/snippets/realip.conf
       - ./gateway/snakeoil.conf:/etc/nginx/snippets/snakeoil.conf
       - ./gateway/ratelimit.conf:/etc/nginx/snippets/ratelimit.conf
@@ -45,18 +43,10 @@ services:
       main:
         ipv4_address: 172.18.10.4
 
-  librespeed-backend:
-    image: linuxserver/librespeed
-    environment:
-      MODE: backend
-    restart: unless-stopped
-    expose:
-      - "80"
-    networks:
-      main:
-        ipv4_address: 172.18.10.7
   librespeed-frontend:
     image: linuxserver/librespeed
+    volumes:
+      - ./data/librespeed:/config
     environment:
       MODE: frontend
       TITLE: Parrot Speed Test

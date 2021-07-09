@@ -147,13 +147,6 @@ server {
 
         server_name speedtest.parrot.sh speedtest.parrotsec.org *.speedtest.parrot.sh *.speedtest.parrotsec.org;
 
-        location ~ ^/backend/(.*)(\.php)$ {
-                proxy_pass http://172.18.10.7;
-                proxy_set_header Host $host;
-                proxy_set_header X-Real-IP $remote_addr;
-                proxy_set_header X-Forwarded-For $remote_addr;
-        }
-
         location / {
                 proxy_pass http://172.18.10.10;
                 proxy_set_header Host $host;
