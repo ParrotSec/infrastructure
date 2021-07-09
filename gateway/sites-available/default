@@ -144,13 +144,21 @@ server {
         include snippets/realip.conf;
         
         server_tokens off;
-        root /var/www/speedtest/;
-        index index.php index.html;
 
-        server_name speedtest.* speed.*;
+        server_name speedtest.parrot.sh speedtest.parrotsec.org *.speedtest.parrot.sh *.speedtest.parrotsec.org;
+
+        location ~ ^/backend/(.*)(\.php)$ {
+                proxy_pass http://172.18.10.7;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $remote_addr;
+        }
 
         location / {
-                try_files $uri $uri/ =404;
+                proxy_pass http://172.18.10.10;
+                proxy_set_header Host $host;
+                proxy_set_header X-Real-IP $remote_addr;
+                proxy_set_header X-Forwarded-For $remote_addr;
         }
 
         # deny access to unauthorized resources

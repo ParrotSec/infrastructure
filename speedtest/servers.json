@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Worldwide (Parrot CDN)",
+        "server" :"//cloudflare-speedtest.parrot.sh",
+        "dlURL" :"/backend/garbage.php",
+        "ulURL" :"/backend/empty.php",
+        "pingURL" :"/backend/empty.php",
+        "getIpURL" :"/backend/getIP.php"
+    },
+    {
+        "name": "Worldwide (Cloudflare)",
+        "server" :"//cloudflare-speedtest.parrot.sh",
+        "dlURL" :"/backend/garbage.php",
+        "ulURL" :"/backend/empty.php",
+        "pingURL" :"/backend/empty.php",
+        "getIpURL" :"/backend/getIP.php"
+    },
+    {
+        "name": "Worldwide (KeyCDN)",
+        "server" :"//keycdn.speedtest.parrot.sh",
+        "dlURL" :"/backend/garbage.php",
+        "ulURL" :"/backend/empty.php",
+        "pingURL" :"/backend/empty.php",
+        "getIpURL" :"/backend/getIP.php"
+    },
+    {
+        "name": "Worldwide (BunnyCDN)",
+        "server" :"//bunny.speedtest.parrot.sh",
+        "dlURL" :"/backend/garbage.php",
+        "ulURL" :"/backend/empty.php",
+        "pingURL" :"/backend/empty.php",
+        "getIpURL" :"/backend/getIP.php"
+    },
+    {
+        "name": "Gravelines, France (OVH)",
+        "server" :"//gravelines.speedtest.parrotsec.org",
+        "dlURL" :"/backend/garbage.php",
+        "ulURL" :"/backend/empty.php",
+        "pingURL" :"/backend/empty.php",
+        "getIpURL" :"/backend/getIP.php"
+    },
+    {
+        "name": "Strasbourg, France (OVH)",
+        "server" :"//strasbourg.speedtest.parrotsec.org",
+        "dlURL" :"/backend/garbage.php",
+        "ulURL" :"/backend/empty.php",
+        "pingURL" :"/backend/empty.php",
+        "getIpURL" :"/backend/getIP.php"
+    },
+    {
+        "name": "Warsaw, Poland (OVH)",
+        "server" :"//warsaw.speedtest.parrotsec.org",
+        "dlURL" :"/backend/garbage.php",
+        "ulURL" :"/backend/empty.php",
+        "pingURL" :"/backend/empty.php",
+        "getIpURL" :"/backend/getIP.php"
+    },
+    {
+        "name": "Montreal, Canada (OVH)",
+        "server" :"//montreal.speedtest.parrotsec.org",
+        "dlURL" :"/backend/garbage.php",
+        "ulURL" :"/backend/empty.php",
+        "pingURL" :"/backend/empty.php",
+        "getIpURL" :"/backend/getIP.php"
+    },
+    {
+        "name": "Singapore, France (OVH)",
+        "server" :"//singapore.speedtest.parrotsec.org",
+        "dlURL" :"/backend/garbage.php",
+        "ulURL" :"/backend/empty.php",
+        "pingURL" :"/backend/empty.php",
+        "getIpURL" :"/backend/getIP.php"
+    },
+]

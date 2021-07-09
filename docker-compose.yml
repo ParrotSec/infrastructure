@@ -23,32 +23,12 @@ services:
       - ./gateway/php-fpm.conf:/etc/nginx/snippets/php-fpm.conf
       - ./data/logs/gateway:/var/log/nginx
     restart: unless-stopped
-    cap_add:
-      - SYS_ADMIN
-    devices:
-      - /dev/fuse
-    depends_on:
-      - php-repo
-     # - ipfs
     ports:
       - "80:80"
       - "443:443"
     networks:
       main:
         ipv4_address: 172.18.10.2
-  
-  php-repo:
-    container_name: php-repo
-    image: php:7.3-fpm-buster
-    volumes:
-      - ./data/repository/speedtest:/var/www/repository/speedtest
-      - ./speedtest/:/var/www/speedtest/
-    expose:
-      - "9000"
-    restart: always
-    networks:
-      main:
-        ipv4_address: 172.18.10.3
   
   mirrordirector:
     container_name: director
@@ -64,6 +44,32 @@ services:
     networks:
       main:
         ipv4_address: 172.18.10.4
+
+  librespeed-backend:
+    image: adolfintel/librespeed
+    environment:
+      MODE: backend
+    restart: unless-stopped
+    expose:
+      - "80"
+    networks:
+      main:
+        ipv4_address: 172.18.10.7
+  librespeed-frontend:
+    image: adolfintel/librespeed
+      environment:
+        MODE: frontend
+        TITLE: Parrot Speed Test
+        ENABLE_ID_OBFUSCATION: true
+        REDACT_IP_ADDRESSES: true
+        EMAIL: speedtest-gdpr@parrotsec.org
+        PASSWORD: ${SPEEDTESTPASS}
+      restart: unless-stopped
+      expose:
+        - "80"
+      networks:
+        main:
+          ipv4_address: 172.18.10.10
 
 networks:
   main:
