@@ -47,7 +47,7 @@ services:
     image: linuxserver/librespeed
     volumes:
       - ./data/librespeed:/config
-      ./speedtest/index.html:/config/www/index.html
+      - ./speedtest/index.html:/config/www/index.html
     environment:
       MODE: frontend
       TITLE: Parrot Speed Test
