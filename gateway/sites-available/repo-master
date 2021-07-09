@@ -158,10 +158,6 @@ server {
                 add_header Pragma "no-cache";
                 add_header Cache-Control "no-cache";
         }
-        
-        location ~ ^/speedtest/(.*)(\.php)$ {
-                include snippets/php-fpm.conf;
-        }
 
         location ~ ^(?<file>/parrot/misc/.*MB\.bin|/mirrors/parrot/misc/.*MB\.bin)$ {
                 try_files $uri $uri/ =404;
