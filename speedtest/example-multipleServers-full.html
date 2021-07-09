@@ -10,78 +10,23 @@ function I(i){return document.getElementById(i);}
 
 //LIST OF TEST SERVERS. See documentation for details if needed
 var SPEEDTEST_SERVERS=[
-    {
-        "name": "Worldwide (Parrot CDN)",
-        "server" :"//cloudflare-speedtest.parrot.sh",
-        "dlURL" :"/backend/garbage.php",
-        "ulURL" :"/backend/empty.php",
-        "pingURL" :"/backend/empty.php",
-        "getIpURL" :"/backend/getIP.php"
-    },
-    {
-        "name": "Worldwide (Cloudflare)",
-        "server" :"//cloudflare-speedtest.parrot.sh",
-        "dlURL" :"/backend/garbage.php",
-        "ulURL" :"/backend/empty.php",
-        "pingURL" :"/backend/empty.php",
-        "getIpURL" :"/backend/getIP.php"
-    },
-    {
-        "name": "Worldwide (KeyCDN)",
-        "server" :"//keycdn.speedtest.parrot.sh",
-        "dlURL" :"/backend/garbage.php",
-        "ulURL" :"/backend/empty.php",
-        "pingURL" :"/backend/empty.php",
-        "getIpURL" :"/backend/getIP.php"
-    },
-    {
-        "name": "Worldwide (BunnyCDN)",
-        "server" :"//bunny.speedtest.parrot.sh",
-        "dlURL" :"/backend/garbage.php",
-        "ulURL" :"/backend/empty.php",
-        "pingURL" :"/backend/empty.php",
-        "getIpURL" :"/backend/getIP.php"
-    },
-    {
-        "name": "Gravelines, France (OVH)",
-        "server" :"//gravelines.speedtest.parrotsec.org",
-        "dlURL" :"/backend/garbage.php",
-        "ulURL" :"/backend/empty.php",
-        "pingURL" :"/backend/empty.php",
-        "getIpURL" :"/backend/getIP.php"
-    },
-    {
-        "name": "Strasbourg, France (OVH)",
-        "server" :"//strasbourg.speedtest.parrotsec.org",
-        "dlURL" :"/backend/garbage.php",
-        "ulURL" :"/backend/empty.php",
-        "pingURL" :"/backend/empty.php",
-        "getIpURL" :"/backend/getIP.php"
-    },
-    {
-        "name": "Warsaw, Poland (OVH)",
-        "server" :"//warsaw.speedtest.parrotsec.org",
-        "dlURL" :"/backend/garbage.php",
-        "ulURL" :"/backend/empty.php",
-        "pingURL" :"/backend/empty.php",
-        "getIpURL" :"/backend/getIP.php"
-    },
-    {
-        "name": "Montreal, Canada (OVH)",
-        "server" :"//montreal.speedtest.parrotsec.org",
-        "dlURL" :"/backend/garbage.php",
-        "ulURL" :"/backend/empty.php",
-        "pingURL" :"/backend/empty.php",
-        "getIpURL" :"/backend/getIP.php"
-    },
-    {
-        "name": "Singapore, France (OVH)",
-        "server" :"//singapore.speedtest.parrotsec.org",
-        "dlURL" :"/backend/garbage.php",
-        "ulURL" :"/backend/empty.php",
-        "pingURL" :"/backend/empty.php",
-        "getIpURL" :"/backend/getIP.php"
-    },
+	{	//this server doesn't actually exist, remove it
+		name:"Example Server 1", //user friendly name for the server
+		server:"//test1.mydomain.com/", //URL to the server. // at the beginning will be replaced with http:// or https:// automatically
+		dlURL:"backend/garbage.php",  //path to download test on this server (garbage.php or replacement)
+		ulURL:"backend/empty.php",  //path to upload test on this server (empty.php or replacement)
+		pingURL:"backend/empty.php",  //path to ping/jitter test on this server (empty.php or replacement)
+		getIpURL:"backend/getIP.php"  //path to getIP on this server (getIP.php or replacement)
+	},
+	{	//this server doesn't actually exist, remove it
+		name:"Example Server 2", //user friendly name for the server
+		server:"//test2.example.com/", //URL to the server. // at the beginning will be replaced with http:// or https:// automatically
+		dlURL:"garbage.php",  //path to download test on this server (garbage.php or replacement)
+		ulURL:"empty.php",  //path to upload test on this server (empty.php or replacement)
+		pingURL:"empty.php",  //path to ping/jitter test on this server (empty.php or replacement)
+		getIpURL:"getIP.php"  //path to getIP on this server (getIP.php or replacement)
+	}
+	//add other servers here, comma separated
 ];
 
 //INITIALIZE SPEEDTEST
@@ -448,11 +393,10 @@ function initUI(){
 		}
 	}
 </style>
-<title>Parrot Speed Test</title>
+<title>LibreSpeed Example</title>
 </head>
 <body onload="initServers()">
-<h1>Parrot Speed Test</h1>
-<h4>Test how fast you can download content from the Parrot Security infrastructure</h4>
+<h1>LibreSpeed Example</h1>
 <div id="loading" class="visible">
 	<p id="message"><span class="loadCircle"></span>Selecting a server...</p>
 </div>
@@ -534,7 +478,7 @@ function initUI(){
     <h4>Data removal</h4>
     <p>
         If you want to have your information deleted, you need to provide either the ID of the test or your IP address. This is the only way to identify your data, without this information we won't be able to comply with your request.<br/><br/>
-        Contact this email address for all deletion requests: <a href="mailto:speedtest-gdpr@parrotsec.org">speedtest-gdpr@parrotsec.org</a>.
+        Contact this email address for all deletion requests: <a href="mailto:PUT@YOUR_EMAIL.HERE">TO BE FILLED BY DEVELOPER</a>.
     </p>
     <br/><br/>
     <div class="closePrivacyPolicy">
