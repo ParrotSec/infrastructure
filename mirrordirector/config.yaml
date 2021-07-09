@@ -10,6 +10,12 @@ continents:
   DEFAULT:
     DEFAULT:
       mirrors:
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'cdn.keycdn'
+          url: 'https://keycdn.deb.parrot.sh/parrot'
+          index: index.db
         - name: 'ncsa.wasabi-virginia'
           url: 'https://s3.us-east-2.wasabisys.com/parrot-virginia'
           index: index.db
@@ -40,6 +46,12 @@ continents:
   EU:
     DEFAULT:
       mirrors:
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'cdn.keycdn'
+          url: 'https://keycdn.deb.parrot.sh/parrot'
+          index: index.db
         - name: 'emea.wasabi-amsterdam'
           url: 'https://s3.eu-central-1.wasabisys.com/parrot-amsterdam'
           index: index.db
@@ -154,10 +166,26 @@ continents:
     #    - name: 'emea.comsys'
     #      url: 'http://mirrors.comsys.kpi.ua/parrot'
     #      index: index.db.iso
+  AF:
+    DEFAULT:
+      mirrors:
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'cdn.keycdn'
+          url: 'https://keycdn.deb.parrot.sh/parrot'
+          index: index.db
   NA:
+    DEFAULT:
+      mirrors:
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'cdn.keycdn'
+          url: 'https://keycdn.deb.parrot.sh/parrot'
+          index: index.db
+        
     # disabled: redirector not ready for iso-only mirrors
-    #DEFAULT:
-    #  mirrors:
     #    - name: emea.linode-newyork
     #      url: https://parrot.us-east-1.linodeobjects.com/parrot
     #      index: index.db.iso
@@ -193,6 +221,14 @@ continents:
           url: 'https://mirrors.ocf.berkeley.edu/parrot'
           index: index.db
   SA:
+    DEFAULT:
+      mirrors:
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'cdn.keycdn'
+          url: 'https://keycdn.deb.parrot.sh/parrot'
+          index: index.db
     EC:
       mirrors:
         - name: 'ncsa.cedia'
@@ -210,9 +246,15 @@ continents:
           url: 'http://sft.if.usp.br/parrot'
           index: index.db
   AS:
+    DEFAULT:
+      mirrors:
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'cdn.keycdn'
+          url: 'https://keycdn.deb.parrot.sh/parrot'
+          index: index.db
     # disabled: redirector not ready for iso-only mirrors
-    #DEFAULT:
-    #  mirrors:
     #    - name: emea.linode-singapore
     #      url: https://parrot.ap-south-1.linodeobjects.com/parrot
     #      index: index.db.iso
@@ -226,6 +268,9 @@ continents:
       mirrors:
         - name: 'ncsa.wasabi-tokyo'
           url: 'https://s3.ap-northeast-1.wasabisys.com/parrot-tokyo'
+          index: index.db
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
           index: index.db
     # work in progress
     #    - name: 'ncsa.parrot-edge-india'
@@ -278,9 +323,15 @@ continents:
     #      url: 'http://kartolo.sby.datautama.net.id/parrot'
     #      index: index.db
   OC:
+    DEFAULT:
+      mirrors:
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'cdn.keycdn'
+          url: 'https://keycdn.deb.parrot.sh/parrot'
+          index: index.db
     # disabled: redirector not ready for iso-only mirrors
-    #DEFAULT:
-    #  mirrors:
     #    - name: emea.linode-singapore
     #      url: https://parrot.ap-south-1.linodeobjects.com/parrot
     #      index: index.db.iso
