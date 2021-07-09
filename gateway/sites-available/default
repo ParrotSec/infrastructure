@@ -148,8 +148,8 @@ server {
         server_name speedtest.parrot.sh speedtest.parrotsec.org *.speedtest.parrot.sh *.speedtest.parrotsec.org;
 
         location / {
-                add_header 'Access-Control-Allow-Origin' '*' always;
-                add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS' always;
+                #add_header 'Access-Control-Allow-Origin' '*' always;
+                #add_header 'Access-Control-Allow-Methods' 'GET, POST, OPTIONS' always;
                 proxy_pass http://172.18.10.10;
                 proxy_set_header Host $host;
                 proxy_set_header X-Real-IP $remote_addr;
