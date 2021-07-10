@@ -173,19 +173,7 @@ continents:
           url: 'https://parrot.mirror.garr.it/parrot'
           index: index.db
   NA:
-    # disabled: redirector not ready for iso-only mirrors
-    #    - name: emea.linode-newyork
-    #      url: https://parrot.us-east-1.linodeobjects.com/parrot
-    #      index: index.db.iso
-    CA:
-      mirrors:
-        - name: ncsa.0xem
-          url: https://mirror.0xem.ma/parrot/
-          index: index.db
-        - name: 'ncsa.wasabi-virginia'
-          url: 'https://s3.us-east-2.wasabisys.com/parrot-virginia'
-          index: index.db
-    US:
+    DEFAULT:
       mirrors:
         - name: 'ncsa.wasabi-virginia'
           url: 'https://s3.us-east-2.wasabisys.com/parrot-virginia'
@@ -196,6 +184,17 @@ continents:
         - name: 'ncsa.wasabi-texas'
           url: 'https://s3.us-central-1.wasabisys.com/parrot-texas'
           index: index.db
+    # disabled: redirector not ready for iso-only mirrors
+    #    - name: emea.linode-newyork
+    #      url: https://parrot.us-east-1.linodeobjects.com/parrot
+    #      index: index.db.iso
+    CA:
+      mirrors:
+        - name: ncsa.0xem
+          url: https://mirror.0xem.ma/parrot/
+          index: index.db
+    US:
+      mirrors:
         - name: 'ncsa.mit'
           url: 'https://mirrors.mit.edu/parrot'
           index: index.db
@@ -213,6 +212,21 @@ continents:
       mirrors:
         - name: 'cdn.bunny'
           url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'ncsa.wasabi-virginia'
+          url: 'https://s3.us-east-2.wasabisys.com/parrot-virginia'
+          index: index.db
+        - name: 'ncsa.wasabi-oregon'
+          url: 'https://s3.us-west-1.wasabisys.com/parrot-oregon'
+          index: index.db
+        - name: 'ncsa.wasabi-texas'
+          url: 'https://s3.us-central-1.wasabisys.com/parrot-texas'
+          index: index.db
+        - name: 'ncsa.berkeley'
+          url: 'https://mirrors.ocf.berkeley.edu/parrot'
+          index: index.db
+        - name: 'ncsa.mit'
+          url: 'https://mirrors.mit.edu/parrot'
           index: index.db
     EC:
       mirrors:
@@ -236,6 +250,9 @@ continents:
         - name: 'cdn.bunny'
           url: 'https://bunny.deb.parrot.sh/parrot'
           index: index.db
+        - name: 'ncsa.wasabi-tokyo'
+          url: 'https://s3.ap-northeast-1.wasabisys.com/parrot-tokyo'
+          index: index.db
     # disabled: redirector not ready for iso-only mirrors
     #    - name: emea.linode-singapore
     #      url: https://parrot.ap-south-1.linodeobjects.com/parrot
@@ -248,15 +265,12 @@ continents:
     #      index: index.db
     IN:
       mirrors:
-        - name: 'ncsa.wasabi-tokyo'
-          url: 'https://s3.ap-northeast-1.wasabisys.com/parrot-tokyo'
-          index: index.db
         - name: 'apac.0x'
           url: 'https://mirror.0x.sg/parrot'
           index: index.db
-        - name: 'emea.wasabi-amsterdam'
-          url: 'https://s3.eu-central-1.wasabisys.com/parrot-amsterdam'
-          index: index.db;
+        - name: 'apac.nchc'
+          url: 'https://free.nchc.org.tw/parrot'
+          index: index.db
     TW:
       mirrors:
         - name: 'apac.nchc'
@@ -314,6 +328,9 @@ continents:
           index: index.db
         - name: 'apac.0x'
           url: 'https://mirror.0x.sg/parrot'
+          index: index.db
+        - name: 'apac.nchc'
+          url: 'https://free.nchc.org.tw/parrot'
           index: index.db
     # disabled: redirector not ready for iso-only mirrors
     #    - name: emea.linode-singapore
