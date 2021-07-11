@@ -311,6 +311,9 @@ continents:
         - name: 'apac.kku'
           url: 'https://mirror.kku.ac.th/parrot'
           index: index.db
+        - name: 'apac.nipacloud'
+          url: 'https://mirrors.nipa.cloud/parrot'
+          index: index.db
     # disabled: no https support
     #ID:
     #  mirrors:
