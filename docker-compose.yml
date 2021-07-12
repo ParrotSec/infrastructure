@@ -62,6 +62,18 @@ services:
     networks:
       main:
         ipv4_address: 172.18.10.10
+  
+  zerotier:
+    container_name: zerotier
+    build: ./zerotier/
+    volumes:
+      - ./zerotier/main.sh:/usr/local/bin/main.sh
+      - /dev/net/tun:/dev/net/tun
+      - /dev/net/tap:/dev/net/tap
+    restart: unless-stopped
+    network_mode: "host"
+    cap_add:
+      - NET_ADMIN
 
 networks:
   main:
