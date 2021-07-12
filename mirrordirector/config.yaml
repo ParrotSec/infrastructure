@@ -160,7 +160,7 @@ continents:
   AF:
     DEFAULT:
       mirrors:
-         - name: 'emea.halifax'
+        - name: 'emea.halifax'
           url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
           index: index.db
         - name: 'emea.esslingen'
