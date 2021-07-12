@@ -2,9 +2,9 @@ include .env
 export
 
 D=docker-compose
-EDGE=-f docker-compose.yml -f opennic.yml -f firewall.yml -f edge.yml
-MIRROR=-f docker-compose.yml -f firewall.yml -f repository.yml
-GIBSON=-f docker-compose.yml -f opennic.yml -f firewall.yml -f repository.yml
+EDGE=-f docker-compose.yml -f opennic.yml -f edge.yml
+MIRROR=-f docker-compose.yml -f repository.yml
+GIBSON=-f docker-compose.yml -f opennic.yml -f repository.yml
 
 ifeq ($(GIBSON_ID), 1)
 	GIBSON += -f gibson1.yml
