@@ -257,6 +257,7 @@ continents:
           url: 'https://free.nchc.org.tw/parrot'
           index: index.db
     IR:
+      mirrors:
       - name: 'apac.mobinhost'
         url: 'https://mirrors.mobinhost.com/parrot/'
         index: index.db
