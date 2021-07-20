@@ -43,10 +43,9 @@ continents:
         - name: 'emea.garr'
           url: 'https://parrot.mirror.garr.it/parrot'
           index: index.db
-    # disabled: redirector not ready for iso-only mirrors
-    #    - name: emea.linode-frankfurt
-    #      url: https://parrot.eu-central-1.linodeobjects.com/parrot
-    #      index: index.db.iso
+        - name: emea.linode-frankfurt
+          url: https://parrot.eu-central-1.linodeobjects.com/parrot
+          index: index.db
     IT:
       mirrors:
         - name: 'emea.garr'
@@ -169,10 +168,9 @@ continents:
         - name: 'ncsa.wasabi-texas'
           url: 'https://s3.us-central-1.wasabisys.com/parrot-texas'
           index: index.db
-    # disabled: redirector not ready for iso-only mirrors
-    #    - name: emea.linode-newyork
-    #      url: https://parrot.us-east-1.linodeobjects.com/parrot
-    #      index: index.db.iso
+        - name: emea.linode-newyork
+          url: https://parrot.us-east-1.linodeobjects.com/parrot
+          index: index.db
     CA:
       mirrors:
         - name: ncsa.0xem
@@ -227,10 +225,9 @@ continents:
         - name: 'emea.halifax'
           url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
           index: index.db
-    # disabled: redirector not ready for iso-only mirrors
-    #    - name: emea.linode-singapore
-    #      url: https://parrot.ap-south-1.linodeobjects.com/parrot
-    #      index: index.db.iso
+        - name: emea.linode-singapore
+          url: https://parrot.ap-south-1.linodeobjects.com/parrot
+          index: index.db
     # disabled: no https support
     #BD:
     #  mirrors:
@@ -320,10 +317,9 @@ continents:
         - name: 'apac.nchc'
           url: 'https://free.nchc.org.tw/parrot'
           index: index.db
-    # disabled: redirector not ready for iso-only mirrors
-    #    - name: emea.linode-singapore
-    #      url: https://parrot.ap-south-1.linodeobjects.com/parrot
-    #      index: index.db.iso
+        - name: emea.linode-singapore
+          url: https://parrot.ap-south-1.linodeobjects.com/parrot
+          index: index.db
     NZ:
       mirrors:
         - name: 'apac.takeshi'
