@@ -14,7 +14,7 @@ RUN make
 
 FROM parrotsec/core:latest
 
-RUN apt update;apt -y full-upgrade;apt -y install quagga quagga-bgpd iproute2 net-tools wget;rm -rf /var/lib/apt/lists/*
+RUN apt update;apt -y full-upgrade;apt -y install bird iproute2 net-tools wget;rm -rf /var/lib/apt/lists/*
 
 COPY --from=builder /zerotier/zerotier-one /usr/local/bin/zerotier-one
 COPY --from=builder /zerotier/zerotier-cli /usr/local/bin/zerotier-cli
