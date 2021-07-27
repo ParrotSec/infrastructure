@@ -7,7 +7,6 @@ services:
     depends_on:
       - pdns
       - recursor
-      - gateway
     ports:
       - "53:53/udp"
       - "53:53"
