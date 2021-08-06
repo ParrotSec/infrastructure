@@ -10,9 +10,9 @@ continents:
   DEFAULT:
     DEFAULT:
       mirrors:
-        - name: 'cdn.bunny'
-          url: 'https://bunny.deb.parrot.sh/parrot'
-          index: index.db
+        #- name: 'cdn.bunny'
+        #  url: 'https://bunny.deb.parrot.sh/parrot'
+        #  index: index.db
         - name: 'emea.halifax'
           url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
           index: index.db
@@ -28,9 +28,9 @@ continents:
   EU:
     DEFAULT:
       mirrors:
-        - name: 'emea.wasabi-amsterdam'
-          url: 'https://s3.eu-central-1.wasabisys.com/parrot-amsterdam'
-          index: index.db
+        #- name: 'emea.wasabi-amsterdam'
+        #  url: 'https://s3.eu-central-1.wasabisys.com/parrot-amsterdam'
+        #  index: index.db
         - name: 'emea.halifax'
           url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
           index: index.db
@@ -43,9 +43,9 @@ continents:
         - name: 'emea.garr'
           url: 'https://parrot.mirror.garr.it/parrot'
           index: index.db
-        - name: emea.linode-frankfurt
-          url: https://parrot.eu-central-1.linodeobjects.com/parrot
-          index: index.db
+        #- name: emea.linode-frankfurt
+        #  url: https://parrot.eu-central-1.linodeobjects.com/parrot
+        #  index: index.db
     IT:
       mirrors:
         - name: 'emea.garr'
@@ -157,8 +157,8 @@ continents:
           url: 'https://parrot.mirror.garr.it/parrot'
           index: index.db
   NA:
-    DEFAULT:
-      mirrors:
+    #DEFAULT:
+      #mirrors:
         #- name: 'ncsa.wasabi-virginia'
         #  url: 'https://s3.us-east-2.wasabisys.com/parrot-virginia'
         #  index: index.db
@@ -168,9 +168,9 @@ continents:
         #- name: 'ncsa.wasabi-texas'
         #  url: 'https://s3.us-central-1.wasabisys.com/parrot-texas'
         #  index: index.db
-        - name: emea.linode-newyork
-          url: https://parrot.us-east-1.linodeobjects.com/parrot
-          index: index.db
+        #- name: emea.linode-newyork
+        #  url: https://parrot.us-east-1.linodeobjects.com/parrot
+        #  index: index.db
     CA:
       mirrors:
         - name: ncsa.0xem
@@ -225,9 +225,9 @@ continents:
         - name: 'emea.halifax'
           url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
           index: index.db
-        - name: emea.linode-singapore
-          url: https://parrot.ap-south-1.linodeobjects.com/parrot
-          index: index.db
+        #- name: emea.linode-singapore
+        #  url: https://parrot.ap-south-1.linodeobjects.com/parrot
+        #  index: index.db
     # disabled: no https support
     #BD:
     #  mirrors:
@@ -263,11 +263,11 @@ continents:
         - name: 'apac.0x'
           url: 'https://mirror.0x.sg/parrot'
           index: index.db
-    JP:
-      mirrors:
-        - name: 'ncsa.wasabi-tokyo'
-          url: 'https://s3.ap-northeast-1.wasabisys.com/parrot-tokyo'
-          index: index.db
+    #JP:
+      #mirrors:
+        #- name: 'ncsa.wasabi-tokyo'
+        #  url: 'https://s3.ap-northeast-1.wasabisys.com/parrot-tokyo'
+        #  index: index.db
     KR:
       mirrors:
         - name: apac.krmir
@@ -305,9 +305,9 @@ continents:
   OC:
     DEFAULT:
       mirrors:
-        - name: 'cdn.bunny'
-          url: 'https://bunny.deb.parrot.sh/parrot'
-          index: index.db
+        #- name: 'cdn.bunny'
+        #  url: 'https://bunny.deb.parrot.sh/parrot'
+        #  index: index.db
         #- name: 'ncsa.wasabi-tokyo'
         #  url: 'https://s3.ap-northeast-1.wasabisys.com/parrot-tokyo'
         #  index: index.db
@@ -317,9 +317,9 @@ continents:
         - name: 'apac.nchc'
           url: 'https://free.nchc.org.tw/parrot'
           index: index.db
-        - name: emea.linode-singapore
-          url: https://parrot.ap-south-1.linodeobjects.com/parrot
-          index: index.db
+        #- name: emea.linode-singapore
+        #  url: https://parrot.ap-south-1.linodeobjects.com/parrot
+        #  index: index.db
     NZ:
       mirrors:
         - name: 'apac.takeshi'
