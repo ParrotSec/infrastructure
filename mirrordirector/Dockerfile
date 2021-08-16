@@ -4,7 +4,7 @@ ENV DEBIAN_FRONTEND noninteractive
 ENV VERSION 0.3
 
 # Update system
-RUN echo "deb https://mirror.parrot.sh/mirrors/parrot/ rolling main" > /etc/apt/sources.list/d/parrot.list
+RUN echo "deb https://mirror.parrot.sh/mirrors/parrot/ rolling main" > /etc/apt/sources.list.d/parrot.list
 RUN apt update;apt -y full-upgrade; rm -rf /var/lib/apt/lists/*
 
 # Install dependencies
