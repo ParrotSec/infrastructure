@@ -121,6 +121,11 @@ continents:
         - name: emea.cspacehosting
           url: https://mirror.cspacehostings.com/parrotsec
           index: index.db
+    UA:
+      mirrors:
+        - name: emea.astra
+          url: https://parrot.astra.in.ua/
+          index: index.db
     RU:
       mirrors:
         - name: 'apac.yandex'
