@@ -48,7 +48,7 @@ services:
     build: ./mirrordirector/
     volumes:
       - ./mirrordirector/config-iso.yaml:/config.yaml
-      - ./data/mirrordirector/cache.db:/cache-iso.db
+      - ./data/mirrordirector/cache-iso.db:/cache.db
       - ./data/geoipdb:/var/lib/GeoIP
     restart: unless-stopped
     expose:
