@@ -42,6 +42,20 @@ services:
     networks:
       main:
         ipv4_address: 172.18.10.4
+  mirrordirector-iso:
+    container_name: director-iso
+    hostname: ${HOSTNAME}
+    build: ./mirrordirector/
+    volumes:
+      - ./mirrordirector/config-iso.yaml:/config.yaml
+      - ./data/mirrordirector/cache.db:/cache-iso.db
+      - ./data/geoipdb:/var/lib/GeoIP
+    restart: unless-stopped
+    expose:
+      - "8080"
+    networks:
+      main:
+        ipv4_address: 172.18.10.7
 
   librespeed-frontend:
     image: linuxserver/librespeed

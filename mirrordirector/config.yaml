@@ -10,9 +10,12 @@ continents:
   DEFAULT:
     DEFAULT:
       mirrors:
-        #- name: 'cdn.bunny'
-        #  url: 'https://bunny.deb.parrot.sh/parrot'
-        #  index: index.db
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'cdn.cloudflare'
+          url: 'https://mirror.parrot.sh/mirrors/parrot'
+          index: index.db
         - name: 'emea.halifax'
           url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
           index: index.db
@@ -28,9 +31,12 @@ continents:
   EU:
     DEFAULT:
       mirrors:
-        #- name: 'emea.wasabi-amsterdam'
-        #  url: 'https://s3.eu-central-1.wasabisys.com/parrot-amsterdam'
-        #  index: index.db
+        - name: 'cdn.cloudflare'
+          url: 'https://emea-mirror.parrot.sh/mirrors/parrot'
+          index: index.db
+        - name: 'emea.wasabi-amsterdam'
+          url: 'https://s3.eu-central-1.wasabisys.com/parrot-amsterdam'
+          index: index.db
         - name: 'emea.halifax'
           url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
           index: index.db
@@ -43,9 +49,9 @@ continents:
         - name: 'emea.garr'
           url: 'https://parrot.mirror.garr.it/parrot'
           index: index.db
-        #- name: emea.linode-frankfurt
-        #  url: https://parrot.eu-central-1.linodeobjects.com/parrot
-        #  index: index.db
+        - name: emea.linode-frankfurt
+          url: https://parrot.eu-central-1.linodeobjects.com/parrot
+          index: index.db
     IT:
       mirrors:
         - name: 'emea.garr'
@@ -70,9 +76,9 @@ continents:
         - name: emea.lyrahosting
           url: https://mirror.lyrahosting.com/parrot
           index: index.db
-        #- name: 'emea.wasabi-amsterdam'
-        #  url: 'https://s3.eu-central-1.wasabisys.com/parrot-amsterdam'
-        #  index: index.db
+        - name: 'emea.wasabi-amsterdam'
+          url: 'https://s3.eu-central-1.wasabisys.com/parrot-amsterdam'
+          index: index.db
     SE:
       mirrors:
         - name: 'emea.umu'
@@ -126,8 +132,19 @@ continents:
         - name: emea.astra
           url: https://parrot.astra.in.ua/
           index: index.db
+        # disabled: no https support
+        #         and no https support
+    #    - name: 'emea.comsys'
+    #      url: 'http://mirrors.comsys.kpi.ua/parrot'
+    #      index: index.db.iso
     RU:
       mirrors:
+        - name: 'cdn.cloudflare'
+          url: 'https://mirror.parrot.sh/mirrors/parrot'
+          index: index.db
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
         - name: 'apac.yandex'
           url: 'https://mirror.yandex.ru/mirrors/parrot'
           index: index.db
@@ -135,20 +152,18 @@ continents:
         - name: apac.surf
           url: https://mirror.surf/parrot
           index: index.db
-    # disabled: no https support
-    #    - name: 'apac.truenetwork'
-    #      url: 'http://mirror.truenetwork.ru/parrot'
-    #      index: index.db
-    # disabled: redirector not ready for iso-only mirrors
-    #           and no https support
-    #UA:
-    #  mirrors:
-    #    - name: 'emea.comsys'
-    #      url: 'http://mirrors.comsys.kpi.ua/parrot'
-    #      index: index.db.iso
+        - name: 'apac.truenetwork'
+          url: 'http://mirror.truenetwork.ru/parrot'
+          index: index.db
   AF:
     DEFAULT:
       mirrors:
+        - name: 'cdn.cloudflare'
+          url: 'https://emea-mirror.parrot.sh/mirrors/parrot'
+          index: index.db
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
         - name: 'emea.halifax'
           url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
           index: index.db
@@ -162,20 +177,26 @@ continents:
           url: 'https://parrot.mirror.garr.it/parrot'
           index: index.db
   NA:
-    #DEFAULT:
-      #mirrors:
-        #- name: 'ncsa.wasabi-virginia'
-        #  url: 'https://s3.us-east-2.wasabisys.com/parrot-virginia'
-        #  index: index.db
-        #- name: 'ncsa.wasabi-oregon'
-        #  url: 'https://s3.us-west-1.wasabisys.com/parrot-oregon'
-        #  index: index.db
-        #- name: 'ncsa.wasabi-texas'
-        #  url: 'https://s3.us-central-1.wasabisys.com/parrot-texas'
-        #  index: index.db
-        #- name: emea.linode-newyork
-        #  url: https://parrot.us-east-1.linodeobjects.com/parrot
-        #  index: index.db
+    DEFAULT:
+      mirrors:
+        - name: 'cdn.cloudflare'
+          url: 'https://cnsa-mirror.parrot.sh/mirrors/parrot'
+          index: index.db
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'ncsa.wasabi-virginia'
+          url: 'https://s3.us-east-2.wasabisys.com/parrot-virginia'
+          index: index.db
+        - name: 'ncsa.wasabi-oregon'
+          url: 'https://s3.us-west-1.wasabisys.com/parrot-oregon'
+          index: index.db
+        - name: 'ncsa.wasabi-texas'
+          url: 'https://s3.us-central-1.wasabisys.com/parrot-texas'
+          index: index.db
+        - name: emea.linode-newyork
+          url: https://parrot.us-east-1.linodeobjects.com/parrot
+          index: index.db
     CA:
       mirrors:
         - name: ncsa.0xem
@@ -196,6 +217,26 @@ continents:
           url: 'https://mirrors.ocf.berkeley.edu/parrot'
           index: index.db
   SA:
+    DEFAULT:
+      mirrors:
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'cdn.cloudflare'
+          url: 'https://cnsa-mirror.parrot.sh/mirrors/parrot'
+          index: index.db
+        - name: 'ncsa.usp'
+          url: 'http://sft.if.usp.br/parrot'
+          index: index.db
+        - name: 'ncsa.cedia'
+          url: 'https://mirror.cedia.org.ec/parrot'
+          index: index.db
+        - name: 'ncas.uta'
+          url: 'https://mirror.uta.edu.ec/parrot'
+          index: index.db
+        - name: 'ncsa.ueb'
+          url: 'https://mirror.ueb.edu.ec/parrot'
+          index: index.db
     EC:
       mirrors:
         - name: 'ncsa.cedia'
@@ -209,12 +250,21 @@ continents:
           index: index.db
     BR:
       mirrors:
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'cdn.cloudflare'
+          url: 'https://cnsa-mirror.parrot.sh/mirrors/parrot'
+          index: index.db
         - name: 'ncsa.usp'
           url: 'http://sft.if.usp.br/parrot'
           index: index.db
   AS:
     DEFAULT:
       mirrors:
+        - name: 'cdn.cloudflare'
+          url: 'https://apac-mirror.parrot.sh/mirrors/parrot'
+          index: index.db
         - name: 'cdn.bunny'
           url: 'https://bunny.deb.parrot.sh/parrot'
           index: index.db
@@ -230,17 +280,28 @@ continents:
         - name: 'emea.halifax'
           url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
           index: index.db
-        #- name: emea.linode-singapore
-        #  url: https://parrot.ap-south-1.linodeobjects.com/parrot
-        #  index: index.db
-    # disabled: no https support
-    #BD:
-    #  mirrors:
-    #    - name: 'apac.amberit'
-    #      url: 'http://mirror.amberit.com.bd/parrotsec'
-    #      index: index.db
+        - name: emea.linode-singapore
+          url: https://parrot.ap-south-1.linodeobjects.com/parrot
+          index: index.db
+    BD:
+      mirrors:
+        - name: 'cdn.cloudflare'
+          url: 'https://apac-mirror.parrot.sh/mirrors/parrot'
+          index: index.db
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'apac.amberit'
+          url: 'http://mirror.amberit.com.bd/parrotsec'
+          index: index.db
     IN:
       mirrors:
+        - name: 'cdn.cloudflare'
+          url: 'https://apac-mirror.parrot.sh/mirrors/parrot'
+          index: index.db
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
         - name: 'apac.0x'
           url: 'https://mirror.0x.sg/parrot'
           index: index.db
@@ -265,6 +326,9 @@ continents:
           index: index.db
     SG:
       mirrors:
+        - name: emea.linode-singapore
+          url: https://parrot.ap-south-1.linodeobjects.com/parrot
+          index: index.db
         - name: 'apac.0x'
           url: 'https://mirror.0x.sg/parrot'
           index: index.db
@@ -283,10 +347,9 @@ continents:
         - name: 'apac.ustc'
           url: 'https://mirrors.ustc.edu.cn/parrot'
           index: index.db
-  # disabled: no https support
-  #      - name: 'apac.shu'
-  #        url: 'http://mirrors.shu.edu.cn/parrot'
-  #        index: index.db
+        - name: 'apac.shu'
+          url: 'http://mirrors.shu.edu.cn/parrot'
+          index: index.db
         - name: 'apac.sjtug'
           url: 'https://mirrors.sjtug.sjtu.edu.cn/parrot'
           index: index.db
@@ -301,30 +364,32 @@ continents:
         - name: 'apac.nipacloud'
           url: 'https://mirrors.nipa.cloud/parrot'
           index: index.db
-    # disabled: no https support
-    #ID:
-    #  mirrors:
-    #    - name: 'apac.datautama'
-    #      url: 'http://kartolo.sby.datautama.net.id/parrot'
-    #      index: index.db
+    ID:
+      mirrors:
+        - name: 'apac.datautama'
+          url: 'http://kartolo.sby.datautama.net.id/parrot'
+          index: index.db
   OC:
     DEFAULT:
       mirrors:
-        #- name: 'cdn.bunny'
-        #  url: 'https://bunny.deb.parrot.sh/parrot'
-        #  index: index.db
-        #- name: 'ncsa.wasabi-tokyo'
-        #  url: 'https://s3.ap-northeast-1.wasabisys.com/parrot-tokyo'
-        #  index: index.db
+        - name: 'cdn.cloudflare'
+          url: 'https://apac-mirror.parrot.sh/mirrors/parrot'
+          index: index.db
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'ncsa.wasabi-tokyo'
+          url: 'https://s3.ap-northeast-1.wasabisys.com/parrot-tokyo'
+          index: index.db
         - name: 'apac.0x'
           url: 'https://mirror.0x.sg/parrot'
           index: index.db
         - name: 'apac.nchc'
           url: 'https://free.nchc.org.tw/parrot'
           index: index.db
-        #- name: emea.linode-singapore
-        #  url: https://parrot.ap-south-1.linodeobjects.com/parrot
-        #  index: index.db
+        - name: emea.linode-singapore
+          url: https://parrot.ap-south-1.linodeobjects.com/parrot
+          index: index.db
     NZ:
       mirrors:
         - name: 'apac.takeshi'

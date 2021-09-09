@@ -5,8 +5,8 @@ upstream localarchive {
 }
 
 upstream localiso {
-        keepalive 64;
-        server 172.18.10.4:8080;
+        keepalive 8;
+        server 172.18.10.7:8080;
         server 127.0.0.1:8081 backup;
 }
 
