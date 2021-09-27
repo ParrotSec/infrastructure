@@ -8,7 +8,7 @@ RUN echo "deb https://mirror.parrot.sh/mirrors/parrot/ lts main" > /etc/apt/sour
     echo "deb https://mirror.parrot.sh/mirrors/parrot/ lts-updates main" >> /etc/apt/sources.list.d/parrot.list \
     echo "deb https://mirror.parrot.sh/mirrors/parrot/ lts-backports main" >> /etc/apt/sources.list.d/parrot.list \
     echo "deb https://mirror.parrot.sh/mirrors/parrot/ lts-security main" >> /etc/apt/sources.list.d/parrot.list
-RUN apt update;apt -y full-upgrade; rm -rf /var/lib/apt/lists/*
+RUN apt update;apt -y --allow-downgrades full-upgrade; rm -rf /var/lib/apt/lists/*
 
 # Install dependencies
 RUN apt update;apt -y install rsync rclone golang-go;rm -rf /var/lib/apt/lists/*
