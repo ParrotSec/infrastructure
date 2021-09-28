@@ -14,6 +14,7 @@ RUN apt update;apt -y --allow-downgrades full-upgrade; rm -rf /var/lib/apt/lists
 RUN apt update;apt -y install rsync rclone golang-go;rm -rf /var/lib/apt/lists/*
 
 # Install software
+ENV REBUILD 1
 RUN go get github.com/parrotsec/mirrordirector
 RUN touch /cache.db
 
