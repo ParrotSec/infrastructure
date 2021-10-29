@@ -57,6 +57,24 @@ continents:
         - name: 'emea.garr'
           url: 'https://parrot.mirror.garr.it/parrot'
           index: index.db
+        - name: 'edge1.legolas'
+          url: 'https://legolas.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.gimli'
+          url: 'https://gimli.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.meriadoc'
+          url: 'https://meriadoc.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.peregrino'
+          url: 'https://peregrino.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.gandalf'
+          url: 'https://gandalf.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.saruman'
+          url: 'https://saruman.edge1.parrot.run/parrot'
+          index: index.db.iso
     DE:
       mirrors:
         - name: 'emea.halifax'
@@ -176,12 +194,24 @@ continents:
   NA:
     DEFAULT:
       mirrors:
-        - name: 'cdn.cloudflare'
-          url: 'https://ncsa-mirror.parrot.sh/mirrors/parrot'
-          index: index.db
-        - name: 'cdn.bunny'
-          url: 'https://bunny.deb.parrot.sh/parrot'
-          index: index.db
+        - name: 'edge1.legolas'
+          url: 'https://legolas.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.gimli'
+          url: 'https://gimli.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.meriadoc'
+          url: 'https://meriadoc.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.peregrino'
+          url: 'https://peregrino.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.gandalf'
+          url: 'https://gandalf.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.saruman'
+          url: 'https://saruman.edge1.parrot.run/parrot'
+          index: index.db.iso
     CA:
       mirrors:
         - name: ncsa.0xem
@@ -247,27 +277,24 @@ continents:
   AS:
     DEFAULT:
       mirrors:
-        - name: 'cdn.cloudflare'
-          url: 'https://apac-mirror.parrot.sh/mirrors/parrot'
-          index: index.db
-        - name: 'cdn.bunny'
-          url: 'https://bunny.deb.parrot.sh/parrot'
-          index: index.db
-        - name: 'apac.0x'
-          url: 'https://mirror.0x.sg/parrot'
-          index: index.db
-        - name: 'apac.nchc'
-          url: 'https://free.nchc.org.tw/parrot'
-          index: index.db
-        - name: 'emea.garr'
-          url: 'https://parrot.mirror.garr.it/parrot'
-          index: index.db
-        - name: 'emea.halifax'
-          url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
-          index: index.db
-        - name: emea.linode-singapore
-          url: https://parrot.ap-south-1.linodeobjects.com/parrot
-          index: index.db
+        - name: 'edge1.legolas'
+          url: 'https://legolas.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.gimli'
+          url: 'https://gimli.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.meriadoc'
+          url: 'https://meriadoc.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.peregrino'
+          url: 'https://peregrino.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.gandalf'
+          url: 'https://gandalf.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.saruman'
+          url: 'https://saruman.edge1.parrot.run/parrot'
+          index: index.db.iso
     BD:
       mirrors:
         - name: 'cdn.cloudflare'
@@ -293,12 +320,24 @@ continents:
         - name: 'apac.nchc'
           url: 'https://free.nchc.org.tw/parrot'
           index: index.db
-        - name: 'emea.garr'
-          url: 'https://parrot.mirror.garr.it/parrot'
-          index: index.db
-        - name: 'emea.halifax'
-          url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
-          index: index.db
+        - name: 'edge1.legolas'
+          url: 'https://legolas.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.gimli'
+          url: 'https://gimli.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.meriadoc'
+          url: 'https://meriadoc.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.peregrino'
+          url: 'https://peregrino.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.gandalf'
+          url: 'https://gandalf.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.saruman'
+          url: 'https://saruman.edge1.parrot.run/parrot'
+          index: index.db.iso
     IR:
       mirrors:
       - name: 'apac.mobinhost'
