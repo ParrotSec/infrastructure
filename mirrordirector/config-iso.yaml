@@ -13,21 +13,12 @@ continents:
         #- name: 'cdn.bunny'
         #  url: 'https://bunny.deb.parrot.sh/parrot'
         #  index: index.db.iso
-        - name: 'edge1.legolas'
-          url: 'https://legolas.edge1.parrot.run/parrot'
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
           index: index.db.iso
-        - name: 'edge1.gimli'
-          url: 'https://gimli.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.meriadoc'
-          url: 'https://meriadoc.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.peregrino'
-          url: 'https://peregrino.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.gandalf'
-          url: 'https://gandalf.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.saruman'
-          url: 'https://saruman.edge1.parrot.run/parrot'
-          index: index.db.iso
+        #- name: 'edge2'
+        #  url: 'https://edge2.parrot.run/parrot'
+        #  index: index.db.iso
+        #- name: 'edge3'
+        #  url: 'https://edge3.parrot.run/parrot'
+        #  index: index.db.iso
