@@ -10,15 +10,50 @@ continents:
   DEFAULT:
     DEFAULT:
       mirrors:
-        #- name: 'cdn.bunny'
-        #  url: 'https://bunny.deb.parrot.sh/parrot'
-        #  index: index.db.iso
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
           index: index.db.iso
-        #- name: 'edge2'
-        #  url: 'https://edge2.parrot.run/parrot'
-        #  index: index.db.iso
-        #- name: 'edge3'
-        #  url: 'https://edge3.parrot.run/parrot'
-        #  index: index.db.iso
+        - name: 'edge2'
+          url: 'https://edge2.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge3'
+          url: 'https://edge3.parrot.run/parrot'
+          index: index.db.iso
+
+  EU:
+    DEFAULT:
+      mirrors:
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db.iso
+
+  AF:
+    DEFAULT:
+      mirrors:
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db.iso
+  NA:
+    DEFAULT:
+      mirrors:
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db.iso
+  SA:
+    DEFAULT:
+      mirrors:
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db.iso
+  AS:
+    DEFAULT:
+      mirrors:
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db.iso
+  OC:
+    DEFAULT:
+      mirrors:
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db.iso

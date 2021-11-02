@@ -36,36 +36,36 @@ continents:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db.iso
+          index: index.db
 
   AF:
     DEFAULT:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db.iso
+          index: index.db
   NA:
     DEFAULT:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db.iso
+          index: index.db
   SA:
     DEFAULT:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db.iso
+          index: index.db
   AS:
     DEFAULT:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db.iso
+          index: index.db
   OC:
     DEFAULT:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db.iso
+          index: index.db
 
