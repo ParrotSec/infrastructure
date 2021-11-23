@@ -11,10 +11,7 @@ continents:
     DEFAULT:
       mirrors:
         - name: 'cdn.bunny'
-          url: 'https://edge3.parrot.run/parrot'
-          index: index.db
-        - name: 'cdn.aws'
-          url: 'https://edge2.parrot.run/parrot'
+          url: 'https://bunny.deb.parrot.sh/parrot'
           index: index.db
         - name: 'cdn.cloudflare'
           url: 'https://mirror.parrot.sh/mirrors/parrot'
@@ -34,38 +31,396 @@ continents:
   EU:
     DEFAULT:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'cdn.cloudflare'
+          url: 'https://emea-mirror.parrot.sh/mirrors/parrot'
           index: index.db
-
+        - name: 'emea.wasabi-amsterdam'
+          url: 'https://s3.eu-central-1.wasabisys.com/parrot-amsterdam'
+          index: index.db
+        - name: 'emea.halifax'
+          url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
+          index: index.db
+        - name: 'emea.esslingen'
+          url: 'https://ftp-stud.hs-esslingen.de/Mirrors/archive.parrotsec.org'
+          index: index.db
+        - name: 'emea.nluug'
+          url: 'https://ftp.nluug.nl/os/Linux/distr/parrot'
+          index: index.db
+        - name: 'emea.garr'
+          url: 'https://parrot.mirror.garr.it/parrot'
+          index: index.db
+        - name: emea.linode-frankfurt
+          url: https://parrot.eu-central-1.linodeobjects.com/parrot
+          index: index.db
+    IT:
+      mirrors:
+        - name: 'emea.garr'
+          url: 'https://parrot.mirror.garr.it/parrot'
+          index: index.db
+        - name: 'edge1.legolas'
+          url: 'https://legolas.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.gimli'
+          url: 'https://gimli.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.meriadoc'
+          url: 'https://meriadoc.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.peregrino'
+          url: 'https://peregrino.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.gandalf'
+          url: 'https://gandalf.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.saruman'
+          url: 'https://saruman.edge1.parrot.run/parrot'
+          index: index.db.iso
+    DE:
+      mirrors:
+        - name: 'emea.halifax'
+          url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
+          index: index.db
+        - name: 'emea.esslingen'
+          url: 'https://ftp-stud.hs-esslingen.de/Mirrors/archive.parrotsec.org'
+          index: index.db
+        - name: emea.pyratelan
+          url: https://mirror.pyratelan.org/parrot
+          index: index.db
+    NL:
+      mirrors:
+        - name: 'emea.nluug'
+          url: 'https://ftp.nluug.nl/os/Linux/distr/parrot'
+          index: index.db
+        - name: emea.lyrahosting
+          url: https://mirror.lyrahosting.com/parrot
+          index: index.db
+    SE:
+      mirrors:
+        - name: 'emea.umu'
+          url: 'https://ftp.acc.umu.se/mirror/parrotsec.org/parrot'
+          index: index.db
+    GR:
+      mirrors:
+        - name: 'emea.uoc'
+          url: 'https://ftp.cc.uoc.gr/mirrors/linux/parrot'
+          index: index.db
+    BE:
+      mirrors:
+        - name: 'emea.belnet'
+          url: 'https://ftp.belnet.be/pub/archive.parrotsec.org'
+          index: index.db
+    ES:
+      mirrors:
+        - name: 'emea.osluz'
+          url: 'https://matojo.unizar.es/parrot'
+          index: index.db
+    PT:
+      mirrors:
+        - name: 'emea.up'
+          url: 'https://mirrors.up.pt/parrot'
+          index: index.db
+    DK:
+      mirrors:
+        - name: 'emea.dotsrc'
+          url: 'https://mirrors.dotsrc.org/parrot'
+          index: index.db
+    FR:
+      mirrors:
+        - name: 'emea.cythin'
+          url: 'https://parrot.mirror.cythin.com/parrot'
+          index: index.db
+        - name: emea.iriseden
+          url: https://parrot-mirror.iriseden.eu
+          index: index.db
+    HU:
+      mirrors:
+        - name: 'emea.quantum'
+          url: 'https://quantum-mirror.hu/mirrors/pub/parrot'
+          index: index.db
+    EE:
+      mirrors:
+        - name: emea.cspacehosting
+          url: https://mirror.cspacehostings.com/parrotsec
+          index: index.db
+    UA:
+      mirrors:
+        - name: emea.astra
+          url: https://parrot.astra.in.ua/
+          index: index.db
+        # disabled: no https support
+        #         and no https support
+    #    - name: 'emea.comsys'
+    #      url: 'http://mirrors.comsys.kpi.ua/parrot'
+    #      index: index.db.iso
+    RU:
+      mirrors:
+        - name: 'cdn.cloudflare'
+          url: 'https://mirror.parrot.sh/mirrors/parrot'
+          index: index.db
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'apac.yandex'
+          url: 'https://mirror.yandex.ru/mirrors/parrot'
+          index: index.db
+          blocked_countries: [ 'UA' ]
+        - name: apac.surf
+          url: https://mirror.surf/parrot
+          index: index.db
+        - name: 'apac.truenetwork'
+          url: 'http://mirror.truenetwork.ru/parrot'
+          index: index.db
   AF:
     DEFAULT:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'cdn.cloudflare'
+          url: 'https://emea-mirror.parrot.sh/mirrors/parrot'
+          index: index.db
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'emea.halifax'
+          url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
+          index: index.db
+        - name: 'emea.esslingen'
+          url: 'https://ftp-stud.hs-esslingen.de/Mirrors/archive.parrotsec.org'
+          index: index.db
+        - name: 'emea.nluug'
+          url: 'https://ftp.nluug.nl/os/Linux/distr/parrot'
+          index: index.db
+        - name: 'emea.garr'
+          url: 'https://parrot.mirror.garr.it/parrot'
           index: index.db
   NA:
     DEFAULT:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'edge1.legolas'
+          url: 'https://legolas.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.gimli'
+          url: 'https://gimli.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.meriadoc'
+          url: 'https://meriadoc.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.peregrino'
+          url: 'https://peregrino.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.gandalf'
+          url: 'https://gandalf.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.saruman'
+          url: 'https://saruman.edge1.parrot.run/parrot'
+          index: index.db.iso
+    CA:
+      mirrors:
+        - name: ncsa.0xem
+          url: https://mirror.0xem.ma/parrot/
+          index: index.db
+    US:
+      mirrors:
+        - name: 'ncsa.mit'
+          url: 'https://mirrors.mit.edu/parrot'
+          index: index.db
+        - name: 'ncsa.clarkson'
+          url: 'https://mirror.clarkson.edu/parrot'
+          index: index.db
+        - name: 'ncsa.osuosl'
+          url: 'https://ftp.osuosl.org/pub/parrotos'
+          index: index.db
+        - name: 'ncsa.berkeley'
+          url: 'https://mirrors.ocf.berkeley.edu/parrot'
           index: index.db
   SA:
     DEFAULT:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'cdn.cloudflare'
+          url: 'https://ncsa-mirror.parrot.sh/mirrors/parrot'
+          index: index.db
+        - name: 'ncsa.usp'
+          url: 'http://sft.if.usp.br/parrot'
+          index: index.db
+        - name: 'ncsa.cedia'
+          url: 'https://mirror.cedia.org.ec/parrot'
+          index: index.db
+        - name: 'ncas.uta'
+          url: 'https://mirror.uta.edu.ec/parrot'
+          index: index.db
+        - name: 'ncsa.ueb'
+          url: 'https://mirror.ueb.edu.ec/parrot'
+          index: index.db
+    EC:
+      mirrors:
+        - name: 'ncsa.cedia'
+          url: 'https://mirror.cedia.org.ec/parrot'
+          index: index.db
+        - name: 'ncas.uta'
+          url: 'https://mirror.uta.edu.ec/parrot'
+          index: index.db
+        - name: 'ncsa.ueb'
+          url: 'https://mirror.ueb.edu.ec/parrot'
+          index: index.db
+    BR:
+      mirrors:
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'cdn.cloudflare'
+          url: 'https://ncsa-mirror.parrot.sh/mirrors/parrot'
+          index: index.db
+        - name: 'ncsa.usp'
+          url: 'http://sft.if.usp.br/parrot'
           index: index.db
   AS:
     DEFAULT:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'edge1.legolas'
+          url: 'https://legolas.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.gimli'
+          url: 'https://gimli.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.meriadoc'
+          url: 'https://meriadoc.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.peregrino'
+          url: 'https://peregrino.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.gandalf'
+          url: 'https://gandalf.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.saruman'
+          url: 'https://saruman.edge1.parrot.run/parrot'
+          index: index.db.iso
+    BD:
+      mirrors:
+        - name: 'cdn.cloudflare'
+          url: 'https://apac-mirror.parrot.sh/mirrors/parrot'
+          index: index.db
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'apac.amberit'
+          url: 'http://mirror.amberit.com.bd/parrotsec'
+          index: index.db
+    IN:
+      mirrors:
+        - name: 'cdn.cloudflare'
+          url: 'https://apac-mirror.parrot.sh/mirrors/parrot'
+          index: index.db
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'apac.0x'
+          url: 'https://mirror.0x.sg/parrot'
+          index: index.db
+        - name: 'apac.nchc'
+          url: 'https://free.nchc.org.tw/parrot'
+          index: index.db
+        - name: 'edge1.legolas'
+          url: 'https://legolas.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.gimli'
+          url: 'https://gimli.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.meriadoc'
+          url: 'https://meriadoc.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.peregrino'
+          url: 'https://peregrino.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.gandalf'
+          url: 'https://gandalf.edge1.parrot.run/parrot'
+          index: index.db.iso
+        - name: 'edge1.saruman'
+          url: 'https://saruman.edge1.parrot.run/parrot'
+          index: index.db.iso
+    IR:
+      mirrors:
+      - name: 'apac.mobinhost'
+        url: 'https://mirrors.mobinhost.com/parrot/'
+        index: index.db
+    TW:
+      mirrors:
+        - name: 'apac.nchc'
+          url: 'https://free.nchc.org.tw/parrot'
+          index: index.db
+    SG:
+      mirrors:
+        - name: emea.linode-singapore
+          url: https://parrot.ap-south-1.linodeobjects.com/parrot
+          index: index.db
+        - name: 'apac.0x'
+          url: 'https://mirror.0x.sg/parrot'
+          index: index.db
+    #JP:
+      #mirrors:
+        #- name: 'ncsa.wasabi-tokyo'
+        #  url: 'https://s3.ap-northeast-1.wasabisys.com/parrot-tokyo'
+        #  index: index.db
+    KR:
+      mirrors:
+        - name: apac.krmir
+          url: https://mirror.krmir.org/parrot
+          index: index.db
+    CN:
+      mirrors:
+        - name: 'apac.ustc'
+          url: 'https://mirrors.ustc.edu.cn/parrot'
+          index: index.db
+        - name: 'apac.shu'
+          url: 'http://mirrors.shu.edu.cn/parrot'
+          index: index.db
+        - name: 'apac.sjtug'
+          url: 'https://mirrors.sjtug.sjtu.edu.cn/parrot'
+          index: index.db
+        - name: 'apac.tuna'
+          url: 'https://mirrors.tuna.tsinghua.edu.cn/parrot'
+          index: index.db
+    TH:
+      mirrors:
+        - name: 'apac.kku'
+          url: 'https://mirror.kku.ac.th/parrot'
+          index: index.db
+        - name: 'apac.nipacloud'
+          url: 'https://mirrors.nipa.cloud/parrot'
+          index: index.db
+    ID:
+      mirrors:
+        - name: 'apac.datautama'
+          url: 'http://kartolo.sby.datautama.net.id/parrot'
           index: index.db
   OC:
     DEFAULT:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'cdn.cloudflare'
+          url: 'https://apac-mirror.parrot.sh/mirrors/parrot'
           index: index.db
-
+        - name: 'cdn.bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
+          index: index.db
+        - name: 'ncsa.wasabi-tokyo'
+          url: 'https://s3.ap-northeast-1.wasabisys.com/parrot-tokyo'
+          index: index.db
+        - name: 'apac.0x'
+          url: 'https://mirror.0x.sg/parrot'
+          index: index.db
+        - name: 'apac.nchc'
+          url: 'https://free.nchc.org.tw/parrot'
+          index: index.db
+        - name: emea.linode-singapore
+          url: https://parrot.ap-south-1.linodeobjects.com/parrot
+          index: index.db
+    NZ:
+      mirrors:
+        - name: 'apac.takeshi'
+          url: 'https://mirrors.takeshi.nz/parrot'
+          index: index.db
+    NC:
+      mirrors:
+        - name: 'apac.lagoon'
+          url: 'https://mirror.lagoon.nc/pub/parrot'
+          index: index.db

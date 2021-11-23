@@ -1,0 +1,71 @@
+continents:
+  MASTER:
+    MASTER:
+      mirrors:
+        - name: "Master"
+          url: "https://deb.parrot.sh/mirrors/parrot"
+          index: index.db
+          version: 9999
+          down: false
+  DEFAULT:
+    DEFAULT:
+      mirrors:
+        - name: 'cdn.bunny'
+          url: 'https://edge3.parrot.run/parrot'
+          index: index.db
+        - name: 'cdn.aws'
+          url: 'https://edge2.parrot.run/parrot'
+          index: index.db
+        - name: 'cdn.cloudflare'
+          url: 'https://mirror.parrot.sh/mirrors/parrot'
+          index: index.db
+        - name: 'emea.halifax'
+          url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
+          index: index.db
+        - name: 'emea.esslingen'
+          url: 'https://ftp-stud.hs-esslingen.de/Mirrors/archive.parrotsec.org'
+          index: index.db
+        - name: 'emea.nluug'
+          url: 'https://ftp.nluug.nl/os/Linux/distr/parrot'
+          index: index.db
+        - name: 'emea.garr'
+          url: 'https://parrot.mirror.garr.it/parrot'
+          index: index.db
+  EU:
+    DEFAULT:
+      mirrors:
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db
+
+  AF:
+    DEFAULT:
+      mirrors:
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db
+  NA:
+    DEFAULT:
+      mirrors:
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db
+  SA:
+    DEFAULT:
+      mirrors:
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db
+  AS:
+    DEFAULT:
+      mirrors:
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db
+  OC:
+    DEFAULT:
+      mirrors:
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db
+
