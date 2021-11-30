@@ -10,11 +10,17 @@ continents:
   DEFAULT:
     DEFAULT:
       mirrors:
-        - name: 'cdn.bunny'
-          url: 'https://bunny.deb.parrot.sh/parrot'
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
           index: index.db
-        - name: 'cdn.cloudflare'
-          url: 'https://mirror.parrot.sh/mirrors/parrot'
+        - name: 'edge2'
+          url: 'https://edge2.parrot.run/parrot'
+          index: index.db
+        - name: 'edge3'
+          url: 'https://edge3.parrot.run/parrot'
+          index: index.db
+        - name: 'apac.alibaba'
+          url: 'https://mirrors.aliyun.com/parrot/'
           index: index.db
         - name: 'emea.halifax'
           url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
@@ -31,11 +37,17 @@ continents:
   EU:
     DEFAULT:
       mirrors:
-        - name: 'cdn.cloudflare'
-          url: 'https://emea-mirror.parrot.sh/mirrors/parrot'
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
           index: index.db
-        - name: 'emea.wasabi-amsterdam'
-          url: 'https://s3.eu-central-1.wasabisys.com/parrot-amsterdam'
+        - name: 'edge2'
+          url: 'https://edge2.parrot.run/parrot'
+          index: index.db
+        - name: 'edge3'
+          url: 'https://edge3.parrot.run/parrot'
+          index: index.db
+        - name: 'apac.alibaba'
+          url: 'https://mirrors.aliyun.com/parrot/'
           index: index.db
         - name: 'emea.halifax'
           url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
@@ -57,24 +69,18 @@ continents:
         - name: 'emea.garr'
           url: 'https://parrot.mirror.garr.it/parrot'
           index: index.db
-        - name: 'edge1.legolas'
-          url: 'https://legolas.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.gimli'
-          url: 'https://gimli.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.meriadoc'
-          url: 'https://meriadoc.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.peregrino'
-          url: 'https://peregrino.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.gandalf'
-          url: 'https://gandalf.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.saruman'
-          url: 'https://saruman.edge1.parrot.run/parrot'
-          index: index.db.iso
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db
+        - name: 'emea.halifax'
+          url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
+          index: index.db
+        - name: 'emea.esslingen'
+          url: 'https://ftp-stud.hs-esslingen.de/Mirrors/archive.parrotsec.org'
+          index: index.db
+        - name: 'emea.nluug'
+          url: 'https://ftp.nluug.nl/os/Linux/distr/parrot'
+          index: index.db
     DE:
       mirrors:
         - name: 'emea.halifax'
@@ -154,11 +160,17 @@ continents:
     #      index: index.db.iso
     RU:
       mirrors:
-        - name: 'cdn.cloudflare'
-          url: 'https://mirror.parrot.sh/mirrors/parrot'
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
           index: index.db
-        - name: 'cdn.bunny'
-          url: 'https://bunny.deb.parrot.sh/parrot'
+        - name: 'edge2'
+          url: 'https://edge2.parrot.run/parrot'
+          index: index.db
+        - name: 'edge3'
+          url: 'https://edge3.parrot.run/parrot'
+          index: index.db
+        - name: 'apac.alibaba'
+          url: 'https://mirrors.aliyun.com/parrot/'
           index: index.db
         - name: 'apac.yandex'
           url: 'https://mirror.yandex.ru/mirrors/parrot'
@@ -173,11 +185,17 @@ continents:
   AF:
     DEFAULT:
       mirrors:
-        - name: 'cdn.cloudflare'
-          url: 'https://emea-mirror.parrot.sh/mirrors/parrot'
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
           index: index.db
-        - name: 'cdn.bunny'
-          url: 'https://bunny.deb.parrot.sh/parrot'
+        - name: 'edge2'
+          url: 'https://edge2.parrot.run/parrot'
+          index: index.db
+        - name: 'edge3'
+          url: 'https://edge3.parrot.run/parrot'
+          index: index.db
+        - name: 'apac.alibaba'
+          url: 'https://mirrors.aliyun.com/parrot/'
           index: index.db
         - name: 'emea.halifax'
           url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
@@ -194,31 +212,18 @@ continents:
   NA:
     DEFAULT:
       mirrors:
-        - name: 'edge1.legolas'
-          url: 'https://legolas.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.gimli'
-          url: 'https://gimli.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.meriadoc'
-          url: 'https://meriadoc.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.peregrino'
-          url: 'https://peregrino.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.gandalf'
-          url: 'https://gandalf.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.saruman'
-          url: 'https://saruman.edge1.parrot.run/parrot'
-          index: index.db.iso
-    CA:
-      mirrors:
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db
+        - name: 'edge2'
+          url: 'https://edge2.parrot.run/parrot'
+          index: index.db
+        - name: 'edge3'
+          url: 'https://edge3.parrot.run/parrot'
+          index: index.db
         - name: ncsa.0xem
           url: https://mirror.0xem.ma/parrot/
           index: index.db
-    US:
-      mirrors:
         - name: 'ncsa.mit'
           url: 'https://mirrors.mit.edu/parrot'
           index: index.db
@@ -234,11 +239,17 @@ continents:
   SA:
     DEFAULT:
       mirrors:
-        - name: 'cdn.bunny'
-          url: 'https://bunny.deb.parrot.sh/parrot'
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
           index: index.db
-        - name: 'cdn.cloudflare'
-          url: 'https://ncsa-mirror.parrot.sh/mirrors/parrot'
+        - name: 'edge2'
+          url: 'https://edge2.parrot.run/parrot'
+          index: index.db
+        - name: 'edge3'
+          url: 'https://edge3.parrot.run/parrot'
+          index: index.db
+        - name: 'apac.alibaba'
+          url: 'https://mirrors.aliyun.com/parrot/'
           index: index.db
         - name: 'ncsa.usp'
           url: 'http://sft.if.usp.br/parrot'
@@ -265,11 +276,17 @@ continents:
           index: index.db
     BR:
       mirrors:
-        - name: 'cdn.bunny'
-          url: 'https://bunny.deb.parrot.sh/parrot'
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
           index: index.db
-        - name: 'cdn.cloudflare'
-          url: 'https://ncsa-mirror.parrot.sh/mirrors/parrot'
+        - name: 'edge2'
+          url: 'https://edge2.parrot.run/parrot'
+          index: index.db
+        - name: 'edge3'
+          url: 'https://edge3.parrot.run/parrot'
+          index: index.db
+        - name: 'apac.alibaba'
+          url: 'https://mirrors.aliyun.com/parrot/'
           index: index.db
         - name: 'ncsa.usp'
           url: 'http://sft.if.usp.br/parrot'
@@ -277,42 +294,48 @@ continents:
   AS:
     DEFAULT:
       mirrors:
-        - name: 'edge1.legolas'
-          url: 'https://legolas.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.gimli'
-          url: 'https://gimli.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.meriadoc'
-          url: 'https://meriadoc.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.peregrino'
-          url: 'https://peregrino.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.gandalf'
-          url: 'https://gandalf.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.saruman'
-          url: 'https://saruman.edge1.parrot.run/parrot'
-          index: index.db.iso
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db
+        - name: 'edge2'
+          url: 'https://edge2.parrot.run/parrot'
+          index: index.db
+        - name: 'edge3'
+          url: 'https://edge3.parrot.run/parrot'
+          index: index.db
+        - name: 'apac.alibaba'
+          url: 'https://mirrors.aliyun.com/parrot/'
+          index: index.db
     BD:
       mirrors:
-        - name: 'cdn.cloudflare'
-          url: 'https://apac-mirror.parrot.sh/mirrors/parrot'
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
           index: index.db
-        - name: 'cdn.bunny'
-          url: 'https://bunny.deb.parrot.sh/parrot'
+        - name: 'edge2'
+          url: 'https://edge2.parrot.run/parrot'
+          index: index.db
+        - name: 'edge3'
+          url: 'https://edge3.parrot.run/parrot'
+          index: index.db
+        - name: 'apac.alibaba'
+          url: 'https://mirrors.aliyun.com/parrot/'
           index: index.db
         - name: 'apac.amberit'
           url: 'http://mirror.amberit.com.bd/parrotsec'
           index: index.db
     IN:
       mirrors:
-        - name: 'cdn.cloudflare'
-          url: 'https://apac-mirror.parrot.sh/mirrors/parrot'
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
           index: index.db
-        - name: 'cdn.bunny'
-          url: 'https://bunny.deb.parrot.sh/parrot'
+        - name: 'edge2'
+          url: 'https://edge2.parrot.run/parrot'
+          index: index.db
+        - name: 'edge3'
+          url: 'https://edge3.parrot.run/parrot'
+          index: index.db
+        - name: 'apac.alibaba'
+          url: 'https://mirrors.aliyun.com/parrot/'
           index: index.db
         - name: 'apac.0x'
           url: 'https://mirror.0x.sg/parrot'
@@ -320,54 +343,58 @@ continents:
         - name: 'apac.nchc'
           url: 'https://free.nchc.org.tw/parrot'
           index: index.db
-        - name: 'edge1.legolas'
-          url: 'https://legolas.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.gimli'
-          url: 'https://gimli.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.meriadoc'
-          url: 'https://meriadoc.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.peregrino'
-          url: 'https://peregrino.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.gandalf'
-          url: 'https://gandalf.edge1.parrot.run/parrot'
-          index: index.db.iso
-        - name: 'edge1.saruman'
-          url: 'https://saruman.edge1.parrot.run/parrot'
-          index: index.db.iso
     IR:
       mirrors:
-      - name: 'apac.mobinhost'
-        url: 'https://mirrors.mobinhost.com/parrot/'
-        index: index.db
+        - name: 'apac.mobinhost'
+          url: 'https://mirrors.mobinhost.com/parrot/'
+          index: index.db
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db
+        - name: 'apac.alibaba'
+          url: 'https://mirrors.aliyun.com/parrot/'
+          index: index.db
     TW:
       mirrors:
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db
+        - name: 'apac.alibaba'
+          url: 'https://mirrors.aliyun.com/parrot/'
+          index: index.db
         - name: 'apac.nchc'
           url: 'https://free.nchc.org.tw/parrot'
           index: index.db
     SG:
       mirrors:
-        - name: emea.linode-singapore
-          url: https://parrot.ap-south-1.linodeobjects.com/parrot
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db
+        - name: 'apac.alibaba'
+          url: 'https://mirrors.aliyun.com/parrot/'
           index: index.db
         - name: 'apac.0x'
           url: 'https://mirror.0x.sg/parrot'
           index: index.db
-    #JP:
-      #mirrors:
-        #- name: 'ncsa.wasabi-tokyo'
-        #  url: 'https://s3.ap-northeast-1.wasabisys.com/parrot-tokyo'
-        #  index: index.db
     KR:
       mirrors:
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db
+        - name: 'apac.alibaba'
+          url: 'https://mirrors.aliyun.com/parrot/'
+          index: index.db
         - name: apac.krmir
           url: https://mirror.krmir.org/parrot
           index: index.db
     CN:
       mirrors:
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db
+        - name: 'apac.alibaba'
+          url: 'https://mirrors.aliyun.com/parrot/'
+          index: index.db
         - name: 'apac.ustc'
           url: 'https://mirrors.ustc.edu.cn/parrot'
           index: index.db
@@ -382,6 +409,12 @@ continents:
           index: index.db
     TH:
       mirrors:
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db
+        - name: 'apac.alibaba'
+          url: 'https://mirrors.aliyun.com/parrot/'
+          index: index.db
         - name: 'apac.kku'
           url: 'https://mirror.kku.ac.th/parrot'
           index: index.db
@@ -390,20 +423,29 @@ continents:
           index: index.db
     ID:
       mirrors:
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db
+        - name: 'apac.alibaba'
+          url: 'https://mirrors.aliyun.com/parrot/'
+          index: index.db
         - name: 'apac.datautama'
           url: 'http://kartolo.sby.datautama.net.id/parrot'
           index: index.db
   OC:
     DEFAULT:
       mirrors:
-        - name: 'cdn.cloudflare'
-          url: 'https://apac-mirror.parrot.sh/mirrors/parrot'
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
           index: index.db
-        - name: 'cdn.bunny'
-          url: 'https://bunny.deb.parrot.sh/parrot'
+        - name: 'edge2'
+          url: 'https://edge2.parrot.run/parrot'
           index: index.db
-        - name: 'ncsa.wasabi-tokyo'
-          url: 'https://s3.ap-northeast-1.wasabisys.com/parrot-tokyo'
+        - name: 'edge3'
+          url: 'https://edge3.parrot.run/parrot'
+          index: index.db
+        - name: 'apac.alibaba'
+          url: 'https://mirrors.aliyun.com/parrot/'
           index: index.db
         - name: 'apac.0x'
           url: 'https://mirror.0x.sg/parrot'
@@ -416,11 +458,23 @@ continents:
           index: index.db
     NZ:
       mirrors:
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db
+        - name: 'apac.alibaba'
+          url: 'https://mirrors.aliyun.com/parrot/'
+          index: index.db
         - name: 'apac.takeshi'
           url: 'https://mirrors.takeshi.nz/parrot'
           index: index.db
     NC:
       mirrors:
+        - name: 'edge1'
+          url: 'https://edge1.parrot.run/parrot'
+          index: index.db
+        - name: 'apac.alibaba'
+          url: 'https://mirrors.aliyun.com/parrot/'
+          index: index.db
         - name: 'apac.lagoon'
           url: 'https://mirror.lagoon.nc/pub/parrot'
           index: index.db

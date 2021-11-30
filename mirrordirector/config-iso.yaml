@@ -19,6 +19,9 @@ continents:
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
           index: index.db.iso
+        - name: 'apac.alibaba'
+          url: 'https://mirrors.aliyun.com/parrot/'
+          index: index.db.iso
 
   EU:
     DEFAULT:
@@ -57,3 +60,4 @@ continents:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
           index: index.db.iso
+        
