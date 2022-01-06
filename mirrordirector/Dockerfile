@@ -1,13 +1,13 @@
 FROM parrotsec/core:latest
 MAINTAINER Lorenzo "Palinuro" Faletra (palinuro@linux.it)
 ENV DEBIAN_FRONTEND noninteractive
-ENV VERSION 0.6
+ENV VERSION 0.7
 
 # Update system
-RUN echo "deb https://mirror.parrot.sh/mirrors/parrot/ lts main" > /etc/apt/sources.list.d/parrot.list \
-    echo "deb https://mirror.parrot.sh/mirrors/parrot/ lts-updates main" >> /etc/apt/sources.list.d/parrot.list \
-    echo "deb https://mirror.parrot.sh/mirrors/parrot/ lts-backports main" >> /etc/apt/sources.list.d/parrot.list \
-    echo "deb https://mirror.parrot.sh/mirrors/parrot/ lts-security main" >> /etc/apt/sources.list.d/parrot.list
+RUN echo "deb https://mirror.parrot.sh/direct/parrot/ lts main" > /etc/apt/sources.list.d/parrot.list \
+    echo "deb https://mirror.parrot.sh/direct/parrot/ lts-updates main" >> /etc/apt/sources.list.d/parrot.list \
+    echo "deb https://mirror.parrot.sh/direct/parrot/ lts-backports main" >> /etc/apt/sources.list.d/parrot.list \
+    echo "deb https://mirror.parrot.sh/direct/parrot/ lts-security main" >> /etc/apt/sources.list.d/parrot.list
 RUN apt update;apt -y --allow-downgrades full-upgrade; rm -rf /var/lib/apt/lists/*
 
 # Install dependencies

@@ -3,8 +3,8 @@ continents:
     MASTER:
       mirrors:
         - name: "Master"
-          url: "https://deb.parrot.sh/mirrors/parrot"
-          index: index.db
+          url: "https://deb.parrot.sh/direct/parrot"
+          index: vindex.db
           version: 9999
           down: false
   DEFAULT:
@@ -12,469 +12,469 @@ continents:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge2'
           url: 'https://edge2.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
-          index: index.db
+          index: vindex.db
         - name: 'emea.halifax'
           url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
-          index: index.db
+          index: vindex.db
         - name: 'emea.esslingen'
           url: 'https://ftp-stud.hs-esslingen.de/Mirrors/archive.parrotsec.org'
-          index: index.db
+          index: vindex.db
         - name: 'emea.nluug'
           url: 'https://ftp.nluug.nl/os/Linux/distr/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'emea.garr'
           url: 'https://parrot.mirror.garr.it/parrot'
-          index: index.db
+          index: vindex.db
   EU:
     DEFAULT:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge2'
           url: 'https://edge2.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
-          index: index.db
+          index: vindex.db
         - name: 'emea.halifax'
           url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
-          index: index.db
+          index: vindex.db
         - name: 'emea.esslingen'
           url: 'https://ftp-stud.hs-esslingen.de/Mirrors/archive.parrotsec.org'
-          index: index.db
+          index: vindex.db
         - name: 'emea.nluug'
           url: 'https://ftp.nluug.nl/os/Linux/distr/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'emea.garr'
           url: 'https://parrot.mirror.garr.it/parrot'
-          index: index.db
+          index: vindex.db
         - name: emea.linode-frankfurt
           url: https://parrot.eu-central-1.linodeobjects.com/parrot
-          index: index.db
+          index: vindex.db
     IT:
       mirrors:
         - name: 'emea.garr'
           url: 'https://parrot.mirror.garr.it/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'emea.halifax'
           url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
-          index: index.db
+          index: vindex.db
         - name: 'emea.esslingen'
           url: 'https://ftp-stud.hs-esslingen.de/Mirrors/archive.parrotsec.org'
-          index: index.db
+          index: vindex.db
         - name: 'emea.nluug'
           url: 'https://ftp.nluug.nl/os/Linux/distr/parrot'
-          index: index.db
+          index: vindex.db
     DE:
       mirrors:
         - name: 'emea.halifax'
           url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
-          index: index.db
+          index: vindex.db
         - name: 'emea.esslingen'
           url: 'https://ftp-stud.hs-esslingen.de/Mirrors/archive.parrotsec.org'
-          index: index.db
+          index: vindex.db
         - name: emea.pyratelan
           url: https://mirror.pyratelan.org/parrot
-          index: index.db
+          index: vindex.db
     NL:
       mirrors:
         - name: 'emea.nluug'
           url: 'https://ftp.nluug.nl/os/Linux/distr/parrot'
-          index: index.db
+          index: vindex.db
         - name: emea.lyrahosting
           url: https://mirror.lyrahosting.com/parrot
-          index: index.db
+          index: vindex.db
     SE:
       mirrors:
         - name: 'emea.umu'
           url: 'https://ftp.acc.umu.se/mirror/parrotsec.org/parrot'
-          index: index.db
+          index: vindex.db
     GR:
       mirrors:
         - name: 'emea.uoc'
           url: 'https://ftp.cc.uoc.gr/mirrors/linux/parrot'
-          index: index.db
+          index: vindex.db
     BE:
       mirrors:
         - name: 'emea.belnet'
           url: 'https://ftp.belnet.be/pub/archive.parrotsec.org'
-          index: index.db
+          index: vindex.db
     ES:
       mirrors:
         - name: 'emea.osluz'
           url: 'https://matojo.unizar.es/parrot'
-          index: index.db
+          index: vindex.db
     PT:
       mirrors:
         - name: 'emea.up'
           url: 'https://mirrors.up.pt/parrot'
-          index: index.db
+          index: vindex.db
     DK:
       mirrors:
         - name: 'emea.dotsrc'
           url: 'https://mirrors.dotsrc.org/parrot'
-          index: index.db
+          index: vindex.db
     FR:
       mirrors:
         - name: 'emea.cythin'
           url: 'https://parrot.mirror.cythin.com/parrot'
-          index: index.db
+          index: vindex.db
         - name: emea.iriseden
           url: https://parrot-mirror.iriseden.eu
-          index: index.db
+          index: vindex.db
     HU:
       mirrors:
         - name: 'emea.quantum'
           url: 'https://quantum-mirror.hu/mirrors/pub/parrot'
-          index: index.db
+          index: vindex.db
     EE:
       mirrors:
         - name: emea.cspacehosting
           url: https://mirror.cspacehostings.com/parrotsec
-          index: index.db
+          index: vindex.db
     UA:
       mirrors:
         - name: emea.astra
           url: https://parrot.astra.in.ua/
-          index: index.db
+          index: vindex.db
         # disabled: no https support
         #         and no https support
     #    - name: 'emea.comsys'
     #      url: 'http://mirrors.comsys.kpi.ua/parrot'
-    #      index: index.db.iso
+    #      index: vindex.db.iso
     RU:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge2'
           url: 'https://edge2.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
-          index: index.db
+          index: vindex.db
         - name: 'apac.yandex'
           url: 'https://mirror.yandex.ru/mirrors/parrot'
-          index: index.db
+          index: vindex.db
           blocked_countries: [ 'UA' ]
         - name: apac.surf
           url: https://mirror.surf/parrot
-          index: index.db
+          index: vindex.db
         - name: 'apac.truenetwork'
           url: 'http://mirror.truenetwork.ru/parrot'
-          index: index.db
+          index: vindex.db
   AF:
     DEFAULT:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge2'
           url: 'https://edge2.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
-          index: index.db
+          index: vindex.db
         - name: 'emea.halifax'
           url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
-          index: index.db
+          index: vindex.db
         - name: 'emea.esslingen'
           url: 'https://ftp-stud.hs-esslingen.de/Mirrors/archive.parrotsec.org'
-          index: index.db
+          index: vindex.db
         - name: 'emea.nluug'
           url: 'https://ftp.nluug.nl/os/Linux/distr/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'emea.garr'
           url: 'https://parrot.mirror.garr.it/parrot'
-          index: index.db
+          index: vindex.db
   NA:
     DEFAULT:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge2'
           url: 'https://edge2.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: ncsa.0xem
           url: https://mirror.0xem.ma/parrot/
-          index: index.db
+          index: vindex.db
         - name: 'ncsa.mit'
           url: 'https://mirrors.mit.edu/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'ncsa.clarkson'
           url: 'https://mirror.clarkson.edu/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'ncsa.osuosl'
           url: 'https://ftp.osuosl.org/pub/parrotos'
-          index: index.db
+          index: vindex.db
         - name: 'ncsa.berkeley'
           url: 'https://mirrors.ocf.berkeley.edu/parrot'
-          index: index.db
+          index: vindex.db
   SA:
     DEFAULT:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge2'
           url: 'https://edge2.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
-          index: index.db
+          index: vindex.db
         - name: 'ncsa.usp'
           url: 'http://sft.if.usp.br/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'ncsa.cedia'
           url: 'https://mirror.cedia.org.ec/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'ncas.uta'
           url: 'https://mirror.uta.edu.ec/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'ncsa.ueb'
           url: 'https://mirror.ueb.edu.ec/parrot'
-          index: index.db
+          index: vindex.db
     EC:
       mirrors:
         - name: 'ncsa.cedia'
           url: 'https://mirror.cedia.org.ec/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'ncas.uta'
           url: 'https://mirror.uta.edu.ec/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'ncsa.ueb'
           url: 'https://mirror.ueb.edu.ec/parrot'
-          index: index.db
+          index: vindex.db
     BR:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge2'
           url: 'https://edge2.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
-          index: index.db
+          index: vindex.db
         - name: 'ncsa.usp'
           url: 'http://sft.if.usp.br/parrot'
-          index: index.db
+          index: vindex.db
   AS:
     DEFAULT:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge2'
           url: 'https://edge2.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
-          index: index.db
+          index: vindex.db
     BD:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge2'
           url: 'https://edge2.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
-          index: index.db
+          index: vindex.db
         - name: 'apac.amberit'
           url: 'http://mirror.amberit.com.bd/parrotsec'
-          index: index.db
+          index: vindex.db
     IN:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge2'
           url: 'https://edge2.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
-          index: index.db
+          index: vindex.db
         - name: 'apac.0x'
           url: 'https://mirror.0x.sg/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.nchc'
           url: 'https://free.nchc.org.tw/parrot'
-          index: index.db
+          index: vindex.db
     IR:
       mirrors:
         - name: 'apac.mobinhost'
           url: 'https://mirrors.mobinhost.com/parrot/'
-          index: index.db
+          index: vindex.db
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
-          index: index.db
+          index: vindex.db
     TW:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
-          index: index.db
+          index: vindex.db
         - name: 'apac.nchc'
           url: 'https://free.nchc.org.tw/parrot'
-          index: index.db
+          index: vindex.db
     SG:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
-          index: index.db
+          index: vindex.db
         - name: 'apac.0x'
           url: 'https://mirror.0x.sg/parrot'
-          index: index.db
+          index: vindex.db
     KR:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
-          index: index.db
+          index: vindex.db
         - name: apac.krmir
           url: https://mirror.krmir.org/parrot
-          index: index.db
+          index: vindex.db
     CN:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
-          index: index.db
+          index: vindex.db
         - name: 'apac.ustc'
           url: 'https://mirrors.ustc.edu.cn/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.shu'
           url: 'http://mirrors.shu.edu.cn/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.sjtug'
           url: 'https://mirrors.sjtug.sjtu.edu.cn/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.tuna'
           url: 'https://mirrors.tuna.tsinghua.edu.cn/parrot'
-          index: index.db
+          index: vindex.db
     TH:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
-          index: index.db
+          index: vindex.db
         - name: 'apac.kku'
           url: 'https://mirror.kku.ac.th/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.nipacloud'
           url: 'https://mirrors.nipa.cloud/parrot'
-          index: index.db
+          index: vindex.db
     ID:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
-          index: index.db
+          index: vindex.db
         - name: 'apac.datautama'
           url: 'http://kartolo.sby.datautama.net.id/parrot'
-          index: index.db
+          index: vindex.db
   OC:
     DEFAULT:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge2'
           url: 'https://edge2.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
-          index: index.db
+          index: vindex.db
         - name: 'apac.0x'
           url: 'https://mirror.0x.sg/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.nchc'
           url: 'https://free.nchc.org.tw/parrot'
-          index: index.db
+          index: vindex.db
         - name: emea.linode-singapore
           url: https://parrot.ap-south-1.linodeobjects.com/parrot
-          index: index.db
+          index: vindex.db
     NZ:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
-          index: index.db
+          index: vindex.db
         - name: 'apac.takeshi'
           url: 'https://mirrors.takeshi.nz/parrot'
-          index: index.db
+          index: vindex.db
     NC:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db
+          index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
-          index: index.db
+          index: vindex.db
         - name: 'apac.lagoon'
           url: 'https://mirror.lagoon.nc/pub/parrot'
-          index: index.db
+          index: vindex.db

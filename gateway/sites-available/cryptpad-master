@@ -20,7 +20,7 @@ server {
                 limit_req_status 444;
                 limit_req zone=mid burst=80 delay=30;
 
-                proxy_pass https://10.42.42.1:3001;
+                proxy_pass http://10.42.42.1:3000;
                 proxy_http_version 1.1;
                 proxy_set_header Host $host;
                 proxy_set_header Upgrade $http_upgrade;
@@ -33,7 +33,7 @@ server {
                 limit_req_status 444;
                 limit_req zone=high burst=150 delay=40;
 
-                proxy_pass https://10.42.42.1:3001;
+                proxy_pass http://10.42.42.1:3000;
                 proxy_set_header Host $host;
                 proxy_http_version 1.1;
                 proxy_set_header Upgrade $http_upgrade;

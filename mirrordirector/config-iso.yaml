@@ -3,8 +3,8 @@ continents:
     MASTER:
       mirrors:
         - name: "Master"
-          url: "https://deb.parrot.sh/mirrors/parrot"
-          index: index.db.iso
+          url: "https://deb.parrot.sh/direct/parrot"
+          index: vindex.iso.db
           version: 9999
           down: false
   DEFAULT:
@@ -12,52 +12,52 @@ continents:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db.iso
+          index: vindex.iso.db
         - name: 'edge2'
           url: 'https://edge2.parrot.run/parrot'
-          index: index.db.iso
+          index: vindex.iso.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
-          index: index.db.iso
+          index: vindex.iso.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
-          index: index.db.iso
+          index: vindex.iso.db
 
   EU:
     DEFAULT:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db.iso
+          index: vindex.iso.db
 
   AF:
     DEFAULT:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db.iso
+          index: vindex.iso.db
   NA:
     DEFAULT:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db.iso
+          index: vindex.iso.db
   SA:
     DEFAULT:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db.iso
+          index: vindex.iso.db
   AS:
     DEFAULT:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db.iso
+          index: vindex.iso.db
   OC:
     DEFAULT:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: index.db.iso
+          index: vindex.iso.db
         
