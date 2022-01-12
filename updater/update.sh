@@ -40,12 +40,12 @@ rm $TARGET_ALL/SYNC_IN_PROGRESS.* || true
 #	sleep 100
 #done &
 
-while true; do
-	touch $TARGET/devuan/SYNC_IN_PROGRESS.lock || true
-	flock -xn $TARGET/devuan/SYNC_IN_PROGRESS.pool.lock -c "rsync -qaHtSx --preallocate --safe-links --delete-after $D1DEB/devuan/pool/ $TARGET/devuan/pool/"
-	flock -xn $TARGET/devuan/SYNC_IN_PROGRESS.dists.lock -c "rsync -qaHtSx --preallocate --safe-links --delay-updates --delete-after $D1DEB/devuan/dists/ $TARGET/devuan/dists/"
-	flock -xn $TARGET/devuan/SYNC_IN_PROGRESS.merged.lock -c "rsync -qaHtSx --preallocate --safe-links --delay-updates --delete-after $D1DEB/merged/ $TARGET/merged/"
-	flock -xn $TARGET/devuan/SYNC_IN_PROGRESS.iso.lock -c "rsync -qaHtSx --preallocate --safe-links --delay-updates --delete-after $D1ISO/ $TARGET/devuan/iso/"
-	rm $TARGET/devuan/SYNC_IN_PROGRESS.* || true
-	sleep 600
-done
+#while true; do
+#	touch $TARGET/devuan/SYNC_IN_PROGRESS.lock || true
+#	flock -xn $TARGET/devuan/SYNC_IN_PROGRESS.pool.lock -c "rsync -qaHtSx --preallocate --safe-links --delete-after $D1DEB/devuan/pool/ $TARGET/devuan/pool/"
+#	flock -xn $TARGET/devuan/SYNC_IN_PROGRESS.dists.lock -c "rsync -qaHtSx --preallocate --safe-links --delay-updates --delete-after $D1DEB/devuan/dists/ $TARGET/devuan/dists/"
+#	flock -xn $TARGET/devuan/SYNC_IN_PROGRESS.merged.lock -c "rsync -qaHtSx --preallocate --safe-links --delay-updates --delete-after $D1DEB/merged/ $TARGET/merged/"
+#	flock -xn $TARGET/devuan/SYNC_IN_PROGRESS.iso.lock -c "rsync -qaHtSx --preallocate --safe-links --delay-updates --delete-after $D1ISO/ $TARGET/devuan/iso/"
+#	rm $TARGET/devuan/SYNC_IN_PROGRESS.* || true
+#	sleep 600
+#done
