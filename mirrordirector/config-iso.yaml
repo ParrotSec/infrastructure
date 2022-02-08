@@ -3,7 +3,7 @@ continents:
     MASTER:
       mirrors:
         - name: "Master"
-          url: "https://edge1.parrot.sh/parrot"
+          url: "https://deb.parrot.sh/parrot"
           index: vindex.iso.db
           version: 9999
           down: false
@@ -12,9 +12,6 @@ continents:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: vindex.iso.db
-        - name: 'edge2'
-          url: 'https://edge2.parrot.run/parrot'
           index: vindex.iso.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'

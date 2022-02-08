@@ -13,9 +13,6 @@ continents:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
           index: vindex.db
-        - name: 'edge2'
-          url: 'https://edge2.parrot.run/parrot'
-          index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
           index: vindex.db
@@ -39,9 +36,6 @@ continents:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: vindex.db
-        - name: 'edge2'
-          url: 'https://edge2.parrot.run/parrot'
           index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
@@ -163,9 +157,6 @@ continents:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
           index: vindex.db
-        - name: 'edge2'
-          url: 'https://edge2.parrot.run/parrot'
-          index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
           index: vindex.db
@@ -187,9 +178,6 @@ continents:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: vindex.db
-        - name: 'edge2'
-          url: 'https://edge2.parrot.run/parrot'
           index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
@@ -215,9 +203,6 @@ continents:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
           index: vindex.db
-        - name: 'edge2'
-          url: 'https://edge2.parrot.run/parrot'
-          index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
           index: vindex.db
@@ -241,9 +226,6 @@ continents:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: vindex.db
-        - name: 'edge2'
-          url: 'https://edge2.parrot.run/parrot'
           index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
@@ -279,9 +261,6 @@ continents:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
           index: vindex.db
-        - name: 'edge2'
-          url: 'https://edge2.parrot.run/parrot'
-          index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
           index: vindex.db
@@ -297,9 +276,6 @@ continents:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
           index: vindex.db
-        - name: 'edge2'
-          url: 'https://edge2.parrot.run/parrot'
-          index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
           index: vindex.db
@@ -310,9 +286,6 @@ continents:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: vindex.db
-        - name: 'edge2'
-          url: 'https://edge2.parrot.run/parrot'
           index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
@@ -327,9 +300,6 @@ continents:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: vindex.db
-        - name: 'edge2'
-          url: 'https://edge2.parrot.run/parrot'
           index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
@@ -437,9 +407,6 @@ continents:
       mirrors:
         - name: 'edge1'
           url: 'https://edge1.parrot.run/parrot'
-          index: vindex.db
-        - name: 'edge2'
-          url: 'https://edge2.parrot.run/parrot'
           index: vindex.db
         - name: 'edge3'
           url: 'https://edge3.parrot.run/parrot'
