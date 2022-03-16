@@ -1,7 +1,7 @@
 FROM debian:bullseye
 MAINTAINER Lorenzo "Palinuro" Faletra (palinuro@linux.it)
 ENV DEBIAN_FRONTEND noninteractive
-ENV VERSION 0.6
+ENV VERSION 0.7
 
 # Update system
 RUN apt-get update;apt-get -y dist-upgrade; rm -rf /var/lib/apt/lists/*
