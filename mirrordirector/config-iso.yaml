@@ -10,11 +10,8 @@ continents:
   DEFAULT:
     DEFAULT:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
-          index: vindex.iso.db
-        - name: 'edge3'
-          url: 'https://edge3.parrot.run/parrot'
+        - name: 'bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
           index: vindex.iso.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
@@ -23,38 +20,38 @@ continents:
   EU:
     DEFAULT:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
           index: vindex.iso.db
 
   AF:
     DEFAULT:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
           index: vindex.iso.db
   NA:
     DEFAULT:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
           index: vindex.iso.db
   SA:
     DEFAULT:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
           index: vindex.iso.db
   AS:
     DEFAULT:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
           index: vindex.iso.db
   OC:
     DEFAULT:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
           index: vindex.iso.db
         
