@@ -171,7 +171,7 @@ continents:
           url: https://mirror.surf/parrot
           index: vindex.db
         - name: 'apac.truenetwork'
-          url: 'http://mirror.truenetwork.ru/parrot'
+          url: 'https://mirror.truenetwork.ru/parrot'
           index: vindex.db
   AF:
     DEFAULT:
