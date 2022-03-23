@@ -3,7 +3,7 @@ continents:
     MASTER:
       mirrors:
         - name: "Master"
-          url: "https://deb.parrot.sh/parrot"
+          url: "https://deb.parrot.sh/direct/parrot"
           index: vindex.iso.db
           version: 9999
           down: false
@@ -12,6 +12,18 @@ continents:
       mirrors:
         - name: 'bunny'
           url: 'https://bunny.deb.parrot.sh/parrot'
+          index: vindex.iso.db
+        - name: 'emea.halifax'
+          url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
+          index: vindex.iso.db
+        - name: 'emea.esslingen'
+          url: 'https://ftp-stud.hs-esslingen.de/Mirrors/archive.parrotsec.org'
+          index: vindex.iso.db
+        - name: 'emea.nluug'
+          url: 'https://ftp.nluug.nl/os/Linux/distr/parrot'
+          index: vindex.iso.db
+        - name: 'emea.garr'
+          url: 'https://parrot.mirror.garr.it/parrot'
           index: vindex.iso.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'

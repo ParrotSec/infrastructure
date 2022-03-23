@@ -10,11 +10,11 @@ continents:
   DEFAULT:
     DEFAULT:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
-        - name: 'edge3'
-          url: 'https://edge3.parrot.run/parrot'
+        - name: 'bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
           index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
@@ -34,11 +34,11 @@ continents:
   EU:
     DEFAULT:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
-        - name: 'edge3'
-          url: 'https://edge3.parrot.run/parrot'
+        - name: 'bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
           index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
@@ -63,8 +63,8 @@ continents:
         - name: 'emea.garr'
           url: 'https://parrot.mirror.garr.it/parrot'
           index: vindex.db
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
         - name: 'emea.halifax'
           url: 'https://ftp.halifax.rwth-aachen.de/parrotsec'
@@ -154,11 +154,11 @@ continents:
     #      index: vindex.db.iso
     RU:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
-        - name: 'edge3'
-          url: 'https://edge3.parrot.run/parrot'
+        - name: 'bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
           index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
@@ -176,11 +176,11 @@ continents:
   AF:
     DEFAULT:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
-        - name: 'edge3'
-          url: 'https://edge3.parrot.run/parrot'
+        - name: 'bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
           index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
@@ -200,11 +200,11 @@ continents:
   NA:
     DEFAULT:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
-        - name: 'edge3'
-          url: 'https://edge3.parrot.run/parrot'
+        - name: 'bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
           index: vindex.db
         - name: ncsa.0xem
           url: https://mirror.0xem.ma/parrot/
@@ -224,11 +224,11 @@ continents:
   SA:
     DEFAULT:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
-        - name: 'edge3'
-          url: 'https://edge3.parrot.run/parrot'
+        - name: 'bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
           index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
@@ -258,11 +258,11 @@ continents:
           index: vindex.db
     BR:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
-        - name: 'edge3'
-          url: 'https://edge3.parrot.run/parrot'
+        - name: 'bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
           index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
@@ -273,22 +273,22 @@ continents:
   AS:
     DEFAULT:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
-        - name: 'edge3'
-          url: 'https://edge3.parrot.run/parrot'
+        - name: 'bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
           index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
           index: vindex.db
     BD:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
-        - name: 'edge3'
-          url: 'https://edge3.parrot.run/parrot'
+        - name: 'bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
           index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
@@ -298,11 +298,11 @@ continents:
           index: vindex.db
     IN:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
-        - name: 'edge3'
-          url: 'https://edge3.parrot.run/parrot'
+        - name: 'bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
           index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
@@ -318,16 +318,16 @@ continents:
         - name: 'apac.mobinhost'
           url: 'https://mirrors.mobinhost.com/parrot/'
           index: vindex.db
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
           index: vindex.db
     TW:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
@@ -337,8 +337,8 @@ continents:
           index: vindex.db
     SG:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
@@ -348,8 +348,8 @@ continents:
           index: vindex.db
     KR:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
@@ -359,8 +359,8 @@ continents:
           index: vindex.db
     CN:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
@@ -379,8 +379,8 @@ continents:
           index: vindex.db
     TH:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
@@ -393,8 +393,8 @@ continents:
           index: vindex.db
     ID:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
@@ -405,11 +405,11 @@ continents:
   OC:
     DEFAULT:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
-        - name: 'edge3'
-          url: 'https://edge3.parrot.run/parrot'
+        - name: 'bunny'
+          url: 'https://bunny.deb.parrot.sh/parrot'
           index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
@@ -425,8 +425,8 @@ continents:
           index: vindex.db
     NZ:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
@@ -436,8 +436,8 @@ continents:
           index: vindex.db
     NC:
       mirrors:
-        - name: 'edge1'
-          url: 'https://edge1.parrot.run/parrot'
+        - name: 'azure'
+          url: 'https://azure.deb.parrot.sh/parrot'
           index: vindex.db
         - name: 'apac.alibaba'
           url: 'https://mirrors.aliyun.com/parrot/'
